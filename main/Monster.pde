@@ -1,3 +1,4 @@
+class Monster{
 //Monster class
 //id
 //type
@@ -6,3 +7,4 @@
 //attack
 //defense
 //speed
+}
