@@ -1,9 +1,15 @@
-class Opponent{
+class Opponent extends Player{
  
- int oppId = 0; //identify Opponent
- PImage oppSprite; //character sprite
+  int oppId = 0; //identify Opponent
   
- ArrayList<Items> oppItems = new ArrayList<Items>();
- ArrayList<Monster> oppMonsters = new ArrayList<Monster>();
+  public Opponent(PImage sprite){
+     super(sprite);
+  }
+  
+  
+  
+ 
+ 
+ 
   
 }
