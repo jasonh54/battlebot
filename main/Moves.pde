@@ -1,9 +1,15 @@
-class Moves{
+class Moves {
+  //variables
+  float accuracy;
+  float damage;
+  Monster target;
   
-  int moveId = 0; //identify moves
-  int moveType = 0; //identify type
-  int moveDmg = 0; //identify damage
-  int moveAcc = 0; //identify acc
-  int target = 0; //identify target type
+  //constructor
+  public Moves (float accuracy, float damage, Monster target) {
+    this.accuracy = accuracy;
+    this.damage = damage;
+    this.target = target;
+  }
+
 
 }
