@@ -15,11 +15,6 @@ void setup(){
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
   }
   
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 76dfbefd80a4b117a2614b42a8dba9ac9f9f248d
 }
 
 
