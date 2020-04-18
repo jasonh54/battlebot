@@ -14,7 +14,6 @@ void setup(){
     spritesPM[i] = loadImage(path + "\\" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
   }
-  
 
 }
 
