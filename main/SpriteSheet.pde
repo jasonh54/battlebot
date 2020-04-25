@@ -5,7 +5,7 @@ class SpriteSheet{
   
   private PImage[] spriteSheet;
   
-  public SpriteSheet(PImage PImg){
+  public SpriteSheet(PImage PImg, int wide){
     
   }
   
