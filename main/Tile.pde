@@ -5,15 +5,16 @@ class Tile {
   boolean portal;
   float x;
   float y;
+  int coordx;
   
-  public Tile(float x, float y, boolean c, boolean p) {
+  public Tile(float x, float y, boolean c, boolean p, int chx, int chy) {
     //this.img = img;
     this.x = x;
     this.y = y;
     collide = c;
     portal = p;
-    h = 50;
-    w = 50;
+    coordx = chx;
+    coordy = chy;
   }
   
 }
