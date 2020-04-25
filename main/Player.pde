@@ -1,9 +1,13 @@
 //player class
 class Player{
   
-  PImage pSprite; //character sprite
+  PImage sprite; //character sprite
   
-  ArrayList<Items> pItems = new ArrayList<Items>();
-  ArrayList<Monster> pMonsters = new ArrayList<Monster>();
+  ArrayList<Items> items = new ArrayList<Items>();
+  ArrayList<Monster> monsters = new ArrayList<Monster>();
+  
+  public Player(PImage sprite){
+    this.sprite = sprite; 
+  }
   
 }

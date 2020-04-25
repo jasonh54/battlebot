@@ -1,22 +1,34 @@
 import java.util.*;
 import java.io.File;
 
+HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
+ArrayList<PImage> tiles = new ArrayList<PImage>();
+
 void setup(){
 
-  String path = sketchPath().substring(0, sketchPath().length()-4) + "images";
-  File sprites = new File(path);
+  String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
+  File sprites = new File(spritePath);
   
   String[] spriteList = sprites.list();
   PImage[] spritesPM = new PImage[spriteList.length]; //sprites PImage
-  HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
   
   for(int i = 0; i < spriteList.length; i++){
-    spritesPM[i] = loadImage(path + "/" + spriteList[i]);
+    spritesPM[i] = loadImage(spritePath + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
   }
   
+  String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
+  File tilesFile = new File(tilesPath);
+  
+  String[] tilesList = tilesFile.list();
+  PImage[] tilesPM = new PImage[tilesList.length]; //tiles PImage
+  
+  for(int i = 0; i < tilesList.length; i++){
+    tilesPM[i] = loadImage(tilesPath + "/" + tilesList[i]);
+    tiles.add(tilesPM[i]);
+  }
+  
 }
-
 
 //implement a statemachine
 //walking state - player walking around the world, draws the world
@@ -25,5 +37,5 @@ void setup(){
 
 
 void draw(){
-
+  
 }
