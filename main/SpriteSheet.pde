@@ -3,7 +3,9 @@
 
 class SpriteSheet{
   
-  public void animate(PImage pImg){
+  private PImage[] spriteSheet;
+  
+  public SpriteSheet(PImage PImg){
     
   }
   
