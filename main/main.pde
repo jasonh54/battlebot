@@ -11,7 +11,7 @@ void setup(){
   HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
   
   for(int i = 0; i < spriteList.length; i++){
-    spritesPM[i] = loadImage(path + "\\" + spriteList[i]);
+    spritesPM[i] = loadImage(path + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
   }
   
