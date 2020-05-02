@@ -3,6 +3,7 @@ import java.io.File;
 
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
+SpriteSheet ss;
 
 void setup(){
 
@@ -27,6 +28,9 @@ void setup(){
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
+  
+  size(800,800);
+  
 }
 
 //implement a statemachine
@@ -37,4 +41,7 @@ void setup(){
 
 void draw(){
 
+  ss = new SpriteSheet(spritesHm.get("AirA"));
+  //image(spritesHm.get("AirA"), 80, 80);
+  
 }
