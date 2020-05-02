@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.File;
 
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
-ArrayList<PImage> tiles = new ArrayList<PImage>();
+PImage[] tiles;
 
 void setup(){
 
@@ -21,11 +21,10 @@ void setup(){
   File tilesFile = new File(tilesPath);
   
   String[] tilesList = tilesFile.list();
-  PImage[] tilesPM = new PImage[tilesList.length]; //tiles PImage
+  tiles = new PImage[tilesList.length]; //tiles PImage
   
   for(int i = 0; i < tilesList.length; i++){
-    tilesPM[i] = loadImage(tilesPath + "/" + tilesList[i]);
-    tiles.add(tilesPM[i]);
+    tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
 }
@@ -37,5 +36,5 @@ void setup(){
 
 
 void draw(){
-  
+
 }
