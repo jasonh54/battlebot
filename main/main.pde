@@ -13,9 +13,15 @@ void setup(){
   PImage[] spritesPM = new PImage[spriteList.length]; //sprites PImage
   
   for(int i = 0; i < spriteList.length; i++){
-    spritesPM[i] = loadImage(spritePath + "/" + spriteList[i]);
+
+    spritesPM[i] = loadImage(path + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
   }
+  
+  //map
+  Map map = new Map();
+  map.generateBaseMap();
+
   
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
   File tilesFile = new File(tilesPath);
@@ -27,6 +33,7 @@ void setup(){
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
+
 }
 
 //implement a statemachine
@@ -36,5 +43,5 @@ void setup(){
 
 
 void draw(){
-
+  clear();
 }
