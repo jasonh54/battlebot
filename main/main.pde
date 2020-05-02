@@ -14,7 +14,7 @@ void setup(){
   
   for(int i = 0; i < spriteList.length; i++){
 
-    spritesPM[i] = loadImage(path + "/" + spriteList[i]);
+    spritesPM[i] = loadImage(spritePath + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
   }
   

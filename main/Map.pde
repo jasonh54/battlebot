@@ -1,6 +1,11 @@
-//Map objects will be multiple tiles
-//basically the full Map will contain multiple objects in an array to be drawn
-//we require a map generator that would parse through a string and depending what characters are in the string create tile objects into the array of objects in the Map class
+//in the main there is a tiles variable that holds an array of all the tiles we have in the game, you will also see a tilemapguide in the battlebot folder
+//generateBaseMap function should have a 2d integer array as parameter
+//the corresponding integer from the parameter will access a PImage from the tiles varaiable
+//assume this will be your parameter [[0,0,0],[0,1,0],[2,3,2]]
+//accessing images from the tiles array to form a map
+//row1 will contain: tiles[0], tiles[0], tiles[0]
+//row2 will contain: tiles[0], tiles[1], tiles[0]
+//row3 will contain: tiles[2], tiles[3], tiles[2]
 class Map {
   //variables
   int columnsize;
@@ -14,6 +19,7 @@ class Map {
     speedx = 0;
     speedy =0;
   }
+  
   
   //UNFINISHED MAP CREATION
   void generateBaseMap() {
