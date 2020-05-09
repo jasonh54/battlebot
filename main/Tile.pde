@@ -6,6 +6,7 @@ class Tile {
   float x;
   float y;
   int coordx;
+  int coordy;
   
   public Tile(float x, float y, boolean c, boolean p, int chx, int chy) {
     //this.img = img;

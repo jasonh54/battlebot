@@ -45,3 +45,9 @@ void setup(){
 void draw(){
   clear();
 }
+
+
+enum GameStates{
+  WALKING,
+  COMBAT
+}
