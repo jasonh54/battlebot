@@ -21,25 +21,29 @@ class Map {
     speedy = 0;
   }
   
+  //map generation v2 (working)
   void generateBaseMap(int[][] tileArray) {
+    //counters for dimensions of tileArray
     int incount1 = 0;
     int incount2 = 0;
+    //temporary tiles to store data
     Tile prev = new Tile();
     Tile current;
-    /* Tile topleft = new Tile(8, 8, false, false, tiles[tileArray[0][0]]);
-    print(tileArray[0][0]);
-    prev = topleft; */
+    //first loop: create first tile in a row
     for (int i = 0; i < 3; i++) {
       incount2 = 0;
       if (incount1 == 0) {
+        //for top left tile
         Tile topleft = new Tile(8, 8, false, false, tiles[tileArray[0][0]]);
         print(tileArray[0][0]);
         prev = topleft;
       } else {
+        //for other first-of-row tiles
         current = new Tile(8, prev.y + 16, false, false, tiles[tileArray[incount1][incount2]]);
-        print(tileArray[incount1][incount2]);
+        print(", " + tileArray[incount1][incount2]);
         prev = current;
       }
+      //second loop: create rest of row
       for (int k = 0; k < 2; k++) {
         incount2++;
         current = new Tile(prev.x + 16, prev.y, false, false, tiles[tileArray[incount1][incount2]]);
@@ -50,28 +54,6 @@ class Map {
     }
     
   }
-  
-  //MAP CREATION v1
-  /* void generateMap(int[][] tr) {
-    //generate tiles, columns left to right
-    int coordx = 1;
-    int coordy = 1;
-    Tile topleft = new Tile(8, 8, false, false, 1, 1);
-    Tile prev = topleft;
-    Tile current;
-    //row: create new tile to the right once column is down
-    for (int i = 0; i < rowsize; i++) {
-      //column: new tiles below
-      for (int k = 0; k < columnsize; k++) {
-        coordy++;
-        current = new Tile(prev.x, prev.y + 16, false, false, coordx, coordy);
-        prev = current;
-      }
-      coordx++;
-      current = new Tile(prev.x + 16, 8, false, false, coordx, 1);
-      prev = current;
-    }
-  } */
   
   void update() {
     keyPressed();

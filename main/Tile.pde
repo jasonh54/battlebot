@@ -13,8 +13,13 @@ class Tile {
     collide = c;
     portal = p;
   }
+  
   public Tile() {
   
+  }
+  
+  void draw() {
+    image(this.img, this.x, this.y);
   }
   
 }
