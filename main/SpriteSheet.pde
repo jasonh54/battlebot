@@ -5,23 +5,22 @@ class SpriteSheet{
   
   private PImage spriteSheet;
   private int wide;
-  private PImage[] sprites;
-  private int spriteStart = 0;
-  private int spriteInterval = 200;
+  private int increment = 0;
   
   public SpriteSheet(PImage PImg){
     this.spriteSheet = PImg;
-    wide = PImg.width;
-    this.sprites = new PImage[wide/16];
+    wide = PImg.width/16;
     
-    for(int i = 0; i < wide/16; i++){
-      
-      clear();
-      //image(this.spriteSheet, 80, 80, 0 + (i * 16), 16);
-      image(this.spriteSheet , 80, 80, 64, 64, 0 + (i*16), 0, 16 * (i+1), 16);
-      
+ }
+   
+   public void display(){
+     if(this.increment > wide){
+        this.increment = 0; 
      }
       
+     clear();
+     image(this.spriteSheet , 80, 80, 64, 64, 0 + (increment*16), 0, 16 * (increment+1), 16);
+     this.increment++;
    }
  
   
