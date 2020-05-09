@@ -48,10 +48,5 @@ void draw(){
   
   clear();
   ss = new SpriteSheet(spritesHm.get("AirA"));
-  try{
-    TimeUnit.SECONDS.sleep(1);
-  } catch(Exception e){
-    e.printStackTrace();
-  } 
   //image(spritesHm.get("AirA") , 80, 80, 64, 64, 16, 0, 32, 16);
 }
