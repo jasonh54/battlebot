@@ -17,12 +17,38 @@ class Map {
   
   public Map() {
     speedx = 0;
-    speedy =0;
+    speedy = 0;
   }
   
+  void GenerateBaseMap(int[][] tileArray) {
+    int incount1 = 0;
+    int incount2 = 0;
+    Tile prev;
+    Tile current;
+    Tile topleft = new Tile(8, 8, false, false);
+    topleft.img = tiles[tileArray[0][0]];
+    System.print(tileArray[0][0]);
+    prev = topleft;
+    for (int i = 0; i < 2; i++) {
+      for (int k = 0; k < 2; k++) {
+        current = new Tile(prev.x + 16, prev.y, false, false);
+        incount2++;
+        current.img = tiles[tileArray[incount1][incount2]];
+        System.print(tileArray[incount1][incount2]);
+        prev = current;
+      }
+      current = new Tile(8, prev.y + 16, false, false);
+      incount1++;
+      incount2 = 0;
+      current.img = tiles[tileArray[incount1][incount2]];
+      System.println(tileArray[incount1][incount2]);
+      prev = current;
+    }
+    
+  }
   
-  //UNFINISHED MAP CREATION
-  void generateBaseMap() {
+  //MAP CREATION v1
+  /* void generateMap(int[][] tr) {
     //generate tiles, columns left to right
     int coordx = 1;
     int coordy = 1;
@@ -41,7 +67,7 @@ class Map {
       current = new Tile(prev.x + 16, 8, false, false, coordx, 1);
       prev = current;
     }
-  }
+  } */
   
   void update() {
     keyPressed();
