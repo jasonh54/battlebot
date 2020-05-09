@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 SpriteSheet ss;
+Timer animationTimer;
 
 void setup(){
 
@@ -36,6 +37,8 @@ void setup(){
   
   size(800,800);
   
+  animationTimer = new Timer(1000);
+  
 }
 
 //implement a statemachine
@@ -47,6 +50,10 @@ void setup(){
 void draw(){
   
   clear();
-  ss = new SpriteSheet(spritesHm.get("AirA"));
+  
+  if(animationTimer.countDown()){
+    ss = new SpriteSheet(spritesHm.get("AirA"));
+  }
+  
   //image(spritesHm.get("AirA") , 80, 80, 64, 64, 16, 0, 32, 16);
 }
