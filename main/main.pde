@@ -18,11 +18,6 @@ void setup(){
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
   }
   
-  //map and maptile array
-  int[][] tileArr = {[0, 0, 0], [0, 1, 0], [ 2, 3, 2]};
-  Map map = new Map();
-  map.generateBaseMap(tileArr);
-  
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
   File tilesFile = new File(tilesPath);
   
@@ -32,6 +27,11 @@ void setup(){
   for(int i = 0; i < tilesList.length; i++){
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
+  
+  //map and maptile array
+  int[][] tileArr = {{0, 0, 0}, {0, 1, 0}, {2, 3, 2}};
+  Map map = new Map();
+  map.generateBaseMap(tileArr);
   
 
 }
