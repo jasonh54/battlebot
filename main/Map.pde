@@ -14,15 +14,45 @@ class Map {
   int y;
   int speedx;
   int speedy;
+  PImage [][] mapTiles;
   
   public Map() {
     speedx = 0;
-    speedy =0;
+    speedy = 0;
   }
   
+  void generateBaseMap(int[][] tileArray) {
+    int incount1 = 0;
+    int incount2 = 0;
+    Tile prev = new Tile();
+    Tile current;
+    /* Tile topleft = new Tile(8, 8, false, false, tiles[tileArray[0][0]]);
+    print(tileArray[0][0]);
+    prev = topleft; */
+    for (int i = 0; i < 3; i++) {
+      incount2 = 0;
+      if (incount1 == 0) {
+        Tile topleft = new Tile(8, 8, false, false, tiles[tileArray[0][0]]);
+        print(tileArray[0][0]);
+        prev = topleft;
+      } else {
+        current = new Tile(8, prev.y + 16, false, false, tiles[tileArray[incount1][incount2]]);
+        print(tileArray[incount1][incount2]);
+        prev = current;
+      }
+      for (int k = 0; k < 2; k++) {
+        incount2++;
+        current = new Tile(prev.x + 16, prev.y, false, false, tiles[tileArray[incount1][incount2]]);
+        print(tileArray[incount1][incount2]);
+        prev = current;
+      }
+      incount1++;
+    }
+    
+  }
   
-  //UNFINISHED MAP CREATION
-  void generateBaseMap() {
+  //MAP CREATION v1
+  /* void generateMap(int[][] tr) {
     //generate tiles, columns left to right
     int coordx = 1;
     int coordy = 1;
@@ -41,7 +71,7 @@ class Map {
       current = new Tile(prev.x + 16, 8, false, false, coordx, 1);
       prev = current;
     }
-  }
+  } */
   
   void update() {
     keyPressed();
