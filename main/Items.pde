@@ -1,6 +1,15 @@
 class Items{
+  //variables
+  String id;
+  String effectType;
+  float effectNum;
   
-  int itemId = 0; //identify item
-  int effectType = 0; //identify effect
+  //constructor
+  public Items(String id, String effectType, float effectNum) {
+    this.id = id;
+    this.effectType = effectType;
+    this.effectNum = effectNum;
+  }
+  
   
 }

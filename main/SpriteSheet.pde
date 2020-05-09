@@ -16,19 +16,13 @@ class SpriteSheet{
     
     for(int i = 0; i < wide/16; i++){
       
-      spriteStart += millis();
-      System.out.println(spriteStart);
-      while(millis() < spriteStart + spriteInterval){
-        
-        if(millis() > spriteStart + spriteInterval){
-          System.out.println("we got here");
-          image(this.spriteSheet, 80, 80, 0 + (i * 16), (i+1) * 16);
-          break;
-        }
-      }
-    }
-    
-  }
+      clear();
+      //image(this.spriteSheet, 80, 80, 0 + (i * 16), 16);
+      image(this.spriteSheet , 80, 80, 64, 64, 0 + (i*16), 0, 16 * (i+1), 16);
+      
+     }
+      
+   }
  
   
 }
