@@ -1,8 +1,11 @@
 import java.util.*;
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
+SpriteSheet ss;
+Timer animationTimer;
 
 void setup(){
 
@@ -10,12 +13,13 @@ void setup(){
   File sprites = new File(spritePath);
   
   String[] spriteList = sprites.list();
-  PImage[] spritesPM = new PImage[spriteList.length]; //sprites PImage
+  PImage spritesPM; //sprites PImage
   
   for(int i = 0; i < spriteList.length; i++){
 
-    spritesPM[i] = loadImage(spritePath + "/" + spriteList[i]);
-    spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM[i]);
+    spritesPM = loadImage(spritePath + "/" + spriteList[i]);
+    spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM);
+
   }
   
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
@@ -28,10 +32,16 @@ void setup(){
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
+
   //map and maptile array
   int[][] tileArr = {{0, 0, 0}, {0, 1, 0}, {2, 3, 2}};
   Map map = new Map();
   map.generateBaseMap(tileArr);
+  
+
+  size(800,800);
+  
+  animationTimer = new Timer(1000);
   
 
 }
@@ -43,7 +53,14 @@ void setup(){
 
 
 void draw(){
+  
   clear();
+  
+  if(animationTimer.countDown()){
+    ss = new SpriteSheet(spritesHm.get("AirA"));
+  }
+  
+  //image(spritesHm.get("AirA") , 80, 80, 64, 64, 16, 0, 32, 16);
 }
 
 
