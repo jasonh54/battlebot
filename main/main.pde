@@ -4,11 +4,11 @@ import java.util.concurrent.TimeUnit;
 
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
-SpriteSheet ss;
+SpriteSheet SSAirA;
 Timer animationTimer;
 
 void setup(){
-
+  
   String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
   File sprites = new File(spritePath);
   
@@ -37,7 +37,9 @@ void setup(){
   
   size(800,800);
   
-  animationTimer = new Timer(1000);
+  animationTimer = new Timer(200);
+  
+  SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   
 }
 
@@ -49,10 +51,8 @@ void setup(){
 
 void draw(){
   
-  clear();
-  
   if(animationTimer.countDown()){
-    ss = new SpriteSheet(spritesHm.get("AirA"));
+    SSAirA.display();
   }
   
   //image(spritesHm.get("AirA") , 80, 80, 64, 64, 16, 0, 32, 16);
