@@ -1,12 +1,16 @@
 class Map {
   //variables
-  int columnsize;
-  int rowsize;
   int x;
   int y;
   int speedx;
   int speedy;
-  Tile [][] mapTiles = new Tile[3][3];
+  final int tileh = 16;
+  final int tilew = 16;
+  final int tilehh = 8;
+  final int tileww = 8;
+  final int rowsize = 3;
+  final int colsize = 3;
+  Tile [][] mapTiles = new Tile[colsize][rowsize];
   
   public Map() {
     speedx = 0;
@@ -22,25 +26,25 @@ class Map {
     Tile prev = new Tile();
     Tile current;
     //first loop: create first tile in a row
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < colsize; i++) {
       incount2 = 0;
       if (incount1 == 0) {
         //for top left tile
-        Tile topleft = new Tile(8, 8, false, false, tiles[tileArray[0][0]]);
+        Tile topleft = new Tile(tileww, tilehh, false, false, tiles[tileArray[0][0]]);
         mapTiles[0][0] = topleft;
         print(tileArray[0][0]);
         prev = topleft;
       } else {
         //for other first-of-row tiles
-        current = new Tile(8, prev.y + 16, false, false, tiles[tileArray[incount1][incount2]]);
+        current = new Tile(tileww, prev.y + tileh, false, false, tiles[tileArray[incount1][incount2]]);
         mapTiles[incount1][incount2] = current;
         print(", " + tileArray[incount1][incount2]);
         prev = current;
       }
       //second loop: create rest of row
-      for (int k = 0; k < 2; k++) {
+      for (int k = 0; k < rowsize - 1; k++) {
         incount2++;
-        current = new Tile(prev.x + 16, prev.y, false, false, tiles[tileArray[incount1][incount2]]);
+        current = new Tile(prev.x + tilew, prev.y, false, false, tiles[tileArray[incount1][incount2]]);
         mapTiles[incount1][incount2] = current;
         print(tileArray[incount1][incount2]);
         prev = current;
@@ -50,12 +54,10 @@ class Map {
   }
   
   void draw() {
-    for (int i = 0; i < 3; i++) {
-      for (int k = 0; k < 3; k++) {
+    for (int i = 0; i < colsize; i++) {
+      for (int k = 0; k < rowsize; k++) {
         mapTiles[i][k].draw();
-        k++;
       }
-      i++;
     }
   }
   
