@@ -6,7 +6,7 @@ class Map {
   int y;
   int speedx;
   int speedy;
-  Tile [][] mapTiles;
+  Tile [][] mapTiles = new Tile[3][3];
   
   public Map() {
     speedx = 0;

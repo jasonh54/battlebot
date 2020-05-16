@@ -10,6 +10,7 @@ class Tile {
   public Tile(float x, float y, boolean c, boolean p, PImage img) {
     this.x = x;
     this.y = y;
+    this.img = img;
     collide = c;
     portal = p;
   }
