@@ -16,6 +16,18 @@ class Timer{
     }
   }
   
+  public boolean countDownUntil(boolean stop){
+    if (timeStamp + timeInterval < millis()){
+      if(stop){
+        return false;
+      }
+      timeStamp = millis();
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
   public boolean coolDown(){
     if (timeStamp + timeInterval < millis()){
       return true;
