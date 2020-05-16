@@ -6,6 +6,7 @@ HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hash
 PImage[] tiles;
 SpriteSheet SSAirA;
 Timer animationTimer;
+Map map = new Map();
 
 void setup(){
   
@@ -35,7 +36,6 @@ void setup(){
 
   //map and maptile array
   int[][] tileArr = {{0, 0, 0}, {0, 1, 0}, {2, 3, 2}};
-  Map map = new Map();
   map.generateBaseMap(tileArr);
   
 
@@ -53,8 +53,9 @@ void setup(){
 //combat state - player encounters and enemy - draws the enemy
 //in the combat state we could have another state machine to denote, picking a move, animate attacks, calcualte damage, back to picking a move, etc.
 
-
 void draw(){
+  map.draw();
+  
   if(animationTimer.countDown()){
     SSAirA.display();
   }
