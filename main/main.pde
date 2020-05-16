@@ -55,7 +55,6 @@ void setup(){
 
 
 void draw(){
-  
   if(animationTimer.countDown()){
     SSAirA.display();
   }
