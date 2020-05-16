@@ -4,13 +4,14 @@ class Map {
   int y;
   int speedx;
   int speedy;
+  int colsize;
+  int rowsize;
   final int tileh = 16;
   final int tilew = 16;
-  final int tilehh = 8;
-  final int tileww = 8;
-  final int rowsize = 3;
-  final int colsize = 3;
-  Tile [][] mapTiles = new Tile[colsize][rowsize];
+  final int tilehh = tileh/2;
+  final int tileww = tilew/2;
+  final int scale = 1;
+  Tile [][] mapTiles;
   
   public Map() {
     speedx = 0;
@@ -22,6 +23,9 @@ class Map {
     //counters for dimensions of tileArray AND mapTiles
     int incount1 = 0;
     int incount2 = 0;
+    colsize = tileArray.length;
+    rowsize = tileArray[0].length;
+    mapTiles = new Tile[colsize][rowsize];
     //temporary tiles to store data
     Tile prev = new Tile();
     Tile current;
@@ -30,13 +34,13 @@ class Map {
       incount2 = 0;
       if (incount1 == 0) {
         //for top left tile
-        Tile topleft = new Tile(tileww, tilehh, false, false, tiles[tileArray[0][0]]);
+        Tile topleft = new Tile(tileww * scale, tilehh * scale, false, false, tiles[tileArray[0][0]]);
         mapTiles[0][0] = topleft;
         print(tileArray[0][0]);
         prev = topleft;
       } else {
         //for other first-of-row tiles
-        current = new Tile(tileww, prev.y + tileh, false, false, tiles[tileArray[incount1][incount2]]);
+        current = new Tile(tileww * scale, prev.y + tileh * scale, false, false, tiles[tileArray[incount1][incount2]]);
         mapTiles[incount1][incount2] = current;
         print(", " + tileArray[incount1][incount2]);
         prev = current;
@@ -44,7 +48,7 @@ class Map {
       //second loop: create rest of row
       for (int k = 0; k < rowsize - 1; k++) {
         incount2++;
-        current = new Tile(prev.x + tilew, prev.y, false, false, tiles[tileArray[incount1][incount2]]);
+        current = new Tile(prev.x + tilew * scale, prev.y, false, false, tiles[tileArray[incount1][incount2]]);
         mapTiles[incount1][incount2] = current;
         print(tileArray[incount1][incount2]);
         prev = current;
