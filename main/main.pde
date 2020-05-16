@@ -37,6 +37,7 @@ void setup(){
   int[][] tileArr = {{0, 0, 0}, {0, 1, 0}, {2, 3, 2}};
   Map map = new Map();
   map.generateBaseMap(tileArr);
+  map.draw();
   
 
   size(800,800);
