@@ -10,8 +10,10 @@ Map map = new Map();
 
 enum GameStates{
   WALKING,
-  COMBAT
+  COMBAT,
+  MENU
 }
+GameStates currentState = GameStates.WALKING;
 
 void setup(){
   
@@ -59,11 +61,13 @@ void setup(){
 //in the combat state we could have another state machine to denote, picking a move, animate attacks, calcualte damage, back to picking a move, etc.
 
 void draw(){
-  
-  
-
-  
-  map.draw();
+  if (currentState == GameStates.WALKING) {
+    map.draw();
+  } else if (currentState == GameStates.COMBAT) {
+    //drawing monsters, moves, battlefield, etc
+  } else if (currentState == GameStates.MENU) {
+    //drawing buttons/options
+  }
  
 
 }
