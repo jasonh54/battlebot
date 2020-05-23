@@ -46,7 +46,7 @@ void setup(){
 
   size(800,800);
   
-  animationTimer = new Timer(200);
+  animationTimer = new Timer(100);
   
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   
@@ -61,10 +61,9 @@ void setup(){
 void draw(){
   
   
-  if(animationTimer.countDown()){
-    SSAirA.display();
-  }
+
   
   map.draw();
-  //image(spritesHm.get("AirA") , 80, 80, 64, 64, 16, 0, 32, 16);
+ 
+
 }
