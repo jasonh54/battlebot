@@ -4,7 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
+
 SpriteSheet SSAirA;
+
+SpriteSheetArr PlayerStand;
+
+
 Timer animationTimer;
 Map map = new Map();
 
@@ -50,6 +55,8 @@ void setup(){
   
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   
+  PlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 26));
+  
 
 }
 
@@ -60,10 +67,6 @@ void setup(){
 
 void draw(){
   
-  
-
-  
   map.draw();
  
-
 }
