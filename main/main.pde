@@ -2,6 +2,9 @@ import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+PImage[] playerSprites = new PImage[12];
+
+
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 
@@ -15,10 +18,15 @@ Map map = new Map();
 
 enum GameStates{
   WALKING,
-  COMBAT
+  COMBAT,
+  MENU
 }
+GameStates currentState = GameStates.WALKING;
+
+
 
 void setup(){
+  
   
   String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
   File sprites = new File(spritePath);
@@ -43,6 +51,7 @@ void setup(){
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
+  
 
   //map and maptile array
   int[][] tileArr = {{0, 1, 1, 1, 1, 1, 2}, {27, 28, 28, 28, 28, 28, 29}, {54, 55, 55, 55, 55, 55, 56}};
@@ -55,6 +64,7 @@ void setup(){
   
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   
+
   PlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 26));
   
 
@@ -66,7 +76,15 @@ void setup(){
 //in the combat state we could have another state machine to denote, picking a move, animate attacks, calcualte damage, back to picking a move, etc.
 
 void draw(){
-  
-  map.draw();
+
+
+  if (currentState == GameStates.WALKING) {
+    map.draw();
+  } else if (currentState == GameStates.COMBAT) {
+    //drawing monsters, moves, battlefield, etc
+  } else if (currentState == GameStates.MENU) {
+    //drawing buttons/options
+  }
+
  
 }
