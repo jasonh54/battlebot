@@ -8,6 +8,11 @@ SpriteSheet SSAirA;
 Timer animationTimer;
 Map map = new Map();
 
+enum GameStates{
+  WALKING,
+  COMBAT
+}
+
 void setup(){
   
   String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
@@ -35,7 +40,7 @@ void setup(){
   
 
   //map and maptile array
-  int[][] tileArr = {{0, 0, 0}, {0, 1, 0}, {2, 3, 2}};
+  int[][] tileArr = {{0, 1, 1, 1, 1, 1, 2}, {27, 28, 28, 28, 28, 28, 29}, {54, 55, 55, 55, 55, 55, 56}};
   map.generateBaseMap(tileArr);
   
 
@@ -54,17 +59,12 @@ void setup(){
 //in the combat state we could have another state machine to denote, picking a move, animate attacks, calcualte damage, back to picking a move, etc.
 
 void draw(){
-  map.draw();
+  
   
   if(animationTimer.countDown()){
     SSAirA.display();
   }
   
+  map.draw();
   //image(spritesHm.get("AirA") , 80, 80, 64, 64, 16, 0, 32, 16);
-}
-
-
-enum GameStates{
-  WALKING,
-  COMBAT
 }
