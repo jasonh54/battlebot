@@ -9,6 +9,10 @@ HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hash
 PImage[] tiles;
 
 SpriteSheet SSAirA;
+
+SpriteSheetArr PlayerStand;
+
+
 Timer animationTimer;
 Map map = new Map();
 
@@ -60,7 +64,10 @@ void setup(){
   
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   
+
+  PlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 26));
   
+
 }
 
 //implement a statemachine
@@ -69,6 +76,7 @@ void setup(){
 //in the combat state we could have another state machine to denote, picking a move, animate attacks, calcualte damage, back to picking a move, etc.
 
 void draw(){
+
 
   if (currentState == GameStates.WALKING) {
     map.draw();
@@ -79,5 +87,4 @@ void draw(){
   }
 
  
-
 }
