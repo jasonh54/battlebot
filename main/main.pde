@@ -27,18 +27,20 @@ GameStates currentState = GameStates.WALKING;
 
 void setup(){
   
-  
+  //Ethan's code
+  //acquire the folder location of where the monster images are
   String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
   File sprites = new File(spritePath);
-  
+  //opens up the folder that contains the monster images
+  //creates a list of file names from the folder of monster images
   String[] spriteList = sprites.list();
+  //temporary variable that holds the image that is loaded from the monster file
   PImage spritesPM; //sprites PImage
   
   for(int i = 0; i < spriteList.length; i++){
-
+    //after loading each image from the monster folder place it into a hashmap containing name of monster and image
     spritesPM = loadImage(spritePath + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM);
-
   }
   
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
@@ -58,7 +60,7 @@ void setup(){
   map.generateBaseMap(tileArr);
   
 
-  size(800,800);
+
   
   animationTimer = new Timer(100);
   
@@ -67,7 +69,7 @@ void setup(){
 
   PlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 26));
   
-
+    size(800,800);
 }
 
 //implement a statemachine

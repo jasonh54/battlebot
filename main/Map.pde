@@ -10,7 +10,9 @@ class Map {
   final int tilew = 16;
   final int tilehh = tileh/2;
   final int tileww = tilew/2;
+
   final int mapscale = 2;
+
   Tile [][] mapTiles;
   
   public Map() {
@@ -93,3 +95,5 @@ class Map {
   }
   
 }
+
+//array pertaining which Tiles are collidable
