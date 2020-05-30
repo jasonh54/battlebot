@@ -16,7 +16,7 @@ class SpriteSheet{
     
  }
    
-   public void display(boolean stop, int disp){
+   public void display(int x, int y, boolean stop, int disp){
      if(disp != 0){
        wide = disp;    
      }
@@ -28,7 +28,7 @@ class SpriteSheet{
      } 
      
        clear();
-       image(this.spriteSheet , 80, 80, 64, 64, 0 + (increment*16), 0, 16 * (increment+1), 16);
+       image(this.spriteSheet , x, y, 64, 64, 0 + (increment*16), 0, 16 * (increment+1), 16);
        
        if(reverse){
          this.increment--;
@@ -41,7 +41,7 @@ class SpriteSheet{
         
         if(stop){
            clear();
-           image(this.spriteSheet , 80, 80, 64, 64, 0 + (increment*16), 0, 16 * (increment+1), 16);
+           image(this.spriteSheet , x, y, 64, 64, 0 + (increment*16), 0, 16 * (increment+1), 16);
            this.stoploop = stop;
         }
      }
@@ -49,6 +49,39 @@ class SpriteSheet{
      
    }
  
+  
+}
+
+class SpriteSheetArr{
+ 
+  private PImage[] spriteSheet;
+  private int increment = 0;
+  //private boolean reverse = false;
+  //public boolean stoploop = false;
+  
+  public SpriteSheetArr(PImage[] img){
+     this.spriteSheet = new PImage[img.length];
+     
+     for(int i = 0; i < this.spriteSheet.length; i++){
+       this.spriteSheet[i] = img[i];    
+     }
+     
+  }
+  
+  public void display(int x, int y){
+    
+    
+      image(this.spriteSheet[increment] , 80, 80, 64, 64);
+      
+      if(increment == this.spriteSheet.length){
+        increment = 0;
+      } else {
+        increment++;
+      }
+      
+    
+    
+  }
   
 }
 
