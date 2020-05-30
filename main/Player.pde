@@ -18,6 +18,7 @@ class Player{
     image(sprites[4], 400,400);
   }
   
+  //player needs key pressed to trigger animations
   
 }
 
