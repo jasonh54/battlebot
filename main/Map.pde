@@ -10,7 +10,7 @@ class Map {
   final int tilew = 16;
   final int tilehh = tileh/2;
   final int tileww = tilew/2;
-  final int scale = 1;
+  final int mapscale = 2;
   Tile [][] mapTiles;
   
   public Map() {
@@ -34,13 +34,13 @@ class Map {
       incount2 = 0;
       if (incount1 == 0) {
         //for top left tile
-        Tile topleft = new Tile(tileww * scale, tilehh * scale, false, false, tiles[tileArray[0][0]]);
+        Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
         mapTiles[0][0] = topleft;
         print(tileArray[0][0]);
         prev = topleft;
       } else {
         //for other first-of-row tiles
-        current = new Tile(tileww * scale, prev.y + tileh * scale, false, false, tiles[tileArray[incount1][incount2]]);
+        current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
         mapTiles[incount1][incount2] = current;
         print(", " + tileArray[incount1][incount2]);
         prev = current;
@@ -48,7 +48,7 @@ class Map {
       //second loop: create rest of row
       for (int k = 0; k < rowsize - 1; k++) {
         incount2++;
-        current = new Tile(prev.x + tilew * scale, prev.y, false, false, tiles[tileArray[incount1][incount2]]);
+        current = new Tile(prev.x + tilew * mapscale, prev.y, false, false, tiles[tileArray[incount1][incount2]], mapscale);
         mapTiles[incount1][incount2] = current;
         print(tileArray[incount1][incount2]);
         prev = current;
