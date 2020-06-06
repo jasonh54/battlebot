@@ -12,7 +12,7 @@ PImage[] tiles;
 
 SpriteSheet SSAirA;
 
-SpriteSheetArr PlayerStand;
+SpriteSheetArr TPlayerStand;
 
 
 Timer animationTimer;
@@ -69,7 +69,7 @@ void setup(){
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   
 
-  PlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 26));
+  TPlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 27));
   
     size(800,800);
 }
@@ -81,13 +81,18 @@ void setup(){
 
 void draw(){
 
-
+  
+  
   if (currentState == GameStates.WALKING) {
     map.draw();
   } else if (currentState == GameStates.COMBAT) {
     //drawing monsters, moves, battlefield, etc
   } else if (currentState == GameStates.MENU) {
     //drawing buttons/options
+  }
+  
+  if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
+    TPlayerStand.display(80,80, false, 0);
   }
 
  

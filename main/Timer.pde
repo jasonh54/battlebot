@@ -16,7 +16,7 @@ class Timer{
     }
   }
   
-  public boolean countDownUntil(boolean stop){
+  public boolean countDownUntil(boolean stop){ //function made with use of the spritesheet class in mind
     if (timeStamp + timeInterval < millis()){
       if(stop){
         return false;

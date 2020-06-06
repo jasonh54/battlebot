@@ -23,8 +23,7 @@ class SpriteSheet{
      
      if(this.increment >= wide){
         reverse = true;
-        this.increment--;
-        
+        this.increment--; 
      } 
      
        clear();
@@ -56,11 +55,13 @@ class SpriteSheetArr{
  
   private PImage[] spriteSheet;
   private int increment = 0;
-  //private boolean reverse = false;
-  //public boolean stoploop = false;
+  public boolean stoploop = false;
+  private boolean reverse = false;
+  private int wide;
   
   public SpriteSheetArr(PImage[] img){
      this.spriteSheet = new PImage[img.length];
+     this.wide = img.length;
      
      for(int i = 0; i < this.spriteSheet.length; i++){
        this.spriteSheet[i] = img[i];    
@@ -68,16 +69,37 @@ class SpriteSheetArr{
      
   }
   
-  public void display(int x, int y){
+  public void display(int x, int y, boolean stop, int disp){
     
-    
-      image(this.spriteSheet[increment] , 80, 80, 64, 64);
-      
-      if(increment == this.spriteSheet.length){
-        increment = 0;
-      } else {
-        increment++;
+      if(disp != 0){
+        wide = disp;    
       }
+    
+      if(this.increment >= wide){
+        reverse = true;
+        this.increment--; 
+      } 
+      
+      clear();
+      
+      image(this.spriteSheet[increment] , x, y, 64, 64);
+      
+      if(reverse){
+         this.increment--;
+       } else {
+         this.increment++; 
+       }
+       
+       if(this.increment == 0){
+        reverse = false; 
+        
+        if(stop){
+           clear();
+           image(this.spriteSheet[increment] , x, y, 64, 64);
+           this.stoploop = stop;
+        }
+     }
+     
       
     
     
