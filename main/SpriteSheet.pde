@@ -94,7 +94,7 @@ class SpriteSheetArr{
         reverse = false; 
         
         if(stop){
-           clear();
+           //clear();
            image(this.spriteSheet[increment] , x, y, 64, 64);
            this.stoploop = stop;
         }

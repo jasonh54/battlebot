@@ -80,6 +80,7 @@ void setup(){
 //in the combat state we could have another state machine to denote, picking a move, animate attacks, calcualte damage, back to picking a move, etc.
 
 void draw(){
+  background(0);
 
   
   
@@ -97,3 +98,18 @@ void draw(){
 
  
 }
+
+//the game requires the player to move a specific amount of steps until they reach the next tile and stands exactly on top of the tile
+//the distance the player moves is based on the tilew and tileh as well as the scale of each tile
+//the idea is to move the entire map while the player stays in the center of the screen
+//by default the map speed will be 1 and tile width and height are 16
+//the map needs to move every frame and the distance the map moves depends on the speed
+//once the player covers the distance equal to the width of the tile then the player stops moving
+//so the map needs to move 16 frames at speed 1 while the player is standing still
+//another example lets say the map is scaled at size 2 and the tile's width and height are 16x2 -> 32
+//the map needs to move a distance of 32 so that the player will always be in the center of a tile
+//lets say the speed (rate of change) for the map is 1 multipled by the scale, (the bigger the scale the longer the stride)
+//so the distance is 32 between each tile and the map speed is 1x2(the scale of the map)
+//the map needs to move every frame and the distance the map moves depends on the speed
+//once the player covers the distance equal to the width of the tile then the player stops moving
+//distance is 32 speed is 2 (scaled up) so again after 16 frames the map stops moving
