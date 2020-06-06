@@ -113,3 +113,6 @@ void draw(){
 //the map needs to move every frame and the distance the map moves depends on the speed
 //once the player covers the distance equal to the width of the tile then the player stops moving
 //distance is 32 speed is 2 (scaled up) so again after 16 frames the map stops moving
+//keypressed and keyrelease should be programmed in the main file
+//a suggestion is to create up, down, left, right functions in the map class
+//and when a key is pressed it will exeute the function in the map to move the map up, dow, left, or right
