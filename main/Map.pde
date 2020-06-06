@@ -37,12 +37,16 @@ class Map {
       if (incount1 == 0) {
         //for top left tile
         Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
+        topleft.collide = binarySearch(collidableSprites, tileArray[0][0], 0, collidableSprites.length - 1);
+        topleft.printInfo();
         mapTiles[0][0] = topleft;
         print(tileArray[0][0]);
         prev = topleft;
       } else {
         //for other first-of-row tiles
         current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
+        current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
+        current.printInfo();
         mapTiles[incount1][incount2] = current;
         print(", " + tileArray[incount1][incount2]);
         prev = current;
@@ -51,6 +55,8 @@ class Map {
       for (int k = 0; k < rowsize - 1; k++) {
         incount2++;
         current = new Tile(prev.x + tilew * mapscale, prev.y, false, false, tiles[tileArray[incount1][incount2]], mapscale);
+        current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
+        current.printInfo();
         mapTiles[incount1][incount2] = current;
         print(tileArray[incount1][incount2]);
         prev = current;
@@ -65,6 +71,19 @@ class Map {
         mapTiles[i][k].draw();
       }
     }
+  }
+  
+  //ALWAYS set min = 0 and max = [array].length - 1
+  boolean binarySearch(int[] arr, int goal, int min, int max) {
+    int guess = (min + max)/2;
+    if (guess == goal) {
+      return true;
+    } else if (guess < goal) {
+      binarySearch(arr, goal, guess + 1, max);
+    } else if (guess > goal) {
+      binarySearch(arr, goal, min, guess - 1);
+    }
+    return false;
   }
   
   void update() {
