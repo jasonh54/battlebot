@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-PImage[] playerSprites = new PImage[12];
+
 
 int[] collidableSprites = new int[]{189,190,191,192,193,194,195,196,216,217,218,219,220,221,222,223,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
 
@@ -28,6 +28,7 @@ GameStates currentState = GameStates.WALKING;
 
 
 void setup(){
+  
   
   //Ethan's code
   //acquire the folder location of where the monster images are
@@ -72,6 +73,8 @@ void setup(){
   TPlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 27));
   
     size(800,800);
+    
+  
 }
 
 //implement a statemachine
@@ -96,7 +99,7 @@ void draw(){
     TPlayerStand.display(80,80, false, 0);
   }
 
- 
+
 }
 
 //the game requires the player to move a specific amount of steps until they reach the next tile and stands exactly on top of the tile
