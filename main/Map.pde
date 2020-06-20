@@ -91,7 +91,7 @@ class Map {
     
   }
   
-  void moveUp(int counter) {
+  void moveUp() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
         mapTiles[i][k].moveUp();
@@ -100,7 +100,7 @@ class Map {
     counter++;
   }
   
-  void moveDown(int counter) {
+  void moveDown() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
         mapTiles[i][k].moveDown();
@@ -109,35 +109,34 @@ class Map {
     counter++;
   }
   
-  void moveLeft(int counter) {
+  void moveLeft() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
         mapTiles[i][k].moveLeft();
       }
     }
-    counter++;
+    framecounter++;
   }
   
-  void moveRight(int counter) {
+  void moveRight() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
         mapTiles[i][k].moveRight();
       }
     }
-    counter++;
+    framecounter++;
   }
   
   char newMove(char currentkey) {
-    counter = framecounter;
-    println("movingshaking: " + counter);
+    println("movingshaking: " + framecounter);
     if (currentkey == 'w') {
-      moveUp(counter);
+      moveUp();
     } else if (currentkey == 's') {
-      moveDown(counter);
+      moveDown();
     } else if (currentkey == 'a') {
-      moveLeft(counter);
+      moveLeft();
     } else if (currentkey == 'd') {
-      moveRight(counter);
+      moveRight();
     }
     return currentkey;
   }

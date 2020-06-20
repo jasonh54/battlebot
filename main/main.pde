@@ -100,19 +100,19 @@ void draw(){
     }
     //if in the middle of a movement
     if (framecounter > 0 || framecounter < 16) {
-      println(framecounter);
+      println("is anything happening: " + framecounter);
       //move up
       if (countingkey == 'w') {
-        map.moveUp(framecounter);
+        map.moveUp();
       //down
       } else if (countingkey == 's') {
-        map.moveDown(framecounter);
+        map.moveDown();
       //left
       } else if (countingkey == 'a') {
-        map.moveLeft(framecounter);
+        map.moveLeft();
       //right
       } else if (countingkey == 'd') {
-        map.moveRight(framecounter);
+        map.moveRight();
       }
     }
   } else if (currentState == GameStates.COMBAT) {
