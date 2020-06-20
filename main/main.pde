@@ -83,7 +83,7 @@ void setup(){
 
 void draw(){
   background(0);
-
+  map.draw();
   
   
   if (currentState == GameStates.WALKING) {
@@ -93,12 +93,14 @@ void draw(){
       if (key == 'w'|| key == 's' || key == 'a' || key == 'd') {
         //if a new movement needs to start
         if (framecounter == 0 || framecounter == 16) {
-          countingkey = map.newMove(key, framecounter);
+          countingkey = map.newMove(key);
+          println("new move: " + framecounter);
         }
       }
     }
     //if in the middle of a movement
     if (framecounter > 0 || framecounter < 16) {
+      println(framecounter);
       //move up
       if (countingkey == 'w') {
         map.moveUp(framecounter);

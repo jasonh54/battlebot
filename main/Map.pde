@@ -10,14 +10,14 @@ class Map {
   final int tilew = 16;
   final int tilehh = tileh/2;
   final int tileww = tilew/2;
+  int counter = 0;
 
   final int mapscale = 2;
 
   Tile [][] mapTiles;
   
   public Map() {
-    speedx = 0;
-    speedy = 0;
+    
   }
   
   //map generation v2 (working)
@@ -91,43 +91,53 @@ class Map {
     
   }
   
-  void moveUp(int count) {
-    speedy = -1 * mapscale;
-    this.y += speedy;
-    count++;
+  void moveUp(int counter) {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveUp();
+      }
+    }
+    counter++;
   }
   
-  void moveDown(int count) {
-    speedy = 1 * mapscale;
-    this.y += speedy;
-    count++;
+  void moveDown(int counter) {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveDown();
+      }
+    }
+    counter++;
   }
   
-  void moveLeft(int count) {
-    speedx = -1 * mapscale;
-    this.x += speedx;
-    count++;
+  void moveLeft(int counter) {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveLeft();
+      }
+    }
+    counter++;
   }
   
-  void moveRight(int count) {
-    print("moving");
-    speedx = 1 * mapscale;
-    this.x += speedx;
-    print(x);
-    count++;
+  void moveRight(int counter) {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveRight();
+      }
+    }
+    counter++;
   }
   
-  char newMove(char currentkey, int count) {
-    count = 0;
-    print("new move");
+  char newMove(char currentkey) {
+    counter = framecounter;
+    println("movingshaking: " + counter);
     if (currentkey == 'w') {
-      moveUp(count);
+      moveUp(counter);
     } else if (currentkey == 's') {
-      moveDown(count);
+      moveDown(counter);
     } else if (currentkey == 'a') {
-      moveLeft(count);
+      moveLeft(counter);
     } else if (currentkey == 'd') {
-      moveRight(count);
+      moveRight(counter);
     }
     return currentkey;
   }
