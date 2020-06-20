@@ -86,33 +86,51 @@ class Map {
     return false;
   }
   
+  //update loop
   void update() {
-    keyPressed();
-    keyReleased();
-    x += speedx;
-    y += speedy;
+    
   }
   
-  void keyPressed() {
-    if (key == 'w') {
-      speedy = -5;
-    } else if (key == 'd') {
-      speedy = 5;
-    } else if (key == 'a') {
-      speedx = -5;
-    } else if (key == 's') {
-      speedx = 5;
+  void moveUp(int count) {
+    speedy = -1 * mapscale;
+    this.y += speedy;
+    count++;
+  }
+  
+  void moveDown(int count) {
+    speedy = 1 * mapscale;
+    this.y += speedy;
+    count++;
+  }
+  
+  void moveLeft(int count) {
+    speedx = -1 * mapscale;
+    this.x += speedx;
+    count++;
+  }
+  
+  void moveRight(int count) {
+    print("moving");
+    speedx = 1 * mapscale;
+    this.x += speedx;
+    print(x);
+    count++;
+  }
+  
+  char newMove(char currentkey, int count) {
+    count = 0;
+    print("new move");
+    if (currentkey == 'w') {
+      moveUp(count);
+    } else if (currentkey == 's') {
+      moveDown(count);
+    } else if (currentkey == 'a') {
+      moveLeft(count);
+    } else if (currentkey == 'd') {
+      moveRight(count);
     }
+    return currentkey;
   }
-  
-  void keyReleased() {
-    if (key == 'w' || key == 'd') {
-      speedy = 0;
-    } else if (key == 'a' || key == 's') {
-      speedx = 0;
-    }
-  }
-  
-}
 
-//array pertaining which Tiles are collidable
+
+}

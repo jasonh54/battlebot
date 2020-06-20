@@ -17,6 +17,8 @@ SpriteSheetArr TPlayerStand;
 
 Timer animationTimer;
 Map map = new Map();
+int framecounter = 0;
+char countingkey;
 
 enum GameStates{
   WALKING,
@@ -85,7 +87,32 @@ void draw(){
   
   
   if (currentState == GameStates.WALKING) {
-    map.draw();
+    //if key is pressed
+    if (keyPressed == true) {
+      //if it's a movement key
+      if (key == 'w'|| key == 's' || key == 'a' || key == 'd') {
+        //if a new movement needs to start
+        if (framecounter == 0 || framecounter == 16) {
+          countingkey = map.newMove(key, framecounter);
+        }
+      }
+    }
+    //if in the middle of a movement
+    if (framecounter > 0 || framecounter < 16) {
+      //move up
+      if (countingkey == 'w') {
+        map.moveUp(framecounter);
+      //down
+      } else if (countingkey == 's') {
+        map.moveDown(framecounter);
+      //left
+      } else if (countingkey == 'a') {
+        map.moveLeft(framecounter);
+      //right
+      } else if (countingkey == 'd') {
+        map.moveRight(framecounter);
+      }
+    }
   } else if (currentState == GameStates.COMBAT) {
     //drawing monsters, moves, battlefield, etc
   } else if (currentState == GameStates.MENU) {
