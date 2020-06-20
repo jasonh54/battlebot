@@ -15,6 +15,8 @@ SpriteSheetArr TPlayerStand;
 
 Timer animationTimer;
 Map map = new Map();
+int framecounter = 0;
+char countingkey;
 
 Player testPlayer;
 
@@ -95,11 +97,38 @@ void setup(){
 
 void draw(){
   background(0);
-
+  map.draw();
   
   
   if (currentState == GameStates.WALKING) {
-    map.draw();
+    //if key is pressed
+    if (keyPressed == true) {
+      //if it's a movement key
+      if (key == 'w'|| key == 's' || key == 'a' || key == 'd') {
+        //if a new movement needs to start
+        if (framecounter == 0 || framecounter == 16) {
+          countingkey = map.newMove(key);
+          println("new move: " + framecounter);
+        }
+      }
+    }
+    //if in the middle of a movement
+    if (framecounter > 0 || framecounter < 16) {
+      println("is anything happening: " + framecounter);
+      //move up
+      if (countingkey == 'w') {
+        map.moveUp();
+      //down
+      } else if (countingkey == 's') {
+        map.moveDown();
+      //left
+      } else if (countingkey == 'a') {
+        map.moveLeft();
+      //right
+      } else if (countingkey == 'd') {
+        map.moveRight();
+      }
+    }
   } else if (currentState == GameStates.COMBAT) {
     //drawing monsters, moves, battlefield, etc
   } else if (currentState == GameStates.MENU) {
