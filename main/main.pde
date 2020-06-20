@@ -10,8 +10,6 @@ int[] collidableSprites = new int[]{189,190,191,192,193,194,195,196,216,217,218,
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 
-SpriteSheet SSAirA;
-
 SpriteSheetArr TPlayerStand;
 
 
@@ -81,11 +79,8 @@ void setup(){
 
 
   
-  animationTimer = new Timer(100);
+  animationTimer = new Timer(500);
   
-  SSAirA = new SpriteSheet(spritesHm.get("AirA"));
-  
-
   TPlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 27));
   
     size(1100,800);
@@ -111,12 +106,17 @@ void draw(){
     //drawing buttons/options
   }
   
-  //if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
-  //  TPlayerStand.display(80,80, false, 0);
-  //}
+
+  /* -- test display code -- remove in the future
+  if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
+    TPlayerStand.changeDisplay(80,80);
+  }
+  TPlayerStand.display();*/
+
   
   testPlayer.display();
   
+
 
 
 }

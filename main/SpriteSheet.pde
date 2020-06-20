@@ -1,7 +1,7 @@
 //sprite sheet class
 //takes a large PImage and cuts it apart into smaller PImages
 
-class SpriteSheet{
+/*class SpriteSheet{
   
   private PImage spriteSheet;
   private int wide;
@@ -49,15 +49,17 @@ class SpriteSheet{
    }
  
   
-}
+}*/
 
 class SpriteSheetArr{
  
   private PImage[] spriteSheet;
-  private int increment = 0;
+  private int increment = -1;
   public boolean stoploop = false;
   private boolean reverse = false;
   private int wide;
+  private int currentX;
+  private int currentY;
   
   public SpriteSheetArr(PImage[] img){
      this.spriteSheet = new PImage[img.length];
@@ -69,40 +71,96 @@ class SpriteSheetArr{
      
   }
   
-  public void display(int x, int y, boolean stop, int disp){
+  public void changeDisplay(int x, int y, boolean stop, int start, int end){
     
-      if(disp != 0){
-        wide = disp;    
+      if(end != 0){
+        if(end >= wide){
+           end = wide; 
+        } else {
+          wide = end;
+        }
+      }
+      
+      if(start != -1){
+        if(start >= wide - 2){
+          start = wide - 2;
+        } else {
+           
+        }
       }
     
-      if(this.increment >= wide){
+      if(this.increment == wide - 1){
         reverse = true;
-        this.increment--; 
       } 
       
-      clear();
+      //clear();
       
-      image(this.spriteSheet[increment] , x, y, 64, 64);
+      //image(this.spriteSheet[increment] , x, y, 64, 64);
+      this.currentX = x;
+      this.currentY = y;
       
-      if(reverse){
+      if(reverse && !stop){
          this.increment--;
-       } else {
+       } else if(!stop){
          this.increment++; 
        }
        
        if(this.increment == 0){
         reverse = false; 
-        
-        if(stop){
-           //clear();
-           image(this.spriteSheet[increment] , x, y, 64, 64);
-           this.stoploop = stop;
-        }
      }
      
+  }
+  
+  public void changeDisplay(int x, int y){
+    
+      if(this.increment == wide-1){
+        reverse = true;
+      } 
       
+      //clear();
+      
+      //image(this.spriteSheet[increment] , x, y, 64, 64);
+      this.currentX = x;
+      this.currentY = y;
+      
+      if(reverse){
+         this.increment--;
+       } else{
+         this.increment++; 
+       }
+       
+       if(this.increment == 0){
+        reverse = false; 
+     }
+     
+  }
+  
+  public void changeDisplay(int x, int y, boolean stop){
     
-    
+      if(this.increment == wide-1){
+        reverse = true;
+      } 
+      
+      //clear();
+      
+      //image(this.spriteSheet[increment] , x, y, 64, 64);
+      this.currentX = x;
+      this.currentY = y;
+      
+      if(reverse && !stop){
+         this.increment--;
+       } else if(!stop){
+         this.increment++; 
+       }
+       
+       if(this.increment == 0){
+        reverse = false; 
+     }
+     
+  }
+  
+  public void display(){
+    image(this.spriteSheet[this.increment] , currentX, currentY, 64, 64);
   }
   
 }
