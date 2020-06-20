@@ -18,6 +18,8 @@ SpriteSheetArr TPlayerStand;
 Timer animationTimer;
 Map map = new Map();
 
+Player testPlayer;
+
 enum GameStates{
   WALKING,
   COMBAT,
@@ -56,10 +58,24 @@ void setup(){
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
-  
+  testPlayer = new Player(createCharacterSprites(0));
 
   //map and maptile array
-  int[][] tileArr = {{0, 1, 1, 1, 1, 1, 2}, {27, 28, 28, 28, 28, 28, 29}, {54, 55, 55, 55, 55, 55, 56}};
+  int[][] tileArr = {
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {54, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 56}
+  };
   map.generateBaseMap(tileArr);
   
 
@@ -72,7 +88,7 @@ void setup(){
 
   TPlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 27));
   
-    size(800,800);
+    size(1100,800);
     
   
 }
@@ -95,9 +111,12 @@ void draw(){
     //drawing buttons/options
   }
   
-  if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
-    TPlayerStand.display(80,80, false, 0);
-  }
+  //if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
+  //  TPlayerStand.display(80,80, false, 0);
+  //}
+  
+  testPlayer.display();
+  
 
 
 }
@@ -119,3 +138,18 @@ void draw(){
 //keypressed and keyrelease should be programmed in the main file
 //a suggestion is to create up, down, left, right functions in the map class
 //and when a key is pressed it will exeute the function in the map to move the map up, dow, left, or right
+
+
+
+public void generateTileMapGuide(){
+  int i = 0;
+  for(int row = 0; row < 18; row++){
+    for(int col=0;col<27; col++){
+      image(tiles[i], col * 32 + col + 100, row * 32 + row+100, 32,32);
+      
+      textSize(16);
+      text(i,col * 32+col+100, row * 32 + 20+row+100);
+      i++;
+    }
+  }
+}

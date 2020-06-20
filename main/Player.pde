@@ -22,6 +22,9 @@ class Player{
   int direction = 0; //0 = north, 1 = east, 2 = south, 3 = west;
 
   PImage[] sprites; //character sprites
+  final int h = 16;
+  final int w = 16;
+  final int scale = 2;
 
   
   ArrayList<Items> items = new ArrayList<Items>();
@@ -32,7 +35,7 @@ class Player{
   }
   
   public void display(){
-    image(sprites[4], 400,400);
+    image(sprites[4], 400,400, h * scale, w * scale);
   }
   
   //player needs key pressed to trigger animations
