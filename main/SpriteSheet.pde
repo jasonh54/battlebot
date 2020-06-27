@@ -71,6 +71,15 @@ class SpriteSheetArr{
      
   }
   
+  public SpriteSheetArr(PImage img){
+    for(int i = 0; i < img.width/16; i++){
+       this.spriteSheet[i] = img.get(i*16,0,16,16);
+    }
+    
+    this.wide = img.width/16;
+    
+  }
+  
   public void changeDisplay(int x, int y, boolean stop, int start, int end){
     
       if(end != 0){

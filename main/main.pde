@@ -12,6 +12,8 @@ PImage[] tiles;
 
 SpriteSheetArr TPlayerStand;
 
+SpriteSheetArr SSAirA;
+
 
 Timer animationTimer;
 Map map = new Map();
@@ -85,6 +87,8 @@ void setup(){
   
   TPlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 27));
   
+  SSAirA = new SpriteSheetArr(spritesHm.get("AirA"));
+  
     size(1100,800);
     
   
@@ -139,8 +143,14 @@ void draw(){
   /* -- test display code -- remove in the future
   if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
     TPlayerStand.changeDisplay(80,80);
+  } 
+  TPlayerStand.display();
+  */
+  if(animationTimer.countDown()){
+    SSAirA.changeDisplay(80,80);
   }
-  TPlayerStand.display();*/
+  SSAirA.display();
+  
 
   
   testPlayer.display();
