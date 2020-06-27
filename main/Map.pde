@@ -127,6 +127,14 @@ class Map {
     framecounter++;
   }
   
+  void stopMove() {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveRight();
+      }
+    }
+  }
+  
   char newMove(char currentkey) {
     println("movingshaking: " + framecounter);
     if (currentkey == 'w') {
