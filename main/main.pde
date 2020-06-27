@@ -20,6 +20,8 @@ char countingkey;
 
 Player testPlayer;
 
+boolean lock = false;
+
 enum GameStates{
   WALKING,
   COMBAT,
@@ -104,8 +106,9 @@ void draw(){
     //if key is pressed
     if (keyPressed == true) {
       //if it's a movement key
-      if (key == 'w'|| key == 's' || key == 'a' || key == 'd') {
+      if ( (key == 'w'|| key == 's' || key == 'a' || key == 'd') && lock == false) {
         //if a new movement needs to start
+        lock = true;
         if (framecounter == 0 || framecounter == 16) {
           countingkey = map.newMove(key);
           println("new move: " + framecounter);
@@ -131,6 +134,7 @@ void draw(){
     } else if (framecounter > 16) {
       println("stop moving");
       map.stopMove();
+      lock = false;
     }
 
   } else if (currentState == GameStates.COMBAT) {
