@@ -128,7 +128,10 @@ void draw(){
       } else if (countingkey == 'd') {
         map.moveRight();
       }
+    } else {
+      //code for stopmoving?
     }
+
   } else if (currentState == GameStates.COMBAT) {
     //drawing monsters, moves, battlefield, etc
   } else if (currentState == GameStates.MENU) {
