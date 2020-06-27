@@ -113,7 +113,7 @@ void draw(){
       }
     }
     //if in the middle of a movement
-    if (framecounter > 0 || framecounter < 16) {
+    if (framecounter < 16 && framecounter != 0) {
       println("is anything happening: " + framecounter);
       //move up
       if (countingkey == 'w') {
@@ -128,8 +128,9 @@ void draw(){
       } else if (countingkey == 'd') {
         map.moveRight();
       }
-    } else {
-      //code for stopmoving?
+    } else if (framecounter > 16) {
+      println("stop moving");
+      map.stopMove();
     }
 
   } else if (currentState == GameStates.COMBAT) {

@@ -8,6 +8,7 @@ class Tile {
   int scale;
   float speedx;
   float speedy;
+  int counting = 0;
 
   //build with scale
   public Tile(float x, float y, boolean c, boolean p, PImage img, int sc) {
@@ -33,7 +34,7 @@ class Tile {
   }
   
   void moveUp() {
-    speedy = -1 * scale;
+    speedy = -16 * scale;
     this.y += speedy;
   }
   
@@ -50,6 +51,13 @@ class Tile {
   void moveRight() {
     speedx = 1 * scale;
     this.x += speedx;
+  }
+  
+  void stopMove() {
+    speedx = 0;
+    this.x = speedx;
+    speedy = 0;
+    this.y = speedy;
   }
   
   //draw with scales
