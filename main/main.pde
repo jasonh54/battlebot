@@ -10,13 +10,13 @@ int[] collidableSprites = new int[]{189,190,191,192,193,194,195,196,216,217,218,
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 
-SpriteSheet SSAirA;
-
 SpriteSheetArr TPlayerStand;
 
 
 Timer animationTimer;
 Map map = new Map();
+int framecounter = 0;
+char countingkey;
 
 Player testPlayer;
 
@@ -81,11 +81,8 @@ void setup(){
 
 
   
-  animationTimer = new Timer(100);
+  animationTimer = new Timer(500);
   
-  SSAirA = new SpriteSheet(spritesHm.get("AirA"));
-  
-
   TPlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 27));
   
     size(1100,800);
@@ -100,23 +97,58 @@ void setup(){
 
 void draw(){
   background(0);
-
+  map.draw();
   
   
   if (currentState == GameStates.WALKING) {
-    map.draw();
+    //if key is pressed
+    if (keyPressed == true) {
+      //if it's a movement key
+      if (key == 'w'|| key == 's' || key == 'a' || key == 'd') {
+        //if a new movement needs to start
+        if (framecounter == 0 || framecounter == 16) {
+          countingkey = map.newMove(key);
+          println("new move: " + framecounter);
+        }
+      }
+    }
+    //if in the middle of a movement
+    if (framecounter > 0 || framecounter < 16) {
+      println("is anything happening: " + framecounter);
+      //move up
+      if (countingkey == 'w') {
+        map.moveUp();
+      //down
+      } else if (countingkey == 's') {
+        map.moveDown();
+      //left
+      } else if (countingkey == 'a') {
+        map.moveLeft();
+      //right
+      } else if (countingkey == 'd') {
+        map.moveRight();
+      }
+    } else {
+      //code for stopmoving?
+    }
+
   } else if (currentState == GameStates.COMBAT) {
     //drawing monsters, moves, battlefield, etc
   } else if (currentState == GameStates.MENU) {
     //drawing buttons/options
   }
   
-  //if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
-  //  TPlayerStand.display(80,80, false, 0);
-  //}
+
+  /* -- test display code -- remove in the future
+  if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
+    TPlayerStand.changeDisplay(80,80);
+  }
+  TPlayerStand.display();*/
+
   
   testPlayer.display();
   
+
 
 
 }

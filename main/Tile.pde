@@ -6,6 +6,8 @@ class Tile {
   float x;
   float y;
   int scale;
+  float speedx;
+  float speedy;
 
   //build with scale
   public Tile(float x, float y, boolean c, boolean p, PImage img, int sc) {
@@ -15,6 +17,8 @@ class Tile {
     this.img = img;
     collide = c;
     portal = p;
+    speedx = 0;
+    speedy = 0;
   }
   
   
@@ -26,6 +30,26 @@ class Tile {
   void printInfo() {
     println(this.x + ", " + this.y);
     println(this.collide);
+  }
+  
+  void moveUp() {
+    speedy = -1 * scale;
+    this.y += speedy;
+  }
+  
+  void moveDown() {
+    speedy = 1 * scale;
+    this.y += speedy;
+  }
+  
+  void moveLeft() {
+    speedx = -1 * scale;
+    this.x += speedx;
+  }
+  
+  void moveRight() {
+    speedx = 1 * scale;
+    this.x += speedx;
   }
   
   //draw with scales

@@ -10,14 +10,14 @@ class Map {
   final int tilew = 16;
   final int tilehh = tileh/2;
   final int tileww = tilew/2;
+  int counter = 0;
 
   final int mapscale = 2;
 
   Tile [][] mapTiles;
   
   public Map() {
-    speedx = 0;
-    speedy = 0;
+    
   }
   
   //map generation v2 (working)
@@ -86,33 +86,60 @@ class Map {
     return false;
   }
   
+  //update loop
   void update() {
-    keyPressed();
-    keyReleased();
-    x += speedx;
-    y += speedy;
+    
   }
   
-  void keyPressed() {
-    if (key == 'w') {
-      speedy = -5;
-    } else if (key == 'd') {
-      speedy = 5;
-    } else if (key == 'a') {
-      speedx = -5;
-    } else if (key == 's') {
-      speedx = 5;
+  void moveUp() {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveUp();
+      }
     }
+    counter++;
   }
   
-  void keyReleased() {
-    if (key == 'w' || key == 'd') {
-      speedy = 0;
-    } else if (key == 'a' || key == 's') {
-      speedx = 0;
+  void moveDown() {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveDown();
+      }
     }
+    counter++;
   }
   
-}
+  void moveLeft() {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveLeft();
+      }
+    }
+    framecounter++;
+  }
+  
+  void moveRight() {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].moveRight();
+      }
+    }
+    framecounter++;
+  }
+  
+  char newMove(char currentkey) {
+    println("movingshaking: " + framecounter);
+    if (currentkey == 'w') {
+      moveUp();
+    } else if (currentkey == 's') {
+      moveDown();
+    } else if (currentkey == 'a') {
+      moveLeft();
+    } else if (currentkey == 'd') {
+      moveRight();
+    }
+    return currentkey;
+  }
 
-//array pertaining which Tiles are collidable
+
+}
