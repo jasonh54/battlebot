@@ -71,8 +71,8 @@ void setup(){
     {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
     {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
     {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
-    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
-    {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 232, 28, 28, 28, 28, 28, 28, 28, 29}, 
+    {27, 28, 28, 28, 28, 28, 28, 259, 28, 28, 28, 28, 28, 28, 28, 29}, 
     {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
     {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
     {27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29}, 
@@ -108,34 +108,53 @@ void draw(){
       //if it's a movement key
       if ( (key == 'w'|| key == 's' || key == 'a' || key == 'd') && lock == false) {
         //if a new movement needs to start
-        println("lock" + lock);
         lock = true;
-        if (framecounter == 0 || framecounter == 16) {
-          countingkey = map.newMove(key);
-          println("new move: " + framecounter);
-        }
+        
+        map.newMove(key);
+        println("new move: " + framecounter);
+        
       }
     }
-    //if in the middle of a movement
-    if (framecounter < 16 && framecounter != 0) {
-      println("is anything happening: " + framecounter);
-      //move up
-      if (countingkey == 'w') {
+    
+    if(lock==true){
+      framecounter++;
+      if (map.getCurrentKey() == 'w') {
         map.moveUp();
-      //down
-      } else if (countingkey == 's') {
+      } else if (map.getCurrentKey() == 's') {
         map.moveDown();
-      //left
-      } else if (countingkey == 'a') {
+      } else if (map.getCurrentKey() == 'a') {
         map.moveLeft();
-      //right
-      } else if (countingkey == 'd') {
+      } else if (map.getCurrentKey() == 'd') {
         map.moveRight();
       }
-    } else if (framecounter >= 16) {
-      println("stop moving");
-      lock = false;
+      if(framecounter == 16){
+        lock = false;
+        framecounter = 0;
+        map.stopMove();
+      }
     }
+    
+    ////if in the middle of a movement
+    //if (framecounter < 16 && framecounter != 0) {
+    //  println("is anything happening: " + framecounter);
+    //  //move up
+    //  if (countingkey == 'w') {
+    //    map.moveUp();
+    //  //down
+    //  } else if (countingkey == 's') {
+    //    map.moveDown();
+    //  //left
+    //  } else if (countingkey == 'a') {
+    //    map.moveLeft();
+    //  //right
+    //  } else if (countingkey == 'd') {
+    //    map.moveRight();
+    //  }
+    //} else if (framecounter > 16) {
+    //  println("stop moving");
+    //  map.stopMove();
+    //  lock = false;
+    //}
 
   } else if (currentState == GameStates.COMBAT) {
     //drawing monsters, moves, battlefield, etc

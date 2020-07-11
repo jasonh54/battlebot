@@ -10,6 +10,8 @@ class Map {
   final int tilew = 16;
   final int tilehh = tileh/2;
   final int tileww = tilew/2;
+  int counter = 0;
+  char currentKey = ' ';
 
   final int mapscale = 2;
 
@@ -74,13 +76,16 @@ class Map {
   
   //ALWAYS set min = 0 and max = [array].length - 1
   boolean binarySearch(int[] arr, int goal, int min, int max) {
-    int guess = (min + max)/2;
-    if (guess == goal) {
+    int index = (min + max)/2;
+    if (min == max) {
+      return false;
+    }
+    if (arr[index] == goal) {
       return true;
-    } else if (guess < goal) {
-      binarySearch(arr, goal, guess + 1, max);
-    } else if (guess > goal) {
-      binarySearch(arr, goal, min, guess - 1);
+    } else if (arr[index] < goal) {
+      return binarySearch(arr, goal, index + 1, max);
+    } else if (arr[index] > goal) {
+      return binarySearch(arr, goal, min, index - 1);
     }
     return false;
   }
@@ -90,6 +95,7 @@ class Map {
     
   }
   
+  
   void moveUp() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -97,6 +103,7 @@ class Map {
       }
     }
     framecounter++;
+    counter++;
   }
   
   void moveDown() {
@@ -114,7 +121,7 @@ class Map {
         mapTiles[i][k].moveLeft();
       }
     }
-    framecounter++;
+    counter++;
   }
   
   void moveRight() {
@@ -123,22 +130,25 @@ class Map {
         mapTiles[i][k].moveRight();
       }
     }
-    framecounter++;
+    counter++;
   }
   
-  char newMove(char currentkey) {
-    framecounter = 0;
-    println("newmoving");
-    if (currentkey == 'w') {
-      moveUp();
-    } else if (currentkey == 's') {
-      moveDown();
-    } else if (currentkey == 'a') {
-      moveLeft();
-    } else if (currentkey == 'd') {
-      moveRight();
+  void stopMove() {
+    for (int i = 0; i < mapTiles.length; i++) {
+      for (int k = 0; k < mapTiles[0].length; k++) {
+        mapTiles[i][k].stopMove();
+      }
     }
-    return currentkey;
+    counter = 0;
+  }
+  
+  void newMove(char currentKey) {
+    println("movingshaking: " + framecounter);
+    this.currentKey = currentKey;
+  }
+  
+  char getCurrentKey(){
+    return currentKey;
   }
 
 

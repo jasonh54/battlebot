@@ -55,9 +55,9 @@ class Tile {
   
   void stopMove() {
     speedx = 0;
-    this.x = speedx;
+    //this.x = speedx;
     speedy = 0;
-    this.y = speedy;
+    //this.y = speedy;
   }
   
   //draw with scales
