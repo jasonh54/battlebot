@@ -108,6 +108,7 @@ void draw(){
       //if it's a movement key
       if ( (key == 'w'|| key == 's' || key == 'a' || key == 'd') && lock == false) {
         //if a new movement needs to start
+        println("lock" + lock);
         lock = true;
         if (framecounter == 0 || framecounter == 16) {
           countingkey = map.newMove(key);
@@ -131,9 +132,8 @@ void draw(){
       } else if (countingkey == 'd') {
         map.moveRight();
       }
-    } else if (framecounter > 16) {
+    } else if (framecounter >= 16) {
       println("stop moving");
-      map.stopMove();
       lock = false;
     }
 

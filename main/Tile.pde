@@ -34,7 +34,7 @@ class Tile {
   }
   
   void moveUp() {
-    speedy = -16 * scale;
+    speedy = -1 * scale;
     this.y += speedy;
   }
   

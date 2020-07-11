@@ -10,7 +10,6 @@ class Map {
   final int tilew = 16;
   final int tilehh = tileh/2;
   final int tileww = tilew/2;
-  int counter = 0;
 
   final int mapscale = 2;
 
@@ -97,7 +96,7 @@ class Map {
         mapTiles[i][k].moveUp();
       }
     }
-    counter++;
+    framecounter++;
   }
   
   void moveDown() {
@@ -106,7 +105,7 @@ class Map {
         mapTiles[i][k].moveDown();
       }
     }
-    counter++;
+    framecounter++;
   }
   
   void moveLeft() {
@@ -127,16 +126,9 @@ class Map {
     framecounter++;
   }
   
-  void stopMove() {
-    for (int i = 0; i < mapTiles.length; i++) {
-      for (int k = 0; k < mapTiles[0].length; k++) {
-        mapTiles[i][k].moveRight();
-      }
-    }
-  }
-  
   char newMove(char currentkey) {
-    println("movingshaking: " + framecounter);
+    framecounter = 0;
+    println("newmoving");
     if (currentkey == 'w') {
       moveUp();
     } else if (currentkey == 's') {
