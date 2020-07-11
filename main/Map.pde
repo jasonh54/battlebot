@@ -76,13 +76,16 @@ class Map {
   
   //ALWAYS set min = 0 and max = [array].length - 1
   boolean binarySearch(int[] arr, int goal, int min, int max) {
-    int guess = (min + max)/2;
-    if (guess == goal) {
+    int index = (min + max)/2;
+    if (min == max) {
+      return false;
+    }
+    if (arr[index] == goal) {
       return true;
-    } else if (guess < goal) {
-      binarySearch(arr, goal, guess + 1, max);
-    } else if (guess > goal) {
-      binarySearch(arr, goal, min, guess - 1);
+    } else if (arr[index] < goal) {
+      return binarySearch(arr, goal, index + 1, max);
+    } else if (arr[index] > goal) {
+      return binarySearch(arr, goal, min, index - 1);
     }
     return false;
   }
@@ -99,8 +102,8 @@ class Map {
         mapTiles[i][k].moveUp();
       }
     }
+    framecounter++;
     counter++;
-    
   }
   
   void moveDown() {
@@ -109,7 +112,7 @@ class Map {
         mapTiles[i][k].moveDown();
       }
     }
-    counter++;
+    framecounter++;
   }
   
   void moveLeft() {
