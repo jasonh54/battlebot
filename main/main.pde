@@ -10,9 +10,9 @@ int[] collidableSprites = new int[]{189,190,191,192,193,194,195,196,216,217,218,
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 
-SpriteSheetArr TPlayerStand;
+SpriteSheet TPlayerStand;
 
-SpriteSheetArr SSAirA;
+SpriteSheet SSAirA;
 
 
 Timer animationTimer;
@@ -48,6 +48,7 @@ void setup(){
     //after loading each image from the monster folder place it into a hashmap containing name of monster and image
     spritesPM = loadImage(spritePath + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM);
+    //System.out.println(spriteList[i].substring(0, spriteList[i].length()-4));
   }
   
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
@@ -85,9 +86,9 @@ void setup(){
   
   animationTimer = new Timer(500);
   
-  TPlayerStand = new SpriteSheetArr(Arrays.copyOfRange(tiles, 23, 27));
+  //TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27));
   
-  SSAirA = new SpriteSheetArr(spritesHm.get("AirA"));
+  SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   
     size(1100,800);
     
@@ -145,18 +146,25 @@ void draw(){
 
   /* -- test display code -- remove in the future
   if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
-    TPlayerStand.changeDisplay(80,80);
+    
   } 
-  TPlayerStand.display();
-  */
-  if(animationTimer.countDown()){
-    SSAirA.changeDisplay(80,80);
-  }
+  
   SSAirA.display();
+  if(animationTimer.countDown()){
+    SSAirA.changeDisplay(80,80,0);
+    //TPlayerStand.changeDisplay(80,80);
+  }
+  
+  //TPlayerStand.display();
+  */
+  
+  
+  
+  
   
 
   
-  testPlayer.display();
+  //testPlayer.display();
   
 
 

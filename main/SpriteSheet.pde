@@ -51,17 +51,17 @@
   
 }*/
 
-class SpriteSheetArr{
+class SpriteSheet{
  
   private PImage[] spriteSheet;
-  private int increment = -1;
+  private int increment = 0;
   public boolean stoploop = false;
   private boolean reverse = false;
   private int wide;
   private int currentX;
   private int currentY;
   
-  public SpriteSheetArr(PImage[] img){
+  public SpriteSheet(PImage[] img){
      this.spriteSheet = new PImage[img.length];
      this.wide = img.length;
      
@@ -71,12 +71,13 @@ class SpriteSheetArr{
      
   }
   
-  public SpriteSheetArr(PImage img){
-    for(int i = 0; i < img.width/16; i++){
+  public SpriteSheet(PImage img){
+    this.wide = img.width/16;
+    spriteSheet = new PImage[this.wide];
+    
+    for(int i = 0; i < wide; i++){
        this.spriteSheet[i] = img.get(i*16,0,16,16);
     }
-    
-    this.wide = img.width/16;
     
   }
   
@@ -144,7 +145,7 @@ class SpriteSheetArr{
      
   }
   
-  public void changeDisplay(int x, int y, boolean stop){
+  public void changeDisplay(int x, int y, int stop){
     
       if(this.increment == wide-1){
         reverse = true;
@@ -156,9 +157,9 @@ class SpriteSheetArr{
       this.currentX = x;
       this.currentY = y;
       
-      if(reverse && !stop){
+      if(reverse && (stop == 1)){
          this.increment--;
-       } else if(!stop){
+       } else if(stop == 1){
          this.increment++; 
        }
        
@@ -176,12 +177,30 @@ class SpriteSheetArr{
 
 /*
 working example of how to display an animated sprite on a timer
+------------------------------------------------------------
 
-if(animationTimer.countDownUntil(SSAirA.stoploop)){
-    SSAirA.display(false,0);
+in this case our SpriteSheetArr variable is called SSAirA
+
+SpriteSheetArr SSAirA;
+
+setup an if statement with an Timer (either use a generic one (to have syncronized timing) or a unique one to get the timing you want)
+
+this Timer (called animationTimer) is set to activate every 500 milliseconds (0.5 seconds)
+
+  if(animationTimer.countDownUntil(SSAirA.stoploop)){ 
+    SSAirA.changeDisplay(80,80); //use changeDisplay to switch the spritesheet to the next frame
   }
   
-  first parameter tells the program whether to loop once or loop forever
-  second parameter tells the program if it should only loop a certain amount of frames, say instead of going from frame 1 - 5 over and over, it should only go to frame 1 - 4 over and over
+  SSAirA.display(); //use display() to display the current frame of a spritesheet
+  
+------------------------------------------------------------
+  ****IMPORTANT**** section details methods....
+  .changeDisplay can be overloaded
+  it can take in:
+  int, int (x,y) "x,y" variables: where to display animation
+  int, int, int (x,y, stop) "stop" variable: put "0" to loop animation once, put "1" to loop animation once without reverse (bad input makes stop do nothing)
+  int, int, int, int, int (x,y, stop, start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
 
 */
+
+//document things
