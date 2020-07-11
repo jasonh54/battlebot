@@ -127,7 +127,7 @@ void draw(){
       } else if (map.getCurrentKey() == 'd') {
         map.moveRight();
       }
-      if(framecounter == 16){
+      if(framecounter == 8){
         lock = false;
         framecounter = 0;
         map.stopMove();
