@@ -34,30 +34,30 @@ class Tile {
   }
   
   void moveUp() {
-    speedy = -16 * scale;
-    this.y += speedy;
-  }
-  
-  void moveDown() {
     speedy = 1 * scale;
     this.y += speedy;
   }
   
+  void moveDown() {
+    speedy = -1 * scale;
+    this.y += speedy;
+  }
+  
   void moveLeft() {
-    speedx = -1 * scale;
+    speedx = 1 * scale;
     this.x += speedx;
   }
   
   void moveRight() {
-    speedx = 1 * scale;
+    speedx = -1 * scale;
     this.x += speedx;
   }
   
   void stopMove() {
     speedx = 0;
-    this.x = speedx;
+    //this.x = speedx;
     speedy = 0;
-    this.y = speedy;
+    //this.y = speedy;
   }
   
   //draw with scales
