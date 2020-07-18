@@ -102,7 +102,6 @@ class Map {
         mapTiles[i][k].moveUp();
       }
     }
-    framecounter++;
     counter++;
   }
   
@@ -112,7 +111,7 @@ class Map {
         mapTiles[i][k].moveDown();
       }
     }
-    framecounter++;
+    counter++;
   }
   
   void moveLeft() {

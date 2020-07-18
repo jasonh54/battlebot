@@ -34,22 +34,22 @@ class Tile {
   }
   
   void moveUp() {
-    speedy = -1 * scale;
+    speedy = 2 * scale;
     this.y += speedy;
   }
   
   void moveDown() {
-    speedy = 1 * scale;
+    speedy = -2 * scale;
     this.y += speedy;
   }
   
   void moveLeft() {
-    speedx = -1 * scale;
+    speedx = 2 * scale;
     this.x += speedx;
   }
   
   void moveRight() {
-    speedx = 1 * scale;
+    speedx = -2 * scale;
     this.x += speedx;
   }
   
