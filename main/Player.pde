@@ -39,7 +39,7 @@ class Player{
   public void display(){
     image(sprites[4], 400,400, h * scale, w * scale);
     if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(400,400);
+      //animations.changeDisplay(400,400);
     }
     animations.display();
   }

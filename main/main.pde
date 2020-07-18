@@ -188,7 +188,7 @@ void draw(){
   
 
   
-  //testPlayer.display();
+  testPlayer.display();
   
 
 
