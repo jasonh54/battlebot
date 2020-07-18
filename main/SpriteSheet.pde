@@ -179,19 +179,21 @@ class SpriteSheet{
 working example of how to display an animated sprite on a timer
 ------------------------------------------------------------
 
-in this case our SpriteSheetArr variable is called SSAirA
+in this case our SpriteSheet variable is called SSAirA
 
-SpriteSheetArr SSAirA;
+SpriteSheet SSAirA;
 
 setup an if statement with an Timer (either use a generic one (to have syncronized timing) or a unique one to get the timing you want)
 
 this Timer (called animationTimer) is set to activate every 500 milliseconds (0.5 seconds)
 
+  SSAirA.display(); //use display() to display the current frame of a spritesheet
+  
   if(animationTimer.countDownUntil(SSAirA.stoploop)){ 
     SSAirA.changeDisplay(80,80); //use changeDisplay to switch the spritesheet to the next frame
   }
   
-  SSAirA.display(); //use display() to display the current frame of a spritesheet
+   
   
 ------------------------------------------------------------
   ****IMPORTANT**** section details methods....
