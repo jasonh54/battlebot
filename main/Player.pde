@@ -22,9 +22,11 @@ class Player{
   int direction = 0; //0 = north, 1 = east, 2 = south, 3 = west;
 
   PImage[] sprites; //character sprites
-  SpriteSheetArr animations;
+  SpriteSheet animations;
   final int h = 16;
   final int w = 16;
+  int x = 400;
+  int y = 400;
   final int scale = 2;
 
   
@@ -33,11 +35,11 @@ class Player{
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new SpriteSheetArr(this.sprites);
+    animations = new SpriteSheet(this.sprites);
   }
   
   public void display(){
-    image(sprites[4], 400,400, h * scale, w * scale);
+    image(sprites[4], x, y, h * scale, w * scale);
     if(animationTimer.countDownUntil(animations.stoploop)){
       //animations.changeDisplay();
     }
