@@ -13,7 +13,7 @@ class Map {
   int counter = 0;
   char currentKey = ' ';
 
-  final int mapscale = 2;
+  final int mapscale = ;
 
   Tile [][] mapTiles;
   

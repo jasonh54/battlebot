@@ -101,7 +101,7 @@ void setup(){
 void draw(){
   background(0);
   map.draw();
-  
+  testPlayer.display();
   
   if (currentState == GameStates.WALKING) {
     //if key is pressed
@@ -128,11 +128,11 @@ void draw(){
           map.moveDown();
         }
       } else if (map.getCurrentKey() == 'a') {
-        if (collideLeft(testPlayer) == false) {
+        if (collideRight(testPlayer) == false) {
           map.moveLeft();
         }
       } else if (map.getCurrentKey() == 'd') {
-        if (collideRight(testPlayer) == false) {
+        if (collideLeft(testPlayer) == false) {
           map.moveRight();
         }
       }
@@ -153,17 +153,22 @@ void draw(){
 }
 
 boolean collideRight(Player player) {
+  println("checking right side");
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).x == player.x + 16 && collidableTiles.get(i).y == player.y) {
+    println("tile: " + collidableTiles.get(0).x + ", " + collidableTiles.get(0).y);
+    println("player: " + player.x + ", " + player.y);
+    if (collidableTiles.get(i).x == player.x + 48 && collidableTiles.get(i).y == player.y) {
+      println("collided");
       return true;
     }
   }
+  println("no collide");
   return false;
 }
 
 boolean collideLeft(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).x == player.x - 16 && collidableTiles.get(i).y == player.y) {
+    if (collidableTiles.get(i).x == player.x - 0 && collidableTiles.get(i).y == player.y) {
       return true;
     }
   }
@@ -172,7 +177,7 @@ boolean collideLeft(Player player) {
 
 boolean collideDown(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).y == player.y + 16 && collidableTiles.get(i).x == player.x) {
+    if (collidableTiles.get(i).y == player.y + 8 && collidableTiles.get(i).x == player.x) {
       return true;
     }
   }
@@ -181,13 +186,12 @@ boolean collideDown(Player player) {
 
 boolean collideUp(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).y == player.y - 16 && collidableTiles.get(i).x == player.x) {
+    if (collidableTiles.get(i).y == player.y - 8 && collidableTiles.get(i).x == player.x) {
       return true;
     }
   }
   return false;
 }
-
 
 public void generateTileMapGuide(){
   int i = 0;

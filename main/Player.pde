@@ -3,12 +3,15 @@
 public PImage[] createCharacterSprites(int playerNum){
   int i = 0;
   PImage[] characterSprites = new PImage[12];
-  for(int row=0 + playerNum*3;row<3+ playerNum*3;row++){
-    int tileNum = (27*(row+1))-4;
-    for(int col = 0; col< 4; col++){
-      characterSprites[i] = tiles[tileNum];
+  //locate which row in the tilemapguide the player starts at
+  int row = 0 + playerNum*3;
+  //locate which tile num col in the tilemapguide the player starts at
+  int tilenum = (27*(row+1))-4;
+  //for loop that will go through each column
+  for(int c = tilenum; c<tilenum+4; c++){
+    for(int r = 0; r< 3;r++){
+      characterSprites[i] = tiles[c + (r*27)];
       i++;
-      tileNum++;
     }
   }
   return characterSprites;
@@ -39,11 +42,11 @@ class Player{
   }
   
   public void display(){
-    image(sprites[4], x, y, h * scale, w * scale);
+    //image(sprites[0], 400,400, h * scale, w * scale);
     if(animationTimer.countDownUntil(animations.stoploop)){
-      //animations.changeDisplay();
+      animations.changeDisplay(400,400, false, 3, 6);
     }
-    //animations.display();
+    animations.display();
   }
   
   //player needs key pressed to trigger animations
