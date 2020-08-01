@@ -28,6 +28,8 @@ class Player{
   SpriteSheet animations;
   final int h = 16;
   final int w = 16;
+  int x = 400;
+  int y = 400;
   final int scale = 2;
 
   
@@ -37,8 +39,6 @@ class Player{
   public Player(PImage[] sprites){
     this.sprites = sprites; 
     animations = new SpriteSheet(this.sprites);
-    animations.currentX = 400;
-    animations.currentY = 400;
   }
   
   public void display(){
