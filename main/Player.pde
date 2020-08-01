@@ -49,7 +49,7 @@ class Player{
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
-    animations.display();
+    animations.display(400,400);
     switch(direction){
       case UP:
         
@@ -64,7 +64,7 @@ class Player{
         break;
     }
     if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(400,400, false, 0, 2);
+      animations.changeDisplay( false, 0, 2);
     }
     
   }
@@ -74,25 +74,25 @@ class Player{
   //player needs key pressed to trigger animations
   void moveUp(){
     if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(400,400, false, 6, 8);
+      animations.changeDisplay( false, 6, 8);
     }
   }
   
   void moveDown(){
     if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(400,400, false, 3, 5);
+      animations.changeDisplay( false, 3, 5);
     }
   }
   
   void moveLeft(){
     if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(400,400, false, 0, 2);
+      animations.changeDisplay( false, 0, 2);
     }
   }
   
   void moveRight(){
     if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(400,400, false, 9, 11);
+      animations.changeDisplay( false, 9, 11);
     }
   }
   
