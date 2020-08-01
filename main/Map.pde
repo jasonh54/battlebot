@@ -13,7 +13,7 @@ class Map {
   int counter = 0;
   char currentKey = ' ';
 
-  final int mapscale = 2;
+  final int mapscale = ;
 
   Tile [][] mapTiles;
   
@@ -39,7 +39,7 @@ class Map {
         //for top left tile
         Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
         topleft.collide = binarySearch(collidableSprites, tileArray[0][0], 0, collidableSprites.length - 1);
-        topleft.printInfo();
+        loadCollide(topleft);
         mapTiles[0][0] = topleft;
         print(tileArray[0][0]);
         prev = topleft;
@@ -47,7 +47,7 @@ class Map {
         //for other first-of-row tiles
         current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
         current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
-        current.printInfo();
+        loadCollide(current);
         mapTiles[incount1][incount2] = current;
         print(", " + tileArray[incount1][incount2]);
         prev = current;
@@ -57,7 +57,7 @@ class Map {
         incount2++;
         current = new Tile(prev.x + tilew * mapscale, prev.y, false, false, tiles[tileArray[incount1][incount2]], mapscale);
         current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
-        current.printInfo();
+        loadCollide(current);
         mapTiles[incount1][incount2] = current;
         print(tileArray[incount1][incount2]);
         prev = current;
@@ -71,6 +71,13 @@ class Map {
       for (int k = 0; k < rowsize; k++) {
         mapTiles[i][k].draw();
       }
+    }
+  }
+  
+  //add collidable tiles on the map into an arraylist
+  void loadCollide(Tile tile) {
+    if (tile.collide == true) {
+      collidableTiles.add(tile);
     }
   }
   
@@ -94,7 +101,6 @@ class Map {
   void update() {
     
   }
-  
   
   void moveUp() {
     for (int i = 0; i < mapTiles.length; i++) {
@@ -142,7 +148,6 @@ class Map {
   }
   
   void newMove(char currentKey) {
-    println("movingshaking: " + framecounter);
     this.currentKey = currentKey;
   }
   
