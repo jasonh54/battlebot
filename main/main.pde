@@ -128,11 +128,11 @@ void draw(){
           map.moveDown();
         }
       } else if (map.getCurrentKey() == 'a') {
-        if (collideRight(testPlayer) == false) {
+        if (collideLeft(testPlayer) == false) {
           map.moveLeft();
         }
       } else if (map.getCurrentKey() == 'd') {
-        if (collideLeft(testPlayer) == false) {
+        if (collideRight(testPlayer) == false) {
           map.moveRight();
         }
       }
@@ -152,13 +152,10 @@ void draw(){
   
 }
 
-boolean collideRight(Player player) {
-  println("checking right side");
+boolean collideLeft(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    println("tile: " + collidableTiles.get(0).x + ", " + collidableTiles.get(0).y);
-    println("player: " + player.x + ", " + player.y);
-    if (collidableTiles.get(i).x == player.x + 48 && collidableTiles.get(i).y == player.y) {
-      println("collided");
+    if (collidableTiles.get(i).x >= player.x - 8 && collidableTiles.get(1).x <= 16 && collidableTiles.get(i).y == player.y) {
+      println("collide right");
       return true;
     }
   }
@@ -166,30 +163,36 @@ boolean collideRight(Player player) {
   return false;
 }
 
-boolean collideLeft(Player player) {
+boolean collideRight(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).x == player.x - 0 && collidableTiles.get(i).y == player.y) {
+    if (collidableTiles.get(i).x == player.x + 8 && collidableTiles.get(i).y == player.y) {
+      println("collide left");
       return true;
     }
   }
+  println("no collide");
   return false;
 }
 
 boolean collideDown(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
     if (collidableTiles.get(i).y == player.y + 8 && collidableTiles.get(i).x == player.x) {
+      println("collide down");
       return true;
     }
   }
+  println("no collide");
   return false;
 }
 
 boolean collideUp(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
     if (collidableTiles.get(i).y == player.y - 8 && collidableTiles.get(i).x == player.x) {
+      println("collide up");
       return true;
     }
   }
+  println("no collide");
   return false;
 }
 

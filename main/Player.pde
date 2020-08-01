@@ -28,8 +28,8 @@ class Player{
   SpriteSheet animations;
   final int h = 16;
   final int w = 16;
-  int x = 400;
-  int y = 400;
+  int x = 402;
+  int y = 402;
   final int scale = 2;
 
   
