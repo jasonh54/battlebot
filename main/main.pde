@@ -16,6 +16,7 @@ ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
 SpriteSheet TPlayerStand;
 
 SpriteSheet SSAirA;
+SpriteSheet SSBeardA;
 
 
 Timer animationTimer;
@@ -87,11 +88,13 @@ void setup(){
   
   map.generateBaseMap(tileArr);
   print(testPlayer.x + " " + testPlayer.y);
-
   
+  TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27));
+
   
   animationTimer = new Timer(500);
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
+  SSBeardA = new SpriteSheet(spritesHm.get("BeardA"));
   
     size(1100,800);
     
@@ -150,12 +153,37 @@ void draw(){
     //drawing buttons/options
   }
   
+
+
+  ///* -- test display code -- remove in the future
+  
+  //if(animationTimer.countDown()){
+  //  SSAirA.changeDisplay(80,80);
+  //} 
+  
+  if(animationTimer.countDownUntil(SSAirA.stoploop)){
+      SSAirA.changeDisplay(1,4);
+  }
+  
+  SSAirA.display(32,32);
+  
+  //TPlayerStand.display(32,32);
+  //if(animationTimer.countDown()){
+    
+    //TPlayerStand.changeDisplay(240,80);
+  //}
+  
+  
+  //*/
+  
+  testPlayer.display();
+  
 }
 
 boolean collideLeft(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).x >= player.x - 8 && collidableTiles.get(1).x <= 16 && collidableTiles.get(i).y == player.y) {
-      println("collide right");
+    if (collidableTiles.get(i).x == player.x - 0 && collidableTiles.get(i).y == player.y) {
+      println("collide left");
       return true;
     }
   }
@@ -166,7 +194,7 @@ boolean collideLeft(Player player) {
 boolean collideRight(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
     if (collidableTiles.get(i).x == player.x + 8 && collidableTiles.get(i).y == player.y) {
-      println("collide left");
+      println("collide right");
       return true;
     }
   }

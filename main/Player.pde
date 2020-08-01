@@ -16,13 +16,19 @@ public PImage[] createCharacterSprites(int playerNum){
   }
   return characterSprites;
 }
-
+enum PlayerMovementStates{
+  UP,
+  DOWN,
+  LEFT,
+  RIGHT,
+  STATIC
+}
 
 //player class
 class Player{
   
-
-  int direction = 0; //0 = north, 1 = east, 2 = south, 3 = west;
+  PlayerMovementStates direction = PlayerMovementStates.STATIC;
+  
 
   PImage[] sprites; //character sprites
   SpriteSheet animations;
@@ -43,17 +49,56 @@ class Player{
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
-    if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(400,400, false, 3, 6);
+    animations.display(400,400);
+    switch(direction){
+      case UP:
+        
+        break;
+      case DOWN:
+        break;
+      case LEFT:
+        break;
+      case RIGHT:
+        break;
+      default:
+        break;
     }
-    animations.display();
+    if(animationTimer.countDownUntil(animations.stoploop)){
+      animations.changeDisplay( false, 0, 2);
+    }
+    
   }
   
+  
+  
   //player needs key pressed to trigger animations
+  void moveUp(){
+    if(animationTimer.countDownUntil(animations.stoploop)){
+      animations.changeDisplay( false, 6, 8);
+    }
+  }
+  
+  void moveDown(){
+    if(animationTimer.countDownUntil(animations.stoploop)){
+      animations.changeDisplay( false, 3, 5);
+    }
+  }
+  
+  void moveLeft(){
+    if(animationTimer.countDownUntil(animations.stoploop)){
+      animations.changeDisplay( false, 0, 2);
+    }
+  }
+  
+  void moveRight(){
+    if(animationTimer.countDownUntil(animations.stoploop)){
+      animations.changeDisplay( false, 9, 11);
+    }
+  }
+  
   
 }
 
 
-//work on player aniamtion, tile guide .png
-//23 - 26 and so on are player sprites
+
 //make a seperate animation tool, uses an array of images than a spritesheet
