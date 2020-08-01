@@ -56,6 +56,7 @@ class SpriteSheet{
   private PImage[] spriteSheet;
   private int increment = 0;
   public boolean stoploop = false;
+  private boolean adjust = false;
   private boolean reverse = false;
   private int wide;
   private int currentX;
@@ -81,42 +82,42 @@ class SpriteSheet{
     
   }
   
-  public void changeDisplay(int x, int y, boolean stop, int start, int end){
+  public void changeDisplay(int x, int y, boolean loopcontrol, int start, int end){
     
-      if(end != 0){
-        if(end >= wide){
-           end = wide; 
-        } else {
-          wide = end;
-        }
-      }
-      
-      if(start != -1){
-        if(start >= wide - 2){
-          start = wide - 2;
-        } else {
-           
-        }
-      }
+       if(!adjust){
+         if(start > 0){
+           increment = start - 1;
+         }
+         if(end < wide){
+           wide = end;
+         }
+         adjust = true;
+       }
     
-      if(this.increment == wide - 1){
+      if(this.increment == wide-1 && loopcontrol){
+        stoploop = true;
+        this.increment--;
+      } 
+    
+      if(this.increment == wide-1 && !loopcontrol){
         reverse = true;
       } 
       
       //clear();
       
-      //image(this.spriteSheet[increment] , x, y, 64, 64);
       this.currentX = x;
       this.currentY = y;
       
-      if(reverse && !stop){
+      if(reverse){
          this.increment--;
-       } else if(!stop){
+       } else {
          this.increment++; 
        }
        
-       if(this.increment == 0){
-        reverse = false; 
+     if(this.increment == 0 && !loopcontrol){
+        stoploop = true;
+     } else if(this.increment == 0) {
+        reverse = false;
      }
      
   }
@@ -129,7 +130,69 @@ class SpriteSheet{
       
       //clear();
       
-      //image(this.spriteSheet[increment] , x, y, 64, 64);
+      this.currentX = x;
+      this.currentY = y;
+      
+      if(reverse){
+         this.increment--;
+       } else {
+         this.increment++; 
+       }
+       
+       if(this.increment == 0){
+        reverse = false; 
+     }
+     
+  }
+  
+  public void changeDisplay(int x, int y, boolean loopcontrol){
+    
+      if(this.increment == wide-1 && loopcontrol){
+        stoploop = true;
+        this.increment--;
+      } 
+    
+      if(this.increment == wide-1 && !loopcontrol){
+        reverse = true;
+      } 
+      
+      //clear();
+      
+      this.currentX = x;
+      this.currentY = y;
+      
+      if(reverse){
+         this.increment--;
+       } else {
+         this.increment++; 
+       }
+       
+     if(this.increment == 0 && !loopcontrol){
+        stoploop = true;
+     } else if(this.increment == 0) {
+        reverse = false;
+     }
+     
+  }
+  
+  public void changeDisplay(int x, int y, int start, int end){
+    
+      if(!adjust){
+         if(start > 0){
+           increment = start;
+         }
+         if(end < wide){
+           wide = end-1;
+         }
+         adjust = true;
+       }
+    
+      if(this.increment == wide-1){
+        reverse = true;
+      } 
+      
+      //clear();
+      
       this.currentX = x;
       this.currentY = y;
       
@@ -145,28 +208,8 @@ class SpriteSheet{
      
   }
   
-  public void changeDisplay(int x, int y, int stop){
-    
-      if(this.increment == wide-1){
-        reverse = true;
-      } 
-      
-      //clear();
-      
-      //image(this.spriteSheet[increment] , x, y, 64, 64);
-      this.currentX = x;
-      this.currentY = y;
-      
-      if(reverse && (stop == 1)){
-         this.increment--;
-       } else if(stop == 1){
-         this.increment++; 
-       }
-       
-       if(this.increment == 0){
-        reverse = false; 
-     }
-     
+  public void display(int x, int y){
+    image(this.spriteSheet[this.increment] , currentX, currentY, 32, 32);
   }
   
   public void display(){
@@ -200,8 +243,10 @@ this Timer (called animationTimer) is set to activate every 500 milliseconds (0.
   .changeDisplay can be overloaded
   it can take in:
   int, int (x,y) "x,y" variables: where to display animation
-  int, int, int (x,y, stop) "stop" variable: put "0" to loop animation once, put "1" to loop animation once without reverse (bad input makes stop do nothing)
-  int, int, int, int, int (x,y, stop, start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
+  int, int, bool (x,y, loopcontrol) "stop" variable: put "false" to play animation with reverse once, put "true" to play animation once without reverse
+  int, int, int, int (x,y, start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
+  int, int, bool, int, int (x,y, stop, start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
+  
 
 */
 

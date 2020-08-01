@@ -13,6 +13,7 @@ PImage[] tiles;
 SpriteSheet TPlayerStand;
 
 SpriteSheet SSAirA;
+SpriteSheet SSBeardA;
 
 
 Timer animationTimer;
@@ -88,9 +89,10 @@ void setup(){
   
   animationTimer = new Timer(500);
   
-  //TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27));
+  TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27));
   
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
+  SSBeardA = new SpriteSheet(spritesHm.get("BeardA"));
   
     size(1100,800);
     
@@ -168,19 +170,26 @@ void draw(){
   }
   
 
-  /* -- test display code -- remove in the future
-  if(animationTimer.countDownUntil(TPlayerStand.stoploop)){
-    
-  } 
+  ///* -- test display code -- remove in the future
   
-  SSAirA.display();
-  if(animationTimer.countDown()){
-    SSAirA.changeDisplay(80,80,0);
-    //TPlayerStand.changeDisplay(80,80);
+  //if(animationTimer.countDown()){
+  //  SSAirA.changeDisplay(80,80);
+  //} 
+  
+  if(animationTimer.countDownUntil(SSAirA.stoploop)){
+      SSAirA.changeDisplay(80,80,1,4);
   }
   
-  //TPlayerStand.display();
-  */
+  SSAirA.display(32,32);
+  
+  //TPlayerStand.display(32,32);
+  //if(animationTimer.countDown()){
+    
+    //TPlayerStand.changeDisplay(240,80);
+  //}
+  
+  
+  //*/
   
   
   
