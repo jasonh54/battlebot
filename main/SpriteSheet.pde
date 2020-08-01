@@ -170,7 +170,7 @@ class SpriteSheet{
   }
   
   public void display(){
-    image(this.spriteSheet[this.increment] , currentX, currentY, 64, 64);
+    image(this.spriteSheet[this.increment] , currentX, currentY, 32, 32);
   }
   
 }
