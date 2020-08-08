@@ -205,7 +205,7 @@ boolean collideDown(Player player) {
 boolean collideUp(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
     if (collidableTiles.get(i).x == player.x) {
-      if (collidableTiles.get(i).y <= player.y - 8 && collidableTiles.get(i).y >= player.x - 32) {
+      if (collidableTiles.get(i).y <= player.y && collidableTiles.get(i).y >= player.y - 24) {
         return true;
       }
     }
