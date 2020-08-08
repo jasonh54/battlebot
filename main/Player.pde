@@ -52,7 +52,6 @@ class Player{
     animations.display(400,400);
     switch(direction){
       case UP:
-        
         break;
       case DOWN:
         break;
