@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 
 //all the collidable sprites on the spritesheet
-int[] collidableSprites = new int[]{189,190,191,192,193,194,195,196,216,217,218,219,220,221,222,223,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
+int[] collidableSprites = new int[]{189,190,191,192,193,194,195,196,216,217,218,219,220,221,222,223,232,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
 
 
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
@@ -108,36 +108,25 @@ void draw(){
   
   if (currentState == GameStates.WALKING) {
     //if key is pressed
-    if (keyPressed == true) {
+    if (keyPressed == true && lock == false) {
       //if it's a movement key
-      if ( (key == 'w'|| key == 's' || key == 'a' || key == 'd') && lock == false) {
+      if(((key == 'w' && collideUp(testPlayer) == false) || (key == 's' && collideDown(testPlayer) == false) || (key == 'a' && collideLeft(testPlayer) == false) || (key == 'd' && collideRight(testPlayer) == false))) {
         //if a new movement needs to start
         lock = true;
-        
         map.newMove(key);
-        println("new move: " + framecounter);
-        
       }
     }
     
     if (lock == true) {
       framecounter++;
       if (map.getCurrentKey() == 'w') {
-        if (collideUp(testPlayer) == false) {
-          map.moveUp();
-        }
+        map.moveUp();
       } else if (map.getCurrentKey() == 's') {
-        if (collideDown(testPlayer) == false) {
-          map.moveDown();
-        }
+        map.moveDown();
       } else if (map.getCurrentKey() == 'a') {
-        if (collideLeft(testPlayer) == false) {
-          map.moveLeft();
-        }
+        map.moveLeft();
       } else if (map.getCurrentKey() == 'd') {
-        if (collideRight(testPlayer) == false) {
-          map.moveRight();
-        }
+        map.moveRight();
       }
       
       if (framecounter == 8) {
@@ -182,45 +171,45 @@ void draw(){
 
 boolean collideLeft(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).x == player.x - 0 && collidableTiles.get(i).y == player.y) {
-      println("collide left");
-      return true;
+    if (collidableTiles.get(i).y == player.y) {
+      if (collidableTiles.get(i).x <= player.x - 8 && collidableTiles.get(i).x >= player.x - 32) {
+        return true;
+      }
     }
   }
-  println("no collide");
   return false;
 }
 
 boolean collideRight(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).x == player.x + 8 && collidableTiles.get(i).y == player.y) {
-      println("collide right");
-      return true;
+    if (collidableTiles.get(i).y == player.y) {
+      if (collidableTiles.get(i).x >= player.x + 8 && collidableTiles.get(i).x <= player.x + 32) {
+        return true;
+      }
     }
   }
-  println("no collide");
   return false;
 }
 
 boolean collideDown(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).y == player.y + 8 && collidableTiles.get(i).x == player.x) {
-      println("collide down");
-      return true;
+    if (collidableTiles.get(i).x == player.x) {
+      if (collidableTiles.get(i).y >= player.y + 8 && collidableTiles.get(i).y <= player.y + 32) {
+        return true;
+      }
     }
   }
-  println("no collide");
   return false;
 }
 
 boolean collideUp(Player player) {
   for (int i = 0; i < collidableTiles.size();  i++) {
-    if (collidableTiles.get(i).y == player.y - 8 && collidableTiles.get(i).x == player.x) {
-      println("collide up");
-      return true;
+    if (collidableTiles.get(i).x == player.x) {
+      if (collidableTiles.get(i).y <= player.y - 8 && collidableTiles.get(i).y >= player.x - 32) {
+        return true;
+      }
     }
   }
-  println("no collide");
   return false;
 }
 
