@@ -54,6 +54,8 @@
 class SpriteSheet{
  
   private PImage[] spriteSheet;
+  private int loopstart = 0;
+  private int loopend = 0;
   private int increment = 0;
   public boolean stoploop = false;
   private boolean adjust = false;
@@ -65,6 +67,7 @@ class SpriteSheet{
   public SpriteSheet(PImage[] img){
      this.spriteSheet = new PImage[img.length];
      this.wide = img.length;
+     this.loopend = this.wide;
      
      for(int i = 0; i < this.spriteSheet.length; i++){
        this.spriteSheet[i] = img[i];    
@@ -75,6 +78,7 @@ class SpriteSheet{
   public SpriteSheet(PImage img){
     this.wide = img.width/16;
     spriteSheet = new PImage[this.wide];
+    this.loopend = this.wide-1;
     
     for(int i = 0; i < wide; i++){
        this.spriteSheet[i] = img.get(i*16,0,16,16);
@@ -85,21 +89,22 @@ class SpriteSheet{
   public void changeDisplay(boolean loopcontrol, int start, int end){
     
        if(!adjust){
-         if(start > 0){
-           increment = start - 1;
+         increment = start;
+         if(start > loopstart){
+           loopstart = start;
          }
-         if(end < wide){
-           wide = end;
+         if(end < loopend){
+           loopend = end;
          }
          adjust = true;
        }
     
-      if(this.increment == wide-1 && loopcontrol){
+      if(this.increment == this.loopend && loopcontrol){
         stoploop = true;
         this.increment--;
       } 
     
-      if(this.increment == wide-1 && !loopcontrol){
+      if(this.increment == this.loopend && !loopcontrol){
         reverse = true;
       } 
       
@@ -109,9 +114,9 @@ class SpriteSheet{
          this.increment++; 
        }
        
-     if(this.increment == 0 && !loopcontrol){
+     if(this.increment == this.loopstart && !loopcontrol){
         stoploop = true;
-     } else if(this.increment == 0) {
+     } else if(this.increment == this.loopstart) {
         reverse = false;
      }
      
@@ -119,7 +124,7 @@ class SpriteSheet{
   
   public void changeDisplay(){
     
-      if(this.increment == wide-1){
+      if(this.increment == this.loopend){
         reverse = true;
       } 
       
@@ -129,7 +134,7 @@ class SpriteSheet{
          this.increment++; 
        }
        
-       if(this.increment == 0){
+       if(this.increment == this.loopstart){
         reverse = false; 
      }
      
@@ -137,12 +142,12 @@ class SpriteSheet{
   
   public void changeDisplay(boolean loopcontrol){
     
-      if(this.increment == wide-1 && loopcontrol){
+      if(this.increment == this.loopend && loopcontrol){
         stoploop = true;
         this.increment--;
       } 
     
-      if(this.increment == wide-1 && !loopcontrol){
+      if(this.increment == this.loopend && !loopcontrol){
         reverse = true;
       } 
       
@@ -153,9 +158,9 @@ class SpriteSheet{
          this.increment++; 
        }
        
-     if(this.increment == 0 && !loopcontrol){
+     if(this.increment == this.loopstart && !loopcontrol){
         stoploop = true;
-     } else if(this.increment == 0) {
+     } else if(this.increment == this.loopstart) {
         reverse = false;
      }
      
@@ -164,16 +169,17 @@ class SpriteSheet{
   public void changeDisplay(int start, int end){
     
       if(!adjust){
-         if(start > 0){
-           increment = start;
+         increment = start;
+         if(start > loopstart){
+           loopstart = start;
          }
-         if(end < wide){
-           wide = end-1;
+         if(end < loopend){
+           loopend = end;
          }
          adjust = true;
        }
     
-      if(this.increment == wide-1){
+      if(this.increment == loopend){
         reverse = true;
       } 
       
@@ -183,7 +189,7 @@ class SpriteSheet{
          this.increment++; 
        }
        
-       if(this.increment == 0){
+       if(this.increment == loopstart){
         reverse = false; 
      }
      
@@ -197,6 +203,10 @@ class SpriteSheet{
   
   public void display(){
     image(this.spriteSheet[this.increment] , currentX, currentY, 32, 32);
+  }
+  
+  public void changeFrame(int frame){
+    this.increment = frame;
   }
   
 }

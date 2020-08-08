@@ -150,11 +150,14 @@ void draw(){
   //  SSAirA.changeDisplay(80,80);
   //} 
   
-  if(animationTimer.countDownUntil(SSAirA.stoploop)){
-      SSAirA.changeDisplay(1,4);
-  }
+  //if(animationTimer.countDownUntil(SSAirA.stoploop)){
+      //SSAirA.changeDisplay(3,4);
+      //System.out.println("increment is : " + SSAirA.increment + " , start is : " + SSAirA.loopstart + " , end is : " + SSAirA.loopend);
+ // }
   
-  SSAirA.display(32,32);
+ // SSAirA.display(80,80);
+  
+  //SSAirA.display(32,32);
   
   //TPlayerStand.display(32,32);
   //if(animationTimer.countDown()){
