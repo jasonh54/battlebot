@@ -10,6 +10,7 @@ int[] collidableSprites = new int[]{189,190,191,192,193,194,195,196,216,217,218,
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 
+//all the collidable tiles in the current game
 
 
 SpriteSheet TPlayerStand;

@@ -16,11 +16,11 @@ class Map {
   final int mapscale = 2;
 
   Tile [][] mapTiles;
-  
+  ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
+
   public Map() {
-    
   }
-  
+
   //map generation v2 (working)
   void generateBaseMap(int[][] tileArray) {
     //counters for dimensions of tileArray AND mapTiles
@@ -65,7 +65,7 @@ class Map {
       incount1++;
     }
   }
-  
+
   void draw() {
     for (int i = 0; i < colsize; i++) {
       for (int k = 0; k < rowsize; k++) {
@@ -73,14 +73,14 @@ class Map {
       }
     }
   }
-  
+
   //add collidable tiles on the map into an arraylist
   void loadCollide(Tile tile) {
     if (tile.collide == true) {
       collidableTiles.add(tile);
     }
   }
-  
+
   //ALWAYS set min = 0 and max = [array].length - 1
   boolean binarySearch(int[] arr, int goal, int min, int max) {
     int index = (min + max)/2;
@@ -96,12 +96,11 @@ class Map {
     }
     return false;
   }
-  
+
   //update loop
   void update() {
-    
   }
-  
+
   void moveUp() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -110,7 +109,7 @@ class Map {
     }
     counter++;
   }
-  
+
   void moveDown() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -119,7 +118,7 @@ class Map {
     }
     counter++;
   }
-  
+
   void moveLeft() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -128,7 +127,7 @@ class Map {
     }
     counter++;
   }
-  
+
   void moveRight() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -137,7 +136,7 @@ class Map {
     }
     counter++;
   }
-  
+
   void stopMove() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -146,14 +145,56 @@ class Map {
     }
     counter = 0;
   }
-  
+
   void newMove(char currentKey) {
     this.currentKey = currentKey;
   }
-  
-  char getCurrentKey(){
+
+  char getCurrentKey() {
     return currentKey;
   }
 
+  public boolean collideLeft(Player player) {
+    for (int i = 0; i < collidableTiles.size(); i++) {
+      if (collidableTiles.get(i).y == player.y) {
+        if (collidableTiles.get(i).x <= player.x - 8 && collidableTiles.get(i).x >= player.x - 32) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 
+  public boolean collideRight(Player player) {
+    for (int i = 0; i < collidableTiles.size(); i++) {
+      if (collidableTiles.get(i).y == player.y) {
+        if (collidableTiles.get(i).x >= player.x + 8 && collidableTiles.get(i).x <= player.x + 32) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  public boolean collideDown(Player player) {
+    for (int i = 0; i < collidableTiles.size(); i++) {
+      if (collidableTiles.get(i).x == player.x) {
+        if (collidableTiles.get(i).y >= player.y + 8 && collidableTiles.get(i).y <= player.y + 32) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  public boolean collideUp(Player player) {
+    for (int i = 0; i < collidableTiles.size(); i++) {
+      if (collidableTiles.get(i).x == player.x) {
+        if (collidableTiles.get(i).y <= player.y && collidableTiles.get(i).y >= player.y - 24) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
