@@ -33,6 +33,8 @@ class Tile {
     println(this.collide);
   }
   
+  
+  //BASE MOVEMENT THINGS
   void moveUp() {
     speedy = 2 * scale;
     this.y += speedy;
@@ -58,6 +60,14 @@ class Tile {
     //this.x = speedx;
     speedy = 0;
     //this.y = speedy;
+  }
+  
+  //checking if player is overlapping
+  boolean checkOverlap(Player player) {
+    if (this.x == player.x && this.y == player.y) {
+      return true;
+    }
+    return false;
   }
   
   //draw with scales

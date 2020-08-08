@@ -131,6 +131,8 @@ void draw(){
       if (framecounter == 8) {
         lock = false;
         framecounter = 0;
+        //will need a checkoverlap for every type of important tiles (grass, portals(?), etc)
+        //map.checkOverlap([arraylist of one type of tile], testPlayer);
         map.stopMove();
       }
     }

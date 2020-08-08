@@ -101,6 +101,7 @@ class Map {
   void update() {
   }
 
+  //BASE MOVEMENT THINGS
   void moveUp() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -153,7 +154,17 @@ class Map {
   char getCurrentKey() {
     return currentKey;
   }
+  
+  boolean checkOverlap(ArrayList<Tile> array, Player player) {
+    for (int i = 0; i < array.size(); i++) {
+      if (array.get(i).checkOverlap(player) == true) {
+        return true;
+      }
+    }
+    return false;
+  }
 
+  //COLLISION THINGS
   public boolean collideLeft(Player player) {
     for (int i = 0; i < collidableTiles.size(); i++) {
       if (collidableTiles.get(i).y == player.y) {
@@ -190,11 +201,13 @@ class Map {
   public boolean collideUp(Player player) {
     for (int i = 0; i < collidableTiles.size(); i++) {
       if (collidableTiles.get(i).x == player.x) {
-        if (collidableTiles.get(i).y <= player.y && collidableTiles.get(i).y >= player.y - 24) {
+        if (collidableTiles.get(i).y <= player.y - 8 && collidableTiles.get(i).y >= player.y - 32) {
           return true;
         }
       }
     }
     return false;
   }
+  
+  
 }
