@@ -17,6 +17,7 @@ class Map {
 
   Tile [][] mapTiles;
   ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
+  ArrayList<Tile> grassTiles = new ArrayList<Tile>();
 
   public Map() {
   }
@@ -40,6 +41,8 @@ class Map {
         Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
         topleft.collide = binarySearch(collidableSprites, tileArray[0][0], 0, collidableSprites.length - 1);
         loadCollide(topleft);
+        topleft.grasstile = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+        loadGrass(topleft);
         mapTiles[0][0] = topleft;
         print(tileArray[0][0]);
         prev = topleft;
@@ -48,6 +51,8 @@ class Map {
         current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
         current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
         loadCollide(current);
+        current.grasstile = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+        loadGrass(current);
         mapTiles[incount1][incount2] = current;
         print(", " + tileArray[incount1][incount2]);
         prev = current;
@@ -58,6 +63,8 @@ class Map {
         current = new Tile(prev.x + tilew * mapscale, prev.y, false, false, tiles[tileArray[incount1][incount2]], mapscale);
         current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
         loadCollide(current);
+        current.grasstile = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+        loadGrass(current);
         mapTiles[incount1][incount2] = current;
         print(tileArray[incount1][incount2]);
         prev = current;
@@ -74,14 +81,21 @@ class Map {
     }
   }
 
-  //add collidable tiles on the map into an arraylist
+  //add tiles to various type-oriented arraylists
   void loadCollide(Tile tile) {
     if (tile.collide == true) {
       collidableTiles.add(tile);
     }
   }
+  
+  void loadGrass(Tile tile) {
+    if (tile.grasstile == true) {
+      grassTiles.add(tile);
+    }
+  }
 
   //ALWAYS set min = 0 and max = [array].length - 1
+  //for sorting tiles into types
   boolean binarySearch(int[] arr, int goal, int min, int max) {
     int index = (min + max)/2;
     if (min == max) {
@@ -158,9 +172,11 @@ class Map {
   boolean checkOverlap(ArrayList<Tile> array, Player player) {
     for (int i = 0; i < array.size(); i++) {
       if (array.get(i).checkOverlap(player) == true) {
+        println("on grass");
         return true;
       }
     }
+    println("not on grass");
     return false;
   }
 
