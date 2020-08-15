@@ -19,6 +19,8 @@ SpriteSheet SSBeardA;
 
 
 Timer animationTimer;
+Timer restartTimer;
+
 Map map = new Map();
 int framecounter = 0;
 char countingkey;
@@ -92,6 +94,8 @@ void setup(){
 
   
   animationTimer = new Timer(500);
+  restartTimer = new Timer(5000);
+  
   SSAirA = new SpriteSheet(spritesHm.get("AirA"));
   SSBeardA = new SpriteSheet(spritesHm.get("BeardA"));
   
@@ -145,26 +149,19 @@ void draw(){
   
 
 
-  ///* -- test display code -- remove in the future
-  
-  //if(animationTimer.countDown()){
-  //  SSAirA.changeDisplay(80,80);
-  //} 
-  
+  ///* -- test display code -- remove in the future 
   //if(animationTimer.countDownUntil(SSAirA.stoploop)){
-      //SSAirA.changeDisplay(3,4);
-      //System.out.println("increment is : " + SSAirA.increment + " , start is : " + SSAirA.loopstart + " , end is : " + SSAirA.loopend);
- // }
-  
- // SSAirA.display(80,80);
-  
-  //SSAirA.display(32,32);
-  
-  //TPlayerStand.display(32,32);
-  //if(animationTimer.countDown()){
-    
-    //TPlayerStand.changeDisplay(240,80);
+  //    SSAirA.changeDisplay(true,-1,9);   
   //}
+  
+  //SSAirA.display(80,80);
+  
+  //if(restartTimer.countDownOnce()){
+  //  SSAirA.restart();
+  //  System.out.println("restarted");
+  //}
+  
+  
   
   
   //*/
