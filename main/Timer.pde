@@ -2,6 +2,7 @@ class Timer{
   
   private int timeStamp = 0;
   private int timeInterval = 0;
+  private boolean once = false;
   
   public Timer(int timeInterval){
     this.timeInterval = timeInterval;
@@ -14,6 +15,17 @@ class Timer{
     } else {
       return false;
     }
+  }
+  
+  public boolean countDownOnce(){
+    if(!once){
+      if (timeStamp + timeInterval < millis()){
+        timeStamp = millis();
+        once = true;
+        return true;
+      }
+    }
+    return false;
   }
   
   public boolean countDownUntil(boolean stop){ //function made with use of the spritesheet class in mind
