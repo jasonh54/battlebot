@@ -49,23 +49,25 @@ class Player{
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
-    animations.display(400,400);
+    
     switch(direction){
       case UP:
+        moveUp();
         break;
       case DOWN:
+        moveDown();
         break;
       case LEFT:
+        moveLeft();
         break;
       case RIGHT:
+        moveRight();
         break;
       default:
         break;
     }
-    if(animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 0, 2);
-    }
     
+    animations.display(400,400);
   }
   
   

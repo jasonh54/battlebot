@@ -120,12 +120,16 @@ void draw(){
       framecounter++;
       if (map.getCurrentKey() == 'w') {
         map.moveUp();
+        testPlayer.direction = PlayerMovementStates.UP;
       } else if (map.getCurrentKey() == 's') {
         map.moveDown();
+        testPlayer.direction = PlayerMovementStates.DOWN;
       } else if (map.getCurrentKey() == 'a') {
         map.moveLeft();
+        testPlayer.direction = PlayerMovementStates.LEFT;
       } else if (map.getCurrentKey() == 'd') {
         map.moveRight();
+        testPlayer.direction = PlayerMovementStates.RIGHT;
       }
       
       if (framecounter == 8) {
@@ -135,7 +139,7 @@ void draw(){
         //map.checkOverlap([arraylist of one type of tile], testPlayer);
         map.stopMove();
       }
-    }
+    } 
 
   } else if (currentState == GameStates.COMBAT) {
     //drawing monsters, moves, battlefield, etc
