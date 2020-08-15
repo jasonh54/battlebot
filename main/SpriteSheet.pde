@@ -205,6 +205,13 @@ class SpriteSheet{
     image(this.spriteSheet[this.increment] , currentX, currentY, 32, 32);
   }
   
+  public void restart(){
+    if(stoploop){
+        stoploop = false;
+    }
+    this.increment = this.loopstart;
+  }
+  
   public void changeFrame(int frame){
     this.increment = frame;
   }
