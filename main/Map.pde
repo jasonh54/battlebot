@@ -98,7 +98,7 @@ class Map {
   //for sorting tiles into types
   boolean binarySearch(int[] arr, int goal, int min, int max) {
     int index = (min + max)/2;
-    if (min == max) {
+    if (min > max) {
       return false;
     }
     if (arr[index] == goal) {
