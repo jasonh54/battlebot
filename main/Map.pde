@@ -15,9 +15,8 @@ class Map {
   int framecounter = 0;
   boolean lock = false;
   
-
   final int mapscale = 2;
-
+  
   Tile [][] mapTiles;
   ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
   ArrayList<Tile> portalTiles = new ArrayList<Tile>();
@@ -165,7 +164,7 @@ class Map {
         framecounter = 0;
         //will need a checkoverlap for every type of important tiles (grass, portals(?), etc)
         checkOverlap(portalTiles, testPlayer, "portal underfoot");
-        checkOverlap(grassTiles, testPlayer, "grass underfoot");
+        checkOverlap(grassTiles, testPlayer, "grass underfoot"); 
         stopMove();
       }
     }

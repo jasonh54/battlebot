@@ -111,11 +111,11 @@ void draw(){
   testPlayer.display();
   
   if (currentState == GameStates.WALKING) {
-    
+    map.update();
 
 
   } else if (currentState == GameStates.COMBAT) {
-    map.update();
+    
     
   } else if (currentState == GameStates.MENU) {
     //drawing buttons/options
@@ -144,7 +144,9 @@ void draw(){
   
 }
 
-
+public void changeGameState(GameStates state){
+  
+}
 
 public void generateTileMapGuide(){
   int i = 0;
