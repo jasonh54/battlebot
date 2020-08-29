@@ -21,6 +21,7 @@ class Map {
   Tile [][] mapTiles;
   ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
   ArrayList<Tile> portalTiles = new ArrayList<Tile>();
+  ArrayList<Tile> grassTiles = new ArrayList<Tile>();
 
   public Map() {
     
@@ -45,6 +46,10 @@ class Map {
         Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
         topleft.collide = binarySearch(collidableSprites, tileArray[0][0], 0, collidableSprites.length - 1);
         loadCollide(topleft);
+        topleft.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
+        loadPortal(topleft);
+        topleft.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+        loadGrass(topleft);
         mapTiles[0][0] = topleft;
         print(tileArray[0][0]);
         prev = topleft;
@@ -53,6 +58,10 @@ class Map {
         current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
         current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
         loadCollide(current);
+        current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
+        loadPortal(current);
+        current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+        loadGrass(current);
         mapTiles[incount1][incount2] = current;
         print(", " + tileArray[incount1][incount2]);
         prev = current;
@@ -65,6 +74,8 @@ class Map {
         loadCollide(current);
         current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
         loadPortal(current);
+        current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+        loadGrass(current);
         mapTiles[incount1][incount2] = current;
         print(tileArray[incount1][incount2]);
         prev = current;
@@ -95,6 +106,12 @@ class Map {
   void loadPortal(Tile tile) {
     if (tile.portal == true) {
       portalTiles.add(tile);
+    }
+  }
+  
+  void loadGrass(Tile tile) {
+    if (tile.grass == true) {
+      grassTiles.add(tile);
     }
   }
 
@@ -147,7 +164,8 @@ class Map {
         lock = false;
         framecounter = 0;
         //will need a checkoverlap for every type of important tiles (grass, portals(?), etc)
-        checkOverlap(portalTiles, testPlayer);
+        checkOverlap(portalTiles, testPlayer, "portal underfoot");
+        checkOverlap(grassTiles, testPlayer, "grass underfoot");
         stopMove();
       }
     }
@@ -203,14 +221,13 @@ class Map {
   }
   
   //overlap code
-  boolean checkOverlap(ArrayList<Tile> array, Player player) {
+  boolean checkOverlap(ArrayList<Tile> array, Player player, String text) {
     for (int i = 0; i < array.size(); i++) {
       if (array.get(i).checkOverlap(player) == true) {
-        println("is overlapping");
+        println(text);
         return true;
       }
     }
-    println("is not overlapping");
     return false;
   }
 
