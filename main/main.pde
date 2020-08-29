@@ -106,7 +106,7 @@ void setup(){
 
 void draw(){
   background(0);
-  map.update();
+  
   testPlayer.display();
   
   if (currentState == GameStates.WALKING) {
@@ -114,7 +114,8 @@ void draw(){
 
 
   } else if (currentState == GameStates.COMBAT) {
-    //drawing monsters, moves, battlefield, etc
+    map.update();
+    
   } else if (currentState == GameStates.MENU) {
     //drawing buttons/options
   }
