@@ -3,6 +3,7 @@ class Tile {
   PImage img;
   boolean collide;
   boolean portal;
+  boolean grass;
   float x;
   float y;
   int scale;
