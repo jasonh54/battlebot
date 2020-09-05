@@ -52,4 +52,8 @@ class Timer{
     timeStamp = millis();
   }
   
+  public void changeTs(int time){
+    this.timeStamp = time;
+  }
+  
 }

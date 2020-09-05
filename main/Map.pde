@@ -6,6 +6,7 @@ class Map {
   int speedy;
   int colsize;
   int rowsize;
+  int overlapint;
   
   final int tileh = 16;
   final int tilew = 16;
@@ -163,8 +164,16 @@ class Map {
         lock = false;
         framecounter = 0;
         //will need a checkoverlap for every type of important tiles (grass, portals(?), etc)
-        checkOverlap(portalTiles, testPlayer, "portal underfoot");
-        checkOverlap(grassTiles, testPlayer, "grass underfoot"); 
+
+        if (checkOverlap(portalTiles, testPlayer, "portal underfoot") > 0) {
+          //have a variable save portalTiles.get(overlapint);
+          //figure out what map is associated with that tile and generate it
+        }
+        if (checkOverlap(grassTiles, testPlayer, "grass underfoot") > 0) {
+          //random chance to activate a battle
+          //if chance happens, activate battle state
+        }
+
         stopMove();
       }
     }
@@ -219,15 +228,17 @@ class Map {
     return currentKey;
   }
   
-  //overlap code
-  boolean checkOverlap(ArrayList<Tile> array, Player player, String text) {
+  //OVERLAP CODE
+  int checkOverlap(ArrayList<Tile> array, Player player, String text) {
     for (int i = 0; i < array.size(); i++) {
       if (array.get(i).checkOverlap(player) == true) {
         println(text);
-        return true;
+        overlapint = i;
+        return overlapint;
       }
     }
-    return false;
+    overlapint = -1;
+    return overlapint;
   }
 
   //COLLISION THINGS
