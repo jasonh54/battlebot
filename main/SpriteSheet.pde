@@ -1,58 +1,6 @@
-//sprite sheet class
-//takes a large PImage and cuts it apart into smaller PImages
-
-/*class SpriteSheet{
-  
-  private PImage spriteSheet;
-  private int wide;
-  private int increment = 0;
-  private boolean reverse = false;
-  public boolean stoploop = false;
-  
-  
-  public SpriteSheet(PImage PImg){
-    this.spriteSheet = PImg;
-    wide = PImg.width/16;
-    
- }
-   
-   public void display(int x, int y, boolean stop, int disp){
-     if(disp != 0){
-       wide = disp;    
-     }
-     
-     if(this.increment >= wide){
-        reverse = true;
-        this.increment--; 
-     } 
-     
-       clear();
-       image(this.spriteSheet , x, y, 64, 64, 0 + (increment*16), 0, 16 * (increment+1), 16);
-       
-       if(reverse){
-         this.increment--;
-       } else {
-         this.increment++; 
-       }
-       
-       if(this.increment == 0){
-        reverse = false; 
-        
-        if(stop){
-           clear();
-           image(this.spriteSheet , x, y, 64, 64, 0 + (increment*16), 0, 16 * (increment+1), 16);
-           this.stoploop = stop;
-        }
-     }
-       
-     
-   }
- 
-  
-}*/
-
 class SpriteSheet{
  
+  private Timer animationTimer;
   private PImage[] spriteSheet;
   private int loopstart = 0;
   private int loopend = 0;
@@ -64,7 +12,9 @@ class SpriteSheet{
   private int currentX;
   private int currentY;
   
-  public SpriteSheet(PImage[] img){
+  public SpriteSheet(PImage[] img, int time){
+     this.animationTimer = new Timer(time);
+    
      this.spriteSheet = new PImage[img.length];
      this.wide = img.length;
      this.loopend = this.wide;
@@ -75,7 +25,9 @@ class SpriteSheet{
      
   }
   
-  public SpriteSheet(PImage img){
+  public SpriteSheet(PImage img, int time){
+    this.animationTimer = new Timer(time);
+    
     this.wide = img.width/16;
     spriteSheet = new PImage[this.wide];
     this.loopend = this.wide-1;
@@ -86,9 +38,36 @@ class SpriteSheet{
     
   }
   
-  public void changeDisplay(boolean loopcontrol, int start, int end){
+  public void changeDisplay( boolean loopcontrol, int start, int end){
     
        if(!adjust){
+         increment = start;
+         if(start > loopstart){
+           loopstart = start;
+         }
+         if(end < loopend){
+           loopend = end;
+         }
+         adjust = true;
+       }
+    
+      if(this.increment == this.loopend){
+        reverse = true;
+      }  
+    
+      if(reverse){
+         this.increment--;
+       } else {
+         this.increment++; 
+       }
+       
+     if(this.increment == this.loopstart && !loopcontrol){
+        stoploop = true;
+     } else {
+        reverse = false;
+     }
+     
+     /*if(!adjust){
          increment = start;
          if(start > loopstart){
            loopstart = start;
@@ -118,13 +97,21 @@ class SpriteSheet{
         stoploop = true;
      } else if(this.increment == this.loopstart) {
         reverse = false;
-     }
+     }*/
      
   }
   
   public void changeDisplay(){
     
       if(this.increment == this.loopend){
+        stoploop = true;
+        this.increment--;
+      } 
+    
+      this.increment++;
+      
+     
+     /*if(this.increment == this.loopend){
         reverse = true;
       } 
       
@@ -136,7 +123,7 @@ class SpriteSheet{
        
        if(this.increment == this.loopstart){
         reverse = false; 
-     }
+     }*/
      
   }
   
@@ -216,6 +203,10 @@ class SpriteSheet{
     this.increment = frame;
   }
   
+  public void changeTime(int time){
+     animationTimer.changeTs(time); 
+  }
+  
 }
 
 /*
@@ -241,10 +232,11 @@ this Timer (called animationTimer) is set to activate every 500 milliseconds (0.
 ------------------------------------------------------------
   ****IMPORTANT**** section details methods....
   .changeDisplay can be overloaded
+  by default it will not loop the animation, nor will it loop it will reverse
   it can take in:
-  bool (x,y, loopcontrol) "stop" variable: put "false" to play animation with reverse once, put "true" to play animation once without reverse
-  int, int (x,y, start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
-  bool, int, int (x,y, stop, start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
+  bool (loopcontrol) "loopcontrol" variable: put "false" to play animation with reverse once, put "true" to loop animation with reverse
+  int, int (start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
+  bool, int, int (loopcontrol, start, end) "start" variable: which frame to start animation (cannot be less than 0), "end" variable: which frame to end animation (cannot be less than 0)
   
 
 */

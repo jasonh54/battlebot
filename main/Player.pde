@@ -44,7 +44,7 @@ class Player{
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new SpriteSheet(this.sprites);
+    animations = new SpriteSheet(this.sprites, 500);
   }
   
   public void display(){
@@ -62,7 +62,7 @@ class Player{
       default:
         break;
     }
-    if(animationTimer.countDownUntil(animations.stoploop)){
+    if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeDisplay( false, 0, 2);
     }
     
@@ -72,25 +72,25 @@ class Player{
   
   //player needs key pressed to trigger animations
   void moveUp(){
-    if(animationTimer.countDownUntil(animations.stoploop)){
+    if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeDisplay( false, 6, 8);
     }
   }
   
   void moveDown(){
-    if(animationTimer.countDownUntil(animations.stoploop)){
+    if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeDisplay( false, 3, 5);
     }
   }
   
   void moveLeft(){
-    if(animationTimer.countDownUntil(animations.stoploop)){
+    if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeDisplay( false, 0, 2);
     }
   }
   
   void moveRight(){
-    if(animationTimer.countDownUntil(animations.stoploop)){
+    if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeDisplay( false, 9, 11);
     }
   }
