@@ -19,7 +19,7 @@ SpriteSheet SSAirA;
 SpriteSheet SSBeardA;
 
 
-Timer animationTimer;
+//Timer animationTimer;
 Timer restartTimer;
 
 Map map = new Map();
@@ -91,14 +91,14 @@ void setup(){
   map.generateBaseMap(tileArr);
   print(testPlayer.x + " " + testPlayer.y);
   
-  TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27));
+  TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27), 500);
 
   
-  animationTimer = new Timer(500);
+  //animationTimer = new Timer(500);
   restartTimer = new Timer(5000);
   
-  SSAirA = new SpriteSheet(spritesHm.get("AirA"));
-  SSBeardA = new SpriteSheet(spritesHm.get("BeardA"));
+  SSAirA = new SpriteSheet(spritesHm.get("AirA"), 500);
+  SSBeardA = new SpriteSheet(spritesHm.get("BeardA"), 500);
   
     size(1100,800);
     
@@ -149,23 +149,24 @@ void draw(){
 
 
   ///* -- test display code -- remove in the future 
-  //if(animationTimer.countDownUntil(SSAirA.stoploop)){
-  //    SSAirA.changeDisplay(true,-1,9);   
-  //}
+  if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
+      SSAirA.changeDisplay(true, -1, 9);   
+      //SSAirA.changeDisplay();
+  }
   
-  //SSAirA.display(80,80);
+  SSAirA.display(80,80);
   
-  //if(restartTimer.countDownOnce()){
-  //  SSAirA.restart();
-  //  System.out.println("restarted");
-  //}
+  if(SSAirA.stoploop){
+    SSAirA.restart();
+    System.out.println("restarted");
+  }
   
   
   
   
   //*/
   
-  testPlayer.display();
+  //testPlayer.display();
   
 }
 
