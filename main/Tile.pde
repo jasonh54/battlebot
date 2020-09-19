@@ -34,6 +34,10 @@ class Tile {
     println(this.collide);
   }
   
+  /* void blankCheck() {
+    if (this.img = )
+  } */
+  
   
   //BASE MOVEMENT THINGS
   void moveUp() {
