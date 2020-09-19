@@ -135,7 +135,7 @@ class Map {
   //update loop
   void update() {
     //draw
-    map.draw();
+    this.draw();
     
     //MOVEMENT CODE
     //when key is firest pressed
