@@ -175,6 +175,7 @@ class Map {
         }
 
         stopMove();
+        
       }
     }
   }

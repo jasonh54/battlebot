@@ -150,17 +150,19 @@ void setup(){
 void draw(){
   background(0);
   
-  testPlayer.display();
+  
   
   if (currentState == GameStates.WALKING) {
-    map.update();
-
+    //map.update();
+    overlay.update();
+    testPlayer.display();
 
   } else if (currentState == GameStates.COMBAT) {
     
     
   } else if (currentState == GameStates.MENU) {
-    //drawing buttons/options
+    //map.draw();
+    testPlayer.display();
   }
   
 
@@ -183,12 +185,12 @@ void draw(){
   
   //*/
   
-  //testPlayer.display();
+  
   
 }
 
 public void changeGameState(GameStates state){
-  
+  currentState = state;
 }
 
 public void generateTileMapGuide(){
