@@ -49,7 +49,7 @@ class Player{
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
-    
+    animations.display(400,400);
     switch(direction){
       case UP:
         moveUp();

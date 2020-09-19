@@ -150,7 +150,7 @@ void setup(){
 void draw(){
   background(0);
   
-  testPlayer.display();
+  
   
   if (currentState == GameStates.WALKING) {
     map.update();
@@ -172,12 +172,14 @@ void draw(){
       //SSAirA.changeDisplay();
   }
   
-  SSAirA.display(80,80);
+  //SSAirA.display(80,80);
   
   if(SSAirA.stoploop){
     SSAirA.restart();
     System.out.println("restarted");
   }
+  
+  testPlayer.display();
   
   
   
