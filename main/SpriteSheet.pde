@@ -1,24 +1,24 @@
 class SpriteSheet{
  
-  private Timer animationTimer;
-  private Timer pausedTimer = new Timer(0);
-  private PImage[] spriteSheet;
-  private int loopstart = 0;
-  private int loopend = 0;
-  private int increment = 0;
-  public boolean stoploop = false;
-  private boolean paused = false; 
-  private boolean adjust = false;
-  private boolean reverse = false;
-  private int wide;
-  private int currentX;
-  private int currentY;
+  private Timer animationTimer; //main timing for the animations of the class, can be changed
+  private Timer pausedTimer = new Timer(0); //seperate timer used with the pause() and unpause() functions
+  private PImage[] spriteSheet; //array that contains all of the sprites used for animation
+  private int loopstart = 0; //start frame variable of the animation
+  private int loopend = 0; //end frame variable of the animation
+  private int increment = 0; //current frame of the animation
+  public boolean stoploop = false; //variable that if true stops the animation, can be restarted
+  private boolean paused = false; //like the stoploop variable, but stops the animation for a period of time
+  private boolean adjust = false; //one off variable used to check if the start and end frames have been adjusted
+  private boolean reverse = false; //variable used to loop animations cleanly
+  private int wide; //length of the spriteSheet array
+  private int currentX; //the current x position of the animation
+  private int currentY; //the current y position of the animation
   
   public SpriteSheet(PImage[] img, int time){
      this.animationTimer = new Timer(time);
     
-     this.spriteSheet = new PImage[img.length];
-     this.wide = img.length;
+     this.spriteSheet = new PImage[img.length]; //creates the spritesheet array using an array of images
+     this.wide = img.length; //sets the wide variable to the length of the array
      this.loopend = this.wide;
      
      for(int i = 0; i < this.spriteSheet.length; i++){
@@ -30,12 +30,12 @@ class SpriteSheet{
   public SpriteSheet(PImage img, int time){
     this.animationTimer = new Timer(time);
     
-    this.wide = img.width/16;
+    this.wide = img.width/16; //sets the wide variable to the length of the array
     spriteSheet = new PImage[this.wide];
     this.loopend = this.wide-1;
     
     for(int i = 0; i < wide; i++){
-       this.spriteSheet[i] = img.get(i*16,0,16,16);
+       this.spriteSheet[i] = img.get(i*16,0,16,16); //creates the spritesheet array by cutting up a spritesheet image
     }
     
   }
