@@ -1,11 +1,13 @@
 class SpriteSheet{
  
   private Timer animationTimer;
+  private Timer pausedTimer = new Timer(0);
   private PImage[] spriteSheet;
   private int loopstart = 0;
   private int loopend = 0;
   private int increment = 0;
   public boolean stoploop = false;
+  private boolean paused = false; 
   private boolean adjust = false;
   private boolean reverse = false;
   private int wide;
@@ -204,7 +206,25 @@ class SpriteSheet{
   }
   
   public void changeTime(int time){
-     animationTimer.changeTs(time); 
+    animationTimer.changeTs(time); 
+  }
+  
+  public void pause(){
+    this.paused = true;
+  }
+  
+  public void pause(int time){
+    this.paused = true;
+    pausedTimer.changeTs(time);
+  }
+  
+  public void unpause(){
+    this.paused = false;
+    pausedTimer.changeTs(0);
+  }
+  
+  public void skip(){
+     
   }
   
 }
