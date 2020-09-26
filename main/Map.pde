@@ -17,8 +17,8 @@ class Map {
   boolean lock = false;
   
   final int mapscale = 2;
-  
-  Tile [][] mapTiles;
+  private int[][] tileArray;
+  private Tile [][] mapTiles;
   ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
   ArrayList<Tile> portalTiles = new ArrayList<Tile>();
   ArrayList<Tile> grassTiles = new ArrayList<Tile>();
@@ -29,6 +29,7 @@ class Map {
 
   //map generation v2 (working)
   void generateBaseMap(int[][] tileArray) {
+    this.tileArray = tileArray;
     //counters for dimensions of tileArray AND mapTiles
     int incount1 = 0;
     int incount2 = 0;
@@ -36,58 +37,73 @@ class Map {
     rowsize = tileArray[0].length;
     mapTiles = new Tile[colsize][rowsize];
     //temporary tiles to store data
-    Tile prev = new Tile();
-    Tile current;
+    //Tile prev = new Tile();
+    //Tile current;
     //first loop: create first tile in a row
-    for (int i = 0; i < colsize; i++) {
-      incount2 = 0;
-      if (incount1 == 0) {
-        //for top left tile
-        Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
-        topleft.collide = binarySearch(collidableSprites, tileArray[0][0], 0, collidableSprites.length - 1);
-        loadCollide(topleft);
-        topleft.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
-        loadPortal(topleft);
-        topleft.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
-        loadGrass(topleft);
-        mapTiles[0][0] = topleft;
-        print(tileArray[0][0]);
-        prev = topleft;
-      } else {
-        //for other first-of-row tiles
-        current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
-        current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
-        loadCollide(current);
-        current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
-        loadPortal(current);
-        current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
-        loadGrass(current);
-        mapTiles[incount1][incount2] = current;
-        print(", " + tileArray[incount1][incount2]);
-        prev = current;
+    for (int row = 0; row < rowsize; row++) {
+      for(int col = 0; col < colsize; col++){
+        if(tileArray[row][col]!=486){
+          Tile current = new Tile((tilew*mapscale)*col+tileww*mapscale, (tileh*mapscale)*row+tilehh*mapscale, false, false, tiles[tileArray[row][col]], mapscale);
+          current.collide = binarySearch(collidableSprites, tileArray[row][col], 0, collidableSprites.length - 1);
+          loadCollide(current);
+          current.portal = binarySearch(portalSprites, tileArray[row][col], 0, portalSprites.length - 1);
+          loadPortal(current);
+          current.grass = binarySearch(grassSprites, tileArray[row][col], 0, grassSprites.length - 1);
+          loadGrass(current);
+          mapTiles[row][col] = current;
+        }
       }
-      //second loop: create rest of row
-      for (int k = 0; k < rowsize - 1; k++) {
-        incount2++;
-        current = new Tile(prev.x + tilew * mapscale, prev.y, false, false, tiles[tileArray[incount1][incount2]], mapscale);
-        current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
-        loadCollide(current);
-        current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
-        loadPortal(current);
-        current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
-        loadGrass(current);
-        mapTiles[incount1][incount2] = current;
-        print(tileArray[incount1][incount2]);
-        prev = current;
-      }
-      incount1++;
+      
+      //incount2 = 0;
+      //if (incount1 == 0) {
+      //  //for top left tile
+      //  Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
+      //  topleft.collide = binarySearch(collidableSprites, tileArray[0][0], 0, collidableSprites.length - 1);
+      //  loadCollide(topleft);
+      //  topleft.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
+      //  loadPortal(topleft);
+      //  topleft.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+      //  loadGrass(topleft);
+      //  mapTiles[0][0] = topleft;
+      //  print(tileArray[0][0]);
+      //  prev = topleft;
+      //} else {
+      //  //for other first-of-row tiles
+      //  current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
+      //  current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
+      //  loadCollide(current);
+      //  current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
+      //  loadPortal(current);
+      //  current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+      //  loadGrass(current);
+      //  mapTiles[incount1][incount2] = current;
+      //  print(", " + tileArray[incount1][incount2]);
+      //  prev = current;
+      //}
+      ////second loop: create rest of row
+      //for (int k = 0; k < rowsize - 1; k++) {
+      //  incount2++;
+      //  current = new Tile(prev.x + tilew * mapscale, prev.y, false, false, tiles[tileArray[incount1][incount2]], mapscale);
+      //  current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
+      //  loadCollide(current);
+      //  current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
+      //  loadPortal(current);
+      //  current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
+      //  loadGrass(current);
+      //  mapTiles[incount1][incount2] = current;
+      //  print(tileArray[incount1][incount2]);
+      //  prev = current;
+      //}
+      //incount1++;
     }
   }
 
   void draw() {
     for (int i = 0; i < colsize; i++) {
       for (int k = 0; k < rowsize; k++) {
-        mapTiles[i][k].draw();
+        if(tileArray[i][k] != 486){
+          mapTiles[i][k].draw();
+        }  
       }
     }
   }
@@ -114,6 +130,7 @@ class Map {
       grassTiles.add(tile);
     }
   }
+  
 
   //ALWAYS set min = 0 and max = [array].length - 1
   //for sorting tiles into types
@@ -135,7 +152,7 @@ class Map {
   //update loop
   void update() {
     //draw
-    map.draw();
+    this.draw();
     
     //MOVEMENT CODE
     //when key is firest pressed
@@ -184,7 +201,9 @@ class Map {
   void moveUp() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
-        mapTiles[i][k].moveUp();
+        if(tileArray[i][k] != 486){
+          mapTiles[i][k].moveUp();
+        }  
       }
     }
   }
@@ -192,7 +211,9 @@ class Map {
   void moveDown() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
-        mapTiles[i][k].moveDown();
+        if(tileArray[i][k] != 486){
+          mapTiles[i][k].moveDown();
+        }  
       }
     }
   }
@@ -200,7 +221,9 @@ class Map {
   void moveLeft() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
-        mapTiles[i][k].moveLeft();
+        if(tileArray[i][k] != 486){
+          mapTiles[i][k].moveLeft();
+        }  
       }
     }
   }
@@ -208,7 +231,9 @@ class Map {
   void moveRight() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
-        mapTiles[i][k].moveRight();
+        if(tileArray[i][k] != 486){
+          mapTiles[i][k].moveRight();
+        }  
       }
     }
   }
@@ -216,7 +241,9 @@ class Map {
   void stopMove() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
-        mapTiles[i][k].stopMove();
+        if(tileArray[i][k] != 486){
+          mapTiles[i][k].stopMove();
+        }  
       }
     }
   }
