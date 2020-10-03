@@ -22,10 +22,8 @@ SpriteSheet SSBeardA;
 //Timer animationTimer;
 Timer restartTimer;
 
-Map map = new Map();
-Map overlay = new Map();
-//int framecounter = 0;
-//char countingkey;
+OverlayMap overlay = new OverlayMap();
+Map map = new Map(overlay);
 
 Player testPlayer;
 
@@ -153,7 +151,6 @@ void draw(){
   
   
   if (currentState == GameStates.WALKING) {
-
     map.update();
     overlay.update();
     testPlayer.display();
