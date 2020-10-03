@@ -23,8 +23,14 @@ class Map {
   ArrayList<Tile> portalTiles = new ArrayList<Tile>();
   ArrayList<Tile> grassTiles = new ArrayList<Tile>();
 
-  public Map() {
+  //for default maps that need an overlay
+  public Map(OverlayMap overlay) {
     
+  }
+  
+  //for overlay maps
+  public Map() {
+  
   }
 
   //map generation v2 (working)
@@ -43,7 +49,7 @@ class Map {
     for (int row = 0; row < rowsize; row++) {
       for(int col = 0; col < colsize; col++){
         if(tileArray[row][col]!=486){
-          Tile current = new Tile((tilew*mapscale)*col+tileww*mapscale, (tileh*mapscale)*row+tilehh*mapscale, false, false, tiles[tileArray[row][col]], mapscale);
+          Tile current = new Tile((tilew * mapscale) * col + tileww * mapscale, (tileh * mapscale) * row + tilehh * mapscale, false, false, tiles[tileArray[row][col]], mapscale);
           current.collide = binarySearch(collidableSprites, tileArray[row][col], 0, collidableSprites.length - 1);
           loadCollide(current);
           current.portal = binarySearch(portalSprites, tileArray[row][col], 0, portalSprites.length - 1);
@@ -53,49 +59,8 @@ class Map {
           mapTiles[row][col] = current;
         }
       }
-      
-      //incount2 = 0;
-      //if (incount1 == 0) {
-      //  //for top left tile
-      //  Tile topleft = new Tile(tileww * mapscale, tilehh * mapscale, false, false, tiles[tileArray[0][0]], mapscale);
-      //  topleft.collide = binarySearch(collidableSprites, tileArray[0][0], 0, collidableSprites.length - 1);
-      //  loadCollide(topleft);
-      //  topleft.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
-      //  loadPortal(topleft);
-      //  topleft.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
-      //  loadGrass(topleft);
-      //  mapTiles[0][0] = topleft;
-      //  print(tileArray[0][0]);
-      //  prev = topleft;
-      //} else {
-      //  //for other first-of-row tiles
-      //  current = new Tile(tileww * mapscale, prev.y + tileh * mapscale, false, false, tiles[tileArray[incount1][incount2]], mapscale);
-      //  current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
-      //  loadCollide(current);
-      //  current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
-      //  loadPortal(current);
-      //  current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
-      //  loadGrass(current);
-      //  mapTiles[incount1][incount2] = current;
-      //  print(", " + tileArray[incount1][incount2]);
-      //  prev = current;
-      //}
-      ////second loop: create rest of row
-      //for (int k = 0; k < rowsize - 1; k++) {
-      //  incount2++;
-      //  current = new Tile(prev.x + tilew * mapscale, prev.y, false, false, tiles[tileArray[incount1][incount2]], mapscale);
-      //  current.collide = binarySearch(collidableSprites, tileArray[incount1][incount2], 0, collidableSprites.length - 1);
-      //  loadCollide(current);
-      //  current.portal = binarySearch(portalSprites, tileArray[incount1][incount2], 0, portalSprites.length - 1);
-      //  loadPortal(current);
-      //  current.grass = binarySearch(grassSprites, tileArray[incount1][incount2], 0, grassSprites.length - 1);
-      //  loadGrass(current);
-      //  mapTiles[incount1][incount2] = current;
-      //  print(tileArray[incount1][incount2]);
-      //  prev = current;
-      //}
-      //incount1++;
     }
+      
   }
 
   void draw() {
@@ -153,17 +118,27 @@ class Map {
   void update() {
     //draw
     this.draw();
+    this.fullMovement();
     
-    //MOVEMENT CODE
-    //when key is firest pressed
+  }
+
+  //BASE MOVEMENT THINGS
+  void fullMovement() {
+    //reset collision
+    overlay.leftcollidetracker = false;
+    overlay.rightcollidetracker = false;
+    overlay.upcollidetracker = false;
+    overlay.downcollidetracker = false;
+    //when key is first pressed
     if (keyPressed == true && lock == false) {
       //if it's a movement key
-      if(((key == 'w' && collideUp(testPlayer) == false) || (key == 's' && collideDown(testPlayer) == false) || (key == 'a' && collideLeft(testPlayer) == false) || (key == 'd' && collideRight(testPlayer) == false))) {
+      if(((key == 'w' && overlay.collideUp(testPlayer) == false) || (key == 's' && overlay.collideDown(testPlayer) == false) || (key == 'a' && overlay.collideLeft(testPlayer) == false) || (key == 'd' && overlay.collideRight(testPlayer) == false))) {
         //if a new movement needs to start
         lock = true;
         newMove(key);
       }
     }
+    
     //if movement is occuring
     if (lock == true) {
       framecounter++;
@@ -176,6 +151,7 @@ class Map {
       } else if (getCurrentKey() == 'd') {
         moveRight();
       }
+      
       //when movement is finished
       if (framecounter == 8) {
         lock = false;
@@ -190,14 +166,11 @@ class Map {
           //random chance to activate a battle
           //if chance happens, activate battle state
         }
-
         stopMove();
-        
       }
     }
   }
-
-  //BASE MOVEMENT THINGS
+  
   void moveUp() {
     for (int i = 0; i < mapTiles.length; i++) {
       for (int k = 0; k < mapTiles[0].length; k++) {
@@ -268,51 +241,4 @@ class Map {
     overlapint = -1;
     return overlapint;
   }
-
-  //COLLISION THINGS
-  public boolean collideLeft(Player player) {
-    for (int i = 0; i < collidableTiles.size(); i++) {
-      if (collidableTiles.get(i).y == player.y) {
-        if (collidableTiles.get(i).x <= player.x - 8 && collidableTiles.get(i).x >= player.x - 32) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-
-  public boolean collideRight(Player player) {
-    for (int i = 0; i < collidableTiles.size(); i++) {
-      if (collidableTiles.get(i).y == player.y) {
-        if (collidableTiles.get(i).x >= player.x + 8 && collidableTiles.get(i).x <= player.x + 32) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-
-  public boolean collideDown(Player player) {
-    for (int i = 0; i < collidableTiles.size(); i++) {
-      if (collidableTiles.get(i).x == player.x) {
-        if (collidableTiles.get(i).y >= player.y + 8 && collidableTiles.get(i).y <= player.y + 32) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-
-  public boolean collideUp(Player player) {
-    for (int i = 0; i < collidableTiles.size(); i++) {
-      if (collidableTiles.get(i).x == player.x) {
-        if (collidableTiles.get(i).y <= player.y - 8 && collidableTiles.get(i).y >= player.y - 32) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-  
-  
 }
