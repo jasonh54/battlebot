@@ -14,20 +14,20 @@ class SpriteSheet{
   private int currentX; //the current x position of the animation
   private int currentY; //the current y position of the animation
   
-  public SpriteSheet(PImage[] img, int time){
+  public SpriteSheet(PImage[] img, int time){ //makes a spritesheet instance with an array of images
      this.animationTimer = new Timer(time);
     
-     this.spriteSheet = new PImage[img.length]; //creates the spritesheet array using an array of images
+     this.spriteSheet = new PImage[img.length]; 
      this.wide = img.length; //sets the wide variable to the length of the array
      this.loopend = this.wide;
      
-     for(int i = 0; i < this.spriteSheet.length; i++){
-       this.spriteSheet[i] = img[i];    
-     }
+     this.spriteSheet = img; //creates a new spritesheet array using the old array
+     
      
   }
   
-  public SpriteSheet(PImage img, int time){
+  public SpriteSheet(PImage img, int time){ //makes a spritesheet instance with a spritesheet image
+ 
     this.animationTimer = new Timer(time);
     
     this.wide = img.width/16; //sets the wide variable to the length of the array
@@ -40,9 +40,9 @@ class SpriteSheet{
     
   }
   
-  public void changeDisplay( boolean loopcontrol, int start, int end){
+  public void changeDisplay( boolean loopcontrol, int start, int end){ //changeDisplay function which controls looping
     
-       if(!adjust){
+       if(!adjust){  //changes the start and end if changed
          increment = start;
          if(start > loopstart){
            loopstart = start;
@@ -60,7 +60,7 @@ class SpriteSheet{
       if(reverse){
          this.increment--;
        } else {
-         this.increment++; 
+         this.increment++;
        }
        
      if(this.increment == this.loopstart && !loopcontrol){
@@ -103,9 +103,9 @@ class SpriteSheet{
      
   }
   
-  public void changeDisplay(){
+  public void changeDisplay(){ //standard changeDisplay() function
     
-      if(this.increment == this.loopend){
+      if(this.increment == this.loopend){ //just counts up and stops when it runs out of frames
         stoploop = true;
         this.increment--;
       } 
@@ -129,7 +129,7 @@ class SpriteSheet{
      
   }
   
-  public void changeDisplay(boolean loopcontrol){
+  public void changeDisplay(boolean loopcontrol){ //changeDisplay() function which controls looping
     
       if(this.increment == this.loopend && loopcontrol){
         stoploop = true;
@@ -155,7 +155,7 @@ class SpriteSheet{
      
   }
   
-  public void changeDisplay(int start, int end){
+  public void changeDisplay(int start, int end){//changeDisplay() function which can change the start and end variables
     
       if(!adjust){
          increment = start;
@@ -184,46 +184,46 @@ class SpriteSheet{
      
   }
   
-  public void display(int x, int y){
+  public void display(int x, int y){ //displays the animation at x and y
     image(this.spriteSheet[this.increment] , x, y, 32, 32);
     this.currentX = x;
     this.currentY = y;
   }
   
-  public void display(){
+  public void display(){ //displays the animation (currentX and currentY must already be set)
     image(this.spriteSheet[this.increment] , currentX, currentY, 32, 32);
   }
   
-  public void restart(){
+  public void restart(){ //starts the function from the first frame over again
     if(stoploop){
         stoploop = false;
     }
     this.increment = this.loopstart;
   }
   
-  public void changeFrame(int frame){
+  public void changeFrame(int frame){ //jumps to the given frame
     this.increment = frame;
   }
   
-  public void changeTime(int time){
+  public void changeTime(int time){ //changes the animationTimer time
     animationTimer.changeTs(time); 
   }
   
-  public void pause(){
+  public void pause(){ //pauses the function (can be unpaused with a function or after a certain amount of time) 
     this.paused = true;
   }
   
-  public void pause(int time){
+  public void pause(int time){ //pauses the function with a timer, will unpause after the time
     this.paused = true;
     pausedTimer.changeTs(time);
   }
   
-  public void unpause(){
+  public void unpause(){ //unpauses the function if no timer
     this.paused = false;
     pausedTimer.changeTs(0);
   }
   
-  public void skip(){
+  public void skip(){ //tba
      
   }
   
