@@ -226,8 +226,6 @@ class SpriteSheet{
          if(frame2 < loopend){
            loopend = frame2;
          }
-    this.loopstart = frame1;
-    this.loopend = frame2;
   }
   
   public void pause(){ //pauses the function (can be unpaused with a function or after a certain amount of time) 
