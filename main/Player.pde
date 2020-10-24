@@ -79,15 +79,10 @@ class Player{
         break;
     }
 
-<<<<<<< HEAD
-    
-    animations.display(400,400);
-=======
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeSaE(0,2);
-      animations.changeDisplay(false);
+      animations.changeDisplay(0,2);
     }
->>>>>>> 531f1366812b5df448bbffa353ed2c3c7e1bd3ae
+
 
   }
   
