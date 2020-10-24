@@ -79,8 +79,15 @@ class Player{
         break;
     }
 
+<<<<<<< HEAD
     
     animations.display(400,400);
+=======
+    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+      animations.changeSaE(0,2);
+      animations.changeDisplay(false);
+    }
+>>>>>>> 531f1366812b5df448bbffa353ed2c3c7e1bd3ae
 
   }
   
@@ -89,25 +96,29 @@ class Player{
   //player needs key pressed to trigger animations
   void moveUp(){
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 6, 8);
+      animations.changeSaE(6,8);
+      animations.changeDisplay( false);
     }
   }
   
   void moveDown(){
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 3, 5);
+      animations.changeSaE(3,5);
+      animations.changeDisplay( false);
     }
   }
   
   void moveLeft(){
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 0, 2);
+      animations.changeSaE(0,2);
+      animations.changeDisplay( false);
     }
   }
   
   void moveRight(){
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 9, 11);
+      animations.changeSaE(9,11);
+      animations.changeDisplay( false);
     }
   }
   
