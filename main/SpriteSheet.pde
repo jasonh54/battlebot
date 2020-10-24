@@ -40,7 +40,7 @@ class SpriteSheet{
     
   }
   
-  public void changeDisplay( boolean loopcontrol, int start, int end){ //changeDisplay function which controls looping
+  /*public void changeDisplay( boolean loopcontrol, int start, int end){ //changeDisplay function which controls looping
     
        if(!adjust){  //changes the start and end if changed
          increment = start;
@@ -68,6 +68,7 @@ class SpriteSheet{
      } else {
         reverse = false;
      }
+     
      
      /*if(!adjust){
          increment = start;
@@ -99,9 +100,9 @@ class SpriteSheet{
         stoploop = true;
      } else if(this.increment == this.loopstart) {
         reverse = false;
-     }*/
+     }
      
-  }
+  }/*
   
   public void changeDisplay(){ //standard changeDisplay() function
     
@@ -127,7 +128,7 @@ class SpriteSheet{
         reverse = false; 
      }*/
      
-  }
+  
   
   public void changeDisplay(boolean loopcontrol){ //changeDisplay() function which controls looping
     
@@ -207,6 +208,26 @@ class SpriteSheet{
   
   public void changeTime(int time){ //changes the animationTimer time
     animationTimer.changeTs(time); 
+  }
+  
+  public void changeStart(int frame){
+    this.loopstart = frame;
+  }
+  
+  public void changeEnd(int frame){
+    this.loopend = frame;
+  }
+  
+  public void changeSaE(int frame1, int frame2){ //change start and end (start, end)
+    
+         if(frame1 > loopstart){
+           loopstart = frame1;
+         }
+         if(frame2 < loopend){
+           loopend = frame2;
+         }
+    this.loopstart = frame1;
+    this.loopend = frame2;
   }
   
   public void pause(){ //pauses the function (can be unpaused with a function or after a certain amount of time) 
