@@ -232,7 +232,8 @@ void draw(){
 
   ///* -- test display code -- remove in the future 
   if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
-      SSAirA.changeSaE(3,5);
+      
+      SSAirA.changeSaE(3,7);
       SSAirA.changeDisplay(true);   
       //SSAirA.changeDisplay();
   }
