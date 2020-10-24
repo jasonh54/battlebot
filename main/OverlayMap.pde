@@ -9,12 +9,13 @@ class OverlayMap extends Map {
     super();
   }
   
+  //update loop
   void update() {
     this.draw();
     this.fullMovement();
   }
-  
-  //COLLISION THINGS
+
+  //these funcs each check collision in a different direction
   public boolean collideLeft(Player player) {
     for (int i = 0; i < collidableTiles.size(); i++) {
       if (collidableTiles.get(i).y == player.y) {
