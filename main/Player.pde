@@ -49,7 +49,18 @@ class Player{
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
-    animations.display(400,400);
+    if(keyPressed == true){
+      if (key == 'w') {
+        direction= PlayerMovementStates.UP;
+      } else if (key == 's') {
+        direction= PlayerMovementStates.DOWN;
+      } else if (key == 'a') {
+        direction= PlayerMovementStates.LEFT;
+      } else if (key == 'd') {
+        direction= PlayerMovementStates.RIGHT;
+      }
+    }
+    
     switch(direction){
       case UP:
         moveUp();
@@ -64,12 +75,12 @@ class Player{
         moveRight();
         break;
       default:
+        
         break;
     }
 
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 0, 2);
-    }
+    
+    animations.display(400,400);
 
   }
   
