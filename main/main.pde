@@ -23,9 +23,9 @@ SpriteSheet SSBeardA;
 Timer restartTimer;
 
 OverlayMap collidemap = new OverlayMap();
-Map map = new Map(collidemap);
-Map overlayedmap = new Map(collidemap);
-Map topmap = new Map(collidemap);
+Map map = new Map();
+Map overlayedmap = new Map();
+Map topmap = new Map();
 
 Player testPlayer;
 
@@ -72,7 +72,8 @@ void setup(){
   
   testPlayer = new Player(createCharacterSprites(0));
 
-  //map garbage
+  //map layers
+  
   int[][] baseMapTiles = {
     {89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91,  461,  441,  463,  89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91},
     {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
