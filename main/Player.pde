@@ -49,6 +49,7 @@ class Player{
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
+    
     if(keyPressed == true){
       if (key == 'w') {
         direction= PlayerMovementStates.UP;
@@ -75,13 +76,12 @@ class Player{
         moveRight();
         break;
       default:
-        
+        animations.display(400,400);
         break;
     }
-
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(0,2);
-    }
+    
+   
+    
 
 
   }
@@ -89,7 +89,11 @@ class Player{
   
   
   //player needs key pressed to trigger animations
+  //this function is used in the switch statement depending on which direction the player is facing in
+  //when this function runs the player needs to player the walking up animation
   void moveUp(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(6,8);
       animations.changeDisplay( false);
@@ -97,6 +101,8 @@ class Player{
   }
   
   void moveDown(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(3,5);
       animations.changeDisplay( false);
@@ -104,6 +110,8 @@ class Player{
   }
   
   void moveLeft(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(0,2);
       animations.changeDisplay( false);
@@ -111,6 +119,8 @@ class Player{
   }
   
   void moveRight(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(9,11);
       animations.changeDisplay( false);
