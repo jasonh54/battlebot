@@ -70,7 +70,7 @@ class SpriteSheet{
      }
      
      
-     /*if(!adjust){
+     if(!adjust){
          increment = start;
          if(start > loopstart){
            loopstart = start;
@@ -102,7 +102,7 @@ class SpriteSheet{
         reverse = false;
      }
      
-  }/*
+  }*/
   
   public void changeDisplay(){ //standard changeDisplay() function
     
@@ -114,7 +114,7 @@ class SpriteSheet{
       this.increment++;
       
      
-     /*if(this.increment == this.loopend){
+     if(this.increment == this.loopend){
         reverse = true;
       } 
       
@@ -125,8 +125,9 @@ class SpriteSheet{
        }
        
        if(this.increment == this.loopstart){
-        reverse = false; 
-     }*/
+        reverse = false;
+     }
+  }
      
   
   
@@ -156,7 +157,7 @@ class SpriteSheet{
      
   }
   
-  public void changeDisplay(int start, int end){//changeDisplay() function which can change the start and end variables
+  /*public void changeDisplay(int start, int end){//changeDisplay() function which can change the start and end variables
     
       if(!adjust){
          increment = start;
@@ -183,7 +184,7 @@ class SpriteSheet{
         reverse = false; 
      }
      
-  }
+  }*/
   
   public void display(int x, int y){ //displays the animation at x and y
     image(this.spriteSheet[this.increment] , x, y, 32, 32);
@@ -212,6 +213,7 @@ class SpriteSheet{
   
   public void changeStart(int frame){
     this.loopstart = frame;
+    this.increment = frame;
   }
   
   public void changeEnd(int frame){
@@ -222,11 +224,16 @@ class SpriteSheet{
     
          if(frame1 > loopstart){
            loopstart = frame1;
+           this.increment = loopstart;
          }
          if(frame2 < loopend){
            loopend = frame2;
          }
   }
+  
+  //public void matchStart(){
+  //  this.increment = loopstart;
+  //}
   
   public void pause(){ //pauses the function (can be unpaused with a function or after a certain amount of time) 
     this.paused = true;

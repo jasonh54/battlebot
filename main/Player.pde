@@ -1,4 +1,3 @@
-
 //helper function that will generate the character sprites for NPC and player
 public PImage[] createCharacterSprites(int playerNum){
   int i = 0;
@@ -49,7 +48,19 @@ class Player{
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
-    animations.display(400,400);
+    
+    if(keyPressed == true){
+      if (key == 'w') {
+        direction= PlayerMovementStates.UP;
+      } else if (key == 's') {
+        direction= PlayerMovementStates.DOWN;
+      } else if (key == 'a') {
+        direction= PlayerMovementStates.LEFT;
+      } else if (key == 'd') {
+        direction= PlayerMovementStates.RIGHT;
+      }
+    }
+    
     switch(direction){
       case UP:
         moveUp();
@@ -64,44 +75,58 @@ class Player{
         moveRight();
         break;
       default:
+        animations.display(400,400);
         break;
     }
+    
+   
+    
 
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeSaE(0,2);
-      animations.changeDisplay(false);
-    }
 
   }
   
   
   
   //player needs key pressed to trigger animations
+  //this function is used in the switch statement depending on which direction the player is facing in
+  //when this function runs the player needs to player the walking up animation
   void moveUp(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(6,8);
-      animations.changeDisplay( false);
+      //animations.changeDisplay( false);
+      animations.changeDisplay();
     }
   }
   
   void moveDown(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(3,5);
-      animations.changeDisplay( false);
+      //animations.changeDisplay( false);
+      animations.changeDisplay();
     }
   }
   
   void moveLeft(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(0,2);
-      animations.changeDisplay( false);
+      //animations.changeDisplay( false);
+      animations.changeDisplay();
     }
   }
   
   void moveRight(){
+    animations.display(400,400);
+    animations.stoploop = false;
     if(animations.animationTimer.countDownUntil(animations.stoploop)){
       animations.changeSaE(9,11);
-      animations.changeDisplay( false);
+      //animations.changeDisplay( false);
+      animations.changeDisplay();
     }
   }
   
