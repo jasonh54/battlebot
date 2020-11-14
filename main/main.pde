@@ -166,7 +166,7 @@ void draw(){
 
 
   ///* -- test display code -- remove in the future 
-  if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
+  /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
       
       SSAirA.changeSaE(3,5);
       System.out.println("loopstart: " + SSAirA.loopstart + ", loopend: " + SSAirA.loopend);
@@ -181,7 +181,7 @@ void draw(){
     System.out.println("restarted");
   }
   
-  testPlayer.display();
+  testPlayer.display(); */
   
   
   

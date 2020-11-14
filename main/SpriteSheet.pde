@@ -186,6 +186,8 @@ class SpriteSheet{
      
   }*/
   
+  
+  
   public void display(int x, int y){ //displays the animation at x and y
     image(this.spriteSheet[this.increment] , x, y, 32, 32);
     this.currentX = x;
