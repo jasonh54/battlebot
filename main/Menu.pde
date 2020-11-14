@@ -14,6 +14,12 @@ class Menu {
     this.menulength = menulength;
   }
   
+  void draw() {
+    for (int i = 0; i < menulength - 1; i++) {
+      buttons.get(i).draw();
+    }
+  }
+  
   void assembleMenu () {
     //temporary coordinates and widths
     float temph = 0;
