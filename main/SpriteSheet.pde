@@ -128,6 +128,22 @@ class SpriteSheet{
         reverse = false;
      }
   }
+  
+  public void changeDisplay(int start, int end){ // use with change start function
+      
+      if(!adjust){
+        this.loopstart = start;
+        this.increment = start-1;
+        adjust = true;
+      }
+      
+      this.increment++;
+      
+      if(increment == end){
+        this.stoploop = true;
+        this.increment--;
+      }
+  }
      
   
   
@@ -186,7 +202,9 @@ class SpriteSheet{
      
   }*/
   
-  
+  public void displayFrame(){
+    
+  }
   
   public void display(int x, int y){ //displays the animation at x and y
     image(this.spriteSheet[this.increment] , x, y, 32, 32);
@@ -222,6 +240,12 @@ class SpriteSheet{
     this.loopend = frame;
   }
   
+  public void checkCase(int start){
+    if(start != this.loopstart){
+      softReset();
+    }
+  }
+  
   public void changeSaE(int frame1, int frame2){ //change start and end (start, end)
     
          if(frame1 > loopstart){
@@ -253,6 +277,12 @@ class SpriteSheet{
   
   public void skip(){ //tba
      
+  }
+  
+  public void softReset(){ //reset the adjust function and stoploop
+    this.adjust = false;
+    this.stoploop = false;
+    this.loopstart = 0;
   }
   
 }
