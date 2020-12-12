@@ -3,15 +3,25 @@ class Menu {
   float x;
   float y;
   int menulength;
+  int buttonh;
+  int buttonw;
+  int texth;
   
   
   ArrayList<Button> buttons = new ArrayList<Button>();
   PImage img;
   
-  public Menu(float x, float y, int menulength) {
+  public Menu(float x, float y, int menulength, int bh, int bw, int th) {
     this.x = x;
     this.y = y;
     this.menulength = menulength;
+    this.buttonh = bh;
+    this.buttonw = bw;
+    this.texth = th;
+  }
+  
+  void update() {
+    this.draw();
   }
   
   void draw() {
@@ -20,14 +30,15 @@ class Menu {
     }
   }
   
-  void assembleMenu () {
+  void assembleMenu() {
     //temporary coordinates and widths
     float temph = 0;
-    float tempy = this.y + 10 + temph;
+    float tempy = this.y + buttonh + temph;
     for (int i = 0; i < this.menulength - 1; i++) {
       //height and width are arbitrary until we have real sprites
-      Button current = new Button(this.x + 10, tempy, 10, 10);
-      temph = temph + current.h;
+      Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw);
+      temph = temph + current.h + texth;
+      tempy = this.y + buttonh + temph;
       buttons.add(current);
     }
   }

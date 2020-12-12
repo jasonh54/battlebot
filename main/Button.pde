@@ -11,19 +11,23 @@ class Button {
   float h;
   float w;
   String state;
+  Menu mymenu;
   //function-storing variable
   CallBack f;
   
-  public Button(float x, float y, float h, float w) {
+  public Button(Menu m, float x, float y, float h, float w) {
     this.x = x;
     this.y = y;
     this.h = h;
     this.w = w;
+    this.mymenu = m;
   }
   
   void draw() {
     rect(this.x, this.y, this.w, this.h);
-    text(this.txt, this.x, this.y);
+    fill(0, 0, 0);
+    text(this.txt, this.x + mymenu.buttonw/4, this.y + mymenu.buttonh/2);
+    fill(256, 256, 256);
   }
   
   //sets whatever function is loaded into the parameter into a variable
