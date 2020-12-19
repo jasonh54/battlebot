@@ -43,7 +43,7 @@ class Player{
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new SpriteSheet(this.sprites, 500);
+    animations = new SpriteSheet(this.sprites, 167);
   }
   
   public void display(){
