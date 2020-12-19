@@ -11,6 +11,7 @@ class Tile {
   float speedy;
   int counting = 0;
 
+
   //build with scale
   public Tile(float x, float y, boolean c, boolean p, PImage img, int sc) {
     this.x = x;
@@ -33,6 +34,10 @@ class Tile {
     println(this.x + ", " + this.y);
     println(this.collide);
   }
+  
+  /* void blankCheck() {
+    if (this.img = )
+  } */
   
   
   //BASE MOVEMENT THINGS
