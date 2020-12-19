@@ -102,7 +102,3 @@ class Player{
   
   
 }
-
-
-
-//make a seperate animation tool, uses an array of images than a spritesheet
