@@ -141,7 +141,7 @@ class SpriteSheet{
       
       if(increment == end){
         this.stoploop = true;
-        this.increment--;
+        //this.increment--;
       }
   }
      
@@ -241,6 +241,7 @@ class SpriteSheet{
   }
   
   public void checkCase(int start){
+    animationTimer.clearOnce();
     if(start != this.loopstart){
       softReset();
     }
@@ -282,7 +283,6 @@ class SpriteSheet{
   public void softReset(){ //reset the adjust function and stoploop
     this.adjust = false;
     this.stoploop = false;
-    this.loopstart = 0;
   }
   
 }

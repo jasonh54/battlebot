@@ -47,9 +47,6 @@ class Player{
   }
   
   public void display(){
-    if(animations.stoploop){
-      animations.softReset();
-    }
     //image(sprites[0], 400,400, h * scale, w * scale);
     
     if(keyPressed == true){
@@ -62,6 +59,11 @@ class Player{
       } else if (key == 'd') {
         direction= PlayerMovementStates.RIGHT;
       }
+    }
+    
+    if(animations.stoploop){
+      animations.softReset();
+      direction = PlayerMovementStates.STATIC;
     }
     
     switch(direction){
@@ -82,6 +84,9 @@ class Player{
         moveRight();
         break;
       default:
+        if(animations.animationTimer.countDownOnce()){
+          animations.increment = animations.loopstart;
+        }
         animations.display(400,400);
         break;
     }
