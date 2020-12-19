@@ -1,4 +1,3 @@
-
 //helper function that will generate the character sprites for NPC and player
 public PImage[] createCharacterSprites(int playerNum){
   int i = 0;
@@ -44,7 +43,7 @@ class Player{
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new SpriteSheet(this.sprites, 500);
+    animations = new SpriteSheet(this.sprites, 167);
   }
   
   public void display(){
@@ -62,20 +61,32 @@ class Player{
       }
     }
     
+    if(animations.stoploop){
+      animations.softReset();
+      direction = PlayerMovementStates.STATIC;
+    }
+    
     switch(direction){
       case UP:
+        animations.checkCase(6);
         moveUp();
         break;
       case DOWN:
+        animations.checkCase(3);
         moveDown();
         break;
       case LEFT:
+        animations.checkCase(0);
         moveLeft();
         break;
       case RIGHT:
+        animations.checkCase(9);
         moveRight();
         break;
       default:
+        if(animations.animationTimer.countDownOnce()){
+          animations.increment = animations.loopstart;
+        }
         animations.display(400,400);
         break;
     }
@@ -92,39 +103,31 @@ class Player{
   //this function is used in the switch statement depending on which direction the player is facing in
   //when this function runs the player needs to player the walking up animation
   void moveUp(){
-    animations.display(400,400);
-    animations.stoploop = false;
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeSaE(6,8);
-      animations.changeDisplay( false);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(6,8);
+      }
+      animations.display(400,400);
   }
   
   void moveDown(){
-    animations.display(400,400);
-    animations.stoploop = false;
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeSaE(3,5);
-      animations.changeDisplay( false);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(3,5);
+      }
+      animations.display(400,400);
   }
   
   void moveLeft(){
-    animations.display(400,400);
-    animations.stoploop = false;
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeSaE(0,2);
-      animations.changeDisplay( false);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(0,2);
+      }
+      animations.display(400,400);
   }
   
   void moveRight(){
-    animations.display(400,400);
-    animations.stoploop = false;
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeSaE(9,11);
-      animations.changeDisplay( false);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(9,11);
+      }
+      animations.display(400,400);
   }
   
   
