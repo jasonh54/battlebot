@@ -71,7 +71,7 @@ void setup(){
   }
   
   testPlayer = new Player(createCharacterSprites(0));
-  menu = new Menu(30, 30, 4, 30, 80, 20);
+  menu = new Menu(30, 30, 4, 30, 80, 5);
   menu.assembleMenu();
   menu.buttons.get(0).txt = "button1";
   menu.buttons.get(1).txt = "button2";
