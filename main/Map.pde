@@ -125,14 +125,14 @@ class Map {
   //BASE MOVEMENT THINGS
   void fullMovement() {
     //reset collision
-    overlay.leftcollidetracker = false;
-    overlay.rightcollidetracker = false;
-    overlay.upcollidetracker = false;
-    overlay.downcollidetracker = false;
+    collidemap.leftcollidetracker = false;
+    collidemap.rightcollidetracker = false;
+    collidemap.upcollidetracker = false;
+    collidemap.downcollidetracker = false;
     //when key is first pressed
     if (keyPressed == true && lock == false) {
       //if it's a movement key
-      if(((key == 'w' && overlay.collideUp(testPlayer) == false) || (key == 's' && overlay.collideDown(testPlayer) == false) || (key == 'a' && overlay.collideLeft(testPlayer) == false) || (key == 'd' && overlay.collideRight(testPlayer) == false))) {
+      if(((key == 'w' && collidemap.collideUp(testPlayer) == false) || (key == 's' && collidemap.collideDown(testPlayer) == false) || (key == 'a' && collidemap.collideLeft(testPlayer) == false) || (key == 'd' && collidemap.collideRight(testPlayer) == false))) {
         //if a new movement needs to start
         lock = true;
         newMove(key);
