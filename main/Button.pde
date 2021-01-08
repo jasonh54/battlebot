@@ -30,6 +30,10 @@ class Button {
     fill(256, 256, 256);
   }
   
+  void drawSandwich() {
+    
+  }
+  
   //sets whatever function is loaded into the parameter into a variable
   public void setOnClick(CallBack function){
     this.f = function;
