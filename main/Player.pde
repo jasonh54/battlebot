@@ -15,11 +15,13 @@ public PImage[] createCharacterSprites(int playerNum){
   }
   return characterSprites;
 }
+
 enum PlayerMovementStates{
   UP,
   DOWN,
   LEFT,
   RIGHT,
+  SUDDENSTOP,
   STATIC
 }
 
@@ -36,6 +38,8 @@ class Player{
   int x = 400;
   int y = 400;
   final int scale = 2;
+  
+  int lastIncrement;
 
   
   ArrayList<Items> items = new ArrayList<Items>();
@@ -64,6 +68,8 @@ class Player{
     if(animations.stoploop){
       animations.softReset();
       direction = PlayerMovementStates.STATIC;
+    } else if(!map.lock){
+      direction = PlayerMovementStates.SUDDENSTOP;
     }
     
     switch(direction){
@@ -82,6 +88,10 @@ class Player{
       case RIGHT:
         animations.checkCase(9);
         moveRight();
+        break;
+      case SUDDENSTOP:
+        animations.increment = animations.loopstart;
+        animations.display(400,400);
         break;
       default:
         if(animations.animationTimer.countDownOnce()){

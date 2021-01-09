@@ -162,8 +162,6 @@ void draw(){
   } else if (currentState == GameStates.MENU) {
     //drawing buttons/options
   }
-  
-
 
   ///* -- test display code -- remove in the future 
   /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
@@ -187,6 +185,8 @@ void draw(){
   
   
   //*/
+  
+  System.out.println(map.framecounter);
   
   testPlayer.display();
   
