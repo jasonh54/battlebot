@@ -23,10 +23,10 @@ SpriteSheet SSBeardA;
 Timer restartTimer;
 
 OverlayMap collidemap = new OverlayMap();
-Map map = new Map(collidemap);
-Map overlayedmap = new Map(collidemap);
-Map topmap = new Map(collidemap);
-
+Map map = new Map();
+Map overlayedmap = new Map();
+Map topmap = new Map();
+Menu menu;
 Player testPlayer;
 
 //boolean lock = false;
@@ -71,8 +71,13 @@ void setup(){
   }
   
   testPlayer = new Player(createCharacterSprites(0));
-
-  //map garbage
+  menu = new Menu(30, 30, 4, 30, 80, 20);
+  menu.assembleMenu();
+  menu.buttons.get(0).txt = "button1";
+  menu.buttons.get(1).txt = "button2";
+  menu.buttons.get(2).txt = "button3";
+  
+  //map layers
   int[][] baseMapTiles = {
     {89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91,  461,  441,  463,  89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91},
     {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
@@ -214,6 +219,7 @@ void draw(){
   
   if (currentState == GameStates.WALKING) {
     map.update();
+    menu.update();
     overlayedmap.update();
     collidemap.update();
     testPlayer.display();

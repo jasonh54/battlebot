@@ -1,13 +1,43 @@
+interface CallBack {
+  //just an interface with a function; it works for some reason
+    public void callback();
+}
+
 class Button {
-  PImage img;
+  //variables :>
+  String txt;
   float x;
   float y;
+  float h;
+  float w;
   String state;
+  Menu mymenu;
+  //function-storing variable
+  CallBack f;
   
-  public Button(float x, float y, String state) {
+  public Button(Menu m, float x, float y, float h, float w) {
     this.x = x;
     this.y = y;
-    this.state = state;
+    this.h = h;
+    this.w = w;
+    this.mymenu = m;
+  }
+  
+  void draw() {
+    rect(this.x, this.y, this.w, this.h);
+    fill(0, 0, 0);
+    text(this.txt, this.x + mymenu.buttonw/4, this.y + mymenu.buttonh/2);
+    fill(256, 256, 256);
+  }
+  
+  //sets whatever function is loaded into the parameter into a variable
+  public void setOnClick(CallBack function){
+    this.f = function;
+  }
+  
+  //use whatever function is stored in the f variable
+  public void onClick(){
+    f.callback();
   }
   
 }
