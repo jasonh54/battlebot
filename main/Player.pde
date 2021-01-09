@@ -1,4 +1,3 @@
-
 //helper function that will generate the character sprites for NPC and player
 public PImage[] createCharacterSprites(int playerNum){
   int i = 0;
@@ -44,60 +43,91 @@ class Player{
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new SpriteSheet(this.sprites, 500);
+    animations = new SpriteSheet(this.sprites, 167);
   }
   
   public void display(){
     //image(sprites[0], 400,400, h * scale, w * scale);
-    animations.display(400,400);
+    
+    if(keyPressed == true){
+      if (key == 'w') {
+        direction= PlayerMovementStates.UP;
+      } else if (key == 's') {
+        direction= PlayerMovementStates.DOWN;
+      } else if (key == 'a') {
+        direction= PlayerMovementStates.LEFT;
+      } else if (key == 'd') {
+        direction= PlayerMovementStates.RIGHT;
+      }
+    }
+    
+    if(animations.stoploop){
+      animations.softReset();
+      direction = PlayerMovementStates.STATIC;
+    }
+    
     switch(direction){
       case UP:
+        animations.checkCase(6);
         moveUp();
         break;
       case DOWN:
+        animations.checkCase(3);
         moveDown();
         break;
       case LEFT:
+        animations.checkCase(0);
         moveLeft();
         break;
       case RIGHT:
+        animations.checkCase(9);
         moveRight();
         break;
       default:
+        if(animations.animationTimer.countDownOnce()){
+          animations.increment = animations.loopstart;
+        }
+        animations.display(400,400);
         break;
     }
+    
+   
+    
 
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 0, 2);
-    }
 
   }
   
   
   
   //player needs key pressed to trigger animations
+  //this function is used in the switch statement depending on which direction the player is facing in
+  //when this function runs the player needs to player the walking up animation
   void moveUp(){
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 6, 8);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(6,8);
+      }
+      animations.display(400,400);
   }
   
   void moveDown(){
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 3, 5);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(3,5);
+      }
+      animations.display(400,400);
   }
   
   void moveLeft(){
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 0, 2);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(0,2);
+      }
+      animations.display(400,400);
   }
   
   void moveRight(){
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay( false, 9, 11);
-    }
+      if(animations.animationTimer.countDownUntil(animations.stoploop)){
+        animations.changeDisplay(9,11);
+      }
+      animations.display(400,400);
   }
   
   
