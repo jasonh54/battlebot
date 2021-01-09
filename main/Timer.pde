@@ -56,4 +56,8 @@ class Timer{
     this.timeStamp = time;
   }
   
+  public void clearOnce(){
+     this.once = false; 
+  }
+  
 }
