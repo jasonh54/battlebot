@@ -70,7 +70,7 @@ class SpriteSheet{
      }
      
      
-     if(!adjust){
+     /*if(!adjust){
          increment = start;
          if(start > loopstart){
            loopstart = start;
@@ -102,7 +102,7 @@ class SpriteSheet{
         reverse = false;
      }
      
-  }*/
+  }/*
   
   public void changeDisplay(){ //standard changeDisplay() function
     
@@ -114,7 +114,7 @@ class SpriteSheet{
       this.increment++;
       
      
-     if(this.increment == this.loopend){
+     /*if(this.increment == this.loopend){
         reverse = true;
       } 
       
@@ -125,25 +125,8 @@ class SpriteSheet{
        }
        
        if(this.increment == this.loopstart){
-        reverse = false;
-     }
-  }
-  
-  public void changeDisplay(int start, int end){ // use with change start function
-      
-      if(!adjust){
-        this.loopstart = start;
-        this.increment = start-1;
-        adjust = true;
-      }
-      
-      this.increment++;
-      
-      if(increment == end){
-        this.stoploop = true;
-        //this.increment--;
-      }
-  }
+        reverse = false; 
+     }*/
      
   
   
@@ -173,7 +156,7 @@ class SpriteSheet{
      
   }
   
-  /*public void changeDisplay(int start, int end){//changeDisplay() function which can change the start and end variables
+  public void changeDisplay(int start, int end){//changeDisplay() function which can change the start and end variables
     
       if(!adjust){
          increment = start;
@@ -200,10 +183,6 @@ class SpriteSheet{
         reverse = false; 
      }
      
-  }*/
-  
-  public void displayFrame(){
-    
   }
   
   public void display(int x, int y){ //displays the animation at x and y
@@ -233,34 +212,23 @@ class SpriteSheet{
   
   public void changeStart(int frame){
     this.loopstart = frame;
-    this.increment = frame;
   }
   
   public void changeEnd(int frame){
     this.loopend = frame;
   }
   
-  public void checkCase(int start){
-    animationTimer.clearOnce();
-    if(start != this.loopstart){
-      softReset();
-    }
-  }
-  
   public void changeSaE(int frame1, int frame2){ //change start and end (start, end)
     
          if(frame1 > loopstart){
            loopstart = frame1;
-           this.increment = loopstart;
          }
          if(frame2 < loopend){
            loopend = frame2;
          }
+    this.loopstart = frame1;
+    this.loopend = frame2;
   }
-  
-  //public void matchStart(){
-  //  this.increment = loopstart;
-  //}
   
   public void pause(){ //pauses the function (can be unpaused with a function or after a certain amount of time) 
     this.paused = true;
@@ -278,11 +246,6 @@ class SpriteSheet{
   
   public void skip(){ //tba
      
-  }
-  
-  public void softReset(){ //reset the adjust function and stoploop
-    this.adjust = false;
-    this.stoploop = false;
   }
   
 }
