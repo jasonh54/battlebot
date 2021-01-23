@@ -66,12 +66,29 @@ void setup(){
   String[] tilesList = tilesFile.list();
   tiles = new PImage[tilesList.length]; //tiles PImage
   
+  //sort TilesPath
+  String temp;
+  int nums1;
+  int nums2;
+  for (int i = 0; i < tilesList.length; i++) {
+    for (int k = 1; k < (tilesList.length - i); k++) {
+      nums1 = Integer.parseInt(tilesList[k-1].substring(5, 9));
+      nums2 = Integer.parseInt(tilesList[k].substring(5, 9));
+      if (nums1 > nums2) {
+        temp = tilesList[k-1];
+        tilesList[k-1] = tilesList[k];
+        tilesList[k] = temp;
+      }
+    }
+  }
+  
   for(int i = 0; i < tilesList.length; i++){
+    println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
   testPlayer = new Player(createCharacterSprites(0));
-  menu = new Menu(30, 30, 4, 30, 80, 20);
+  menu = new Menu(30, 30, 4, 30, 80, 5);
   menu.assembleMenu();
   menu.buttons.get(0).txt = "button1";
   menu.buttons.get(1).txt = "button2";

@@ -5,7 +5,7 @@ class Menu {
   int menulength;
   int buttonh;
   int buttonw;
-  int texth;
+  int spacing;
   
   
   ArrayList<Button> buttons = new ArrayList<Button>();
@@ -17,7 +17,7 @@ class Menu {
     this.menulength = menulength;
     this.buttonh = bh;
     this.buttonw = bw;
-    this.texth = th;
+    this.spacing = th;
   }
   
   void update() {
@@ -37,10 +37,14 @@ class Menu {
     for (int i = 0; i < this.menulength - 1; i++) {
       //height and width are arbitrary until we have real sprites
       Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw);
-      temph = temph + current.h + texth;
+      temph = temph + current.h + spacing;
       tempy = this.y + buttonh + temph;
       buttons.add(current);
     }
+  }
+  
+  void setFunc(int n, CallBack function) {
+      buttons.get(n).setOnClick(function);
   }
   
 }
