@@ -107,6 +107,11 @@ class Player{
         animations.changeDisplay(6,8);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
   void moveDown(){
@@ -114,6 +119,11 @@ class Player{
         animations.changeDisplay(3,5);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
   void moveLeft(){
@@ -121,6 +131,11 @@ class Player{
         animations.changeDisplay(0,2);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
   void moveRight(){
@@ -128,6 +143,11 @@ class Player{
         animations.changeDisplay(9,11);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
   
