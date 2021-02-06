@@ -93,6 +93,7 @@ void setup(){
   menu.buttons.get(0).txt = "button1";
   menu.buttons.get(1).txt = "button2";
   menu.buttons.get(2).txt = "button3";
+  //menu.setFunc(0, Main::test);
   
   //map layers
   int[][] baseMapTiles = {
