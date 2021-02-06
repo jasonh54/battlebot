@@ -31,11 +31,7 @@ Player testPlayer;
 
 //boolean lock = false;
 
-enum GameStates{
-  WALKING,
-  COMBAT,
-  MENU
-}
+
 GameStates currentState = GameStates.WALKING;
 
 
