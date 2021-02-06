@@ -43,16 +43,17 @@ class Button {
   public void setOnClick(CallBack function){
     this.f = function;
   }
-  
-  //use whatever function is stored in the f variable
-  public void onClick(){
-    f.callback();
-  }
   //########################################################################
   //########################################################################
   //depreciated code will delete
   //########################################################################
   //########################################################################
+  
+  //use whatever function is stored in the f variable
+  public void onClick(){
+    f.callback();
+  }
+  
   
   
   
