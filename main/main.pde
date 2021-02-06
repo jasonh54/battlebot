@@ -237,14 +237,21 @@ void draw(){
     collidemap.update();
     testPlayer.display();
     topmap.update();
+    if (keyPressed == true && key == 'm') {
+      menu.buttons.get(1).onClick();
+    }
 
 
   } else if (GameState.currentState == GameStates.COMBAT) {
     
     
   } else if (GameState.currentState == GameStates.MENU) {
-    //map.draw();
+    map.draw();
     testPlayer.display();
+    testPlayer.animations.stoploop = true;
+    /* if (keyPressed == true && key == 'm') {
+      
+    } */
   }
   
   

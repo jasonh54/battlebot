@@ -11,17 +11,19 @@ class Button {
   float h;
   float w;
   String state;
+  int func;
   Menu mymenu;
   //function-storing variable
   CallBack f;
   
   //menu button
-  public Button(Menu m, float x, float y, float h, float w) {
+  public Button(Menu m, float x, float y, float h, float w, int f) {
     this.x = x;
     this.y = y;
     this.h = h;
     this.w = w;
     this.mymenu = m;
+    this.func = f;
   }
   
   //sandwich
@@ -66,7 +68,7 @@ class Button {
   
   //use whatever function is stored in the f variable
   public void onClick(){
-    f.callback();
+    ButtonFunction.runFunction(this.func);
   }
   
   

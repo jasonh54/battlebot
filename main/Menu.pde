@@ -36,7 +36,7 @@ class Menu {
     float tempy = this.y + buttonh + temph;
     for (int i = 0; i < this.menulength - 1; i++) {
       //height and width are arbitrary until we have real sprites
-      Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw);
+      Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw, 1);
       temph = temph + current.h + spacing;
       tempy = this.y + buttonh + temph;
       buttons.add(current);
