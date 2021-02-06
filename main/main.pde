@@ -230,10 +230,12 @@ void draw(){
   
 
 
-  
-  if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
+  ///* -- test display code -- remove in the future 
+  /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
+
       
-      SSAirA.changeSaE(3,7);
+      SSAirA.changeSaE(3,5);
+      System.out.println("loopstart: " + SSAirA.loopstart + ", loopend: " + SSAirA.loopend);
       SSAirA.changeDisplay(true);   
       //SSAirA.changeDisplay();
   }
@@ -245,12 +247,17 @@ void draw(){
     System.out.println("restarted");
   }
   
-  testPlayer.display();
+  testPlayer.display(); */
   
   
 
   
   
+
+  //*/
+  
+  testPlayer.display();
+
   
 }
 
