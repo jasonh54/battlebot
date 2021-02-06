@@ -31,12 +31,7 @@ Player testPlayer;
 
 //boolean lock = false;
 
-enum GameStates{
-  WALKING,
-  COMBAT,
-  MENU
-}
-GameStates currentState = GameStates.WALKING;
+
 
 
 
@@ -235,7 +230,7 @@ void draw(){
   
   
   
-  if (currentState == GameStates.WALKING) {
+  if (GameState.currentState == GameStates.WALKING) {
     map.update();
     menu.update();
     overlayedmap.update();
@@ -244,10 +239,10 @@ void draw(){
     topmap.update();
 
 
-  } else if (currentState == GameStates.COMBAT) {
+  } else if (GameState.currentState == GameStates.COMBAT) {
     
     
-  } else if (currentState == GameStates.MENU) {
+  } else if (GameState.currentState == GameStates.MENU) {
     //map.draw();
     testPlayer.display();
   }
@@ -262,9 +257,7 @@ void draw(){
   
 }
 
-public void changeGameState(GameStates state){
-  currentState = state;
-}
+
 
 public void generateTileMapGuide(){
   int i = 0;
