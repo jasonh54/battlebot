@@ -27,6 +27,7 @@ Map map = new Map();
 Map overlayedmap = new Map();
 Map topmap = new Map();
 Menu menu;
+Button sandwich;
 Player testPlayer;
 
 //boolean lock = false;
@@ -84,6 +85,7 @@ void setup(){
   
   testPlayer = new Player(createCharacterSprites(0));
   menu = new Menu(30, 30, 4, 30, 80, 5);
+  sandwich = new Button(10, 10, 3);
   menu.assembleMenu();
   menu.buttons.get(0).txt = "button1";
   menu.buttons.get(1).txt = "button2";
@@ -231,14 +233,18 @@ void draw(){
   
   
   if (GameState.currentState == GameStates.WALKING) {
+    //update stuff
     map.update();
-    menu.update();
     overlayedmap.update();
     collidemap.update();
     testPlayer.display();
     topmap.update();
+    sandwich.drawSandwich();
+    //for button clicks
+    mouseClicked(sandwich);
+    //go into menu
     if (keyPressed == true && key == 'm') {
-      menu.buttons.get(1).onClick();
+      ButtonFunction.switchState(GameStates.MENU);
     }
 
 
@@ -246,25 +252,47 @@ void draw(){
     
     
   } else if (GameState.currentState == GameStates.MENU) {
+    //draw stuff (no movement)
     map.draw();
+    overlayedmap.draw();
+    collidemap.draw();
     testPlayer.display();
     testPlayer.animations.stoploop = true;
-    /* if (keyPressed == true && key == 'm') {
-      
-    } */
+    topmap.draw();
+    sandwich.drawSandwich();
+    //updating the menu
+    menu.update();
+    //for button clicks
+    mouseClicked(menu);
+    mouseClicked(sandwich);
+    //go into walking
+    if (keyPressed == true && key == 'x') {
+      ButtonFunction.switchState(GameStates.WALKING);
+    }
   }
-  
-  
-  
 
-  
-
-  
-
-  
 }
 
+public void mouseClicked(Menu menu) {
+  //iterate through every button in the menu
+  for (int i = 0; i < menu.buttons.size(); i++) {
+      Button current = menu.buttons.get(i);
+      //if mouse is touching  a button
+      if (mouseX >= current.x && mouseX <= current.x + current.w) {
+        if (mouseY >= current.y && mouseY <= current.y + current.h) {
+          current.onClick();
+        }
+      }
+    }
+}
 
+public void mouseClicked(Button current) {
+  if (mouseX >= current.x && mouseX <= current.x + current.w) {
+    if (mouseY >= current.y && mouseY <= current.y + current.h) {
+      current.onClick();
+    }
+  }
+}
 
 public void generateTileMapGuide(){
   int i = 0;

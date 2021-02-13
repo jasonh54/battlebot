@@ -27,11 +27,12 @@ class Button {
   }
   
   //sandwich
-  public Button(float x, float y) {
+  public Button(float x, float y, int f) {
     this.x = x;
     this.y = y;
     this.h = 5;
     this.w = 30;
+    this.func = f;
   }
   
   void draw() {
@@ -48,7 +49,7 @@ class Button {
   }
   
   void update(){
-    drawSandwich();
+    
   }
   
   //########################################################################
