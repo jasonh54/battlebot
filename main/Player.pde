@@ -15,11 +15,13 @@ public PImage[] createCharacterSprites(int playerNum){
   }
   return characterSprites;
 }
+
 enum PlayerMovementStates{
   UP,
   DOWN,
   LEFT,
   RIGHT,
+  SUDDENSTOP,
   STATIC
 }
 
@@ -30,9 +32,11 @@ class Player{
   
 
   PImage[] sprites; //character sprites
+  //private Timer keyTimer = new Timer(40);
   SpriteSheet animations;
   final int h = 16;
   final int w = 16;
+  int steps = 0; //steps taken during gameplay
   int x = 400;
   int y = 400;
   final int scale = 2;
@@ -64,6 +68,7 @@ class Player{
 
     if(animations.stoploop){
       animations.softReset();
+      //keyTimer.refresh();
       direction = PlayerMovementStates.STATIC;
     }
     
@@ -112,7 +117,7 @@ class Player{
       }
       animations.display(400,400);
       
-      if(keyPressed == false){
+      if(keyPressed == false && animations.increment > 6){
         animations.softReset();
         direction = PlayerMovementStates.STATIC;
       }
@@ -124,19 +129,21 @@ class Player{
       }
       animations.display(400,400);
       
-      if(keyPressed == false){
+
+      if(keyPressed == false && animations.increment > 3){
         animations.softReset();
         direction = PlayerMovementStates.STATIC;
       }
   }
   
-  void moveLeft(){
+  void moveLeft(){  
       if(animations.animationTimer.countDownUntil(animations.stoploop)){
         animations.changeDisplay(0,2);
       }
       animations.display(400,400);
       
-      if(keyPressed == false){
+
+      if(keyPressed == false && animations.increment > 0){
         animations.softReset();
         direction = PlayerMovementStates.STATIC;
       }
@@ -148,7 +155,7 @@ class Player{
       }
       animations.display(400,400);
       
-      if(keyPressed == false){
+      if(keyPressed == false && animations.increment > 9){
         animations.softReset();
         direction = PlayerMovementStates.STATIC;
       }

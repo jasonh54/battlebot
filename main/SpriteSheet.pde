@@ -227,8 +227,8 @@ class SpriteSheet{
     this.increment = frame;
   }
   
-  public void changeTime(int time){ //changes the animationTimer time
-    animationTimer.changeTs(time); 
+  public void changeTime(int time){ //changes the animationTimer's time
+    animationTimer.change(time); 
   }
   
   public void changeStart(int frame){
@@ -268,12 +268,12 @@ class SpriteSheet{
   
   public void pause(int time){ //pauses the function with a timer, will unpause after the time
     this.paused = true;
-    pausedTimer.changeTs(time);
+    pausedTimer.change(time);
   }
   
   public void unpause(){ //unpauses the function if no timer
     this.paused = false;
-    pausedTimer.changeTs(0);
+    pausedTimer.change(0);
   }
   
   public void skip(){ //tba
