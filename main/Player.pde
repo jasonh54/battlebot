@@ -125,6 +125,7 @@ class Player{
       }
       animations.display(400,400);
       
+
       if(keyPressed == false && animations.increment > 3){
         animations.softReset();
         direction = PlayerMovementStates.STATIC;
@@ -137,6 +138,7 @@ class Player{
       }
       animations.display(400,400);
       
+
       if(keyPressed == false && animations.increment > 0){
         animations.softReset();
         direction = PlayerMovementStates.STATIC;
