@@ -14,7 +14,6 @@ PImage[] tiles;
 
 
 SpriteSheet TPlayerStand;
-
 SpriteSheet SSAirA;
 SpriteSheet SSBeardA;
 
@@ -28,6 +27,7 @@ Map topmap = new Map();
 Menu menu;
 Button sandwich;
 Player testPlayer;
+final int naptime = 200;
 
 <<<<<<< HEAD
 //boolean lock = false;
@@ -239,9 +239,10 @@ void draw() {
     //for button clicks
     checkMouse(sandwich);
     //keypress to go into menu - backup if button breaks
-    /* if (keyPressed == true && key == 'm') {
+    if (keyPressed == true && key == 'm') {
       ButtonFunction.switchState(GameStates.MENU);
-    } */
+      delay(naptime);
+    }
 
   } else if (GameState.currentState == GameStates.COMBAT) {
     
@@ -260,9 +261,10 @@ void draw() {
     checkMouse(menu);
     checkMouse(sandwich);
     //keypress to go into walking - backup if button breaks
-    /* if (keyPressed == true && key == 'x') {
+    if (keyPressed == true && key == 'm') {
       ButtonFunction.switchState(GameStates.WALKING);
-    } */
+      delay(naptime);
+    }
   }
 }
 
@@ -277,6 +279,7 @@ void checkMouse(Menu menu) {
       if (mouseX >= current.x && mouseX <= current.x + current.w) {
         if (mouseY >= current.y && mouseY <= current.y + current.h) {
           current.onClick();
+          delay(naptime);
         }
       }
     }
@@ -289,6 +292,7 @@ void checkMouse(Button current) {
     if (mouseX >= current.x && mouseX <= current.x + current.w) {
       if (mouseY >= current.y && mouseY <= current.y + (5 * current.h)) {
         current.onClick();
+        delay(naptime);
       }
     }
   }
