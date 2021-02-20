@@ -32,14 +32,14 @@ class Player{
   
 
   PImage[] sprites; //character sprites
+  //private Timer keyTimer = new Timer(40);
   SpriteSheet animations;
   final int h = 16;
   final int w = 16;
+  int steps = 0; //steps taken during gameplay
   int x = 400;
   int y = 400;
   final int scale = 2;
-  
-  int lastIncrement;
 
   
   ArrayList<Items> items = new ArrayList<Items>();
@@ -67,9 +67,8 @@ class Player{
     
     if(animations.stoploop){
       animations.softReset();
+      //keyTimer.refresh();
       direction = PlayerMovementStates.STATIC;
-    } else if(!map.lock){
-      direction = PlayerMovementStates.SUDDENSTOP;
     }
     
     switch(direction){
@@ -88,10 +87,6 @@ class Player{
       case RIGHT:
         animations.checkCase(9);
         moveRight();
-        break;
-      case SUDDENSTOP:
-        animations.increment = animations.loopstart;
-        animations.display(400,400);
         break;
       default:
         if(animations.animationTimer.countDownOnce()){
@@ -117,6 +112,11 @@ class Player{
         animations.changeDisplay(6,8);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false && animations.increment > 6){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
   void moveDown(){
@@ -124,13 +124,23 @@ class Player{
         animations.changeDisplay(3,5);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false && animations.increment > 3){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
-  void moveLeft(){
+  void moveLeft(){  
       if(animations.animationTimer.countDownUntil(animations.stoploop)){
         animations.changeDisplay(0,2);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false && animations.increment > 0){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
   void moveRight(){
@@ -138,6 +148,11 @@ class Player{
         animations.changeDisplay(9,11);
       }
       animations.display(400,400);
+      
+      if(keyPressed == false && animations.increment > 9){
+        animations.softReset();
+        direction = PlayerMovementStates.STATIC;
+      }
   }
   
   

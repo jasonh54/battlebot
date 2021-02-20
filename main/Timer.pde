@@ -60,4 +60,9 @@ class Timer{
      this.once = false; 
   }
   
+  public void refresh(){
+    clearOnce();
+    updateTs();
+  }
+  
 }
