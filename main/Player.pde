@@ -71,7 +71,6 @@ class Player{
       //keyTimer.refresh();
       direction = PlayerMovementStates.STATIC;
     }
-    
 
     switch(direction){
       case UP:
@@ -154,11 +153,13 @@ class Player{
         animations.changeDisplay(9,11);
       }
       animations.display(400,400);
+
       
       if(keyPressed == false && animations.increment > 9){
         animations.softReset();
         direction = PlayerMovementStates.STATIC;
       }
+
 
   }
   

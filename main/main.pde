@@ -224,6 +224,7 @@ void draw(){
     testPlayer.display();
   }
 
+
   ///* -- test display code -- remove in the future 
   /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
 
@@ -246,12 +247,7 @@ void draw(){
   
 
   
-  
 
-  //*/
-  
-  System.out.println(map.framecounter);
-  
   testPlayer.display();
 
   
