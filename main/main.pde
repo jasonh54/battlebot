@@ -266,7 +266,35 @@ void draw() {
       delay(naptime);
     }
   }
+
+
+  ///* -- test display code -- remove in the future 
+  /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
+      
+      SSAirA.changeSaE(3,5);
+      System.out.println("loopstart: " + SSAirA.loopstart + ", loopend: " + SSAirA.loopend);
+      SSAirA.changeDisplay(true);   
+      //SSAirA.changeDisplay();
+  }
+  
+  SSAirA.display(80,80);
+  
+  if(SSAirA.stoploop){
+    SSAirA.restart();
+    System.out.println("restarted");
+  }
+  
+  testPlayer.display(); */
+
+  
+
+  System.out.println(map.framecounter);
+  
+  testPlayer.display();
+
 }
+
+
 
 //mouseClicked functions for menus and singular buttons each
 void checkMouse(Menu menu) {
@@ -285,7 +313,6 @@ void checkMouse(Menu menu) {
     }
   }
 }
-
 void checkMouse(Button current) {
   //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
   if (mousePressed) {

@@ -52,12 +52,17 @@ class Timer{
     timeStamp = millis();
   }
   
-  public void changeTs(int time){
+  public void change(int time){
     this.timeStamp = time;
   }
   
   public void clearOnce(){
      this.once = false; 
+  }
+  
+  public void refresh(){
+    clearOnce();
+    updateTs();
   }
   
 }
