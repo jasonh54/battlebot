@@ -233,8 +233,6 @@ void draw(){
     //map.draw();
     testPlayer.display();
   }
-<<<<<<< HEAD
-=======
 
   ///* -- test display code -- remove in the future 
   /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
@@ -253,21 +251,8 @@ void draw(){
   }
   
   testPlayer.display(); */
->>>>>>> spritesheet-layering
   
-  
-  
-
-  
-
-  
-<<<<<<< HEAD
-
-=======
   System.out.println(map.framecounter);
-  
-  testPlayer.display();
->>>>>>> spritesheet-layering
   
 }
 
