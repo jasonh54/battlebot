@@ -250,6 +250,27 @@ void draw(){
     //map.draw();
     testPlayer.display();
   }
+<<<<<<< HEAD
+=======
+
+  ///* -- test display code -- remove in the future 
+  /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
+      
+      SSAirA.changeSaE(3,5);
+      System.out.println("loopstart: " + SSAirA.loopstart + ", loopend: " + SSAirA.loopend);
+      SSAirA.changeDisplay(true);   
+      //SSAirA.changeDisplay();
+  }
+  
+  SSAirA.display(80,80);
+  
+  if(SSAirA.stoploop){
+    SSAirA.restart();
+    System.out.println("restarted");
+  }
+  
+  testPlayer.display(); */
+>>>>>>> spritesheet-layering
   
   
   
@@ -257,7 +278,13 @@ void draw(){
   
 
   
+<<<<<<< HEAD
 
+=======
+  System.out.println(map.framecounter);
+  
+  testPlayer.display();
+>>>>>>> spritesheet-layering
   
 }
 
