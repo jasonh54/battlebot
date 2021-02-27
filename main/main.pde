@@ -14,35 +14,32 @@ PImage[] tiles;
 
 
 SpriteSheet TPlayerStand;
-
 SpriteSheet SSAirA;
 SpriteSheet SSBeardA;
 
 
-//Timer animationTimer;
+//declare variables
 Timer restartTimer;
-
 OverlayMap collidemap = new OverlayMap();
 Map map = new Map();
 Map overlayedmap = new Map();
 Map topmap = new Map();
 Menu menu;
+Button sandwich;
 Player testPlayer;
+
 
 //boolean lock = false;
 
-enum GameStates{
-  WALKING,
-  COMBAT,
-  MENU
-}
+
 GameStates currentState = GameStates.WALKING;
 
 
 
+final int naptime = 200;
+
+
 void setup(){
-  
-  
   //Ethan's code
   //acquire the folder location of where the monster images are
   String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
@@ -66,18 +63,37 @@ void setup(){
   String[] tilesList = tilesFile.list();
   tiles = new PImage[tilesList.length]; //tiles PImage
   
+  //sort TilesPath
+  String temp;
+  int nums1;
+  int nums2;
+  for (int i = 0; i < tilesList.length; i++) {
+    for (int k = 1; k < (tilesList.length - i); k++) {
+      nums1 = Integer.parseInt(tilesList[k-1].substring(5, 9));
+      nums2 = Integer.parseInt(tilesList[k].substring(5, 9));
+      if (nums1 > nums2) {
+        temp = tilesList[k-1];
+        tilesList[k-1] = tilesList[k];
+        tilesList[k] = temp;
+      }
+    }
+  }
+  
   for(int i = 0; i < tilesList.length; i++){
+    println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
+  //initiatize variables
   testPlayer = new Player(createCharacterSprites(0));
-  menu = new Menu(30, 30, 4, 30, 80, 20);
+  menu = new Menu(0, 0, 4, 30, 80, 5);
+  sandwich = new Button(10, 10, 3);
   menu.assembleMenu();
   menu.buttons.get(0).txt = "button1";
   menu.buttons.get(1).txt = "button2";
   menu.buttons.get(2).txt = "button3";
   
-  //map layers
+  //initialize the map layers
   int[][] baseMapTiles = {
     {89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91,  461,  441,  463,  89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91},
     {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
@@ -105,8 +121,6 @@ void setup(){
     {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
     {143,  144,  144,  144,  144,  144,  144,  144,  144,  144,  145,  461,  441,  463,  143,  144,  144,  144,  144,  144,  144,  144,  144,  144,  145}
   };
-  
-  map.generateBaseMap(baseMapTiles);
   
   int[][] overlayedMapTiles = {
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  0,  1,  1,  1,  1,  1,  1,  58,  58,  58,  4},
@@ -136,8 +150,6 @@ void setup(){
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486}
   };
   
-  overlayedmap.generateBaseMap(overlayedMapTiles);
-  
   int[][] collidableMapTiles = {
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  198,  198,  198,  486},
@@ -166,10 +178,8 @@ void setup(){
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486}
   };
   
-  collidemap.generateBaseMap(collidableMapTiles);
-  
   int[][] topMapTiles = {
-   {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
+    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
@@ -196,6 +206,9 @@ void setup(){
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486} 
   };
   
+  map.generateBaseMap(baseMapTiles);
+  overlayedmap.generateBaseMap(overlayedMapTiles);
+  collidemap.generateBaseMap(collidableMapTiles);
   topmap.generateBaseMap(topMapTiles);
   
   TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27), 500);
@@ -212,27 +225,51 @@ void setup(){
   
 }
 
-void draw(){
+void draw() {
   background(0);
   
-  
-  
-  if (currentState == GameStates.WALKING) {
+  if (GameState.currentState == GameStates.WALKING) {
+    //update stuff
     map.update();
-    menu.update();
     overlayedmap.update();
     collidemap.update();
     testPlayer.display();
     topmap.update();
+    sandwich.drawSandwich();
+    //for button clicks
+    checkMouse(sandwich);
+    //keypress to go into menu - backup if button breaks
+    if (keyPressed == true && key == 'm') {
+      ButtonFunction.switchState(GameStates.MENU);
+      delay(naptime);
+    }
 
-
-  } else if (currentState == GameStates.COMBAT) {
+  } else if (GameState.currentState == GameStates.COMBAT) {
     
-    
-  } else if (currentState == GameStates.MENU) {
-    //map.draw();
+  } else if (GameState.currentState == GameStates.MENU) {
+    //draw stuff (no movement)
+    map.draw();
+    overlayedmap.draw();
+    collidemap.draw();
     testPlayer.display();
+    testPlayer.animations.stoploop = true;
+    topmap.draw();
+    sandwich.drawSandwich();
+    //updating the menu
+    menu.update();
+    //for button clicks
+    checkMouse(menu);
+    checkMouse(sandwich);
+    //keypress to go into walking - backup if button breaks
+    if (keyPressed == true && key == 'm') {
+      ButtonFunction.switchState(GameStates.WALKING);
+      delay(naptime);
+    }
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> cec18a9bd69d57c59d65d14c5afa61a1383550fa
 
   ///* -- test display code -- remove in the future 
   /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
@@ -251,13 +288,50 @@ void draw(){
   }
   
   testPlayer.display(); */
+<<<<<<< HEAD
   
   System.out.println(map.framecounter);
   
+=======
+
+  
+
+  System.out.println(map.framecounter);
+  
+  testPlayer.display();
+
+>>>>>>> cec18a9bd69d57c59d65d14c5afa61a1383550fa
 }
 
-public void changeGameState(GameStates state){
-  currentState = state;
+
+
+//mouseClicked functions for menus and singular buttons each
+void checkMouse(Menu menu) {
+  //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
+  if (mousePressed) {
+    //iterate through every button in the menu
+    for (int i = 0; i < menu.buttons.size(); i++) {
+      Button current = menu.buttons.get(i);
+      //if mouse is touching  a button
+      if (mouseX >= current.x && mouseX <= current.x + current.w) {
+        if (mouseY >= current.y && mouseY <= current.y + current.h) {
+          current.onClick();
+          delay(naptime);
+        }
+      }
+    }
+  }
+}
+void checkMouse(Button current) {
+  //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
+  if (mousePressed) {
+    if (mouseX >= current.x && mouseX <= current.x + current.w) {
+      if (mouseY >= current.y && mouseY <= current.y + (5 * current.h)) {
+        current.onClick();
+        delay(naptime);
+      }
+    }
+  }
 }
 
 public void generateTileMapGuide(){

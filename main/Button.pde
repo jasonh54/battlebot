@@ -11,16 +11,28 @@ class Button {
   float h;
   float w;
   String state;
+  int func;
   Menu mymenu;
   //function-storing variable
   CallBack f;
   
-  public Button(Menu m, float x, float y, float h, float w) {
+  //menu button
+  public Button(Menu m, float x, float y, float h, float w, int f) {
     this.x = x;
     this.y = y;
     this.h = h;
     this.w = w;
     this.mymenu = m;
+    this.func = f;
+  }
+  
+  //sandwich
+  public Button(float x, float y, int f) {
+    this.x = x;
+    this.y = y;
+    this.h = 5;
+    this.w = 30;
+    this.func = f;
   }
   
   void draw() {
@@ -30,14 +42,37 @@ class Button {
     fill(256, 256, 256);
   }
   
+  void drawSandwich() {
+    rect(this.x, this.y, this.w, this.h);
+    rect(this.x, this.y + (this.h * 2), this.w, this.h);
+    rect(this.x, this.y + (this.h * 4), this.w, this.h);
+  }
+  
+  void update(){
+    
+  }
+  
+  //########################################################################
+  //########################################################################
+  //depreciated code will delete
+  //########################################################################
+  //########################################################################
   //sets whatever function is loaded into the parameter into a variable
   public void setOnClick(CallBack function){
     this.f = function;
   }
+  //########################################################################
+  //########################################################################
+  //depreciated code will delete
+  //########################################################################
+  //########################################################################
   
   //use whatever function is stored in the f variable
   public void onClick(){
-    f.callback();
+    ButtonFunction.runFunction(this.func);
   }
+  
+  
+  
   
 }
