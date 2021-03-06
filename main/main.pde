@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-
 //all the collidable sprites on the spritesheet
 int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
 int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
@@ -11,20 +10,17 @@ int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 
-
-
 SpriteSheet TPlayerStand;
 SpriteSheet SSAirA;
 SpriteSheet SSBeardA;
 
-
 //declare variables
-Timer restartTimer;
 OverlayMap collidemap = new OverlayMap();
 Map map = new Map();
 Map overlayedmap = new Map();
 Map topmap = new Map();
-Menu menu;
+
+
 Button sandwich;
 Player testPlayer;
 
@@ -32,11 +28,12 @@ Player testPlayer;
 //boolean lock = false;
 
 
-
-
-
-
+Timer restartTimer;
 final int naptime = 200;
+
+Menu mainmenu;
+Menu battlemenu;
+
 
 
 void setup(){
@@ -86,12 +83,19 @@ void setup(){
   
   //initiatize variables
   testPlayer = new Player(createCharacterSprites(0));
-  menu = new Menu(0, 0, 4, 30, 80, 5);
+  mainmenu = new Menu(0, 0, 4, 30, 80, 5);
+  battlemenu = new Menu(625, 520, 5, 50, 400, 2);
   sandwich = new Button(10, 10, 3);
-  menu.assembleMenu();
-  menu.buttons.get(0).txt = "button1";
-  menu.buttons.get(1).txt = "button2";
-  menu.buttons.get(2).txt = "button3";
+  
+  mainmenu.assembleMenuColumn();
+  mainmenu.buttons.get(0).txt = "button1";
+  mainmenu.buttons.get(1).txt = "button2";
+  mainmenu.buttons.get(2).txt = "button3";
+  battlemenu.assembleMenuColumn();
+  battlemenu.buttons.get(0).txt = "attack";
+  battlemenu.buttons.get(1).txt = "defend";
+  battlemenu.buttons.get(2).txt = "monsters";
+  battlemenu.buttons.get(3).txt = "items";
   
   //initialize the map layers
   int[][] baseMapTiles = {
@@ -229,6 +233,7 @@ void draw() {
   background(0);
   
   if (GameState.currentState == GameStates.WALKING) {
+    println("walking");
     //update stuff
     map.update();
     overlayedmap.update();
@@ -245,12 +250,17 @@ void draw() {
     }
 
   } else if (GameState.currentState == GameStates.COMBAT) {
+
     switch(GameState.combatState){
       case ENTRY:
         print("in entry state");
       break;
       case OPTIONS:
         //the part where you select what you want to do
+        println("combat");
+        //updating the menu
+        battlemenu.update();
+        checkMouse(battlemenu);
       break;
       case FIGHT:
         //will produce a menu of what moves the battle bot can use
@@ -267,7 +277,11 @@ void draw() {
     }
     
     
+
+    
+
   } else if (GameState.currentState == GameStates.MENU) {
+    println("menu");
     //draw stuff (no movement)
     map.draw();
     overlayedmap.draw();
@@ -277,9 +291,9 @@ void draw() {
     topmap.draw();
     sandwich.drawSandwich();
     //updating the menu
-    menu.update();
+    mainmenu.update();
     //for button clicks
-    checkMouse(menu);
+    checkMouse(mainmenu);
     checkMouse(sandwich);
     //keypress to go into walking - backup if button breaks
     if (keyPressed == true && key == 'm') {
@@ -306,12 +320,8 @@ void draw() {
   }
   
   testPlayer.display(); */
-
   
-
-  System.out.println(map.framecounter);
-  
-  testPlayer.display();
+  //testPlayer.display();
 
 }
 
