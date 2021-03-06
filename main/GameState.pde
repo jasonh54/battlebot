@@ -5,5 +5,5 @@ enum GameStates{
 }
 
 public static class GameState{
-   public static GameStates currentState = GameStates.WALKING;
+   public static GameStates currentState = GameStates.COMBAT;
 }
