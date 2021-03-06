@@ -18,4 +18,5 @@ class Monster {
     this.speed = speed;
   }
   
+  
 }

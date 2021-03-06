@@ -32,7 +32,7 @@ Player testPlayer;
 //boolean lock = false;
 
 
-GameStates currentState = GameStates.WALKING;
+
 
 
 
@@ -245,6 +245,27 @@ void draw() {
     }
 
   } else if (GameState.currentState == GameStates.COMBAT) {
+    switch(GameState.combatState){
+      case ENTRY:
+        print("in entry state");
+      break;
+      case OPTIONS:
+        //the part where you select what you want to do
+      break;
+      case FIGHT:
+        //will produce a menu of what moves the battle bot can use
+      break;
+      case ITEM:
+        //will produce a menu of what items you have
+      break;
+      case BATTLEBOT:
+        //will produce a menu of what battlebots you can switch to
+      break;
+      case RUN:
+        //will go back to walk state
+      break;
+    }
+    
     
   } else if (GameState.currentState == GameStates.MENU) {
     //draw stuff (no movement)
