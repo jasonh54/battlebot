@@ -30,7 +30,7 @@ class Menu {
     }
   }
   
-  void assembleMenu() {
+  void assembleMenuColumn() {
     //temporary coordinates and widths
     float temph = 0;
     float tempy = this.y + buttonh + temph;
