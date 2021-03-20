@@ -266,10 +266,6 @@ void draw() {
       delay(naptime);
     }
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> cec18a9bd69d57c59d65d14c5afa61a1383550fa
 
   ///* -- test display code -- remove in the future 
   /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
@@ -287,20 +283,12 @@ void draw() {
     System.out.println("restarted");
   }
   
-  testPlayer.display(); */
-<<<<<<< HEAD
-  
-  System.out.println(map.framecounter);
-  
-=======
-
-  
+  testPlayer.display(); */  
 
   System.out.println(map.framecounter);
   
   testPlayer.display();
 
->>>>>>> cec18a9bd69d57c59d65d14c5afa61a1383550fa
 }
 
 
