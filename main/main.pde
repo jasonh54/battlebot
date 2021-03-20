@@ -252,15 +252,22 @@ void draw() {
   } else if (GameState.currentState == GameStates.COMBAT) {
 
     switch(GameState.combatState){
+      //battle rhythm: options (choice of action) -> subaction (eg. the specific move or item chosen) -> perform action -> enemy turn -> back to options
       case ENTRY:
-        print("in entry state");
+      //this happens once at the beginning of every battle, to set the scene
+        println("in entry state");
+        //draw monsters, menu, background, HP
+        //say: "the battle has begun!"/"a wild ___ appeared!"/etc
       break;
       case OPTIONS:
-        //the part where you select what you want to do
-        println("combat");
-        //updating the menu
+        //this happens once at the beginning of every turn; the part where you select what you want to do
+        println("choosing action");
+        //draw same as Entry State
+        //update the menu
         battlemenu.update();
+        //check for clicks
         checkMouse(battlemenu);
+        //shift into new state depending on which button was selected
       break;
       case FIGHT:
         //will produce a menu of what moves the battle bot can use
@@ -273,7 +280,7 @@ void draw() {
       break;
       case RUN:
         //will go back to walk state
-      break;
+      break; */
     }
     
     

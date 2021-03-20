@@ -7,14 +7,20 @@ public static class ButtonFunction {
   public static void switchState(GameStates s) {
     GameState.currentState = s;
   }
+  public static void switchCombatState(GameStates s) {
+    CombatState.combatState = s;
+  }
   
   public static void runFunction(int num) {
+    //filler func
     if (num == 0) {
       println("this button has been clicked " + GameState.currentState);
+    //swap to various states
     } else if (num == 1) {
       switchState(GameStates.MENU);
     } else if (num == 2) {
       switchState(GameStates.WALKING);
+    //toggle between walking + menu
     } else if (num == 3) {
       println("clicked on: " + GameState.currentState);
       if (GameState.currentState == GameStates.WALKING) {
@@ -22,6 +28,15 @@ public static class ButtonFunction {
       } else if (GameState.currentState == GameStates.MENU) {
         switchState(GameStates.WALKING);
       }
+    //swap to various combat states
+    } else if (num == 4) {
+      switchCombatState(FIGHT);
+    } else if (num == 5) {
+      switchCombatState(ITEM);
+    } else if (num == 6) {
+      switchCombatState(BATTLEBOT);
+    } else if (num == 7) {
+      switchCombatState(OPTIONS);
     }
   }
 }
