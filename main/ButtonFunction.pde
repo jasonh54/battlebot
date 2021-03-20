@@ -7,8 +7,8 @@ public static class ButtonFunction {
   public static void switchState(GameStates s) {
     GameState.currentState = s;
   }
-  public static void switchCombatState(GameStates s) {
-    CombatState.combatState = s;
+  public static void switchCombatState(CombatStates s) {
+    GameState.combatState = s;
   }
   
   public static void runFunction(int num) {
@@ -30,13 +30,13 @@ public static class ButtonFunction {
       }
     //swap to various combat states
     } else if (num == 4) {
-      switchCombatState(FIGHT);
+      switchCombatState(CombatStates.FIGHT);
     } else if (num == 5) {
-      switchCombatState(ITEM);
+      switchCombatState(CombatStates.ITEM);
     } else if (num == 6) {
-      switchCombatState(BATTLEBOT);
+      switchCombatState(CombatStates.BATTLEBOT);
     } else if (num == 7) {
-      switchCombatState(OPTIONS);
+      switchCombatState(CombatStates.RUN);
     }
   }
 }

@@ -87,15 +87,25 @@ void setup(){
   battlemenu = new Menu(625, 520, 5, 50, 400, 2);
   sandwich = new Button(10, 10, 3);
   
+  //main menu
   mainmenu.assembleMenuColumn();
+  
   mainmenu.buttons.get(0).txt = "button1";
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
+  
+  //battle menu
   battlemenu.assembleMenuColumn();
-  battlemenu.buttons.get(0).txt = "attack";
-  battlemenu.buttons.get(1).txt = "defend";
-  battlemenu.buttons.get(2).txt = "monsters";
-  battlemenu.buttons.get(3).txt = "items";
+  
+  battlemenu.buttons.get(0).txt = "fight";
+  battlemenu.buttons.get(1).txt = "items";
+  battlemenu.buttons.get(2).txt = "battlebots";
+  battlemenu.buttons.get(3).txt = "run";
+  
+  battlemenu.buttons.get(0).func = 4;
+  battlemenu.buttons.get(1).func = 5;
+  battlemenu.buttons.get(2).func = 6;
+  battlemenu.buttons.get(3).func = 7;
   
   //initialize the map layers
   int[][] baseMapTiles = {
@@ -250,43 +260,41 @@ void draw() {
     }
 
   } else if (GameState.currentState == GameStates.COMBAT) {
-
+    println("battle loop");
     switch(GameState.combatState){
       //battle rhythm: options (choice of action) -> subaction (eg. the specific move or item chosen) -> perform action -> enemy turn -> back to options
       case ENTRY:
       //this happens once at the beginning of every battle, to set the scene
         println("in entry state");
         //draw monsters, menu, background, HP
-        //say: "the battle has begun!"/"a wild ___ appeared!"/etc
+        println("the battle has begun!");
+        ButtonFunction.switchCombatState(CombatStates.OPTIONS);
       break;
       case OPTIONS:
         //this happens once at the beginning of every turn; the part where you select what you want to do
         println("choosing action");
         //draw same as Entry State
-        //update the menu
         battlemenu.update();
-        //check for clicks
         checkMouse(battlemenu);
-        //shift into new state depending on which button was selected
       break;
       case FIGHT:
         //will produce a menu of what moves the battle bot can use
+        println("choosing a move");
       break;
       case ITEM:
         //will produce a menu of what items you have
+        println("choosing an item");
       break;
       case BATTLEBOT:
         //will produce a menu of what battlebots you can switch to
+        println("choosing a battlebot");
       break;
       case RUN:
         //will go back to walk state
-      break; */
+        println("running away");
+      break;
     }
     
-    
-
-    
-
   } else if (GameState.currentState == GameStates.MENU) {
     println("menu");
     //draw stuff (no movement)
