@@ -7,6 +7,7 @@ class Map {
   int colsize;
   int rowsize;
   int overlapint;
+
   //variables for the movement
   final int tileh = 16;
   final int tilew = 16;
@@ -15,10 +16,12 @@ class Map {
   char currentKey = ' ';
   int framecounter = 0;
   boolean lock = false;
+
   //variables for the map code
   private int[][] tileArray;
   private Tile [][] mapTiles;
   final int mapscale = 2;
+
   //arraylists for types of tiles within a map
   ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
   ArrayList<Tile> portalTiles = new ArrayList<Tile>();
