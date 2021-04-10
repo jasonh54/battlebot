@@ -28,4 +28,8 @@ class Monster {
     this.speed = speed;
   }
   
+  public void display(){
+    
+  }
+  
 }
