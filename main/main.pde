@@ -303,6 +303,7 @@ void draw() {
       delay(naptime);
     }
   }
+}
 
 //mouseClicked functions for menus and singular buttons each
 void checkMouse(Menu menu) {
