@@ -15,6 +15,6 @@ enum CombatStates{
 
 public static class GameState{
    public static GameStates currentState = GameStates.COMBAT;
-   public static CombatStates combatState = CombatStates.ENTRY;
+   public static CombatStates combatState = CombatStates.OPTIONS;
 
 }
