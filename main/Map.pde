@@ -173,12 +173,20 @@ class Map {
         lock = false;
         framecounter = 0;
         //checking special tile-related conditions and activating events if they are met
-        if (checkOverlap(portalTiles, testPlayer, "portal underfoot") > 0) {
+        if (checkOverlap(portalTiles, testPlayer, "portal underfoot") >= 0) {
           //have a variable save portalTiles.get(overlapint);
           //figure out what map is associated with that tile and generate it
         }
-        if (checkOverlap(grassTiles, testPlayer, "grass underfoot") > 0) {
-          //random chance to activate a battle
+        if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
+          println(GameState.currentState);
+          Random r = new Random();
+          int t = r.nextInt(10) + 1;
+          println("checking grass: " + t);
+          if (t == 1) {
+            GameState.currentState = GameStates.COMBAT;
+            println("battle time!");
+          }
+          
           //if chance happens, activate battle state
         }
         stopMove();

@@ -304,6 +304,7 @@ void draw() {
     }
   }
 }
+
 //mouseClicked functions for menus and singular buttons each
 void checkMouse(Menu menu) {
   //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
