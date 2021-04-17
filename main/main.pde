@@ -279,6 +279,7 @@ void draw() {
       case RUN:
         //will go back to walk state
         println("running away");
+        GameState.currentState = GameStates.WALKING;
       break;
     }
   //if in the menu state:
