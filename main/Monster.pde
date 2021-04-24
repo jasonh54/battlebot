@@ -14,6 +14,10 @@ class Monster {
     this.id = id;
   }
   
+  public void AssignMonster(Monster m) {
+    
+  }
+  
   //create an "archive" of monster models with predetermined stats (similar to buttonfunction)
   //public Monster will only have an ID parameter
   //ID variable used as a "key" to reach the predetermined stats of a monster model
