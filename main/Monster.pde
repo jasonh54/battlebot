@@ -22,7 +22,11 @@ class Monster {
     println(id + type + attack + defense + maxhealth + speed + monsterDatabase.get(id).getString("image"));
   }
   
-  
+
+  public void AssignMonster(Monster m) {
+    
+  }
+
   
   //create an "archive" of monster models with predetermined stats (similar to buttonfunction)
   //public Monster will only have an ID parameter
