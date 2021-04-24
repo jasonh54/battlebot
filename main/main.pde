@@ -2,6 +2,9 @@ import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+//hashmap of monster information
+HashMap<String, JSONObject> monsterDatabase = new HashMap<String, JSONObject>();
+
 //tile arrays
 int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
 int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
@@ -27,6 +30,7 @@ Menu battlemenu;
 //misc variables
 Button sandwich;
 Player testPlayer;
+Monster testMonster;
 Timer restartTimer;
 final int naptime = 200;
 
@@ -74,8 +78,26 @@ void setup(){
     println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
+  //String id;
+  //String type;
+  //float attack;
+  //float defense;
+  //float maxhealth;
+  //float speed;
+  //PImage image;
+  
+  JSONObject proto = new JSONObject();
+  proto.setString("type","fire");
+  proto.setFloat("attack",50);
+  proto.setFloat("defense",50);
+  proto.setFloat("maxhealth",50);
+  proto.setFloat("speed",50);
+  proto.setString("image",spriteList[0].substring(0, spriteList[0].length()-4));
+  //hashID of the test monster is "prototype"
+  monsterDatabase.put("prototype", proto);
   
   //initiatize misc variables
+  testMonster = new Monster("prototype");
   testPlayer = new Player(createCharacterSprites(0));
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
   battlemenu = new Menu(625, 520, 5, 50, 400, 2);
