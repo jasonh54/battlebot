@@ -1,6 +1,5 @@
 class Moves {
   //variables
-  public HashMap<String,Moves> allmoves = new HashMap<String,Moves>();
   String name;
   float type;
   float accuracy;
@@ -17,13 +16,13 @@ class Moves {
     this.name = name;
   }
   
-  public void retrieveStats() {
-    Moves storage = allmoves.get(name);
+  /* public void retrieveStats() {
+    Moves storage = [name of hashmap].get(name);
     this.type = storage.type;
     this.accuracy = storage.accuracy;
     this.damage = storage.accuracy;
     this.target = storage.target;
-  }
+  } */
   
   //implement archive system similar to in monster file
 

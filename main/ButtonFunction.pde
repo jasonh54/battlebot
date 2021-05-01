@@ -37,6 +37,10 @@ public static class ButtonFunction {
       switchCombatState(CombatStates.BATTLEBOT);
     } else if (num == "run") {
       switchCombatState(CombatStates.RUN);
+    } else if (num == "callmove") {
+      //figure out how to  get ID of move from button somehow - global variable?
+      //play animation, alter stats
+      //at the end, switch battlestate to AI
     }
   }
 }
