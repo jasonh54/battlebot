@@ -30,7 +30,7 @@ Menu battlemenu;
 //misc variables
 Button sandwich;
 Player testPlayer;
-Monster testMonster;
+Monster activeMonster;
 Timer restartTimer;
 final int naptime = 200;
 
@@ -75,16 +75,9 @@ void setup(){
   }
   
   for(int i = 0; i < tilesList.length; i++){
-    println(tilesList[i]);
+    //println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
-  //String id;
-  //String type;
-  //float attack;
-  //float defense;
-  //float maxhealth;
-  //float speed;
-  //PImage image;
   
   JSONObject proto = new JSONObject();
   proto.setString("type","fire");
@@ -97,8 +90,8 @@ void setup(){
   monsterDatabase.put("prototype", proto);
   
   //initiatize misc variables
-  testMonster = new Monster("prototype");
   testPlayer = new Player(createCharacterSprites(0));
+  testPlayer.addMonsters("prototype", "prototype", "prototype", "prototype", "prototype");
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
   battlemenu = new Menu(625, 520, 5, 50, 400, 2);
   sandwich = new Button(10, 10, "toggle");
@@ -275,6 +268,7 @@ void draw() {
       case ENTRY:
       //this happens once at the beginning of every battle, to set the scene
         println("in entry state");
+        activeMonster = testPlayer.monsters.get(0);
         //draw monsters, menu, background, HP
         println("the battle has begun!");
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
@@ -289,6 +283,15 @@ void draw() {
       case FIGHT:
         //will produce a menu of what moves the battle bot can use
         println("choosing a move");
+        Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
+        movemenu.assembleMenuColumn();
+        for (int i = 0; i < 4; i++) {
+          movemenu.buttons.get(i).func = "callmove";
+          //JSON needs moves
+          //movemenu.buttons.get(i).txt = activeMonster.moveset[i].name;
+        }
+        movemenu.update();
+        checkMouse(movemenu);
       break;
       case ITEM:
         //will produce a menu of what items you have
@@ -297,6 +300,9 @@ void draw() {
       case BATTLEBOT:
         //will produce a menu of what battlebots you can switch to
         println("choosing a battlebot");
+      break;
+      case AI:
+        //let the enemy do stuff - will need a decision tree
       break;
       case RUN:
         //will go back to walk state

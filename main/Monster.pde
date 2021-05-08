@@ -19,7 +19,6 @@ class Monster {
     maxhealth = monsterDatabase.get(id).getFloat("maxhealth");
     speed = monsterDatabase.get(id).getFloat("speed");
     image = spritesHm.get(monsterDatabase.get(id).getString("image"));
-    println(id + type + attack + defense + maxhealth + speed + monsterDatabase.get(id).getString("image"));
   }
   
 
@@ -31,7 +30,6 @@ class Monster {
   //create an "archive" of monster models with predetermined stats (similar to buttonfunction)
   //public Monster will only have an ID parameter
   //ID variable used as a "key" to reach the predetermined stats of a monster model
-  //public void retrieveStats() will use the ID to find the associated monster model and set the current monster's stats
   
   
 }
