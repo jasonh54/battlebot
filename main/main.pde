@@ -81,9 +81,7 @@ void setup(){
     //println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
-<<<<<<< HEAD
 
-  
   //JSONObject proto = new JSONObject();
   //proto.setString("type","fire");
   //proto.setFloat("attack",50);
@@ -93,8 +91,7 @@ void setup(){
   //proto.setString("image",spriteList[0].substring(0, spriteList[0].length()-4));
   ////hashID of the test monster is "prototype"
   //monsterDatabase.put("prototype", proto);
-=======
->>>>>>> dc1aaffffd6cb6e74d9fb3f328c879636d1e65f2
+
   
   JSONArray moveArray = loadJSONArray("moves.json");
   for(int i=0; i<moveArray.size();i++){
@@ -108,12 +105,10 @@ void setup(){
   }
   
   //initiatize misc variables
-<<<<<<< HEAD
-  testMonster = new Monster("AirA");
-=======
->>>>>>> dc1aaffffd6cb6e74d9fb3f328c879636d1e65f2
+
+
   testPlayer = new Player(createCharacterSprites(0));
-  testPlayer.addMonsters("prototype", "prototype", "prototype", "prototype", "prototype");
+  testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD");
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
   battlemenu = new Menu(625, 520, 5, 50, 400, 2);
   sandwich = new Button(10, 10, "toggle");
