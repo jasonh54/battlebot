@@ -31,7 +31,6 @@ class Menu {
   
   //put together + draw buttons in the menu
   void assembleMenuColumn() {
-    //temporary coordinates and widths
     float temph = 0;
     float tempy = this.y + buttonh + temph;
     for (int i = 0; i < this.menulength - 1; i++) {
@@ -41,6 +40,13 @@ class Menu {
       tempy = this.y + buttonh + temph;
       buttons.add(current);
     }
+  }
+  
+  //buttons should ve half as wide as they usually are
+  void assembleMenuRect() {
+    assembleMenuColumn();
+    this.x = this.x + + 30;
+    assembleMenuColumn();
   }
   
   //set function of a button

@@ -4,7 +4,7 @@ class Moves {
   float type;
   float accuracy;
   float damage;
-  int target;
+  boolean target;
   
   //constructor for archive moves only
   public Moves(String name, float type, float acc, float dam, int tar) {
