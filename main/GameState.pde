@@ -10,6 +10,7 @@ enum CombatStates{
   FIGHT,
   ITEM,
   BATTLEBOT,
+  AI,
   RUN
 }
 

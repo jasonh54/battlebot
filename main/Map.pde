@@ -184,6 +184,7 @@ class Map {
           println("checking grass: " + t);
           if (t == 1) {
             GameState.currentState = GameStates.COMBAT;
+            GameState.combatState = CombatStates.ENTRY;
             println("battle time!");
           }
           
