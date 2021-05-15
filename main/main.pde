@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -302,6 +303,7 @@ void draw() {
         println("choosing a move");
         Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
         movemenu.assembleMenuColumn();
+        //nullpointer error HERE because txt is null
         for (int i = 0; i < 4; i++) {
           movemenu.buttons.get(i).func = "callmove";
           //JSON needs moves
@@ -313,6 +315,18 @@ void draw() {
       case ITEM:
         //will produce a menu of what items you have
         println("choosing an item");
+        Menu itemmenu = new Menu(625, 520, 5, 50, 200, 2);
+        itemmenu.assembleMenuColumn();
+        itemmenu.x = itemmenu.x - 100;
+        itemmenu.assembleMenuColumn();
+        for (int i = 0; i < 8; i++) {
+          itemmenu.buttons.get(i).txt = "eeby deeby " + i;
+          /* set each button's function
+          need function for using an ability
+          items should have inherent functions like buttons do */
+        }
+        itemmenu.update();
+        checkMouse(itemmenu);
       break;
       case BATTLEBOT:
         //will produce a menu of what battlebots you can switch to

@@ -180,7 +180,7 @@ class Map {
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
           println(GameState.currentState);
           Random r = new Random();
-          int t = r.nextInt(10) + 1;
+          int t = r.nextInt(7) + 1;
           println("checking grass: " + t);
           if (t == 1) {
             GameState.currentState = GameStates.COMBAT;
