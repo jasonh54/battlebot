@@ -19,6 +19,10 @@ class Monster {
     maxhealth = monsterDatabase.get(id).getFloat("maxhealth");
     speed = monsterDatabase.get(id).getFloat("speed");
     image = spritesHm.get(monsterDatabase.get(id).getString("image"));
+    move1 = new Moves(monsterDatabase.get(id).getString("move1"));
+    move2 = new Moves(monsterDatabase.get(id).getString("move2"));
+    move3 = new Moves(monsterDatabase.get(id).getString("move3"));
+    move4 = new Moves(monsterDatabase.get(id).getString("move4"));
     println(id + type + attack + defense + maxhealth + speed + monsterDatabase.get(id).getString("image"));
   }
   
