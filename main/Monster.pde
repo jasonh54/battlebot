@@ -1,17 +1,28 @@
 class Monster {
   //variables
+  PImage image;
   String id;
   String type;
   float attack;
   float defense;
+  float chealth; //current health
   float maxhealth;
   float speed;
-  PImage image;
   Moves move1, move2, move3, move4;
   Moves[] moveset = {move1, move2, move3, move4};
   
+  PImage[] sprites; //monster sprites
+  //private Timer keyTimer = new Timer(40);
+  SpriteSheet animations;
+  final int h = 16;
+  final int w = 16;
+  int x = 400;
+  int y = 400;
+  final int scale = 2;
+  
   //constructor
   public Monster(String id) {
+    animations = new SpriteSheet(spritesHm.get(id), 500);
     this.id = id;
     type = monsterDatabase.get(id).getString("type");
     attack = monsterDatabase.get(id).getFloat("attack");
@@ -28,15 +39,14 @@ class Monster {
 
   }
   
-
-  public void AssignMonster(Monster m) {
+  public void display(){
     
+    color(0,0,200);
+    rect(50,50,150,100); 
+    //pop();
+    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+      animations.changeDisplay(true);
+    }
   }
-
-  
-  //create an "archive" of monster models with predetermined stats (similar to buttonfunction)
-  //public Monster will only have an ID parameter
-  //ID variable used as a "key" to reach the predetermined stats of a monster model
-  
   
 }
