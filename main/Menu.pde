@@ -6,11 +6,10 @@ class Menu {
   int buttonh;
   int buttonw;
   int spacing;
-  
-  
-  ArrayList<Button> buttons = new ArrayList<Button>();
   PImage img;
+  ArrayList<Button> buttons = new ArrayList<Button>();
   
+  //constructor
   public Menu(float x, float y, int menulength, int bh, int bw, int th) {
     this.x = x;
     this.y = y;
@@ -30,19 +29,27 @@ class Menu {
     }
   }
   
-  void assembleMenu() {
-    //temporary coordinates and widths
+  //put together + draw buttons in the menu
+  void assembleMenuColumn() {
     float temph = 0;
     float tempy = this.y + buttonh + temph;
     for (int i = 0; i < this.menulength - 1; i++) {
       //height and width are arbitrary until we have real sprites
-      Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw, 0);
+      Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw, "0");
       temph = temph + current.h + spacing;
       tempy = this.y + buttonh + temph;
       buttons.add(current);
     }
   }
   
+  //buttons should ve half as wide as they usually are
+  void assembleMenuRect() {
+    assembleMenuColumn();
+    this.x = this.x + + 30;
+    assembleMenuColumn();
+  }
+  
+  //set function of a button
   void setFunc(int n, CallBack function) {
       buttons.get(n).setOnClick(function);
   }

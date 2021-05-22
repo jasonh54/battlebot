@@ -5,10 +5,11 @@ class Monster {
   String type;
   float attack;
   float defense;
-  float health;
   float chealth; //current health
+  float maxhealth;
   float speed;
   Moves move1, move2, move3, move4;
+  Moves[] moveset = {move1, move2, move3, move4};
   
   PImage[] sprites; //monster sprites
   //private Timer keyTimer = new Timer(40);
@@ -20,17 +21,22 @@ class Monster {
   final int scale = 2;
   
   //constructor
-  public Monster(String id, String type, float attack, float defense, float health, float speed) {
+  public Monster(String id) {
+    animations = new SpriteSheet(spritesHm.get(id), 500);
     this.id = id;
-    this.type = type;
-    this.attack = attack;
-    this.defense = defense;
-    this.health = health;
-    this.speed = speed;
-  }
-  
-  public Monster(String name){
-    animations = new SpriteSheet(spritesHm.get(name), 500);
+    type = monsterDatabase.get(id).getString("type");
+    attack = monsterDatabase.get(id).getFloat("attack");
+    defense = monsterDatabase.get(id).getFloat("defense");
+    maxhealth = monsterDatabase.get(id).getFloat("maxhealth");
+    speed = monsterDatabase.get(id).getFloat("speed");
+    image = spritesHm.get(monsterDatabase.get(id).getString("image"));
+
+    move1 = new Moves(monsterDatabase.get(id).getString("move1"));
+    move2 = new Moves(monsterDatabase.get(id).getString("move2"));
+    move3 = new Moves(monsterDatabase.get(id).getString("move3"));
+    move4 = new Moves(monsterDatabase.get(id).getString("move4"));
+    println(id + type + attack + defense + maxhealth + speed + monsterDatabase.get(id).getString("image"));
+
   }
   
   public void display(){
