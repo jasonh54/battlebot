@@ -17,7 +17,6 @@ SpriteSheet TPlayerStand;
 SpriteSheet SSAirA;
 SpriteSheet SSBeardA;
 
-
 //declare variables
 Timer restartTimer;
 OverlayMap collidemap = new OverlayMap();
@@ -27,7 +26,7 @@ Map topmap = new Map();
 Menu menu;
 Button sandwich;
 Player testPlayer;
-
+Monster testMonster;
 
 //boolean lock = false;
 
@@ -86,6 +85,7 @@ void setup(){
   
   //initiatize variables
   testPlayer = new Player(createCharacterSprites(0));
+  testMonster = new Monster("AirA");
   menu = new Menu(0, 0, 4, 30, 80, 5);
   sandwich = new Button(10, 10, 3);
   menu.assembleMenu();
@@ -234,6 +234,7 @@ void draw() {
     overlayedmap.update();
     collidemap.update();
     testPlayer.display();
+    
     topmap.update();
     sandwich.drawSandwich();
     //for button clicks
