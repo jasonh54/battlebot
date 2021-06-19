@@ -42,7 +42,7 @@ class Player{
   final int scale = 2;
 
   
-  ArrayList<Items> items = new ArrayList<Items>();
+  HashMap<String,Integer> items = new HashMap<String,Integer>();
   ArrayList<Monster> monsters = new ArrayList<Monster>();
   
   public Player(PImage[] sprites){
@@ -50,11 +50,28 @@ class Player{
     animations = new SpriteSheet(this.sprites, 167);
   }
   
+  public void addItem(String id){
+    Integer a = items.get(id);
+    if (a == null){
+      a = 0;
+    }
+    items.put(id, a+1);
+  }
+  public Item useItem(String id){
+    Integer a = items.get(id);
+    if (a != null){
+      items.put(id, a-1); // "healthPotion": 0
+      return new Item(id);
+    }
+    throw new Error("You insolent fool, thou hast disturbed the balance of the universe.");
+  }
+  
+  
   //i am sorry about this  monstrosity but i needed to iterate with letters
   //each string should be the name of a monster)
   public void addMonsters(String a, String aa, String aaa, String aaaa, String aaaaa) {
     String[] parameters = {a, aa, aaa, aaaa, aaaaa};
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++) { // for (String i : parameters)
       Monster m = new Monster(parameters[i]);
       monsters.add(m);
       println(m.id);
@@ -106,11 +123,6 @@ class Player{
         animations.display(400,400);
         break;
     }
-    
-   
-    
-
-
   }
   
   
