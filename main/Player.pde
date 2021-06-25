@@ -33,7 +33,6 @@ class Player{
 
   PImage[] sprites; //character sprites
   //private Timer keyTimer = new Timer(40);
-  SpriteSheet animations;
   final int h = 16;
   final int w = 16;
   int steps = 0; //steps taken during gameplay
@@ -47,7 +46,6 @@ class Player{
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new SpriteSheet(this.sprites, 167);
   }
   
   //i am sorry about this  monstrosity but i needed to iterate with letters
@@ -76,34 +74,34 @@ class Player{
       }
     }
     
-    if(animations.stoploop){
-      animations.softReset();
-      //keyTimer.refresh();
-      direction = PlayerMovementStates.STATIC;
-    }
+    //if(animations.stoploop){
+    //  animations.softReset();
+    //  //keyTimer.refresh();
+    //  direction = PlayerMovementStates.STATIC;
+    //}
     
     switch(direction){
       case UP:
-        animations.checkCase(6);
-        moveUp();
+        //animations.checkCase(6);
+        //moveUp();
         break;
       case DOWN:
-        animations.checkCase(3);
-        moveDown();
+        //animations.checkCase(3);
+        //moveDown();
         break;
       case LEFT:
-        animations.checkCase(0);
-        moveLeft();
+        //animations.checkCase(0);
+        //moveLeft();
         break;
       case RIGHT:
-        animations.checkCase(9);
-        moveRight();
+        //animations.checkCase(9);
+        //moveRight();
         break;
       default:
-        if(animations.animationTimer.countDownOnce()){
-          animations.increment = animations.loopstart;
-        }
-        animations.display(400,400);
+        //if(animations.animationTimer.countDownOnce()){
+        //  animations.increment = animations.loopstart;
+        //}
+        //animations.display(400,400);
         break;
     }
     
@@ -119,54 +117,54 @@ class Player{
   //this function is used in the switch statement depending on which direction the player is facing in
   //when this function runs the player needs to player the walking up animation
   void moveUp(){
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(6,8);
-      }
-      animations.display(400,400);
+      //if(animations.animationTimer.countDownUntil(animations.stoploop)){
+      //  animations.changeDisplay(6,8);
+      //}
+      //animations.display(400,400);
       
-      if(keyPressed == false && animations.increment > 6){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
+      //if(keyPressed == false && animations.increment > 6){
+      //  animations.softReset();
+      //  direction = PlayerMovementStates.STATIC;
+      //}
   }
   
-  void moveDown(){
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(3,5);
-      }
-      animations.display(400,400);
+  //void moveDown(){
+  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+  //      animations.changeDisplay(3,5);
+  //    }
+  //    animations.display(400,400);
       
 
-      if(keyPressed == false && animations.increment > 3){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
-  }
+  //    if(keyPressed == false && animations.increment > 3){
+  //      animations.softReset();
+  //      direction = PlayerMovementStates.STATIC;
+  //    }
+  //}
   
-  void moveLeft(){  
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(0,2);
-      }
-      animations.display(400,400);
+  //void moveLeft(){  
+  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+  //      animations.changeDisplay(0,2);
+  //    }
+  //    animations.display(400,400);
       
 
-      if(keyPressed == false && animations.increment > 0){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
-  }
+  //    if(keyPressed == false && animations.increment > 0){
+  //      animations.softReset();
+  //      direction = PlayerMovementStates.STATIC;
+  //    }
+  //}
   
-  void moveRight(){
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(9,11);
-      }
-      animations.display(400,400);
+  //void moveRight(){
+  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+  //      animations.changeDisplay(9,11);
+  //    }
+  //    animations.display(400,400);
       
-      if(keyPressed == false && animations.increment > 9){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
-  }
+  //    if(keyPressed == false && animations.increment > 9){
+  //      animations.softReset();
+  //      direction = PlayerMovementStates.STATIC;
+  //    }
+  //}
   
   
 }

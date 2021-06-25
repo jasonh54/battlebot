@@ -14,9 +14,6 @@ int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,
 //sprite stuff
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
-SpriteSheet TPlayerStand;
-SpriteSheet SSAirA;
-SpriteSheet SSBeardA;
 
 //map variables
 OverlayMap collidemap = new OverlayMap();
@@ -253,10 +250,7 @@ void setup(){
   topmap.generateBaseMap(topMapTiles);
   
   //misc stuff??
-  TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27), 500);
   restartTimer = new Timer(5000);
-  SSAirA = new SpriteSheet(spritesHm.get("AirA"), 500);
-  SSBeardA = new SpriteSheet(spritesHm.get("BeardA"), 500);
   
   //size of game window:
   size(1100,800);
@@ -352,7 +346,6 @@ void draw() {
     overlayedmap.draw();
     collidemap.draw();
     testPlayer.display();
-    testPlayer.animations.stoploop = true;
     topmap.draw();
     sandwich.drawSandwich();
     //updating the menu

@@ -13,7 +13,6 @@ class Monster {
   
   PImage[] sprites; //monster sprites
   //private Timer keyTimer = new Timer(40);
-  SpriteSheet animations;
   final int h = 16;
   final int w = 16;
   int x = 400;
@@ -22,7 +21,6 @@ class Monster {
   
   //constructor
   public Monster(String id) {
-    animations = new SpriteSheet(spritesHm.get(id), 500);
     this.id = id;
     type = monsterDatabase.get(id).getString("type");
     attack = monsterDatabase.get(id).getFloat("attack");
@@ -44,9 +42,9 @@ class Monster {
     color(0,0,200);
     rect(50,50,150,100); 
     //pop();
-    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      animations.changeDisplay(true);
-    }
+    //if(animations.animationTimer.countDownUntil(animations.stoploop)){
+    //  animations.changeDisplay(true);
+    //}
   }
   
 }
