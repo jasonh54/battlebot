@@ -106,7 +106,7 @@ void setup(){
   
   //initiatize misc variables
 
-
+ 
   testPlayer = new Player(createCharacterSprites(0));
   testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD");
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
@@ -250,7 +250,7 @@ void setup(){
   topmap.generateBaseMap(topMapTiles);
   
   //misc stuff??
-  restartTimer = new Timer(5000);
+  //restartTimer = new Timer(5000);
   
   //size of game window:
   size(1100,800);
@@ -265,7 +265,6 @@ void draw() {
     overlayedmap.update();
     collidemap.update();
     testPlayer.display();
-    
     topmap.update();
     sandwich.drawSandwich();
     //check if menu is opened

@@ -43,9 +43,16 @@ class Player{
   
   ArrayList<Items> items = new ArrayList<Items>();
   ArrayList<Monster> monsters = new ArrayList<Monster>();
+  Spritesheet animations;
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
+    animations = new Spritesheet(this.sprites);
+    animations.setxywh(x, y, w*scale, h*scale);
+    animations.createAnimation("walkLeft", new int[]{0,1,2});
+    animations.createAnimation("walkDown", new int[]{3,4,5});
+    animations.createAnimation("walkUp", new int[]{6,7,8});
+    animations.createAnimation("walkRight", new int[]{9,10,11});
   }
   
   //i am sorry about this  monstrosity but i needed to iterate with letters
@@ -83,19 +90,19 @@ class Player{
     switch(direction){
       case UP:
         //animations.checkCase(6);
-        //moveUp();
+        moveUp();
         break;
       case DOWN:
         //animations.checkCase(3);
-        //moveDown();
+        moveDown();
         break;
       case LEFT:
         //animations.checkCase(0);
-        //moveLeft();
+        moveLeft();
         break;
       case RIGHT:
         //animations.checkCase(9);
-        //moveRight();
+        moveRight();
         break;
       default:
         //if(animations.animationTimer.countDownOnce()){
@@ -104,19 +111,24 @@ class Player{
         //animations.display(400,400);
         break;
     }
-    
-   
-    
-
-
   }
   
-  
-  
+  void moveUp(){
+    animations.play("walkUp");
+  }
+  void moveDown(){
+    animations.play("walkDown");
+  }
+  void moveLeft(){
+    animations.play("walkLeft");
+  }
+  void moveRight(){
+    animations.play("walkRight");
+  }
   //player needs key pressed to trigger animations
   //this function is used in the switch statement depending on which direction the player is facing in
   //when this function runs the player needs to player the walking up animation
-  void moveUp(){
+  //void moveUp(){
       //if(animations.animationTimer.countDownUntil(animations.stoploop)){
       //  animations.changeDisplay(6,8);
       //}
@@ -126,7 +138,7 @@ class Player{
       //  animations.softReset();
       //  direction = PlayerMovementStates.STATIC;
       //}
-  }
+  //}
   
   //void moveDown(){
   //    if(animations.animationTimer.countDownUntil(animations.stoploop)){

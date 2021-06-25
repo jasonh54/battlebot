@@ -323,14 +323,47 @@
 
 class Spritesheet{
   private PImage[] spritesheet;
+  HashMap<String, PImage[]> animations = new HashMap<String, PImage[]>();
+  int currentFrame = 0;
+  float x, y, w, h;
+  Timer time = new Timer();
   public Spritesheet(PImage[] images){
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
     spritesheet = images;
+    time.setTimeInterval(500);
   }
   public Spritesheet(PImage image){
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
     int frameNum = image.width/16;
     spritesheet = new PImage[frameNum];
     for(int i = 0; i < frameNum; i++){
       spritesheet[i] = image.get(i*16, 0, 16, 16);
+    }
+    time.setTimeInterval(500);
+  }
+  public void setxywh(float x, float y, float w, float h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+  }
+  public void createAnimation(String name, int[] frameNum){
+    PImage[] frames = new PImage[frameNum.length];
+    for(int i = 0; i < frames.length; i++){
+      frames[i] = spritesheet[frameNum[i]];
+    }
+    animations.put(name, frames);
+  }
+  public void play(String name){
+    image(animations.get(name)[currentFrame%animations.get(name).length], x, y, w, h);
+    if(time.intervals()){
+      currentFrame++;
     }
   }
 }
