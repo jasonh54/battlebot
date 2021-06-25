@@ -361,9 +361,19 @@ class Spritesheet{
     animations.put(name, frames);
   }
   public void play(String name){
-    image(animations.get(name)[currentFrame%animations.get(name).length], x, y, w, h);
+    image(animations.get(name)[currentFrame], x, y, w, h);
     if(time.intervals()){
       currentFrame++;
+      if(currentFrame == animations.get(name).length){
+        currentFrame = 0;
+      }
+    }
+  }
+  public boolean finished(String name){
+    if(currentFrame == animations.get(name).length){
+      return true;
+    } else {
+      return false;
     }
   }
 }

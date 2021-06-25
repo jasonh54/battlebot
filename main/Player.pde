@@ -53,6 +53,10 @@ class Player{
     animations.createAnimation("walkDown", new int[]{3,4,5});
     animations.createAnimation("walkUp", new int[]{6,7,8});
     animations.createAnimation("walkRight", new int[]{9,10,11});
+    animations.createAnimation("lookLeft", new int[]{0});
+    animations.createAnimation("lookDown", new int[]{3});
+    animations.createAnimation("lookUp", new int[]{6});
+    animations.createAnimation("lookRight", new int[]{9});
   }
   
   //i am sorry about this  monstrosity but i needed to iterate with letters
@@ -109,6 +113,7 @@ class Player{
         //  animations.increment = animations.loopstart;
         //}
         //animations.display(400,400);
+        d
         break;
     }
   }
