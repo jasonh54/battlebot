@@ -37,10 +37,24 @@ public static class ButtonFunction {
       switchCombatState(CombatStates.BATTLEBOT);
     } else if (num == "run") {
       switchCombatState(CombatStates.RUN);
-    } else if (num == "callmove") {
-      //figure out how to  get ID of move from button somehow - global variable?
+    } else if (num == "callmove0") {
+      //get a Move and a self monster
+      Moves current = activeMonster.move1;
+      Monster mon = activeMonster;
       //play animation, alter stats
+      println("move 1 used");
+      current.useAttackMove(mon);
+      
       //at the end, switch battlestate to AI
+      
+    } else if (num == "callmove1") {
+      //
+    } else if (num == "callmove2") {
+      Moves current = activeMonster.move3;
+      //
+    } else if (num == "callmove3") {
+      Moves current = activeMonster.move4;
+      //
     }
   }
 }

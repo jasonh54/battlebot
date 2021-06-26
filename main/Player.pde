@@ -50,14 +50,11 @@ class Player{
     animations = new SpriteSheet(this.sprites, 167);
   }
   
-  //i am sorry about this  monstrosity but i needed to iterate with letters
-  //each string should be the name of a monster)
-  public void addMonsters(String a, String aa, String aaa, String aaaa, String aaaaa) {
+  public void addMonsters(String a, String aa, String aaa, String aaaa, String aaaaa, Monster enemy) {
     String[] parameters = {a, aa, aaa, aaaa, aaaaa};
     for (int i = 0; i < 5; i++) {
-      Monster m = new Monster(parameters[i]);
+      Monster m = new Monster(parameters[i], enemy);
       monsters.add(m);
-      println(m.id);
     }
   }
   

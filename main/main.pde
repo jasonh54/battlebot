@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +30,7 @@ Menu battlemenu;
 //misc variables
 Button sandwich;
 Player testPlayer;
-Monster activeMonster;
+static Monster activeMonster;
 Timer restartTimer;
 final int naptime = 200;
 
@@ -106,10 +105,9 @@ void setup(){
   }
   
   //initiatize misc variables
-
-
+  Monster enemy = new Monster("ZombieA", activeMonster);
   testPlayer = new Player(createCharacterSprites(0));
-  testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD");
+  testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD", enemy);
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
   battlemenu = new Menu(625, 520, 5, 50, 400, 2);
   sandwich = new Button(10, 10, "toggle");
@@ -280,12 +278,10 @@ void draw() {
     }
   //if in the combat state:
   } else if (GameState.currentState == GameStates.COMBAT) {
-    println("battle loop");
     switch(GameState.combatState){
       //battle rhythm: options (choice of action) -> subaction (eg. the specific move or item chosen) -> perform action -> enemy turn -> back to options
       case ENTRY:
       //this happens once at the beginning of every battle, to set the scene
-        println("in entry state");
         activeMonster = testPlayer.monsters.get(0);
         //draw monsters, menu, background, HP
         println("the battle has begun!");
@@ -293,28 +289,28 @@ void draw() {
       break;
       case OPTIONS:
         //this happens once at the beginning of every turn; the part where you select what you want to do
-        println("choosing action");
         //draw same as Entry State
         battlemenu.update();
         checkMouse(battlemenu);
       break;
       case FIGHT:
         //will produce a menu of what moves the battle bot can use
-        println("choosing a move");
         Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
         movemenu.assembleMenuColumn();
         //nullpointer error HERE because txt is null
         for (int i = 0; i < 4; i++) {
-          movemenu.buttons.get(i).func = "callmove";
-          //JSON needs moves
-          //movemenu.buttons.get(i).txt = activeMonster.moveset[i].name;
+          //give move buttons functions based on their moves
+          movemenu.buttons.get(i).txt = activeMonster.moveset[i].name;
         }
+        movemenu.buttons.get(0).func = "callmove0";
+        movemenu.buttons.get(1).func = "callmove1";
+        movemenu.buttons.get(2).func = "callmove2";
+        movemenu.buttons.get(3).func = "callmove3";
         movemenu.update();
         checkMouse(movemenu);
       break;
       case ITEM:
         //will produce a menu of what items you have
-        println("choosing an item");
         Menu itemmenu = new Menu(625, 520, 5, 50, 200, 2);
         itemmenu.assembleMenuColumn();
         itemmenu.x = itemmenu.x - 100;
@@ -330,14 +326,12 @@ void draw() {
       break;
       case BATTLEBOT:
         //will produce a menu of what battlebots you can switch to
-        println("choosing a battlebot");
       break;
       case AI:
         //let the enemy do stuff - will need a decision tree
       break;
       case RUN:
         //will go back to walk state
-        println("running away");
         GameState.currentState = GameStates.WALKING;
       break;
     }
@@ -375,6 +369,7 @@ void checkMouse(Menu menu) {
       //if mouse is touching  a button
       if (mouseX >= current.x && mouseX <= current.x + current.w) {
         if (mouseY >= current.y && mouseY <= current.y + current.h) {
+          println("menuclick");
           current.onClick();
           delay(naptime);
         }
