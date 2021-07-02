@@ -321,21 +321,31 @@
 
 ////document things
 
+enum AnimationStates {
+  START,
+  PLAYING,
+  STOP
+}
+ 
+
 class Spritesheet{
   private PImage[] spritesheet;
   HashMap<String, PImage[]> animations = new HashMap<String, PImage[]>();
   int currentFrame = 0;
   float x, y, w, h;
   Timer time = new Timer();
-  public Spritesheet(PImage[] images){
+  int interval = 0;
+  AnimationStates currentState = AnimationStates.START;
+  public Spritesheet(PImage[] images, int a){
     x = 0;
     y = 0;
     w = 0;
     h = 0;
     spritesheet = images;
-    time.setTimeInterval(500);
+    interval = a;
+    time.setTimeInterval(interval);
   }
-  public Spritesheet(PImage image){
+  public Spritesheet(PImage image, int a){
     x = 0;
     y = 0;
     w = 0;
@@ -345,7 +355,8 @@ class Spritesheet{
     for(int i = 0; i < frameNum; i++){
       spritesheet[i] = image.get(i*16, 0, 16, 16);
     }
-    time.setTimeInterval(500);
+    interval = a;
+    time.setTimeInterval(interval);
   }
   public void setxywh(float x, float y, float w, float h){
     this.x = x;
@@ -361,16 +372,30 @@ class Spritesheet{
     animations.put(name, frames);
   }
   public void play(String name){
-    image(animations.get(name)[currentFrame], x, y, w, h);
-    if(time.intervals()){
-      currentFrame++;
-      if(currentFrame == animations.get(name).length){
+    switch(currentState){
+      case START:
         currentFrame = 0;
-      }
-    }
+        time.timeStampNow();
+        image(animations.get(name)[currentFrame%animations.get(name).length], x, y, w, h);
+        currentState = AnimationStates.PLAYING;
+        break;
+      case PLAYING:
+        image(animations.get(name)[currentFrame%animations.get(name).length], x, y, w, h);
+        if(time.intervals()){
+          currentFrame++;
+          //if(currentFrame == animations.get(name).length){
+          //  currentFrame = 0;
+          //}
+        }
+        break;
+      case STOP:
+        break;
+    } 
+    
   }
   public boolean finished(String name){
-    if(currentFrame == animations.get(name).length){
+    if(currentFrame >= animations.get(name).length){
+      currentState = AnimationStates.START;
       return true;
     } else {
       return false;

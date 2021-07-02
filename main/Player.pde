@@ -22,13 +22,17 @@ enum PlayerMovementStates{
   LEFT,
   RIGHT,
   SUDDENSTOP,
-  STATIC
+  STATIC,
+  MOVEUP,
+  MOVEDOWN,
+  MOVELEFT,
+  MOVERIGHT
 }
 
 //player class
 class Player{
   
-  PlayerMovementStates direction = PlayerMovementStates.STATIC;
+  PlayerMovementStates direction = PlayerMovementStates.RIGHT;
   
 
   PImage[] sprites; //character sprites
@@ -47,7 +51,7 @@ class Player{
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new Spritesheet(this.sprites);
+    animations = new Spritesheet(this.sprites, 120);
     animations.setxywh(x, y, w*scale, h*scale);
     animations.createAnimation("walkLeft", new int[]{0,1,2});
     animations.createAnimation("walkDown", new int[]{3,4,5});
@@ -75,13 +79,13 @@ class Player{
     
     if(keyPressed == true){
       if (key == 'w') {
-        direction= PlayerMovementStates.UP;
+        direction= PlayerMovementStates.MOVEUP;
       } else if (key == 's') {
-        direction= PlayerMovementStates.DOWN;
+        direction= PlayerMovementStates.MOVEDOWN;
       } else if (key == 'a') {
-        direction= PlayerMovementStates.LEFT;
+        direction= PlayerMovementStates.MOVELEFT;
       } else if (key == 'd') {
-        direction= PlayerMovementStates.RIGHT;
+        direction= PlayerMovementStates.MOVERIGHT;
       }
     }
     
@@ -92,43 +96,66 @@ class Player{
     //}
     
     switch(direction){
-      case UP:
+      case MOVEUP:
         //animations.checkCase(6);
         moveUp();
         break;
-      case DOWN:
+      case MOVEDOWN:
         //animations.checkCase(3);
         moveDown();
         break;
-      case LEFT:
+      case MOVELEFT:
         //animations.checkCase(0);
         moveLeft();
         break;
-      case RIGHT:
+      case MOVERIGHT:
         //animations.checkCase(9);
         moveRight();
+        break;
+      case UP:
+        animations.play("lookUp");
+        break;
+      case DOWN:
+        animations.play("lookDown");
+        break;
+      case LEFT:
+        animations.play("lookLeft");
+        break;
+      case RIGHT:
+        animations.play("lookRight");
         break;
       default:
         //if(animations.animationTimer.countDownOnce()){
         //  animations.increment = animations.loopstart;
         //}
         //animations.display(400,400);
-        d
         break;
     }
   }
   
   void moveUp(){
     animations.play("walkUp");
+    if(animations.finished("walkUp")){
+      direction = PlayerMovementStates.UP;
+    }
   }
   void moveDown(){
     animations.play("walkDown");
+    if(animations.finished("walkDown")){
+      direction = PlayerMovementStates.DOWN;
+    }
   }
   void moveLeft(){
     animations.play("walkLeft");
+    if(animations.finished("walkLeft")){
+      direction = PlayerMovementStates.LEFT;
+    }
   }
   void moveRight(){
     animations.play("walkRight");
+    if(animations.finished("walkRight")){
+      direction = PlayerMovementStates.RIGHT;
+    }
   }
   //player needs key pressed to trigger animations
   //this function is used in the switch statement depending on which direction the player is facing in
