@@ -11,13 +11,14 @@ class Monster {
   Moves move1, move2, move3, move4;
   Moves[] moveset = {move1, move2, move3, move4};
   
-  PImage[] sprites; //monster sprites
+  //PImage[] sprites; //monster sprites
   //private Timer keyTimer = new Timer(40);
   final int h = 16;
   final int w = 16;
   int x = 400;
   int y = 400;
   final int scale = 2;
+  Spritesheet animations;
   
   //constructor
   public Monster(String id) {
@@ -28,7 +29,16 @@ class Monster {
     maxhealth = monsterDatabase.get(id).getFloat("maxhealth");
     speed = monsterDatabase.get(id).getFloat("speed");
     image = spritesHm.get(monsterDatabase.get(id).getString("image"));
-
+    
+    animations = new Spritesheet(this.image, 120);
+    animations.setxywh(x, y, w*scale, h*scale);
+    int frameNum = image.width/16;
+    int[] frameNums = new int[frameNum];
+    for(int i = 0; i < frameNum; i++){
+      frameNums[i] = i;
+    }
+    animations.createAnimation("default", frameNums);
+    
     move1 = new Moves(monsterDatabase.get(id).getString("move1"));
     move2 = new Moves(monsterDatabase.get(id).getString("move2"));
     move3 = new Moves(monsterDatabase.get(id).getString("move3"));
