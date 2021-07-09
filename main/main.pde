@@ -30,6 +30,7 @@ Menu battlemenu;
 Button sandwich;
 Player testPlayer;
 Monster activeMonster;
+Monster testMonster;
 Timer restartTimer;
 final int naptime = 200;
 
@@ -285,8 +286,11 @@ void draw() {
         //draw monsters, menu, background, HP
         println("the battle has begun!");
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+        testMonster = new Monster("AirA", 800, 250);
       break;
       case OPTIONS:
+        testMonster.display();
+        activeMonster.display();
         //this happens once at the beginning of every turn; the part where you select what you want to do
         println("choosing action");
         //draw same as Entry State

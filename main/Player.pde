@@ -68,7 +68,7 @@ class Player{
   public void addMonsters(String a, String aa, String aaa, String aaaa, String aaaaa) {
     String[] parameters = {a, aa, aaa, aaaa, aaaaa};
     for (int i = 0; i < 5; i++) {
-      Monster m = new Monster(parameters[i]);
+      Monster m = new Monster(parameters[i], 250, 600);
       monsters.add(m);
       println(m.id);
     }
@@ -157,6 +157,7 @@ class Player{
       direction = PlayerMovementStates.RIGHT;
     }
   }
+  
   //player needs key pressed to trigger animations
   //this function is used in the switch statement depending on which direction the player is facing in
   //when this function runs the player needs to player the walking up animation
