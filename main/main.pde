@@ -14,9 +14,6 @@ int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,
 //sprite stuff
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
-SpriteSheet TPlayerStand;
-SpriteSheet SSAirA;
-SpriteSheet SSBeardA;
 
 //map variables
 OverlayMap collidemap = new OverlayMap();
@@ -33,9 +30,13 @@ Menu battlemenu;
 //misc variables
 Button sandwich;
 
+
 static Player testPlayer;
 
 static Monster activeMonster;
+
+Monster testMonster;
+
 Timer restartTimer;
 final int naptime = 200;
 
@@ -114,12 +115,14 @@ void setup(){
     itemDatabase.put(item.getString("name"),item);
   }
   //initiatize misc variables
-  Monster enemy = new Monster("ZombieA", activeMonster);
+  Monster enemy = new Monster("ZombieA", activeMonster, 800, 300);
   testPlayer = new Player(createCharacterSprites(0));
+
 
   testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD", enemy);
 
   testPlayer.addItem("Health Potion");
+
 
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
   battlemenu = new Menu(625, 520, 5, 50, 400, 2);
@@ -262,10 +265,7 @@ void setup(){
   topmap.generateBaseMap(topMapTiles);
   
   //misc stuff??
-  TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27), 500);
-  restartTimer = new Timer(5000);
-  SSAirA = new SpriteSheet(spritesHm.get("AirA"), 500);
-  SSBeardA = new SpriteSheet(spritesHm.get("BeardA"), 500);
+  //restartTimer = new Timer(5000);
   
   //size of game window:
   size(1100,800);
@@ -280,7 +280,6 @@ void draw() {
     overlayedmap.update();
     collidemap.update();
     testPlayer.display();
-    
     topmap.update();
     sandwich.drawSandwich();
     //check if menu is opened
@@ -300,8 +299,11 @@ void draw() {
         //draw monsters, menu, background, HP
         println("the battle has begun!");
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+        testMonster = new Monster("AirA", activeMonster, 800, 250);
       break;
       case OPTIONS:
+        testMonster.display();
+        activeMonster.display();
         //this happens once at the beginning of every turn; the part where you select what you want to do
         //draw same as Entry State
         battlemenu.update();
@@ -360,7 +362,6 @@ void draw() {
     overlayedmap.draw();
     collidemap.draw();
     testPlayer.display();
-    testPlayer.animations.stoploop = true;
     topmap.draw();
     sandwich.drawSandwich();
     //updating the menu
