@@ -51,11 +51,11 @@ class Monster {
   public void display(){
     
     color(0,0,200);
-    fill(255,255,255);
+    fill(250, 229, 127);
     rect(x-60,y-100,170,60);
-    fill(255,0,0);
+    fill(158,0,0);
     rect(x-55,y-75,150,25);
-    fill(0,255,0);
+    fill(0,158,0);
     rect(x-55,y-75,(chealth/maxhealth)*150,25);
     fill(0,0,0);
     textAlign(LEFT, UP);
