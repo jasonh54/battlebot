@@ -22,18 +22,21 @@ enum PlayerMovementStates{
   LEFT,
   RIGHT,
   SUDDENSTOP,
-  STATIC
+  STATIC,
+  MOVEUP,
+  MOVEDOWN,
+  MOVELEFT,
+  MOVERIGHT
 }
 
 //player class
 class Player{
   
-  PlayerMovementStates direction = PlayerMovementStates.STATIC;
+  PlayerMovementStates direction = PlayerMovementStates.RIGHT;
   
 
   PImage[] sprites; //character sprites
   //private Timer keyTimer = new Timer(40);
-  SpriteSheet animations;
   final int h = 16;
   final int w = 16;
   int steps = 0; //steps taken during gameplay
@@ -44,10 +47,20 @@ class Player{
   
   HashMap<String,Integer> items = new HashMap<String,Integer>();
   ArrayList<Monster> monsters = new ArrayList<Monster>();
+  Spritesheet animations;
   
   public Player(PImage[] sprites){
     this.sprites = sprites; 
-    animations = new SpriteSheet(this.sprites, 167);
+    animations = new Spritesheet(this.sprites, 120);
+    animations.setxywh(x, y, w*scale, h*scale);
+    animations.createAnimation("walkLeft", new int[]{0,1,2});
+    animations.createAnimation("walkDown", new int[]{3,4,5});
+    animations.createAnimation("walkUp", new int[]{6,7,8});
+    animations.createAnimation("walkRight", new int[]{9,10,11});
+    animations.createAnimation("lookLeft", new int[]{0});
+    animations.createAnimation("lookDown", new int[]{3});
+    animations.createAnimation("lookUp", new int[]{6});
+    animations.createAnimation("lookRight", new int[]{9});
   }
   
 
@@ -73,7 +86,10 @@ class Player{
   public void addMonsters(String a, String aa, String aaa, String aaaa, String aaaaa, Monster enemy) {
     String[] parameters = {a, aa, aaa, aaaa, aaaaa};
     for (int i = 0; i < 5; i++) {
-      Monster m = new Monster(parameters[i], enemy);
+
+
+      Monster m = new Monster(parameters[i], enemy, 250, 600);
+
       monsters.add(m);
     }
   }
@@ -83,102 +99,137 @@ class Player{
     
     if(keyPressed == true){
       if (key == 'w') {
-        direction= PlayerMovementStates.UP;
+        direction= PlayerMovementStates.MOVEUP;
       } else if (key == 's') {
-        direction= PlayerMovementStates.DOWN;
+        direction= PlayerMovementStates.MOVEDOWN;
       } else if (key == 'a') {
-        direction= PlayerMovementStates.LEFT;
+        direction= PlayerMovementStates.MOVELEFT;
       } else if (key == 'd') {
-        direction= PlayerMovementStates.RIGHT;
+        direction= PlayerMovementStates.MOVERIGHT;
       }
     }
     
-    if(animations.stoploop){
-      animations.softReset();
-      //keyTimer.refresh();
-      direction = PlayerMovementStates.STATIC;
-    }
+    //if(animations.stoploop){
+    //  animations.softReset();
+    //  //keyTimer.refresh();
+    //  direction = PlayerMovementStates.STATIC;
+    //}
     
     switch(direction){
-      case UP:
-        animations.checkCase(6);
+      case MOVEUP:
+        //animations.checkCase(6);
         moveUp();
         break;
-      case DOWN:
-        animations.checkCase(3);
+      case MOVEDOWN:
+        //animations.checkCase(3);
         moveDown();
         break;
-      case LEFT:
-        animations.checkCase(0);
+      case MOVELEFT:
+        //animations.checkCase(0);
         moveLeft();
         break;
-      case RIGHT:
-        animations.checkCase(9);
+      case MOVERIGHT:
+        //animations.checkCase(9);
         moveRight();
         break;
+      case UP:
+        animations.play("lookUp");
+        break;
+      case DOWN:
+        animations.play("lookDown");
+        break;
+      case LEFT:
+        animations.play("lookLeft");
+        break;
+      case RIGHT:
+        animations.play("lookRight");
+        break;
       default:
-        if(animations.animationTimer.countDownOnce()){
-          animations.increment = animations.loopstart;
-        }
-        animations.display(400,400);
+        //if(animations.animationTimer.countDownOnce()){
+        //  animations.increment = animations.loopstart;
+        //}
+        //animations.display(400,400);
         break;
     }
   }
   
-  
+  void moveUp(){
+    animations.play("walkUp");
+    if(animations.finished("walkUp")){
+      direction = PlayerMovementStates.UP;
+    }
+  }
+  void moveDown(){
+    animations.play("walkDown");
+    if(animations.finished("walkDown")){
+      direction = PlayerMovementStates.DOWN;
+    }
+  }
+  void moveLeft(){
+    animations.play("walkLeft");
+    if(animations.finished("walkLeft")){
+      direction = PlayerMovementStates.LEFT;
+    }
+  }
+  void moveRight(){
+    animations.play("walkRight");
+    if(animations.finished("walkRight")){
+      direction = PlayerMovementStates.RIGHT;
+    }
+  }
   
   //player needs key pressed to trigger animations
   //this function is used in the switch statement depending on which direction the player is facing in
   //when this function runs the player needs to player the walking up animation
-  void moveUp(){
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(6,8);
-      }
-      animations.display(400,400);
+  //void moveUp(){
+      //if(animations.animationTimer.countDownUntil(animations.stoploop)){
+      //  animations.changeDisplay(6,8);
+      //}
+      //animations.display(400,400);
       
-      if(keyPressed == false && animations.increment > 6){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
-  }
+      //if(keyPressed == false && animations.increment > 6){
+      //  animations.softReset();
+      //  direction = PlayerMovementStates.STATIC;
+      //}
+  //}
   
-  void moveDown(){
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(3,5);
-      }
-      animations.display(400,400);
+  //void moveDown(){
+  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+  //      animations.changeDisplay(3,5);
+  //    }
+  //    animations.display(400,400);
       
 
-      if(keyPressed == false && animations.increment > 3){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
-  }
+  //    if(keyPressed == false && animations.increment > 3){
+  //      animations.softReset();
+  //      direction = PlayerMovementStates.STATIC;
+  //    }
+  //}
   
-  void moveLeft(){  
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(0,2);
-      }
-      animations.display(400,400);
+  //void moveLeft(){  
+  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+  //      animations.changeDisplay(0,2);
+  //    }
+  //    animations.display(400,400);
       
 
-      if(keyPressed == false && animations.increment > 0){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
-  }
+  //    if(keyPressed == false && animations.increment > 0){
+  //      animations.softReset();
+  //      direction = PlayerMovementStates.STATIC;
+  //    }
+  //}
   
-  void moveRight(){
-      if(animations.animationTimer.countDownUntil(animations.stoploop)){
-        animations.changeDisplay(9,11);
-      }
-      animations.display(400,400);
+  //void moveRight(){
+  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
+  //      animations.changeDisplay(9,11);
+  //    }
+  //    animations.display(400,400);
       
-      if(keyPressed == false && animations.increment > 9){
-        animations.softReset();
-        direction = PlayerMovementStates.STATIC;
-      }
-  }
+  //    if(keyPressed == false && animations.increment > 9){
+  //      animations.softReset();
+  //      direction = PlayerMovementStates.STATIC;
+  //    }
+  //}
   
   
 }
