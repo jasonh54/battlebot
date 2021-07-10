@@ -48,5 +48,12 @@ class Monster {
       animations.changeDisplay(true);
     }
   }
+  public void addHp(int hp){
+    if (this.chealth + hp >= this.maxhealth) {
+      this.chealth = this.maxhealth;
+    }else{
+      this.chealth += hp;
+    }
+  }
   
 }

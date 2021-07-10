@@ -41,6 +41,12 @@ public static class ButtonFunction {
       //figure out how to  get ID of move from button somehow - global variable?
       //play animation, alter stats
       //at the end, switch battlestate to AI
-    }
+    } else if (num == "useitem") {
+      JSONObject stats = testPlayer.useItem("id"); //oh no <error here>
+      activeMonster.attack *= stats.getInt("attack");
+      activeMonster.defense *= stats.getInt("defense");
+      activeMonster.speed *= stats.getInt("speed");
+      activeMonster.addHp(stats.getInt("health"));
+    };
   }
 }

@@ -57,11 +57,11 @@ class Player{
     }
     items.put(id, a+1);
   }
-  public Item useItem(String id){
+  public JSONObject useItem(String id){
     Integer a = items.get(id);
     if (a != null){
       items.put(id, a-1); // "healthPotion": 0
-      return new Item(id);
+      return itemDatabase.get(id);
     }
     throw new Error("You insolent fool, thou hast disturbed the balance of the universe.");
   }
