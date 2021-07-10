@@ -38,7 +38,9 @@ class Button {
   void draw() {
     rect(this.x, this.y, this.w, this.h);
     fill(0, 0, 0);
-    text(this.txt, this.x + mymenu.buttonw/4, this.y + mymenu.buttonh/2);
+    if (this.txt != null) {
+      text(this.txt, this.x + mymenu.buttonw/4, this.y + mymenu.buttonh/2);
+    }
     fill(256, 256, 256);
   }
   
@@ -59,6 +61,7 @@ class Button {
   
   //use whatever function is stored in the f variable
   public void onClick(){
+    println("button clicked");
     ButtonFunction.runFunction(this.func);
   }
 }
