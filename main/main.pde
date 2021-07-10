@@ -23,6 +23,8 @@ Map map = new Map();
 Map overlayedmap = new Map();
 Map topmap = new Map();
 
+//boolean lock = false;
+
 //menu variables
 Menu mainmenu;
 Menu battlemenu;
@@ -267,6 +269,7 @@ void draw() {
     overlayedmap.update();
     collidemap.update();
     testPlayer.display();
+    
     topmap.update();
     sandwich.drawSandwich();
     //check if menu is opened
@@ -357,6 +360,29 @@ void draw() {
       delay(naptime);
     }
   }
+  
+  ///* -- test display code -- remove in the future 
+  /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
+      
+      SSAirA.changeSaE(3,5);
+      System.out.println("loopstart: " + SSAirA.loopstart + ", loopend: " + SSAirA.loopend);
+      SSAirA.changeDisplay(true);   
+      //SSAirA.changeDisplay();
+  }
+  
+  SSAirA.display(80,80);
+  
+  if(SSAirA.stoploop){
+    SSAirA.restart();
+    System.out.println("restarted");
+  }
+  
+  testPlayer.display(); */  
+
+  //System.out.println(map.framecounter);
+  
+  //testPlayer.display();
+
 }
 
 //mouseClicked functions for menus and singular buttons each
