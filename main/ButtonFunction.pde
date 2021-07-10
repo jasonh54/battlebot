@@ -46,6 +46,7 @@ public static class ButtonFunction {
       current.useAttackMove(mon);
       
       //at the end, switch battlestate to AI
+
       
     } else if (num == "callmove1") {
       //
@@ -55,6 +56,14 @@ public static class ButtonFunction {
     } else if (num == "callmove3") {
       Moves current = activeMonster.move4;
       //
+
+    } else if (num == "useitem") {
+      JSONObject stats = testPlayer.useItem("id"); //oh no <error here>
+      activeMonster.attack *= stats.getInt("attack");
+      activeMonster.defense *= stats.getInt("defense");
+      activeMonster.speed *= stats.getInt("speed");
+      activeMonster.addHp(stats.getInt("health"));
     }
+
   }
 }
