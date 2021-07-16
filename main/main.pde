@@ -300,6 +300,7 @@ void draw() {
         println("the battle has begun!");
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
         testMonster = new Monster("AirA", activeMonster, 800, 250);
+        activeMonster.setEnemy(testMonster);
       break;
       case OPTIONS:
         testMonster.display();
@@ -310,6 +311,8 @@ void draw() {
         checkMouse(battlemenu);
       break;
       case FIGHT:
+        testMonster.display();
+        activeMonster.display();
         //will produce a menu of what moves the battle bot can use
         Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
         movemenu.assembleMenuColumn();
@@ -326,6 +329,8 @@ void draw() {
         checkMouse(movemenu);
       break;
       case ITEM:
+        testMonster.display();
+        activeMonster.display();
         //will produce a menu of what items you have
         Menu itemmenu = new Menu(625, 520, 5, 50, 200, 2);
         itemmenu.assembleMenuColumn();

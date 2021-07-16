@@ -36,11 +36,11 @@ class Moves {
   }
   
   void useAttackMove(Monster self) {
-    double power = calculateAttackMove(self);
+    double power = calculateAttackMove(self) * -1;
     int damage = (int) Math.floor(power);
-    println(this.target.maxhealth + " - " + damage);
-    this.target.maxhealth = this.target.maxhealth - damage;
-    println(target.maxhealth);
+    println(this.target.chealth + " - " + damage);
+    this.target.modStats(damage, 1, 1, 1);
+    println(target.chealth);
   }
   
   double checkTypeAdvantage() {
