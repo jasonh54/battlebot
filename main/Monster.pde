@@ -94,4 +94,20 @@ class Monster {
     }
   }
   
+  public void modStats(float healthMod, float attackMod, float speedMod, float defenseMod){
+    chealth = chealth + healthMod;
+    if(chealth < 0){
+      chealth = 0;
+    }
+    this.attack = this.attack * attackMod;
+    this.speed = this.speed * speedMod;
+    this.defense = this.defense * defenseMod;
+  }
+  
+  public void setEnemy(Monster enemy){
+    move1.target = enemy;
+    move2.target = enemy;
+    move3.target = enemy;
+    move4.target = enemy;
+  }
 }
