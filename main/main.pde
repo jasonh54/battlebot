@@ -312,11 +312,12 @@ void draw() {
       case ITEM:
         //will produce a menu of what items you have
         Menu itemmenu = new Menu(625, 520, 5, 50, 200, 2);
+        Menu itemtwo = new Menu(625, 520, 5, 50, 200, 2);
         itemmenu.assembleMenuColumn();
         itemmenu.x = itemmenu.x - 100;
-        itemmenu.assembleMenuColumn();
-        for (int i = 0; i < 8; i++) {
-          itemmenu.buttons.get(i).txt = "eeby deeby " + i;
+        itemtwo.assembleMenuColumn();
+        for (int i = 0; i < 3; i++) {
+          itemmenu.buttons.get(i).txt = "item number " + i;
           /* set each button's function
           need function for using an ability
           items should have inherent functions like buttons do */
