@@ -17,7 +17,7 @@ class Button {
   CallBack f;
   
   //menu button
-  public Button(Menu m, float x, float y, float h, float w, String f) {
+  public Button(Menu m, float x, float y, float h, float w, String f) { //this, this.x + 50, tempy, buttonh, buttonw, "0"
     this.x = x;
     this.y = y;
     this.h = h;
@@ -59,6 +59,10 @@ class Button {
   
   //use whatever function is stored in the f variable
   public void onClick(){
-    ButtonFunction.runFunction(this.func);
+    if (this.func == "useitem"){
+      ButtonFunction.useItem(this.txt); //Placeholder
+    }else{
+      ButtonFunction.runFunction(this.func);
+    }
   }
 }

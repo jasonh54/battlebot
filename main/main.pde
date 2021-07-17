@@ -324,12 +324,10 @@ void draw() {
       case ITEM:
         //will produce a menu of what items you have
         println("choosing an item");
-        Menu itemmenu = new Menu(625, 520, 5, 50, 200, 2);
-        itemmenu.assembleMenuColumn();
-        itemmenu.x = itemmenu.x - 100;
-        itemmenu.assembleMenuColumn();
+        Menu itemmenu = new Menu(625, 520, testPlayer.items.keySet().size(), 50, 200, 2);
+        
         String[] itemsKeys = testPlayer.items.keySet().toArray(new String[testPlayer.items.keySet().size()]);
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < testPlayer.items.keySet().size()-1; i++) {
           Button button = itemmenu.buttons.get(i);
           button.txt = itemsKeys[i];
           button.func = "useitem";
@@ -337,6 +335,9 @@ void draw() {
           need function for using an ability
           items should have inherent functions like buttons do */
         }
+        itemmenu.assembleMenuColumn();
+        itemmenu.x = itemmenu.x - 100;
+        itemmenu.assembleMenuColumn();
         itemmenu.update();
         checkMouse(itemmenu);
       break;
