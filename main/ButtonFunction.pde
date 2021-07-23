@@ -44,10 +44,10 @@ public static class ButtonFunction {
       //play animation, alter stats
       println("move 1 used");
       current.useAttackMove(mon);
-      
+      mon.moveToEnemyStart(testMonster);
       //at the end, switch battlestate to AI
 
-      
+      switchCombatState(CombatStates.ANIMATION);
     } else if (num == "callmove1") {
       //
     } else if (num == "callmove2") {
