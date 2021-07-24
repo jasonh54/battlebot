@@ -3,72 +3,72 @@
 		"name": "attack1",
 		"type": "fire",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "defend1",
 		"type": "water",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "heal1",
 		"type": "earth",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "dodge1",
 		"type": "air",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "attack2",
 		"type": "fire",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "defend2",
 		"type": "water",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "heal2",
 		"type": "earth",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "dodge2",
 		"type": "air",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "attack3",
 		"type": "fire",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "defend3",
 		"type": "water",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "heal3",
 		"type": "earth",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	},
 	{
 		"name": "dodge3",
 		"type": "air",
 		"accuracy": 80,
-		"damage": 80
+		"damage": 20
 	}
 ]
