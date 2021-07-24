@@ -15,10 +15,13 @@ class Monster {
   //private Timer keyTimer = new Timer(40);
   final int h = 16;
   final int w = 16;
-  int x = 400;
-  int y = 400;
+  float x = 400;
+  float y = 400;
   final int scale = 2;
   Spritesheet animations;
+  Timer time;
+  float speedX = 0;
+  float speedY = 0;
   
   //constructor
 
@@ -28,7 +31,7 @@ class Monster {
     
 
 
-  public Monster(String id, Monster enemy, int x, int y) {
+  public Monster(String id, Monster enemy, float x, float y) {
 
     this.id = id;
     type = monsterDatabase.get(id).getString("type");
@@ -46,6 +49,7 @@ class Monster {
       frameNums[i] = i;
     }
     animations.createAnimation("default", frameNums);
+    time = new Timer();
     
     move1 = new Moves(monsterDatabase.get(id).getString("move1"));
     move2 = new Moves(monsterDatabase.get(id).getString("move2"));
@@ -67,7 +71,6 @@ class Monster {
   
 
   public void display(){
-    
     color(0,0,200);
     fill(250, 229, 127);
     rect(x-60,y-100,170,60);
@@ -86,6 +89,7 @@ class Monster {
     //}
     animations.play("default");
   }
+  
   public void addHp(int hp){
     if (this.chealth + hp >= this.maxhealth) {
       this.chealth = this.maxhealth;
@@ -109,5 +113,45 @@ class Monster {
     move2.target = enemy;
     move3.target = enemy;
     move4.target = enemy;
+  }
+  
+  public void moveToEnemyStart(Monster target){
+    time.timeStampNow();
+    speedX = target.x - this.x;
+    speedY = target.y - this.y;
+    time.setTimeInterval(75);
+  }
+  
+  public boolean moveToEnemy(Monster target){
+    if(time.intervals()){
+      animations.x += speedX/10;
+      animations.y += speedY/10;
+      if(speedX < 0 && speedY < 0){
+        if(animations.x <= target.x && animations.y <= target.y){
+          speedX *= -1;
+          speedY *= -1;
+        }
+        if(animations.x <= this.x && animations.y <= this.y){
+          animations.x = this.x;
+          animations.y = this.y;
+          speedX = 0;
+          speedY = 0;
+          return true;
+        }
+      } else {
+        if(animations.x >= target.x && animations.y >= target.y){
+          speedX *= -1;
+          speedY *= -1;
+        }
+        if(animations.x >= this.x && animations.y >= this.y){
+          animations.x = this.x;
+          animations.y = this.y;
+          speedX = 0;
+          speedY = 0;
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
