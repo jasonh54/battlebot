@@ -17,6 +17,12 @@ class Menu {
     this.buttonh = bh;
     this.buttonw = bw;
     this.spacing = th;
+    for (int i = 0; i < this.menulength - 1; i++) {
+      //height and width are arbitrary until we have real sprites
+      Button current = new Button(this, x + 50, y+(bh+th)*i, bh, bw, "0"); // likely erronius code
+      this.buttons.add(current);
+      println("new Button("+this+", "+x + 50+", "+y+(bh+th)*i+", "+bh+", "+bw+", '0')");
+    }
   }
   
   void update() {
@@ -28,30 +34,8 @@ class Menu {
       buttons.get(i).draw();
     }
   }
-  
-  //put together + draw buttons in the menu
-  void assembleMenuColumn() {
-    float temph = 0;
-    float tempy = this.y + buttonh + temph;
-    for (int i = 0; i < this.menulength - 1; i++) {
-      //height and width are arbitrary until we have real sprites
-      Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw, "0");
-      temph = temph + current.h + spacing;
-      tempy = this.y + buttonh + temph;
-      buttons.add(current);
-    }
-  }
-  
-  //buttons should ve half as wide as they usually are
-  void assembleMenuRect() {
-    assembleMenuColumn();
-    this.x = this.x + + 30;
-    assembleMenuColumn();
-  }
-  
   //set function of a button
   void setFunc(int n, CallBack function) {
       buttons.get(n).setOnClick(function);
   }
-  
 }

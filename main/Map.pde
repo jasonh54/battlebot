@@ -15,12 +15,12 @@ class Map {
   final int tileww = tilew/2;
   char currentKey = ' ';
   int framecounter = 0;
-  boolean lock = false;
 
   //variables for the map code
   private int[][] tileArray;
   private Tile [][] mapTiles;
   final int mapscale = 2;
+  boolean lock = false;
 
   //arraylists for types of tiles within a map
   ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
@@ -142,7 +142,7 @@ class Map {
     collidemap.downcollidetracker = false;
     //activates when a key is first pressed
     //the lock is to keep movements contained/not overlapping
-    if (keyPressed == true && lock == false) {
+    if (keyPressed == true && lock == false) { 
       //activates if it's a movement key
       //makes sure there is no collidable tile in the desired direction
       if(((key == 'w' && collidemap.collideUp(testPlayer) == false) || (key == 's' && collidemap.collideDown(testPlayer) == false) || (key == 'a' && collidemap.collideLeft(testPlayer) == false) || (key == 'd' && collidemap.collideRight(testPlayer) == false))) {
@@ -181,7 +181,6 @@ class Map {
           println(GameState.currentState);
           Random r = new Random();
           int t = r.nextInt(7) + 1;
-          println("checking grass: " + t);
           if (t == 1) {
             GameState.currentState = GameStates.COMBAT;
             GameState.combatState = CombatStates.ENTRY;

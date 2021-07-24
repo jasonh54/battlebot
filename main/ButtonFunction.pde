@@ -22,7 +22,6 @@ public static class ButtonFunction {
       switchState(GameStates.WALKING);
     //toggle between walking + menu
     } else if (num == "toggle") {
-      println("clicked on: " + GameState.currentState);
       if (GameState.currentState == GameStates.WALKING) {
         switchState(GameStates.MENU);
       } else if (GameState.currentState == GameStates.MENU) {
@@ -31,17 +30,30 @@ public static class ButtonFunction {
     //swap to various combat states
     } else if (num == "fight") {
       switchCombatState(CombatStates.FIGHT);
-    //} else if (num == "item") {
-    //  switchCombatState(CombatStates.ITEM);
+    } else if (num == "itemm") {
+      switchCombatState(CombatStates.ITEM);
     } else if (num == "bot") {
       switchCombatState(CombatStates.BATTLEBOT);
     } else if (num == "run") {
       switchCombatState(CombatStates.RUN);
-    } else if (num == "callmove") {
-      //figure out how to  get ID of move from button somehow - global variable?
+    } else if (num == "callmove0") {
+      //get a Move and a self monster
+      Moves current = activeMonster.move1;
+      Monster mon = activeMonster;
       //play animation, alter stats
+      current.useAttackMove(mon);
       //at the end, switch battlestate to AI
-    };
+    } else if (num == "callmove1") {
+      Moves current = activeMonster.move2;
+      //
+    } else if (num == "callmove2") {
+      Moves current = activeMonster.move3;
+      //
+    } else if (num == "callmove3") {
+      Moves current = activeMonster.move4;
+      //
+
+    }
   }
   public static void useItem(String id){
     switchCombatState(CombatStates.ITEM);
