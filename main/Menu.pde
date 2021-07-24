@@ -17,7 +17,7 @@ class Menu {
     this.buttonh = bh;
     this.buttonw = bw;
     this.spacing = th;
-    for (int i = 0; i < this.menulength - 1; i++) {
+    for (int i = 0; i < this.menulength; i++) {
       //height and width are arbitrary until we have real sprites
       Button current = new Button(this, x + 50, y+(bh+th)*i, bh, bw, "0"); // likely erronius code
       this.buttons.add(current);
@@ -30,7 +30,7 @@ class Menu {
   }
   
   void draw() {
-    for (int i = 0; i < menulength - 1; i++) {
+    for (int i = 0; i < menulength; i++) {
       buttons.get(i).draw();
     }
   }

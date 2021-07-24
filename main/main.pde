@@ -331,15 +331,10 @@ void draw() {
         //will produce a menu of what items you have
         Menu itemmenu = new Menu(625, 520, testPlayer.items.size(), 50, 300, 2);
         Object[] itemsKeys = testPlayer.items.keySet().toArray();
+        
         for (int i = 0; i < testPlayer.items.size(); i++) {
-          println("Menu length: "+itemmenu.buttons.size()+". Button number: "+i);
-          println("Current Button: "+itemmenu.buttons.get(i));
-          println("Assigned Text: "+(String)itemsKeys[i]);
           itemmenu.buttons.get(i).txt = (String)itemsKeys[i];
           itemmenu.buttons.get(i).func = "useitem";
-          /* set each button's function
-          need function for using an ability
-          items should have inherent functions like buttons do */
         }
         itemmenu.update();
         checkMouse(itemmenu);
