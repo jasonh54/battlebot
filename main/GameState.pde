@@ -8,6 +8,7 @@ enum CombatStates{
   ENTRY,
   OPTIONS,
   FIGHT,
+  ANIMATION,
   ITEM,
   BATTLEBOT,
   AI,
