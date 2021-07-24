@@ -42,7 +42,9 @@ public static class ButtonFunction {
       Monster mon = activeMonster;
       //play animation, alter stats
       current.useAttackMove(mon);
+      mon.moveToEnemyStart(testMonster);
       //at the end, switch battlestate to AI
+      switchCombatState(CombatStates.ANIMATION);
     } else if (num == "callmove1") {
       Moves current = activeMonster.move2;
       //

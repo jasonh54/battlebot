@@ -35,7 +35,7 @@ static Player testPlayer;
 
 static Monster activeMonster;
 
-Monster testMonster;
+static Monster testMonster;
 
 Timer restartTimer;
 final int naptime = 200;
@@ -324,6 +324,13 @@ void draw() {
         movemenu.buttons.get(3).func = "callmove3";
         movemenu.update();
         checkMouse(movemenu);
+      break;
+      case ANIMATION:
+        testMonster.display();
+        activeMonster.display();
+        if(activeMonster.moveToEnemy(testMonster)){
+          ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+        }
       break;
       case ITEM:
         testMonster.display();
