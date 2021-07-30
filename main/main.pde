@@ -39,6 +39,7 @@ static Monster testMonster;
 
 Timer restartTimer;
 final int naptime = 200;
+static int moveNum = 0;
 
 void setup(){
   
@@ -331,8 +332,22 @@ void draw() {
       case ANIMATION:
         testMonster.display();
         activeMonster.display();
-        if(activeMonster.moveToEnemy(testMonster)){
-          ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+        if(moveNum == 1){
+          if(activeMonster.moveToEnemy(testMonster) ){
+            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          } 
+        } else if (moveNum == 2){
+          if(activeMonster.defendAnimation()){
+            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          }
+        } else if(moveNum == 3){
+          if(activeMonster.healAnimation()){
+            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          }
+        } else if(moveNum == 4){
+          if(activeMonster.dodgeAnimation()){
+            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          }
         }
       break;
       case ITEM:
