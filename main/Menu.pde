@@ -24,7 +24,7 @@ class Menu {
   }
   
   void draw() {
-    for (int i = 0; i < menulength - 1; i++) {
+    for (int i = 0; i < menulength; i++) {
       buttons.get(i).draw();
     }
   }
@@ -33,7 +33,7 @@ class Menu {
   void assembleMenuColumn() {
     float temph = 0;
     float tempy = this.y + buttonh + temph;
-    for (int i = 0; i < this.menulength - 1; i++) {
+    for (int i = 0; i < this.menulength; i++) {
       //height and width are arbitrary until we have real sprites
       Button current = new Button(this, this.x + 50, tempy, buttonh, buttonw, "0");
       temph = temph + current.h + spacing;

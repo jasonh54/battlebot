@@ -314,7 +314,7 @@ void draw() {
         testMonster.display();
         activeMonster.display();
         //will produce a menu of what moves the battle bot can use
-        Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
+        Menu movemenu = new Menu(625, 520, 4, 50, 400, 2);
         movemenu.assembleMenuColumn();
         //nullpointer error HERE because txt is null
         for (int i = 0; i < 4; i++) {
