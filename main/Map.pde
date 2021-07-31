@@ -43,9 +43,9 @@ class Map {
     //navigating the rows
     for (int row = 0; row < rowsize; row++) {
       //navigating the columns
-      for(int col = 0; col < colsize; col++){
+      for(int col = 0; col < colsize; col++) {
         //skips transparent tiles
-        if(tileArray[row][col]!=486){
+        if(tileArray[row][col] != 486) {
           //creates a new tile and assigns values
           Tile current = new Tile((tilew * mapscale) * col + tileww * mapscale, (tileh * mapscale) * row + tilehh * mapscale, false, false, tiles[tileArray[row][col]], mapscale);
           //these code sets all check if the tile fits a certain archetype, as listed
@@ -178,14 +178,11 @@ class Map {
           //figure out what map is associated with that tile and generate it
         }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
-          println(GameState.currentState);
           Random r = new Random();
           int t = r.nextInt(7) + 1;
-          println("checking grass: " + t);
           if (t == 1) {
             GameState.currentState = GameStates.COMBAT;
             GameState.combatState = CombatStates.ENTRY;
-            println("battle time!");
           }
           
           //if chance happens, activate battle state
@@ -263,7 +260,6 @@ class Map {
     for (int i = 0; i < array.size(); i++) {
       //if they're overlapping, return an associated string
       if (array.get(i).checkOverlap(player) == true) {
-        println(text);
         //returns the index if true, returns -1 if false
         overlapint = i;
         return overlapint;

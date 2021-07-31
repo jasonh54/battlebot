@@ -64,7 +64,6 @@ class Monster {
     move2.target = enemy;
     move3.target = enemy;
     move4.target = enemy;
-    println(id + type + attack + defense + maxhealth + speed + monsterDatabase.get(id).getString("image"));
     this.x = x;
     this.y = y;
   }

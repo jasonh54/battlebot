@@ -31,9 +31,9 @@ public static class ButtonFunction {
     //swap to various combat states
     } else if (num == "fight") {
       switchCombatState(CombatStates.FIGHT);
-    } else if (num == "item") {
+    } else if (num == "items") {
       switchCombatState(CombatStates.ITEM);
-    } else if (num == "bot") {
+    } else if (num == "battlebots") {
       switchCombatState(CombatStates.BATTLEBOT);
     } else if (num == "run") {
       switchCombatState(CombatStates.RUN);
