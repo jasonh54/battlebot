@@ -342,7 +342,6 @@ void draw() {
         Menu itemmenu = new Menu(625, 520, 5, 50, 200, 2);
         itemmenu.assembleMenuColumn();
         itemmenu.x = itemmenu.x - 100;
-        itemmenu.assembleMenuColumn();
         String[] itemsKeys = testPlayer.items.keySet().toArray(new String[testPlayer.items.keySet().size()]);
         for (int i = 0; i < 8; i++) {
           Button button = itemmenu.buttons.get(i);
