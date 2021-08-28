@@ -30,24 +30,13 @@ Menu movemenu;
 Menu itemmenu;
 Button sandwich;
 
-<<<<<<< HEAD
 //misc variables
 static Player testPlayer; //the player
 static Monster activeMonster; //player's current monster
 static Monster testMonster; //current enemy monster
 final int naptime = 200; //delayer var to avoid problems when keys are pressed
-=======
-
-static Player testPlayer;
-
-static Monster activeMonster;
-
-static Monster testMonster;
-
 Timer restartTimer;
-final int naptime = 200;
 static int moveNum = 0;
->>>>>>> 33648ad04c57e06d5b8fde6caf32c8d1f38f35d7
 
 void setup(){
   //size of game window:
@@ -328,19 +317,19 @@ void draw() {
         activeMonster.display();
         if(moveNum == 1){
           if(activeMonster.moveToEnemy(testMonster) ){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-          } 
+            ButtonFunction.switchCombatState(CombatStates.AI);
+          }
         } else if (moveNum == 2){
           if(activeMonster.defendAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+            ButtonFunction.switchCombatState(CombatStates.AI);
           }
         } else if(moveNum == 3){
           if(activeMonster.healAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+            ButtonFunction.switchCombatState(CombatStates.AI);
           }
         } else if(moveNum == 4){
           if(activeMonster.dodgeAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+            ButtonFunction.switchCombatState(CombatStates.AI);
           }
         }
       break;
@@ -367,6 +356,11 @@ void draw() {
       break;
       case AI:
         //let the enemy do stuff - will need a decision tree
+        //for now: barebones code, ai just attacks
+        testMonster.display();
+        activeMonster.display();
+        testMonster.move1.useAttackMove(testMonster);
+        ButtonFunction.switchCombatState(CombatStates.OPTIONS);
       break;
       case RUN:
         //will go back to walk state

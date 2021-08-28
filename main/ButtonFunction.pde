@@ -37,6 +37,7 @@ public static class ButtonFunction {
       switchCombatState(CombatStates.BATTLEBOT);
     } else if (num == "run") {
       switchCombatState(CombatStates.RUN);
+    //ATTACKING MOVE
     } else if (num == "callmove0") {
       //get a Move and a self monster
       Moves current = activeMonster.move1;
@@ -46,10 +47,12 @@ public static class ButtonFunction {
       println("move 1 used");
       current.useAttackMove(mon);
       mon.moveToEnemyStart(testMonster);
-      //at the end, switch battlestate to AI
-
+      //at the end, switch battlestate to animation
       switchCombatState(CombatStates.ANIMATION);
+    //DEFENSIVE MOVE
     } else if (num == "callmove1") {
+      //get a Move and a self monster
+      Moves current = activeMonster.move2;
       Monster mon = activeMonster;
       moveNum = 2;
       //
