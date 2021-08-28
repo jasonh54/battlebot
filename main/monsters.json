@@ -2,7 +2,7 @@
 	{
 		"name": "AirA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -16,7 +16,7 @@
 	{
 		"name": "BallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -30,7 +30,7 @@
 	{
 		"name": "BallB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -44,7 +44,7 @@
 	{
 		"name": "BallC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -58,7 +58,7 @@
 	{
 		"name": "BallD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -72,7 +72,7 @@
 	{
 		"name": "BatA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -86,7 +86,7 @@
 	{
 		"name": "BatB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -100,7 +100,7 @@
 	{
 		"name": "BatC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -114,7 +114,7 @@
 	{
 		"name": "BatD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -128,7 +128,7 @@
 	{
 		"name": "BatE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -142,7 +142,7 @@
 	{
 		"name": "BatF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -156,7 +156,7 @@
 	{
 		"name": "BatG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -170,7 +170,7 @@
 	{
 		"name": "BatH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -184,7 +184,7 @@
 	{
 		"name": "BatI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -198,7 +198,7 @@
 	{
 		"name": "BatJ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -212,7 +212,7 @@
 	{
 		"name": "BatK",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -226,7 +226,7 @@
 	{
 		"name": "BatL",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -240,7 +240,7 @@
 	{
 		"name": "BatM",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -254,7 +254,7 @@
 	{
 		"name": "BatN",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -268,7 +268,7 @@
 	{
 		"name": "BatO",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -282,7 +282,7 @@
 	{
 		"name": "BatP",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -296,7 +296,7 @@
 	{
 		"name": "BatQ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -310,7 +310,7 @@
 	{
 		"name": "BatR",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -324,7 +324,7 @@
 	{
 		"name": "BatS",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -338,7 +338,7 @@
 	{
 		"name": "BatSmallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -352,7 +352,7 @@
 	{
 		"name": "BatSmallB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -366,7 +366,7 @@
 	{
 		"name": "BatSmallC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -380,7 +380,7 @@
 	{
 		"name": "BatSmallD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -394,7 +394,7 @@
 	{
 		"name": "BatSmallE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -408,7 +408,7 @@
 	{
 		"name": "BatT",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -422,7 +422,7 @@
 	{
 		"name": "BeardA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -436,7 +436,7 @@
 	{
 		"name": "BeardB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -450,7 +450,7 @@
 	{
 		"name": "BrainA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -464,7 +464,7 @@
 	{
 		"name": "BrainB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -478,7 +478,7 @@
 	{
 		"name": "BrainC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -492,7 +492,7 @@
 	{
 		"name": "BrainD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -506,7 +506,7 @@
 	{
 		"name": "BrainE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -520,7 +520,7 @@
 	{
 		"name": "BugA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -534,7 +534,7 @@
 	{
 		"name": "BugB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -548,7 +548,7 @@
 	{
 		"name": "BugC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -562,7 +562,7 @@
 	{
 		"name": "BugD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -576,7 +576,7 @@
 	{
 		"name": "BugE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -590,7 +590,7 @@
 	{
 		"name": "ButterflyA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -604,7 +604,7 @@
 	{
 		"name": "ButterflyB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -618,7 +618,7 @@
 	{
 		"name": "CatA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -632,7 +632,7 @@
 	{
 		"name": "CatB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -646,7 +646,7 @@
 	{
 		"name": "CatC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -660,7 +660,7 @@
 	{
 		"name": "CatD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -674,7 +674,7 @@
 	{
 		"name": "CatE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -688,7 +688,7 @@
 	{
 		"name": "CatF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -702,7 +702,7 @@
 	{
 		"name": "ChestA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -716,7 +716,7 @@
 	{
 		"name": "ChickenA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -730,7 +730,7 @@
 	{
 		"name": "ChickenB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -744,7 +744,7 @@
 	{
 		"name": "ChickenC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -758,7 +758,7 @@
 	{
 		"name": "CloudA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -772,7 +772,7 @@
 	{
 		"name": "CloudB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -786,7 +786,7 @@
 	{
 		"name": "CloudC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -800,7 +800,7 @@
 	{
 		"name": "CloudD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -814,7 +814,7 @@
 	{
 		"name": "CoffinA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -828,7 +828,7 @@
 	{
 		"name": "CoffinB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -842,7 +842,7 @@
 	{
 		"name": "CoffinC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -856,7 +856,7 @@
 	{
 		"name": "CoffinD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -870,7 +870,7 @@
 	{
 		"name": "CountA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -884,7 +884,7 @@
 	{
 		"name": "CrabA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -898,7 +898,7 @@
 	{
 		"name": "CrabB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -912,7 +912,7 @@
 	{
 		"name": "CrabC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -926,7 +926,7 @@
 	{
 		"name": "CrabD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -940,7 +940,7 @@
 	{
 		"name": "CrabE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -954,7 +954,7 @@
 	{
 		"name": "CrabF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -968,7 +968,7 @@
 	{
 		"name": "DiscA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -982,7 +982,7 @@
 	{
 		"name": "DogA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -996,7 +996,7 @@
 	{
 		"name": "DogB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1010,7 +1010,7 @@
 	{
 		"name": "DogC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1024,7 +1024,7 @@
 	{
 		"name": "DogD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1038,7 +1038,7 @@
 	{
 		"name": "DogE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1052,7 +1052,7 @@
 	{
 		"name": "DogF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1066,7 +1066,7 @@
 	{
 		"name": "DogG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1080,7 +1080,7 @@
 	{
 		"name": "DuckA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1094,7 +1094,7 @@
 	{
 		"name": "DuckB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1108,7 +1108,7 @@
 	{
 		"name": "DuckC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1122,7 +1122,7 @@
 	{
 		"name": "DwarfA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1136,7 +1136,7 @@
 	{
 		"name": "DwarfB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1150,7 +1150,7 @@
 	{
 		"name": "DwarfC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1164,7 +1164,7 @@
 	{
 		"name": "DwarfD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1178,7 +1178,7 @@
 	{
 		"name": "DwarfE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1192,7 +1192,7 @@
 	{
 		"name": "DwarfF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1206,7 +1206,7 @@
 	{
 		"name": "DyeA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1220,7 +1220,7 @@
 	{
 		"name": "DyeB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1234,7 +1234,7 @@
 	{
 		"name": "DyeC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1248,7 +1248,7 @@
 	{
 		"name": "DyeD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1262,7 +1262,7 @@
 	{
 		"name": "EarthA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1276,7 +1276,7 @@
 	{
 		"name": "EarthB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1290,7 +1290,7 @@
 	{
 		"name": "EarthC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1304,7 +1304,7 @@
 	{
 		"name": "EarthSmallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1318,7 +1318,7 @@
 	{
 		"name": "EarthSmallB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1332,7 +1332,7 @@
 	{
 		"name": "EarthSmallC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1346,7 +1346,7 @@
 	{
 		"name": "EarthSmallerA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1360,7 +1360,7 @@
 	{
 		"name": "EarthSmallerB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1374,7 +1374,7 @@
 	{
 		"name": "EarthSmallerC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1388,7 +1388,7 @@
 	{
 		"name": "EelA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1402,7 +1402,7 @@
 	{
 		"name": "EelB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1416,7 +1416,7 @@
 	{
 		"name": "EelC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1430,7 +1430,7 @@
 	{
 		"name": "EelD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1444,7 +1444,7 @@
 	{
 		"name": "ElementalOrbA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1458,7 +1458,7 @@
 	{
 		"name": "ElementalOrbB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1472,7 +1472,7 @@
 	{
 		"name": "EyeA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1486,7 +1486,7 @@
 	{
 		"name": "EyeB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1500,7 +1500,7 @@
 	{
 		"name": "EyeBallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1514,7 +1514,7 @@
 	{
 		"name": "EyeBallB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1528,7 +1528,7 @@
 	{
 		"name": "EyeBallC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1542,7 +1542,7 @@
 	{
 		"name": "EyeC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1556,7 +1556,7 @@
 	{
 		"name": "EyeD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1570,7 +1570,7 @@
 	{
 		"name": "FactoryA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1584,7 +1584,7 @@
 	{
 		"name": "FactoryB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1598,7 +1598,7 @@
 	{
 		"name": "FireSmallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1612,7 +1612,7 @@
 	{
 		"name": "FishA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1626,7 +1626,7 @@
 	{
 		"name": "FishB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1640,7 +1640,7 @@
 	{
 		"name": "FishC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1654,7 +1654,7 @@
 	{
 		"name": "FrogA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1668,7 +1668,7 @@
 	{
 		"name": "FrogB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1682,7 +1682,7 @@
 	{
 		"name": "FrogC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1696,7 +1696,7 @@
 	{
 		"name": "FrogD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1710,7 +1710,7 @@
 	{
 		"name": "FrogE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1724,7 +1724,7 @@
 	{
 		"name": "GhastA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1738,7 +1738,7 @@
 	{
 		"name": "GhastB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1752,7 +1752,7 @@
 	{
 		"name": "GhastC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1766,7 +1766,7 @@
 	{
 		"name": "GnomeA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1780,7 +1780,7 @@
 	{
 		"name": "GnomeB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1794,7 +1794,7 @@
 	{
 		"name": "GnomeC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1808,7 +1808,7 @@
 	{
 		"name": "GoatA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1822,7 +1822,7 @@
 	{
 		"name": "GoatB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1836,7 +1836,7 @@
 	{
 		"name": "GolemA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1850,7 +1850,7 @@
 	{
 		"name": "HareA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1864,7 +1864,7 @@
 	{
 		"name": "HareB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1878,7 +1878,7 @@
 	{
 		"name": "HareC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1892,7 +1892,7 @@
 	{
 		"name": "HareD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1906,7 +1906,7 @@
 	{
 		"name": "HeadA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1920,7 +1920,7 @@
 	{
 		"name": "HeadB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1934,7 +1934,7 @@
 	{
 		"name": "HeadC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1948,7 +1948,7 @@
 	{
 		"name": "HeadD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1962,7 +1962,7 @@
 	{
 		"name": "HulkA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1976,7 +1976,7 @@
 	{
 		"name": "HulkB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -1990,7 +1990,7 @@
 	{
 		"name": "KlackonA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2004,7 +2004,7 @@
 	{
 		"name": "KlackonB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2018,7 +2018,7 @@
 	{
 		"name": "KlackonC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2032,7 +2032,7 @@
 	{
 		"name": "KlackonD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2046,7 +2046,7 @@
 	{
 		"name": "KlackonE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2060,7 +2060,7 @@
 	{
 		"name": "KlackonF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2074,7 +2074,7 @@
 	{
 		"name": "LurkerA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2088,7 +2088,7 @@
 	{
 		"name": "LurkerB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2102,7 +2102,7 @@
 	{
 		"name": "LurkerC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2116,7 +2116,7 @@
 	{
 		"name": "MachineA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2130,7 +2130,7 @@
 	{
 		"name": "MaskA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2144,7 +2144,7 @@
 	{
 		"name": "MaskB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2158,7 +2158,7 @@
 	{
 		"name": "MaskC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2172,7 +2172,7 @@
 	{
 		"name": "MaskD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2186,7 +2186,7 @@
 	{
 		"name": "MonolithA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2200,7 +2200,7 @@
 	{
 		"name": "MonolithB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2214,7 +2214,7 @@
 	{
 		"name": "MonolithC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2228,7 +2228,7 @@
 	{
 		"name": "MonolithD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2242,7 +2242,7 @@
 	{
 		"name": "MonolithE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2256,7 +2256,7 @@
 	{
 		"name": "MonolithF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2270,7 +2270,7 @@
 	{
 		"name": "MonolithG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2284,7 +2284,7 @@
 	{
 		"name": "MonolithH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2298,7 +2298,7 @@
 	{
 		"name": "MonolithI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2312,7 +2312,7 @@
 	{
 		"name": "MonolithJ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2326,7 +2326,7 @@
 	{
 		"name": "MonolithK",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2340,7 +2340,7 @@
 	{
 		"name": "MonolithL",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2354,7 +2354,7 @@
 	{
 		"name": "MothA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2368,7 +2368,7 @@
 	{
 		"name": "MothB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2382,7 +2382,7 @@
 	{
 		"name": "MothC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2396,7 +2396,7 @@
 	{
 		"name": "MothD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2410,7 +2410,7 @@
 	{
 		"name": "MothE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2424,7 +2424,7 @@
 	{
 		"name": "MouthA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2438,7 +2438,7 @@
 	{
 		"name": "MouthB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2452,7 +2452,7 @@
 	{
 		"name": "MouthC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2466,7 +2466,7 @@
 	{
 		"name": "MummyA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2480,7 +2480,7 @@
 	{
 		"name": "MummyB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2494,7 +2494,7 @@
 	{
 		"name": "MummyC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2508,7 +2508,7 @@
 	{
 		"name": "MushroomA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2522,7 +2522,7 @@
 	{
 		"name": "MushroomB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2536,7 +2536,7 @@
 	{
 		"name": "OrbA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2550,7 +2550,7 @@
 	{
 		"name": "OrbB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2564,7 +2564,7 @@
 	{
 		"name": "OrbC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2578,7 +2578,7 @@
 	{
 		"name": "OrbD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2592,7 +2592,7 @@
 	{
 		"name": "PotionA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2606,7 +2606,7 @@
 	{
 		"name": "PotionB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2620,7 +2620,7 @@
 	{
 		"name": "PotionC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2634,7 +2634,7 @@
 	{
 		"name": "PotionD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2648,7 +2648,7 @@
 	{
 		"name": "PotionE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2662,7 +2662,7 @@
 	{
 		"name": "PotionF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2676,7 +2676,7 @@
 	{
 		"name": "PotionG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2690,7 +2690,7 @@
 	{
 		"name": "PotionH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2704,7 +2704,7 @@
 	{
 		"name": "PotionI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2718,7 +2718,7 @@
 	{
 		"name": "PotionJ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2732,7 +2732,7 @@
 	{
 		"name": "PotionK",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2746,7 +2746,7 @@
 	{
 		"name": "PotionL",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2760,7 +2760,7 @@
 	{
 		"name": "PterodactylA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2774,7 +2774,7 @@
 	{
 		"name": "PterodactylB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2788,7 +2788,7 @@
 	{
 		"name": "PterodactylC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2802,7 +2802,7 @@
 	{
 		"name": "PterodactylD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2816,7 +2816,7 @@
 	{
 		"name": "PterodactylE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2830,7 +2830,7 @@
 	{
 		"name": "PterodactylF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2844,7 +2844,7 @@
 	{
 		"name": "PterodactylG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2858,7 +2858,7 @@
 	{
 		"name": "PterodactylH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2872,7 +2872,7 @@
 	{
 		"name": "PuddleA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2886,7 +2886,7 @@
 	{
 		"name": "PuddleB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2900,7 +2900,7 @@
 	{
 		"name": "PuddleC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2914,7 +2914,7 @@
 	{
 		"name": "PyramidA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2928,7 +2928,7 @@
 	{
 		"name": "PyramidB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2942,7 +2942,7 @@
 	{
 		"name": "ReaperA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2956,7 +2956,7 @@
 	{
 		"name": "RobotA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2970,7 +2970,7 @@
 	{
 		"name": "RobotB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2984,7 +2984,7 @@
 	{
 		"name": "RobotC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -2998,7 +2998,7 @@
 	{
 		"name": "RobotD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3012,7 +3012,7 @@
 	{
 		"name": "ScorpionA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3026,7 +3026,7 @@
 	{
 		"name": "ScorpionB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3040,7 +3040,7 @@
 	{
 		"name": "ScorpionC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3054,7 +3054,7 @@
 	{
 		"name": "SentryA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3068,7 +3068,7 @@
 	{
 		"name": "SentryB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3082,7 +3082,7 @@
 	{
 		"name": "SentryC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3096,7 +3096,7 @@
 	{
 		"name": "SentryCopterA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3110,7 +3110,7 @@
 	{
 		"name": "SentryCopterB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3124,7 +3124,7 @@
 	{
 		"name": "SentryCopterC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3138,7 +3138,7 @@
 	{
 		"name": "ShieldA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3152,7 +3152,7 @@
 	{
 		"name": "ShieldB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3166,7 +3166,7 @@
 	{
 		"name": "ShieldC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3180,7 +3180,7 @@
 	{
 		"name": "ShieldD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3194,7 +3194,7 @@
 	{
 		"name": "ShieldE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3208,7 +3208,7 @@
 	{
 		"name": "ShieldF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3222,7 +3222,7 @@
 	{
 		"name": "SkeletonA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3236,7 +3236,7 @@
 	{
 		"name": "SkeletonB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3250,7 +3250,7 @@
 	{
 		"name": "SkeletonC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3264,7 +3264,7 @@
 	{
 		"name": "SkeletonD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3278,7 +3278,7 @@
 	{
 		"name": "SkullA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3292,7 +3292,7 @@
 	{
 		"name": "SkullB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3306,7 +3306,7 @@
 	{
 		"name": "SkullC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3320,7 +3320,7 @@
 	{
 		"name": "SkullD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3334,7 +3334,7 @@
 	{
 		"name": "SkullFlamingA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3348,7 +3348,7 @@
 	{
 		"name": "SkullFlamingB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3362,7 +3362,7 @@
 	{
 		"name": "SkullSmallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3376,7 +3376,7 @@
 	{
 		"name": "SkullSmallB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3390,7 +3390,7 @@
 	{
 		"name": "SkullSmallC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3404,7 +3404,7 @@
 	{
 		"name": "SkullSmallD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3418,7 +3418,7 @@
 	{
 		"name": "SkullSmallE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3432,7 +3432,7 @@
 	{
 		"name": "SkullSmallF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3446,7 +3446,7 @@
 	{
 		"name": "SkullSmallG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3460,7 +3460,7 @@
 	{
 		"name": "SkullSmallH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3474,7 +3474,7 @@
 	{
 		"name": "SlimeA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3488,7 +3488,7 @@
 	{
 		"name": "SlimeB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3502,7 +3502,7 @@
 	{
 		"name": "SlimeC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3516,7 +3516,7 @@
 	{
 		"name": "SlimeD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3530,7 +3530,7 @@
 	{
 		"name": "SlimeE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3544,7 +3544,7 @@
 	{
 		"name": "SlimeF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3558,7 +3558,7 @@
 	{
 		"name": "SlimeG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3572,7 +3572,7 @@
 	{
 		"name": "SlimeH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3586,7 +3586,7 @@
 	{
 		"name": "SlimeI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3600,7 +3600,7 @@
 	{
 		"name": "SlimeJ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3614,7 +3614,7 @@
 	{
 		"name": "SlimeK",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3628,7 +3628,7 @@
 	{
 		"name": "SlimeL",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3642,7 +3642,7 @@
 	{
 		"name": "SlimeM",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3656,7 +3656,7 @@
 	{
 		"name": "SlimeN",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3670,7 +3670,7 @@
 	{
 		"name": "SlimeO",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3684,7 +3684,7 @@
 	{
 		"name": "SlimeP",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3698,7 +3698,7 @@
 	{
 		"name": "SlimeSmallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3712,7 +3712,7 @@
 	{
 		"name": "SlimeSmallB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3726,7 +3726,7 @@
 	{
 		"name": "SlimeSmallC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3740,7 +3740,7 @@
 	{
 		"name": "SlimeSmallD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3754,7 +3754,7 @@
 	{
 		"name": "SlimeSmallE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3768,7 +3768,7 @@
 	{
 		"name": "SlimeSmallerA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3782,7 +3782,7 @@
 	{
 		"name": "SlimeSmallerB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3796,7 +3796,7 @@
 	{
 		"name": "SlimeSmallerC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3810,7 +3810,7 @@
 	{
 		"name": "SlimeSmallerD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3824,7 +3824,7 @@
 	{
 		"name": "SlimeSmallerE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3838,7 +3838,7 @@
 	{
 		"name": "SlimeSmallerF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3852,7 +3852,7 @@
 	{
 		"name": "SlimeSmallerG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3866,7 +3866,7 @@
 	{
 		"name": "SlimeSmallF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3880,7 +3880,7 @@
 	{
 		"name": "SlimeSmallG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3894,7 +3894,7 @@
 	{
 		"name": "SlimeSmallH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3908,7 +3908,7 @@
 	{
 		"name": "SlimeSmallI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3922,7 +3922,7 @@
 	{
 		"name": "SlimeSquareA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3936,7 +3936,7 @@
 	{
 		"name": "SlimeSquareB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3950,7 +3950,7 @@
 	{
 		"name": "SlimeSquareC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3964,7 +3964,7 @@
 	{
 		"name": "SlimeSquareD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3978,7 +3978,7 @@
 	{
 		"name": "SlimeSquareE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -3992,7 +3992,7 @@
 	{
 		"name": "SlimeSquareF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4006,7 +4006,7 @@
 	{
 		"name": "SlimeSquareG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4020,7 +4020,7 @@
 	{
 		"name": "SlimeSquareH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4034,7 +4034,7 @@
 	{
 		"name": "SlimeSquareI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4048,7 +4048,7 @@
 	{
 		"name": "SlimeSquareJ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4062,7 +4062,7 @@
 	{
 		"name": "SlimeSquareK",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4076,7 +4076,7 @@
 	{
 		"name": "SlimeSquareL",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4090,7 +4090,7 @@
 	{
 		"name": "SlimeSquareSmallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4104,7 +4104,7 @@
 	{
 		"name": "SlimeSquareSmallB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4118,7 +4118,7 @@
 	{
 		"name": "SlimeSquareSmallC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4132,7 +4132,7 @@
 	{
 		"name": "SlimeSquareSmallD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4146,7 +4146,7 @@
 	{
 		"name": "SlimeSquareSmallE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4160,7 +4160,7 @@
 	{
 		"name": "SlimeSquareSmallerA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4174,7 +4174,7 @@
 	{
 		"name": "SlimeSquareSmallerB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4188,7 +4188,7 @@
 	{
 		"name": "SlimeSquareSmallerC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4202,7 +4202,7 @@
 	{
 		"name": "SlimeSquareSmallerD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4216,7 +4216,7 @@
 	{
 		"name": "SlimeSquareSmallerE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4230,7 +4230,7 @@
 	{
 		"name": "SlimeSquareSmallerF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4244,7 +4244,7 @@
 	{
 		"name": "SlimeSquareSmallerG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4258,7 +4258,7 @@
 	{
 		"name": "SlimeSquareSmallerH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4272,7 +4272,7 @@
 	{
 		"name": "SlimeSquareSmallerI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4286,7 +4286,7 @@
 	{
 		"name": "SlimeSquareSmallerJ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4300,7 +4300,7 @@
 	{
 		"name": "SlimeSquareSmallF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4314,7 +4314,7 @@
 	{
 		"name": "SlimeSquareSmallG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4328,7 +4328,7 @@
 	{
 		"name": "SlimeSquareSmallH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4342,7 +4342,7 @@
 	{
 		"name": "SlugA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4356,7 +4356,7 @@
 	{
 		"name": "SlugB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4370,7 +4370,7 @@
 	{
 		"name": "SlugC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4384,7 +4384,7 @@
 	{
 		"name": "SlugD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4398,7 +4398,7 @@
 	{
 		"name": "SlugE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4412,7 +4412,7 @@
 	{
 		"name": "SlugF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4426,7 +4426,7 @@
 	{
 		"name": "SlugG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4440,7 +4440,7 @@
 	{
 		"name": "SnakeA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4454,7 +4454,7 @@
 	{
 		"name": "SnakeB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4468,7 +4468,7 @@
 	{
 		"name": "SnakeC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4482,7 +4482,7 @@
 	{
 		"name": "SnakeD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4496,7 +4496,7 @@
 	{
 		"name": "SnakeE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4510,7 +4510,7 @@
 	{
 		"name": "SnakeF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4524,7 +4524,7 @@
 	{
 		"name": "SnakeG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4538,7 +4538,7 @@
 	{
 		"name": "SnakeH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4552,7 +4552,7 @@
 	{
 		"name": "SnakeI",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4566,7 +4566,7 @@
 	{
 		"name": "SnakeJ",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4580,7 +4580,7 @@
 	{
 		"name": "SnakeK",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4594,7 +4594,7 @@
 	{
 		"name": "SnakeL",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4608,7 +4608,7 @@
 	{
 		"name": "SpaceA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4622,7 +4622,7 @@
 	{
 		"name": "SparksA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4636,7 +4636,7 @@
 	{
 		"name": "SphereA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4650,7 +4650,7 @@
 	{
 		"name": "SphereB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4664,7 +4664,7 @@
 	{
 		"name": "SphereC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4678,7 +4678,7 @@
 	{
 		"name": "SphereD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4692,7 +4692,7 @@
 	{
 		"name": "SquirrelA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4706,7 +4706,7 @@
 	{
 		"name": "SquirrelB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4720,7 +4720,7 @@
 	{
 		"name": "SwordA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4734,7 +4734,7 @@
 	{
 		"name": "SwordB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4748,7 +4748,7 @@
 	{
 		"name": "TentacleA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4762,7 +4762,7 @@
 	{
 		"name": "TentacleB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4776,7 +4776,7 @@
 	{
 		"name": "TentacleC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4790,7 +4790,7 @@
 	{
 		"name": "TentacleD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4804,7 +4804,7 @@
 	{
 		"name": "TentacleE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4818,7 +4818,7 @@
 	{
 		"name": "TentacleF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4832,7 +4832,7 @@
 	{
 		"name": "WaterA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4846,7 +4846,7 @@
 	{
 		"name": "WaterSmallA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4860,7 +4860,7 @@
 	{
 		"name": "WeaselA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4874,7 +4874,7 @@
 	{
 		"name": "WeaselB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4888,7 +4888,7 @@
 	{
 		"name": "WeaselC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4902,7 +4902,7 @@
 	{
 		"name": "WitchA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4916,7 +4916,7 @@
 	{
 		"name": "WitchB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4930,7 +4930,7 @@
 	{
 		"name": "WitchC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4944,7 +4944,7 @@
 	{
 		"name": "WitchD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4958,7 +4958,7 @@
 	{
 		"name": "WitchE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4972,7 +4972,7 @@
 	{
 		"name": "WitchF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -4986,7 +4986,7 @@
 	{
 		"name": "WormA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5000,7 +5000,7 @@
 	{
 		"name": "WormB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5014,7 +5014,7 @@
 	{
 		"name": "WormC",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5028,7 +5028,7 @@
 	{
 		"name": "WormD",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5042,7 +5042,7 @@
 	{
 		"name": "WormE",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5056,7 +5056,7 @@
 	{
 		"name": "WormF",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5070,7 +5070,7 @@
 	{
 		"name": "WormG",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5084,7 +5084,7 @@
 	{
 		"name": "WormH",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5098,7 +5098,7 @@
 	{
 		"name": "ZombieA",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
@@ -5112,7 +5112,7 @@
 	{
 		"name": "ZombieB",
 		"type": "fire",
-		"attack": 50,
+		"attack": 45,
 		"defense": 50,
 		"maxhealth": 50,
 		"speed": 50,
