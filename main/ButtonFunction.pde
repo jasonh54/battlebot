@@ -30,11 +30,7 @@ public static class ButtonFunction {
     //swap to various combat states
     } else if (num == "fight") {
       switchCombatState(CombatStates.FIGHT);
-<<<<<<< HEAD
-    } else if (num == "items") {
-=======
     } else if (num == "itemm") {
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
       switchCombatState(CombatStates.ITEM);
     } else if (num == "battlebots") {
       switchCombatState(CombatStates.BATTLEBOT);
@@ -49,26 +45,14 @@ public static class ButtonFunction {
       //play animation, alter stats
       current.useAttackMove(mon);
       mon.moveToEnemyStart(testMonster);
-<<<<<<< HEAD
       //at the end, switch battlestate to animation
-=======
-      //at the end, switch battlestate to AI
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
       switchCombatState(CombatStates.ANIMATION);
     //DEFENSIVE MOVE
     } else if (num == "callmove1") {
-<<<<<<< HEAD
       //get a Move and a self monster
       Moves current = activeMonster.move2;
-=======
-
-      Moves current = activeMonster.move2;
-
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
       Monster mon = activeMonster;
       moveNum = 2;
-
-      //
       mon.defendStart();
       switchCombatState(CombatStates.ANIMATION);
     } else if (num == "callmove2") {

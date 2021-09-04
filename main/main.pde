@@ -42,9 +42,6 @@ Timer restartTimer;
 static int moveNum = 0;
 
 void setup(){
-  //size of game window:
-  size(1100,800);
-  
   //Ethan's code
   //acquire the folder location of where the monster images are
   String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
@@ -59,11 +56,8 @@ void setup(){
     spritesPM = loadImage(spritePath + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM);
   }
-<<<<<<< HEAD
   
-=======
   String itemPath = spritePath.substring(0, spritePath.length()-6) + "items";
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
   File tilesFile = new File(tilesPath);
   
@@ -109,25 +103,17 @@ void setup(){
     JSONObject item = itemArray.getJSONObject(i);
     itemDatabase.put(item.getString("name"),item);
   }
-<<<<<<< HEAD
-=======
+  
   System.out.println(itemPath+"\\"+"PotionHealth.png");
   itemsprites.put("Health Potion",loadImage(itemPath+"\\"+"PotionHealth.png"));
   itemsprites.put("Damage Potion",loadImage(itemPath+"\\"+"PotionDamage.png"));
   itemsprites.put("Armor Potion" ,loadImage(itemPath+"\\"+"PotionArmor.png"));
   itemsprites.put("Speed Potion" ,loadImage(itemPath+"\\"+"PotionSpeed.png"));
   itemsprites.put("Agility Potion",loadImage(itemPath+"\\"+"PotionAgility.png"));
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   
   //initiatize misc variables
   testPlayer = new Player(createCharacterSprites(0));
-<<<<<<< HEAD
   testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD", testMonster);
-=======
-
-  testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD", enemy);
-
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   testPlayer.addItem("Health Potion");
 
   //initialize all menus
@@ -147,7 +133,6 @@ void setup(){
   battlemenu.buttons.get(1).txt = "item";
   battlemenu.buttons.get(2).txt = "battlebots";
   battlemenu.buttons.get(3).txt = "run";
-<<<<<<< HEAD
   for (int i = 0; i < battlemenu.menulength; i++) {
     battlemenu.buttons.get(i).func = battlemenu.buttons.get(i).txt;
   }
@@ -158,12 +143,11 @@ void setup(){
   movemenu.buttons.get(1).func = "callmove1";
   movemenu.buttons.get(2).func = "callmove2";
   movemenu.buttons.get(3).func = "callmove3";
-=======
+
   battlemenu.buttons.get(0).func = "fight";
   battlemenu.buttons.get(1).func = "itemm";
   battlemenu.buttons.get(2).func = "bot";
   battlemenu.buttons.get(3).func = "run";
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   
   //assign tiles to map layers
   //lowest layer - ground tiles with no blankspace
@@ -287,17 +271,11 @@ void setup(){
   overlayedmap.generateBaseMap(overlayedMapTiles);
   collidemap.generateBaseMap(collidableMapTiles);
   topmap.generateBaseMap(topMapTiles);
-<<<<<<< HEAD
-=======
   
   items.add(new GroundItem("Damage Potion",map.getTile(0,0)));
-
-  //misc stuff??
-  //restartTimer = new Timer(5000);
   
   //size of game window:
   fullScreen();
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
 }
 
 void draw() {
@@ -346,13 +324,9 @@ void draw() {
       case FIGHT:
         testMonster.display();
         activeMonster.display();
-<<<<<<< HEAD
         //txt defined here at it is custom to the current battle
-=======
         //will produce a menu of what moves the battle bot can use
         Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
-        //nullpointer error HERE because txt is null
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
         for (int i = 0; i < 4; i++) {
           //give move buttons functions based on their moves
           movemenu.buttons.get(i).txt = activeMonster.moveset[i].name;
@@ -385,7 +359,6 @@ void draw() {
         testMonster.display();
         activeMonster.display();
         //will produce a menu of what items you have
-<<<<<<< HEAD
         itemmenu.assembleMenuColumn();
         itemmenu.x = itemmenu.x - 100;
         String[] itemsKeys = testPlayer.items.keySet().toArray(new String[testPlayer.items.keySet().size()]);
@@ -396,16 +369,10 @@ void draw() {
           /* set each button's function
           need function for using an ability
           items should have inherent functions like buttons do */
-=======
-
-        Menu itemmenu = new Menu(625, 520, testPlayer.items.size(), 50, 300, 2);
-        Object[] itemsKeys = testPlayer.items.keySet().toArray();
-        
+        }
         for (int i = 0; i < testPlayer.items.size(); i++) {
           itemmenu.buttons.get(i).txt = (String)itemsKeys[i];
           itemmenu.buttons.get(i).func = "useitem";
-
->>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
         }
         itemmenu.update();
         checkMouse(itemmenu);
