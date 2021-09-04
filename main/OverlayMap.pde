@@ -14,7 +14,13 @@ class OverlayMap extends Map {
     this.draw();
     this.fullMovement();
   }
-
+  
+  //void generateItems() { // TODO, make this actually random
+  //  if (random){
+  //    items[random] = new GroundItem(random,this.getTile(random));
+  //  }
+  //}
+  
   //these funcs each check collision in a different direction
   public boolean collideLeft(Player player) {
     for (int i = 0; i < collidableTiles.size(); i++) {

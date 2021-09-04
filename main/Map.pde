@@ -31,7 +31,10 @@ class Map {
   public Map() {
   
   }
-
+  Tile getTile(int lx, int ly){
+    return mapTiles[lx][ly];
+  }
+  
   //map generation
   void generateBaseMap(int[][] tileArray) {
     //prepping the tile array for use
