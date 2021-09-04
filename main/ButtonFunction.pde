@@ -14,7 +14,6 @@ public static class ButtonFunction {
   public static void runFunction(String num) {
     //filler func
     if (num == "0") {
-      println("this button has been clicked " + GameState.currentState);
     //swap to various states
     } else if (num == "menu") {
       switchState(GameStates.MENU);

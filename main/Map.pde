@@ -181,13 +181,11 @@ class Map {
           //figure out what map is associated with that tile and generate it
         }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
-          println(GameState.currentState);
           Random r = new Random();
           int t = r.nextInt(7) + 1;
           if (t == 1) {
             GameState.currentState = GameStates.COMBAT;
             GameState.combatState = CombatStates.ENTRY;
-            println("battle time!");
           }
           
           //if chance happens, activate battle state
@@ -265,7 +263,6 @@ class Map {
     for (int i = 0; i < array.size(); i++) {
       //if they're overlapping, return an associated string
       if (array.get(i).checkOverlap(player) == true) {
-        println(text);
         //returns the index if true, returns -1 if false
         overlapint = i;
         return overlapint;
