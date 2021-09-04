@@ -12,7 +12,6 @@ HashMap<String, JSONObject> itemDatabase = new HashMap<String, JSONObject>();
 int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
 int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
 int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,57,58,59,60,61};
-
 //sprite stuff
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
@@ -22,6 +21,10 @@ OverlayMap collidemap = new OverlayMap();
 Map map = new Map();
 Map overlayedmap = new Map();
 Map topmap = new Map();
+
+//item stuff
+ArrayList<GroundItem> items = new ArrayList<GroundItem>();
+HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 
 //menu variables
 Menu mainmenu;
@@ -56,7 +59,11 @@ void setup(){
     spritesPM = loadImage(spritePath + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM);
   }
+<<<<<<< HEAD
   
+=======
+  String itemPath = spritePath.substring(0, spritePath.length()-6) + "items";
+>>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
   File tilesFile = new File(tilesPath);
   
@@ -102,10 +109,25 @@ void setup(){
     JSONObject item = itemArray.getJSONObject(i);
     itemDatabase.put(item.getString("name"),item);
   }
+<<<<<<< HEAD
+=======
+  System.out.println(itemPath+"\\"+"PotionHealth.png");
+  itemsprites.put("Health Potion",loadImage(itemPath+"\\"+"PotionHealth.png"));
+  itemsprites.put("Damage Potion",loadImage(itemPath+"\\"+"PotionDamage.png"));
+  itemsprites.put("Armor Potion" ,loadImage(itemPath+"\\"+"PotionArmor.png"));
+  itemsprites.put("Speed Potion" ,loadImage(itemPath+"\\"+"PotionSpeed.png"));
+  itemsprites.put("Agility Potion",loadImage(itemPath+"\\"+"PotionAgility.png"));
+>>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   
   //initiatize misc variables
   testPlayer = new Player(createCharacterSprites(0));
+<<<<<<< HEAD
   testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD", testMonster);
+=======
+
+  testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD", enemy);
+
+>>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   testPlayer.addItem("Health Potion");
 
   //initialize all menus
@@ -116,17 +138,16 @@ void setup(){
   sandwich = new Button(10, 10, "toggle");
   
   //values for main menu
-  mainmenu.assembleMenuColumn();
   mainmenu.buttons.get(0).txt = "button1";
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
   
   //values for battle menu
-  battlemenu.assembleMenuColumn();
   battlemenu.buttons.get(0).txt = "fight";
-  battlemenu.buttons.get(1).txt = "items";
+  battlemenu.buttons.get(1).txt = "item";
   battlemenu.buttons.get(2).txt = "battlebots";
   battlemenu.buttons.get(3).txt = "run";
+<<<<<<< HEAD
   for (int i = 0; i < battlemenu.menulength; i++) {
     battlemenu.buttons.get(i).func = battlemenu.buttons.get(i).txt;
   }
@@ -137,6 +158,12 @@ void setup(){
   movemenu.buttons.get(1).func = "callmove1";
   movemenu.buttons.get(2).func = "callmove2";
   movemenu.buttons.get(3).func = "callmove3";
+=======
+  battlemenu.buttons.get(0).func = "fight";
+  battlemenu.buttons.get(1).func = "itemm";
+  battlemenu.buttons.get(2).func = "bot";
+  battlemenu.buttons.get(3).func = "run";
+>>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
   
   //assign tiles to map layers
   //lowest layer - ground tiles with no blankspace
@@ -260,6 +287,17 @@ void setup(){
   overlayedmap.generateBaseMap(overlayedMapTiles);
   collidemap.generateBaseMap(collidableMapTiles);
   topmap.generateBaseMap(topMapTiles);
+<<<<<<< HEAD
+=======
+  
+  items.add(new GroundItem("Damage Potion",map.getTile(0,0)));
+
+  //misc stuff??
+  //restartTimer = new Timer(5000);
+  
+  //size of game window:
+  fullScreen();
+>>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
 }
 
 void draw() {
@@ -273,6 +311,10 @@ void draw() {
     testPlayer.display();
     topmap.update();
     sandwich.drawSandwich();
+    for (GroundItem item : items){
+      item.display();
+    }
+ 
     //check if menu is opened
     checkMouse(sandwich);
     //keypress to go into menu - backup if button breaks
@@ -304,7 +346,13 @@ void draw() {
       case FIGHT:
         testMonster.display();
         activeMonster.display();
+<<<<<<< HEAD
         //txt defined here at it is custom to the current battle
+=======
+        //will produce a menu of what moves the battle bot can use
+        Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
+        //nullpointer error HERE because txt is null
+>>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
         for (int i = 0; i < 4; i++) {
           //give move buttons functions based on their moves
           movemenu.buttons.get(i).txt = activeMonster.moveset[i].name;
@@ -337,6 +385,7 @@ void draw() {
         testMonster.display();
         activeMonster.display();
         //will produce a menu of what items you have
+<<<<<<< HEAD
         itemmenu.assembleMenuColumn();
         itemmenu.x = itemmenu.x - 100;
         String[] itemsKeys = testPlayer.items.keySet().toArray(new String[testPlayer.items.keySet().size()]);
@@ -347,6 +396,16 @@ void draw() {
           /* set each button's function
           need function for using an ability
           items should have inherent functions like buttons do */
+=======
+
+        Menu itemmenu = new Menu(625, 520, testPlayer.items.size(), 50, 300, 2);
+        Object[] itemsKeys = testPlayer.items.keySet().toArray();
+        
+        for (int i = 0; i < testPlayer.items.size(); i++) {
+          itemmenu.buttons.get(i).txt = (String)itemsKeys[i];
+          itemmenu.buttons.get(i).func = "useitem";
+
+>>>>>>> deb2afae447bcd71ed55aa6207faca7884157e4f
         }
         itemmenu.update();
         checkMouse(itemmenu);
@@ -369,7 +428,6 @@ void draw() {
     }
   //if in the menu state:
   } else if (GameState.currentState == GameStates.MENU) {
-    println("menu");
     //draw stuff (not update; no movement)
     map.draw();
     overlayedmap.draw();
@@ -423,7 +481,6 @@ void checkMouse(Menu menu) {
       //if mouse is touching  a button
       if (mouseX >= current.x && mouseX <= current.x + current.w) {
         if (mouseY >= current.y && mouseY <= current.y + current.h) {
-          println("menuclick");
           current.onClick();
           delay(naptime);
         }

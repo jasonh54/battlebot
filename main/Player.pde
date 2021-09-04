@@ -66,10 +66,7 @@ class Player{
 
   public void addItem(String id){
     Integer a = items.get(id);
-    if (a == null){
-      a = 0;
-    }
-    items.put(id, a+1);
+    items.put(id, a == null ? 1 : a+1);
   }
   public JSONObject useItem(String id){
     Integer a = items.get(id);

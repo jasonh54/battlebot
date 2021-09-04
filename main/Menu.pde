@@ -17,6 +17,12 @@ class Menu {
     this.buttonh = bh;
     this.buttonw = bw;
     this.spacing = th;
+    for (int i = 0; i < this.menulength; i++) {
+      //height and width are arbitrary until we have real sprites
+      Button current = new Button(this, x + 50, y+(bh+th)*i, bh, bw, "0"); // likely erronius code
+      this.buttons.add(current);
+      println("new Button("+this+", "+x + 50+", "+y+(bh+th)*i+", "+bh+", "+bw+", '0')");
+    }
   }
   
   void update() {
@@ -53,5 +59,4 @@ class Menu {
   void setFunc(int n, CallBack function) {
       buttons.get(n).setOnClick(function);
   }
-  
 }
