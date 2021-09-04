@@ -32,8 +32,6 @@ class Tile {
   
   //exactly what it says on the tin
   void printInfo() {
-    println(this.x + ", " + this.y);
-    println(this.collide);
   }
   
   //BASE MOVEMENT THINGS
@@ -66,10 +64,7 @@ class Tile {
   
   //checking if player is overlapping w the given tile
   boolean checkOverlap(Player player) {
-    if (this.x == player.x && this.y == player.y) {
-      return true;
-    }
-    return false;
+    return this.x == player.x && this.y == player.y;
   }
   
   //draw with scales

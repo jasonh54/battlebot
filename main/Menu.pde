@@ -21,7 +21,7 @@ class Menu {
       //height and width are arbitrary until we have real sprites
       Button current = new Button(this, x + 50, y+(bh+th)*i, bh, bw, "0"); // likely erronius code
       this.buttons.add(current);
-      println("new Button("+this+", "+x + 50+", "+y+(bh+th)*i+", "+bh+", "+bw+", '0')");
+      //println("new Button("+this+", "+x + 50+", "+y+(bh+th)*i+", "+bh+", "+bw+", '0')");
     }
   }
   

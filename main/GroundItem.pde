@@ -15,10 +15,13 @@ class GroundItem {
   void display(){
     image(this.sprite,this.parent.x,this.parent.y,this.sprite.width * this.scale, this.sprite.height * this.scale);
   }
-  void colCheck(Player player){
+  int colCheck(Player player){
     if (this.parent.checkOverlap(player)){
       player.addItem(this.id);
-      items.remove(this); // get index of it, remove
+      println("Item Added to Player! "+player.items);
+      println("Returning index to remove with: "+items.indexOf(this));
+      return items.indexOf(this);
     }
+    return -1;
   }
 }

@@ -83,7 +83,6 @@ void setup(){
   }
   
   for(int i = 0; i < tilesList.length; i++){
-    //println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
 
@@ -113,7 +112,6 @@ void setup(){
     JSONObject item = itemArray.getJSONObject(i);
     itemDatabase.put(item.getString("name"),item);
   }
-  System.out.println(itemPath+"\\"+"PotionHealth.png");
   itemsprites.put("Health Potion",loadImage(itemPath+"\\"+"PotionHealth.png"));
   itemsprites.put("Damage Potion",loadImage(itemPath+"\\"+"PotionDamage.png"));
   itemsprites.put("Armor Potion" ,loadImage(itemPath+"\\"+"PotionArmor.png"));
@@ -267,7 +265,7 @@ void setup(){
   collidemap.generateBaseMap(collidableMapTiles);
   topmap.generateBaseMap(topMapTiles);
   
-  items.add(new GroundItem("Damage Potion",map.getTile(0,0)));
+  items.add(new GroundItem("Damage Potion",map.getTile(10,10)));
 
   //misc stuff??
   //restartTimer = new Timer(5000);
@@ -275,6 +273,8 @@ void setup(){
   //size of game window:
   fullScreen();
 }
+
+ArrayList<Integer> dqueue = new ArrayList<Integer>();
 
 void draw() {
   background(0);
@@ -289,7 +289,13 @@ void draw() {
     sandwich.drawSandwich();
     for (GroundItem item : items){
       item.display();
+      Integer col = item.colCheck(testPlayer);
+      if (col >= 0) dqueue.add(col);
     }
+    for (Integer ind : dqueue){
+      items.remove(items.get(ind));
+    }
+    dqueue = new ArrayList<Integer>();
  
     //check if menu is opened
     checkMouse(sandwich);
@@ -306,7 +312,6 @@ void draw() {
       //this happens once at the beginning of every battle, to set the scene
         activeMonster = testPlayer.monsters.get(0);
         //draw monsters, menu, background, HP
-        println("the battle has begun!");
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
         testMonster = new Monster("AirA", activeMonster, 800, 250);
         activeMonster.setEnemy(testMonster);

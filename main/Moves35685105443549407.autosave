@@ -16,17 +16,16 @@ class Moves {
   }
   
   //various moves - just one for now
-  float calculateAttackMove(Monster self) {
+  double calculateAttackMove(Monster self) {
     //determine values of coefficients: type advantage, type efficiency, random value
-    Random r = new Random();
-    float ranval = r.nextInt(10) + 90;
-    ranval = ranval/100;
-    float typeff = checkTypeEfficiency(self);
-    float typeadv = checkTypeAdvantage();
+    double ranval = Math.random() * 16;
+    double typeff = checkTypeEfficiency(self);
+    double typeadv = checkTypeAdvantage();
     //determine if move hits
+    Random r = new Random();
     if (r.nextInt(100) < this.accuracy) {
       //calculate total power
-      float power = this.damage * self.attack/this.target.defense;
+      double power = this.damage * self.attack/this.target.defense;
       power = power * ranval * typeff * typeadv;
       return power;
     } else {
@@ -35,14 +34,14 @@ class Moves {
   }
   
   void useAttackMove(Monster self) {
-    //calculate power and make it negative
-    float power = calculateAttackMove(self) * -1;
-    //convert to an int
+    double power = calculateAttackMove(self) * -1;
     int damage = (int) Math.floor(power);
+    println(this.target.chealth + " - " + damage);
     this.target.modStats(damage, 1, 1, 1);
+    println(target.chealth);
   }
   
-  float checkTypeAdvantage() {
+  double checkTypeAdvantage() {
     if (this.type == this.target.type) {
       return 0.5;
     } else if (this.type == "fire" && target.type == "water" || this.type == "air" && target.type == "earth") {
@@ -53,7 +52,7 @@ class Moves {
     return 1.0;
   }
   
-  float checkTypeEfficiency(Monster self) {
+  double checkTypeEfficiency(Monster self) {
     if (this.type == self.type) {
       return 1.5;
     } else {
