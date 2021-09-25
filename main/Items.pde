@@ -10,7 +10,4 @@ class Items{
     this.effectType = effectType;
     this.effectNum = effectNum;
   }
-  
-  
-  
 }

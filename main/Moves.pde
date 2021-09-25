@@ -54,11 +54,7 @@ class Moves {
   }
   
   float checkTypeEfficiency(Monster self) {
-    if (this.type == self.type) {
-      return 1.5;
-    } else {
-      return 1.0;
-    }
+    return this.type == self.type ? 1.5 : 1.0;
   }
   
   /* public void retrieveStats() {
