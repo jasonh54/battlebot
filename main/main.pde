@@ -264,7 +264,8 @@ void setup(){
   collidemap.generateBaseMap(collidableMapTiles);
   topmap.generateBaseMap(topMapTiles);
   
-  items.add(new GroundItem("Damage Potion",map.getTile(10,10)));
+  items.add(new GroundItem("Damage Potion",map.getTile(10,10))); // This is where you place items!
+  items.add(new GroundItem("Agility Potion",map.getTile(20,10)));
 
   //misc stuff??
   //restartTimer = new Timer(5000);
@@ -329,14 +330,14 @@ void draw() {
         //will produce a menu of what moves the battle bot can use
         Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
         //nullpointer error HERE because txt is null
+        
+        movemenu.buttons.get(0).txt = "Return to Menu";
+        movemenu.buttons.get(0).func = "return";
         for (int i = 0; i < 4; i++) {
           //give move buttons functions based on their moves
-          movemenu.buttons.get(i).txt = activeMonster.moveset[i].name;
+          movemenu.buttons.get(i+1).txt = activeMonster.moveset[i].name;
+          movemenu.buttons.get(i+1).func = "callmove"+i;
         }
-        movemenu.buttons.get(0).func = "callmove0";
-        movemenu.buttons.get(1).func = "callmove1";
-        movemenu.buttons.get(2).func = "callmove2";
-        movemenu.buttons.get(3).func = "callmove3";
         movemenu.update();
         checkMouse(movemenu);
       break;
@@ -366,14 +367,15 @@ void draw() {
         activeMonster.display();
         //will produce a menu of what items you have
 
-        Menu itemmenu = new Menu(625, 520, testPlayer.items.size(), 50, 300, 2);
+        Menu itemmenu = new Menu(625, 520, testPlayer.items.size()+1, 50, 300, 2);
         Object[] itemsKeys = testPlayer.items.keySet().toArray();
         
+        itemmenu.buttons.get(0).txt = "Return to Menu";
+        itemmenu.buttons.get(0).func = "return";
         for (int i = 0; i < testPlayer.items.size(); i++) {
           String itemi = (String)itemsKeys[i];
-          itemmenu.buttons.get(i).txt = itemi+" x "+testPlayer.items.get(itemi);
-          itemmenu.buttons.get(i).func = "useitem";
-
+          itemmenu.buttons.get(i+1).txt = itemi+" x "+testPlayer.items.get(itemi);
+          itemmenu.buttons.get(i+1).func = "useitem";
         }
         itemmenu.update();
         checkMouse(itemmenu);

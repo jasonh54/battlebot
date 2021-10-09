@@ -27,6 +27,8 @@ public static class ButtonFunction {
         switchState(GameStates.WALKING);
       }
     //swap to various combat states
+    } else if (num == "return") {
+      switchCombatState(CombatStates.OPTIONS);
     } else if (num == "fight") {
       switchCombatState(CombatStates.FIGHT);
     } else if (num == "itemm") {
@@ -70,12 +72,6 @@ public static class ButtonFunction {
 
       mon.dodgeStart();
       switchCombatState(CombatStates.ANIMATION);
-    } else if (num == "useitem") {
-      JSONObject stats = testPlayer.useItem("id"); //oh no <error here>
-      activeMonster.attack *= stats.getInt("attack");
-      activeMonster.defense *= stats.getInt("defense");
-      activeMonster.speed *= stats.getInt("speed");
-      activeMonster.addHp(stats.getInt("health"));
     }
   }
   public static void useItem(String id){
@@ -85,5 +81,7 @@ public static class ButtonFunction {
     activeMonster.defense *= stats.getInt("defense");
     activeMonster.speed *= stats.getInt("speed");
     activeMonster.addHp(stats.getInt("health"));
+    // maybe play animation
+    switchCombatState(CombatStates.OPTIONS);
   }
 }
