@@ -65,7 +65,9 @@ class Button {
   //use whatever function is stored in the f variable
   public void onClick(){
     if (this.func == "useitem"){
-      ButtonFunction.useItem(this.txt); //Placeholder
+      if (Integer.parseInt(this.txt.split("x")[1].trim()) > 0){
+        ButtonFunction.useItem(this.txt.split("x")[0].trim()); //Placeholder
+      }
     }else{
       ButtonFunction.runFunction(this.func);
     }

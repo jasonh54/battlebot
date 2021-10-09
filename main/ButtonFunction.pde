@@ -76,7 +76,6 @@ public static class ButtonFunction {
       activeMonster.defense *= stats.getInt("defense");
       activeMonster.speed *= stats.getInt("speed");
       activeMonster.addHp(stats.getInt("health"));
-
     }
   }
   public static void useItem(String id){
