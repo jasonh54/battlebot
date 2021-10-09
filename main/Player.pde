@@ -74,7 +74,7 @@ class Player{
       items.put(id, a-1); // "healthPotion": 0
       return itemDatabase.get(id);
     }
-    throw new Error("You insolent fool, thou hast disturbed the balance of the universe.");
+    throw new Error("You insolent fool, thou hast disturbed the balance of the universe. (["+id+"] was not in the database.)");
   }
   
 

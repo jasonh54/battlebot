@@ -31,7 +31,6 @@ Menu battlemenu;
 //misc variables
 Button sandwich;
 
-
 static Player testPlayer;
 
 static Monster activeMonster;
@@ -371,7 +370,8 @@ void draw() {
         Object[] itemsKeys = testPlayer.items.keySet().toArray();
         
         for (int i = 0; i < testPlayer.items.size(); i++) {
-          itemmenu.buttons.get(i).txt = (String)itemsKeys[i];
+          String itemi = (String)itemsKeys[i];
+          itemmenu.buttons.get(i).txt = itemi+" x "+testPlayer.items.get(itemi);
           itemmenu.buttons.get(i).func = "useitem";
 
         }
