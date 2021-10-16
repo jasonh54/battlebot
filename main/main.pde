@@ -336,7 +336,7 @@ void draw() {
         for (int i = 0; i < 4; i++) {
           //give move buttons functions based on their moves
           movemenu.buttons.get(i+1).txt = activeMonster.moveset[i].name;
-          movemenu.buttons.get(i+1).func = "callmove"+i;
+          movemenu.buttons.get(i+1).func = ("callmove"+String.valueOf(i)).toString();
         }
         movemenu.update();
         checkMouse(movemenu);
