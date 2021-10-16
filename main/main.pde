@@ -30,6 +30,7 @@ HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 Menu mainmenu;
 Menu battlemenu;
 Menu movemenu;
+Menu botmenu;
 Menu itemmenu;
 Button sandwich;
 
@@ -81,7 +82,6 @@ void setup(){
   }
   
   for(int i = 0; i < tilesList.length; i++){
-    //println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
@@ -105,21 +105,22 @@ void setup(){
   }
   
   System.out.println(itemPath+"\\"+"PotionHealth.png");
-  itemsprites.put("Health Potion",loadImage(itemPath+"\\"+"PotionHealth.png"));
-  itemsprites.put("Damage Potion",loadImage(itemPath+"\\"+"PotionDamage.png"));
-  itemsprites.put("Armor Potion" ,loadImage(itemPath+"\\"+"PotionArmor.png"));
-  itemsprites.put("Speed Potion" ,loadImage(itemPath+"\\"+"PotionSpeed.png"));
-  itemsprites.put("Agility Potion",loadImage(itemPath+"\\"+"PotionAgility.png"));
+  itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
+  itemsprites.put("Damage Potion",loadImage(itemPath+"/"+"PotionDamage.png"));
+  itemsprites.put("Armor Potion" ,loadImage(itemPath+"/"+"PotionArmor.png"));
+  itemsprites.put("Speed Potion" ,loadImage(itemPath+"/"+"PotionSpeed.png"));
+  itemsprites.put("Agility Potion",loadImage(itemPath+"/"+"PotionAgility.png"));
   
   //initiatize misc variables
   testPlayer = new Player(createCharacterSprites(0));
-  testPlayer.addMonsters("AirA", "BallA", "BallB", "BallC", "BallD", testMonster);
+  testPlayer.addMonsters("AirA", "ChickenA", "KlackonA", "PterodactylA", "MaskA", testMonster);
   testPlayer.addItem("Health Potion");
 
   //initialize all menus
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
   battlemenu = new Menu(625, 520, 5, 50, 400, 2);
   movemenu = new Menu(625, 520, 4, 50, 400, 2);
+  botmenu = new Menu(625, 520, testPlayer.monsters.size(), 50, 400, 2);
   itemmenu = new Menu(625, 520, 5, 50, 200, 2);
   sandwich = new Button(10, 10, "toggle");
   
@@ -129,12 +130,28 @@ void setup(){
   mainmenu.buttons.get(2).txt = "button3";
   
   //values for battle menu
+  itemmenu.assembleMenuColumn();
   battlemenu.buttons.get(0).txt = "fight";
   battlemenu.buttons.get(1).txt = "item";
   battlemenu.buttons.get(2).txt = "battlebots";
   battlemenu.buttons.get(3).txt = "run";
-  for (int i = 0; i < battlemenu.menulength; i++) {
+  
+  //the following code is redundant w/ code below it - test to figure out which group works
+  /*for (int i = 0; i < battlemenu.menulength; i++) {
     battlemenu.buttons.get(i).func = battlemenu.buttons.get(i).txt;
+  }*/
+  
+  battlemenu.assembleMenuColumn();
+  battlemenu.buttons.get(0).func = "fight";
+  battlemenu.buttons.get(1).func = "item";
+  battlemenu.buttons.get(2).func = "bot";
+  battlemenu.buttons.get(3).func = "run";
+  
+  //values for botmenu
+  botmenu.assembleMenuColumn();
+  for (int i = 0; i < botmenu.menulength; i++) {
+    botmenu.buttons.get(i).txt = testPlayer.monsters.get(i).id;
+    botmenu.buttons.get(i).func = "botswap";
   }
   
   //values for move menu - no txt as it is custom to the current battle
@@ -144,10 +161,7 @@ void setup(){
   movemenu.buttons.get(2).func = "callmove2";
   movemenu.buttons.get(3).func = "callmove3";
 
-  battlemenu.buttons.get(0).func = "fight";
-  battlemenu.buttons.get(1).func = "itemm";
-  battlemenu.buttons.get(2).func = "bot";
-  battlemenu.buttons.get(3).func = "run";
+  
   
   //assign tiles to map layers
   //lowest layer - ground tiles with no blankspace
@@ -273,10 +287,16 @@ void setup(){
   topmap.generateBaseMap(topMapTiles);
   
   items.add(new GroundItem("Damage Potion",map.getTile(0,0)));
+  items.add(new GroundItem("Damage Potion",map.getTile(10,10)));
+
+  //misc stuff??
+  //restartTimer = new Timer(5000);
   
   //size of game window:
   fullScreen();
 }
+
+ArrayList<Integer> dqueue = new ArrayList<Integer>();
 
 void draw() {
   background(0);
@@ -291,7 +311,13 @@ void draw() {
     sandwich.drawSandwich();
     for (GroundItem item : items){
       item.display();
+      Integer col = item.colCheck(testPlayer);
+      if (col >= 0) dqueue.add(col);
     }
+    for (Integer ind : dqueue){
+      items.remove(items.get(ind));
+    }
+    dqueue = new ArrayList<Integer>();
  
     //check if menu is opened
     checkMouse(sandwich);
@@ -308,9 +334,8 @@ void draw() {
       //this happens once at the beginning of every battle, to set the scene
         activeMonster = testPlayer.monsters.get(0);
         //draw monsters, menu, background, HP
-        println("the battle has begun!");
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-        testMonster = new Monster("ZombieA", activeMonster, 800, 250);
+        testMonster = new Monster("ZombieA", 800, 250);
         activeMonster.setEnemy(testMonster);
       break;
       case OPTIONS:
@@ -353,13 +378,14 @@ void draw() {
           if(activeMonster.dodgeAnimation()){
             ButtonFunction.switchCombatState(CombatStates.AI);
           }
+        } else {
+          ButtonFunction.switchCombatState(CombatStates.OPTIONS);
         }
       break;
       case ITEM:
         testMonster.display();
         activeMonster.display();
         //will produce a menu of what items you have
-        itemmenu.assembleMenuColumn();
         itemmenu.x = itemmenu.x - 100;
         String[] itemsKeys = testPlayer.items.keySet().toArray(new String[testPlayer.items.keySet().size()]);
         for (int i = 0; i < 8; i++) {
@@ -378,7 +404,11 @@ void draw() {
         checkMouse(itemmenu);
       break;
       case BATTLEBOT:
+        testMonster.display();
+        activeMonster.display();
         //will produce a menu of what battlebots you can switch to
+        botmenu.update();
+        checkMouse(botmenu);
       break;
       case AI:
         //let the enemy do stuff - will need a decision tree
@@ -448,6 +478,9 @@ void checkMouse(Menu menu) {
       //if mouse is touching  a button
       if (mouseX >= current.x && mouseX <= current.x + current.w) {
         if (mouseY >= current.y && mouseY <= current.y + current.h) {
+          //next line is only used when the botswap function is called
+          //although it is set with every buttonclick
+          testPlayer.swapto = current.txt;
           current.onClick();
           delay(naptime);
         }
