@@ -9,7 +9,7 @@ class GroundItem {
     this.id = id;
     this.parent = parent;
     this.sprite = itemsprites.get(id);
-    this.scale = parent.scale/2;
+    this.scale = parent.scale;
   }
   
   void display(){
