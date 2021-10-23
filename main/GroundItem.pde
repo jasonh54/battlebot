@@ -18,6 +18,10 @@ class GroundItem {
   int colCheck(Player player){
     if (this.parent.checkOverlap(player)){
       player.addItem(this.id);
+
+      println("Item Added to Player! "+player.items);
+      println("Returning index to remove with: "+items.indexOf(this));
+
       return items.indexOf(this);
     }
     return -1;
