@@ -22,10 +22,17 @@ class Monster {
   Timer time;
   float speedX = 0;
   float speedY = 0;
-  int moveCount = 0;
   
   //constructor
-  public Monster(String id, float x, float y) {
+
+
+
+
+    
+
+
+  public Monster(String id, Monster enemy, float x, float y) {
+
     this.id = id;
     type = monsterDatabase.get(id).getString("type");
     attack = monsterDatabase.get(id).getFloat("attack");
@@ -52,8 +59,11 @@ class Monster {
     moveset[1] = move2;
     moveset[2] = move3;
     moveset[3] = move4;
-
-
+    
+    move1.target = enemy;
+    move2.target = enemy;
+    move3.target = enemy;
+    move4.target = enemy;
     this.x = x;
     this.y = y;
   }
@@ -140,74 +150,6 @@ class Monster {
           return true;
         }
       }
-    }
-    return false;
-  }
-  
-  public void healStart(){
-    time.timeStampNow();
-    speedX = 4;
-    time.setTimeInterval(100);
-    moveCount = 0;
-  }
-  
-  public boolean healAnimation(){
-    animations.x += speedX;
-    if(time.intervals()){
-      speedX *= -1;
-      if(moveCount == 6){
-        animations.x = this.x;
-        return true; 
-      }
-      moveCount++;
-    }
-    return false;
-  }
-  
-  public void defendStart(){
-    time.timeStampNow();
-    speedY = 4;
-    time.setTimeInterval(300);
-    moveCount = 0;
-  }
-  
-  public boolean defendAnimation(){
-    animations.y += speedY;
-    if(time.intervals()){
-      if(moveCount == 3){
-        animations.y = this.y;
-        return true;
-      }
-      speedY *= -1;
-      moveCount++;
-    }
-    return false;
-  }
-  
-  public void dodgeStart(){
-    time.timeStampNow();
-    speedX = 4;
-    speedY = 4;
-    time.setTimeInterval(150);
-    moveCount = 0;
-  }
-  
-  public boolean dodgeAnimation(){
-    animations.x += speedX;
-    animations.y += speedY;
-    if(time.intervals()){
-      if(moveCount == 3){
-        speedX = -4;
-        speedY = -4;
-      } else if(moveCount == 5){
-        animations.x = this.x;
-        animations.y = this.y;
-        return true;
-      } else {
-        speedX = 0;
-        speedY = 0;
-      }
-      moveCount++;
     }
     return false;
   }

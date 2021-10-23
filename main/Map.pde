@@ -6,7 +6,6 @@ class Map {
   int speedy;
   int colsize;
   int rowsize;
-  int overlapint;
 
   //variables for the movement
   final int tileh = 16;
@@ -31,6 +30,18 @@ class Map {
   public Map() {
   
   }
+  
+  void draw() {
+    //loops through all tiles and draws, skipping transparent tiles because lag
+    for (int i = 0; i < colsize; i++) {
+      for (int k = 0; k < rowsize; k++) {
+        if(tileArray[i][k] != 486){
+          mapTiles[i][k].draw();
+        }  
+      }
+    }
+  }
+  
   Tile getTile(int lx, int ly){
     return mapTiles[lx][ly];
   }
@@ -46,15 +57,15 @@ class Map {
     //navigating the rows
     for (int row = 0; row < rowsize; row++) {
       //navigating the columns
-      for(int col = 0; col < colsize; col++){
+      for(int col = 0; col < colsize; col++) {
         //skips transparent tiles
-        if(tileArray[row][col]!=486){
+        if(tileArray[row][col] != 486) {
           //creates a new tile and assigns values
           Tile current = new Tile((tilew * mapscale) * col + tileww * mapscale, (tileh * mapscale) * row + tilehh * mapscale, false, false, tiles[tileArray[row][col]], mapscale);
           //these code sets all check if the tile fits a certain archetype, as listed
-          current.collide = genericCheck(collidableSprites, tileArray, row, col);
-          current.portal = genericCheck(portalSprites, tileArray, row, col);
-          current.grass = genericCheck(grassSprites, tileArray, row, col);
+          current.collide = tileTypeCheck(collidableSprites, tileArray, row, col);
+          current.portal = tileTypeCheck(portalSprites, tileArray, row, col);
+          current.grass = tileTypeCheck(grassSprites, tileArray, row, col);
           //loads tile into all relevant arrays
           loadAll(current);
           //saves the tile to the maptiles and moves on
@@ -65,20 +76,26 @@ class Map {
       
   }
 
-  void draw() {
-    //loops through all tiles and draws, skipping transparent tiles because lag
-    for (int i = 0; i < colsize; i++) {
-      for (int k = 0; k < rowsize; k++) {
-        if(tileArray[i][k] != 486){
-          mapTiles[i][k].draw();
-        }  
-      }
-    }
-  }
-
   //generic check for whether a tile matches a type
-  boolean genericCheck (int[] spriteArray, int[][] arrayoftiles, int row, int col) {
+  boolean tileTypeCheck (int[] spriteArray, int[][] arrayoftiles, int row, int col) {
     return binarySearch(spriteArray, arrayoftiles[row][col], 0, spriteArray.length - 1);
+  }
+  
+  //ALWAYS set min = 0 and max = [array].length - 1
+  //for sorting tiles into types such as collidable, grass, etc
+  boolean binarySearch(int[] arr, int goal, int min, int max) {
+    int index = (min + max)/2;
+    if (min > max) {
+      return false;
+    }
+    if (arr[index] == goal) {
+      return true;
+    } else if (arr[index] < goal) {
+      return binarySearch(arr, goal, index + 1, max);
+    } else if (arr[index] > goal) {
+      return binarySearch(arr, goal, min, index - 1);
+    }
+    return false;
   }
 
   //add tiles to various type-oriented arraylists
@@ -106,24 +123,6 @@ class Map {
     if (tile.grass == true) {
       grassTiles.add(tile);
     }
-  }
-  
-
-  //ALWAYS set min = 0 and max = [array].length - 1
-  //for sorting tiles into types such as collidable, grass, etc
-  boolean binarySearch(int[] arr, int goal, int min, int max) {
-    int index = (min + max)/2;
-    if (min > max) {
-      return false;
-    }
-    if (arr[index] == goal) {
-      return true;
-    } else if (arr[index] < goal) {
-      return binarySearch(arr, goal, index + 1, max);
-    } else if (arr[index] > goal) {
-      return binarySearch(arr, goal, min, index - 1);
-    }
-    return false;
   }
 
   //update loop
@@ -259,6 +258,7 @@ class Map {
   
   //code for checking overlap w/ archetypical tiles
   int checkOverlap(ArrayList<Tile> array, Player player, String text) {
+    int overlapint;
     //loops through each iteration in array
     for (int i = 0; i < array.size(); i++) {
       //if they're overlapping, return an associated string
