@@ -5,11 +5,4 @@ class Opponent extends Player{
   public Opponent(PImage[] sprites){
      super(sprites);
   }
-  
-  
-  
- 
- 
- 
-  
 }

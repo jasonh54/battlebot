@@ -111,10 +111,10 @@ void setup(){
     JSONObject item = itemArray.getJSONObject(i);
     itemDatabase.put(item.getString("name"),item);
   }
-  itemsprites.put("Health Potion",loadImage(itemPath+"\\"+"PotionHealth.png"));
-  itemsprites.put("Damage Potion",loadImage(itemPath+"\\"+"PotionDamage.png"));
-  itemsprites.put("Armor Potion" ,loadImage(itemPath+"\\"+"PotionArmor.png"));
-  itemsprites.put("Speed Potion" ,loadImage(itemPath+"\\"+"PotionSpeed.png"));
+  itemsprites.put("Health Potion" ,loadImage(itemPath+"\\"+"PotionHealth.png"));
+  itemsprites.put("Damage Potion" ,loadImage(itemPath+"\\"+"PotionDamage.png"));
+  itemsprites.put("Armor Potion"  ,loadImage(itemPath+"\\"+"PotionArmor.png"));
+  itemsprites.put("Speed Potion"  ,loadImage(itemPath+"\\"+"PotionSpeed.png"));
   itemsprites.put("Agility Potion",loadImage(itemPath+"\\"+"PotionAgility.png"));
   
   //initiatize misc variables
@@ -315,6 +315,7 @@ void draw() {
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
         testMonster = new Monster("AirA", activeMonster, 800, 250);
         activeMonster.setEnemy(testMonster);
+        testMonster.setEnemy(activeMonster);
       break;
       case OPTIONS:
         testMonster.display();
@@ -346,19 +347,19 @@ void draw() {
         activeMonster.display();
         if(moveNum == 1){
           if(activeMonster.moveToEnemy(testMonster) ){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+            ButtonFunction.switchCombatState(CombatStates.AI);
           } 
         } else if (moveNum == 2){
           if(activeMonster.defendAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+            ButtonFunction.switchCombatState(CombatStates.AI);
           }
         } else if(moveNum == 3){
           if(activeMonster.healAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+            ButtonFunction.switchCombatState(CombatStates.AI);
           }
         } else if(moveNum == 4){
           if(activeMonster.dodgeAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+            ButtonFunction.switchCombatState(CombatStates.AI);
           }
         }
       break;
@@ -385,6 +386,28 @@ void draw() {
       break;
       case AI:
         //let the enemy do stuff - will need a decision tree
+        testMonster.moveToEnemyStart(activeMonster);
+        testMonster.move1.useAttackMove(testMonster);
+        ButtonFunction.switchCombatState(CombatStates.AIANIMATION);
+        
+        /*
+        if(testMonster.chealth < 15){       // doing bad.
+          //dodge
+        }else if(testMonster.chealth < 30){ // doing okay
+          //heal
+        }else if(testMonster.chealth < 60){ // doing well
+          //atk or defend
+        }else{                              // doing best
+          moveNum = 1;
+          testMonster.move1.useAttackMove(activeMonster);
+          testMonster.moveToEnemyStart(activeMonster);
+        }
+        */
+      break;
+      case AIANIMATION:
+        testMonster.display();
+        activeMonster.display();
+        if (testMonster.moveToEnemy(activeMonster)) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
       break;
       case RUN:
         //will go back to walk state
