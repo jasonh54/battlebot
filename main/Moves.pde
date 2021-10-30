@@ -15,6 +15,11 @@ class Moves {
     damage = movesDatabase.get(name).getFloat("damage");
   }
   
+  void useMove(){
+    JSONObject thismove = movesDatabase.get(this.name);
+    this.target.modStats((float)thismove.getInt("health"),thismove.getFloat("attack"),thismove.getFloat("speed"),thismove.getFloat("defense"),thismove.getFloat("agility"));
+  }
+  
   //various moves - just one for now
   float calculateAttackMove(Monster self) {
     //determine values of coefficients: type advantage, type efficiency, random value
@@ -39,7 +44,7 @@ class Moves {
     float power = calculateAttackMove(self) * -1;
     //convert to an int
     int damage = (int) Math.floor(power);
-    this.target.modStats(damage, 1, 1, 1);
+    this.target.modStats(damage, 1, 1, 1, 1);
   }
   
   float checkTypeAdvantage() {

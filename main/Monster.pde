@@ -8,6 +8,7 @@ class Monster {
   float chealth; //current health
   float maxhealth;
   float speed;
+  float agility;
   Moves move1, move2, move3, move4;
   Moves moveset[] = new Moves[4];
   
@@ -27,11 +28,6 @@ class Monster {
   //constructor
 
 
-
-
-    
-
-
   public Monster(String id, Monster enemy, float x, float y) {
 
     this.id = id;
@@ -41,6 +37,7 @@ class Monster {
     maxhealth = monsterDatabase.get(id).getFloat("maxhealth");
     chealth = maxhealth;
     speed = monsterDatabase.get(id).getFloat("speed");
+    agility = 1;
     image = spritesHm.get(monsterDatabase.get(id).getString("image"));
     animations = new Spritesheet(this.image, 120);
     animations.setxywh(x, y, w*scale, h*scale);
@@ -62,9 +59,9 @@ class Monster {
     moveset[3] = move4;
     
     move1.target = enemy;
-    move2.target = enemy;
-    move3.target = enemy;
-    move4.target = enemy;
+    move2.target = this;
+    move3.target = this;
+    move4.target = this;
     this.x = x;
     this.y = y;
   }
@@ -91,21 +88,16 @@ class Monster {
   }
   
   public void addHp(int hp){
-    if (this.chealth + hp >= this.maxhealth) {
-      this.chealth = this.maxhealth;
-    }else{
-      this.chealth += hp;
-    }
+    this.chealth = chealth+hp>this.maxhealth ? this.maxhealth : (chealth+hp < 0 ? 0 : chealth+hp);
   }
   
-  public void modStats(float healthMod, float attackMod, float speedMod, float defenseMod){
-    chealth = chealth + healthMod;
-    if(chealth < 0){
-      chealth = 0;
-    }
-    this.attack = this.attack * attackMod;
-    this.speed = this.speed * speedMod;
-    this.defense = this.defense * defenseMod;
+  public void modStats(float healthMod, float attackMod, float speedMod, float defenseMod, float agilityMod){
+    System.out.printf("\nModifying Stats of %s:\nHP: +%f | Atk: x%f | Spd: x%f | Def: x%f | Agl: x%f",this.id,healthMod,attackMod,speedMod,defenseMod,agilityMod);
+    addHp((int)healthMod);
+    this.attack *= attackMod;
+    this.speed *= speedMod;
+    this.defense *= defenseMod;
+    this.agility *= agilityMod;
   }
   
   public void setEnemy(Monster enemy){
