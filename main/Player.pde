@@ -69,16 +69,19 @@ class Player{
     Integer a = items.get(id);
     items.put(id, a == null ? 1 : a+1);
   }
-  public JSONObject useItem(String id){
+  public void useItem(String id){
     Integer a = items.get(id);
-    if (a != null){
-      items.put(id, a-1); // "healthPotion": 0
+    if (a != null && a > 0){
       if (a-1 == 0){
         items.remove(id);
+      }else{
+        items.put(id, a-1); // "healthPotion": 0
       }
-      return itemDatabase.get(id);
+      JSONObject stats = itemDatabase.get(id);
+      activeMonster.modStats((float)stats.getInt("health"),stats.getFloat("attack"),stats.getFloat("speed"),stats.getFloat("defense"),1);
+    }else{
+      throw new Error("You insolent fool, thou hast disturbed the balance of the universe. (["+id+"] was not in the database.)");
     }
-    throw new Error("You insolent fool, thou hast disturbed the balance of the universe. (["+id+"] was not in the database.)");
   }
   
 
