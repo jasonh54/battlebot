@@ -76,11 +76,4 @@ public static class ButtonFunction {
       println("Unrecognized Button Function: '"+num+"' ("+num.getClass()+"). [callmove0=="+num+" "+num.equals("callmove0")+"] ("+"callmove0".getClass()+")");
     }
   }
-  public static void useItem(String id){
-    switchCombatState(CombatStates.ITEM);
-    JSONObject stats = testPlayer.useItem(id);
-    activeMonster.modStats((float)stats.getInt("health"),stats.getFloat("attack"),stats.getFloat("speed"),stats.getFloat("defense"),1);
-    // maybe play animation
-    switchCombatState(CombatStates.OPTIONS);
-  }
 }

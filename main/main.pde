@@ -390,7 +390,7 @@ void draw() {
       break;
       case AI:
         //let the enemy do stuff - will need a decision tree
-        if      (testMonster.chealth < 15 && random(0.0,1.0) <= 0.99){       // doing bad.
+        if      (testMonster.chealth < 15 && random(0.0,1.0) <= 0.99){ // doing bad.
           testMonster.move4.useMove();
           aimovenum = 2;
           testMonster.dodgeStart();
