@@ -29,9 +29,16 @@ HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 //menu variables
 Menu mainmenu;
 Menu battlemenu;
+
 Menu movemenu;
 Menu botmenu;
 Menu itemmenu;
+
+
+// todo: fix addhp
+
+//misc variables
+
 Button sandwich;
 
 
@@ -43,6 +50,7 @@ final int naptime = 200; //delayer var to avoid problems when keys are pressed
 
 Timer restartTimer;
 static int moveNum = 0;
+static int aimovenum = 0;
 
 void setup(){
   //Ethan's code
@@ -292,6 +300,7 @@ void setup(){
   
 
   items.add(new GroundItem("Damage Potion",map.getTile(10,10))); // This is where you place items!
+  items.add(new GroundItem("Damage Potion",map.getTile(11,10))); // This is where you place items!
   items.add(new GroundItem("Agility Potion",map.getTile(20,10)));
 
   //items.add(new GroundItem("Damage Potion",map.getTile(0,0)));
@@ -433,30 +442,44 @@ void draw() {
       case AI:
         //let the enemy do stuff - will need a decision tree
 
-        testMonster.moveToEnemyStart(activeMonster);
-        testMonster.move1.useAttackMove(testMonster);
-        ButtonFunction.switchCombatState(CombatStates.AIANIMATION);
-        
-        /*
-        if(testMonster.chealth < 15){       // doing bad.
-          //dodge
-        }else if(testMonster.chealth < 30){ // doing okay
-          //heal
-        }else if(testMonster.chealth < 60){ // doing well
-          //atk or defend
+        if      (testMonster.chealth < 15 && random(0.0,1.0) <= 0.99){       // doing bad.
+          testMonster.move4.useMove();
+          aimovenum = 2;
+          testMonster.dodgeStart();
+        }else if(testMonster.chealth < 30 && random(0.0,1.0) <= 0.88){ // doing okay
+          testMonster.move3.useMove();
+          aimovenum = 3;
+          testMonster.healStart();
+        }else if(testMonster.chealth < 60 && random(0.0,1.0) <= 0.45){ // doing well
+          testMonster.move2.useMove();
+          aimovenum = 4;
+          testMonster.defendStart();
+
         }else{                              // doing best
-          moveNum = 1;
+          aimovenum = 1;
           testMonster.move1.useAttackMove(activeMonster);
           testMonster.moveToEnemyStart(activeMonster);
         }
-        */
+        ButtonFunction.switchCombatState(CombatStates.AIANIMATION);
       break;
       case AIANIMATION:
         testMonster.display();
         activeMonster.display();
-        if (testMonster.moveToEnemy(activeMonster)) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
 
-        
+        switch (aimovenum){
+          case 1:
+            if (testMonster.moveToEnemy(activeMonster)) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+          case 2:
+            if(testMonster.dodgeAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+          case 3:
+            if(testMonster.healAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+          case 4:
+            if(testMonster.defendAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+        }
 
       break;
       case RUN:

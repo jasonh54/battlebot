@@ -107,10 +107,7 @@ public static class ButtonFunction {
   public static void useItem(String id){
     switchCombatState(CombatStates.ITEM);
     JSONObject stats = testPlayer.useItem(id);
-    activeMonster.attack *= stats.getInt("attack");
-    activeMonster.defense *= stats.getInt("defense");
-    activeMonster.speed *= stats.getInt("speed");
-    activeMonster.addHp(stats.getInt("health"));
+    activeMonster.modStats((float)stats.getInt("health"),stats.getFloat("attack"),stats.getFloat("speed"),stats.getFloat("defense"),1);
     // maybe play animation
     switchCombatState(CombatStates.OPTIONS);
   }
