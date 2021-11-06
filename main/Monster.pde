@@ -28,8 +28,8 @@ class Monster {
   //constructor
 
 
-  public Monster(String id, float x, float y) {
 
+  public Monster(String id, float x, float y) {
 
     this.id = id;
     type = monsterDatabase.get(id).getString("type");
@@ -95,7 +95,7 @@ class Monster {
   }
   
   public void modStats(float healthMod, float attackMod, float speedMod, float defenseMod, float agilityMod){
-    System.out.printf("\nModifying Stats of %s:\nHP: +%f | Atk: x%f | Spd: x%f | Def: x%f | Agl: x%f",this.id,healthMod,attackMod,speedMod,defenseMod,agilityMod);
+    System.out.printf("Modifying Stats of %s:\nHP: +%f | Atk: x%f | Spd: x%f | Def: x%f | Agl: x%f\n",this.id,healthMod,attackMod,speedMod,defenseMod,agilityMod);
     addHp((int)healthMod);
     this.attack *= attackMod;
     this.speed *= speedMod;

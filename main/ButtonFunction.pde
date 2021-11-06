@@ -75,14 +75,7 @@ public static class ButtonFunction {
 
       mon.dodgeStart();
       switchCombatState(CombatStates.ANIMATION);
-    } else if (num == "useitem") {
-      JSONObject stats = testPlayer.useItem("id"); //oh no <error here>
-      activeMonster.attack *= stats.getInt("attack");
-      activeMonster.defense *= stats.getInt("defense");
-      activeMonster.speed *= stats.getInt("speed");
-      activeMonster.addHp(stats.getInt("health"));
-
-    } else if (num == "botswap") {
+    }  else if (num == "botswap") {
       //instead of taking a parameter; the BATTLEBOT gamestate will set testPlayer.swapto = [txt of clicked button]
       Monster temp;
       for (int i = 0; i < testPlayer.monsters.size(); i++) {
@@ -103,12 +96,5 @@ public static class ButtonFunction {
       switchCombatState(CombatStates.OPTIONS);
 
     }
-  }
-  public static void useItem(String id){
-    switchCombatState(CombatStates.ITEM);
-    JSONObject stats = testPlayer.useItem(id);
-    activeMonster.modStats((float)stats.getInt("health"),stats.getFloat("attack"),stats.getFloat("speed"),stats.getFloat("defense"),1);
-    // maybe play animation
-    switchCombatState(CombatStates.OPTIONS);
   }
 }
