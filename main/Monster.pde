@@ -9,8 +9,7 @@ class Monster {
   float maxhealth;
   float speed;
   float agility;
-  Moves move1, move2, move3, move4;
-  Moves moveset[] = new Moves[4];
+  Move moveset[] = new Move[4];
   
   //PImage[] sprites; //monster sprites
   //private Timer keyTimer = new Timer(40);
@@ -26,9 +25,7 @@ class Monster {
   int moveCount = 0;
   
   //constructor
-
-
-  public Monster(String id, Monster enemy, float x, float y) {
+  public Monster(String id, float x, float y) {
     this.id = id;
     type = monsterDatabase.get(id).getString("type");
     attack = monsterDatabase.get(id).getFloat("attack");
@@ -48,19 +45,10 @@ class Monster {
     animations.createAnimation("default", frameNums);
     time = new Timer();
     
-    move1 = new Moves(monsterDatabase.get(id).getString("move1"));
-    move2 = new Moves(monsterDatabase.get(id).getString("move2"));
-    move3 = new Moves(monsterDatabase.get(id).getString("move3"));
-    move4 = new Moves(monsterDatabase.get(id).getString("move4"));
-    moveset[0] = move1;
-    moveset[1] = move2;
-    moveset[2] = move3;
-    moveset[3] = move4;
-    
-    move1.target = enemy;
-    move2.target = this;
-    move3.target = this;
-    move4.target = this;
+    moveset[0] = new Move(this,monsterDatabase.get(id).getString("move1"));
+    moveset[1] = new Move(this,monsterDatabase.get(id).getString("move2"));
+    moveset[2] = new Move(this,monsterDatabase.get(id).getString("move3"));
+    moveset[3] = new Move(this,monsterDatabase.get(id).getString("move4"));
     this.x = x;
     this.y = y;
   }
@@ -97,13 +85,6 @@ class Monster {
     this.speed *= speedMod;
     this.defense *= defenseMod;
     this.agility *= agilityMod;
-  }
-  
-  public void setEnemy(Monster enemy){
-    move1.target = enemy;
-    move2.target = enemy;
-    move3.target = enemy;
-    move4.target = enemy;
   }
   
   public void moveToEnemyStart(Monster target){

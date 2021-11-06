@@ -67,7 +67,7 @@ class Button {
     if (this.func == "useitem"){
       if (Integer.parseInt(this.txt.split("x")[1].trim()) > 0){
         testPlayer.useItem(this.txt.split("x")[0].trim());
-        ButtonFunction.runFunction("return");
+        ButtonFunction.switchCombatState(CombatStates.AI);
       }
     }else{
       ButtonFunction.runFunction(this.func);

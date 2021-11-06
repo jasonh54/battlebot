@@ -39,38 +39,31 @@ public static class ButtonFunction {
       switchCombatState(CombatStates.RUN);
     } else if (num.equals("callmove0")) {
       //get a Move and a self monster
-      Moves current = activeMonster.move1;
+      Move current = activeMonster.moveset[0];
       Monster mon = activeMonster;
       moveNum = 1;
       //play animation, alter stats
-      current.useAttackMove(mon);
+      current.useMove(testMonster);
       mon.moveToEnemyStart(testMonster);
       //at the end, switch battlestate to AI
       switchCombatState(CombatStates.ANIMATION);
     } else if (num.equals("callmove1")) {
-
-      Moves current = activeMonster.move2;
-
-      Monster mon = activeMonster;
+      Move current = activeMonster.moveset[1];
       moveNum = 2;
-
-      //
-      mon.defendStart();
+      current.useMove(activeMonster);
+      activeMonster.defendStart();
       switchCombatState(CombatStates.ANIMATION);
     } else if (num.equals("callmove2")) {
-      Moves current = activeMonster.move3;
-      Monster mon = activeMonster;
+      Move current = activeMonster.moveset[2];
       moveNum = 3;
-      //
-      mon.healStart();
+      current.useMove(activeMonster);
+      activeMonster.healStart();
       switchCombatState(CombatStates.ANIMATION);
     } else if (num.equals("callmove3")) {
-      Moves current = activeMonster.move4;
-      Monster mon = activeMonster;
+      Move current = activeMonster.moveset[3];
       moveNum = 4;
-      //
-
-      mon.dodgeStart();
+      current.useMove(activeMonster);
+      activeMonster.dodgeStart();
       switchCombatState(CombatStates.ANIMATION);
     }else{
       println("Unrecognized Button Function: '"+num+"' ("+num.getClass()+"). [callmove0=="+num+" "+num.equals("callmove0")+"] ("+"callmove0".getClass()+")");

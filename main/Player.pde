@@ -91,7 +91,7 @@ class Player{
     for (int i = 0; i < 5; i++) {
 
 
-      Monster m = new Monster(parameters[i], enemy, 250, 600);
+      Monster m = new Monster(parameters[i], 250, 600);
 
       monsters.add(m);
     }
