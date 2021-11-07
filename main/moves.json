@@ -43,7 +43,7 @@
 		"name": "heal1",
 		"type": "earth",
 		"accuracy": 100,
-		"health": 12,
+		"health": 10,
     		"attack": 1,
     		"defense": 1,
 		"speed": 1,

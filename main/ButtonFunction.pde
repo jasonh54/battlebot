@@ -43,7 +43,7 @@ public static class ButtonFunction {
       Move current = activeMonster.moveset[0]; // get the move to use
       moveNum = 1; // tell the animation which to play
       current.useMove(testMonster); // take the action, use the move
-      mon.moveToEnemyStart(testMonster); // start the animation
+      activeMonster.moveToEnemyStart(testMonster); // start the animation
       switchCombatState(CombatStates.ANIMATION); //at the end, switch battlestate to animation
     } else if (num.equals("callmove1")) {
       Move current = activeMonster.moveset[1];
