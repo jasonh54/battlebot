@@ -43,6 +43,7 @@ class Player{
   int x = 400;
   int y = 400;
   final int scale = 2;
+  String swapto;
 
   
   HashMap<String,Integer> items = new HashMap<String,Integer>();
@@ -83,18 +84,19 @@ class Player{
     }
   }
   
-
-  //i am sorry about this  monstrosity but i needed to iterate with letters
-  //(each string should be the name of a monster)
-  public void addMonsters(String a, String aa, String aaa, String aaaa, String aaaaa, Monster enemy) {
-    String[] parameters = {a, aa, aaa, aaaa, aaaaa};
-    for (int i = 0; i < 5; i++) {
-
-
-      Monster m = new Monster(parameters[i], 250, 600);
-
-      monsters.add(m);
+  public void summonMonsterStack(String[] idarray) {
+    for (int i = 0; i < idarray.length; i++) {
+      addMonster(generateNewMonster(idarray[i]));
     }
+  }
+  
+  public void addMonster(Monster m) {
+      monsters.add(m);
+  }
+  
+  public Monster generateNewMonster(String id) {
+    Monster m = new Monster(id, 400, 400);
+    return m;
   }
   
   public void display(){
@@ -180,7 +182,7 @@ class Player{
       direction = PlayerMovementStates.RIGHT;
     }
   }
-  
+}
   //player needs key pressed to trigger animations
   //this function is used in the switch statement depending on which direction the player is facing in
   //when this function runs the player needs to player the walking up animation
@@ -233,6 +235,3 @@ class Player{
   //      direction = PlayerMovementStates.STATIC;
   //    }
   //}
-  
-  
-}
