@@ -78,7 +78,7 @@ class Player{
         items.put(id, a-1); // "healthPotion": 0
       }
       JSONObject stats = itemDatabase.get(id);
-      activeMonster.modStats((float)stats.getInt("health"),stats.getFloat("attack"),stats.getFloat("speed"),stats.getFloat("defense"),1);
+      activeMonster.modStats(stats);
     }else{
       throw new Error("You insolent fool, thou hast disturbed the balance of the universe. (["+id+"] was not in the database.)");
     }

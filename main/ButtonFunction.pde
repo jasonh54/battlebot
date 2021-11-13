@@ -30,7 +30,6 @@ public static class ButtonFunction {
     } else if (num == "return") {
       switchCombatState(CombatStates.OPTIONS);
     } else if (num == "fight") {
-      println("tofight");
       switchCombatState(CombatStates.FIGHT);
     } else if (num == "item") {
       switchCombatState(CombatStates.ITEM);
@@ -77,7 +76,6 @@ public static class ButtonFunction {
            testPlayer.monsters.add(activeMonster);
            //the desired monster  will be saved to activeMonster, and the swap willbe completed
            activeMonster = temp;
-           println("swap completed. current activeMonster is: " + activeMonster.id);
            break;
          }
       }
