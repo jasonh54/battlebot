@@ -101,6 +101,7 @@ void setup(){
     JSONObject move = moveArray.getJSONObject(i);
     movesDatabase.put(move.getString("name"),move);
   }
+  JSONObject newObject = duplicateJSON(movesDatabase.get("attack1"));
   //load the monsters.json file
   JSONArray monsterArray = loadJSONArray("monsters.json");
   for(int i=0; i<monsterArray.size();i++){
@@ -576,3 +577,53 @@ public void generateTileMapGuide(){
     }
   }
 }
+
+public JSONObject duplicateJSON(JSONObject original){
+  JSONObject duplicate = new JSONObject();
+  String[] keys = new String[original.keys().size()];
+  Object[] temp = original.keys().toArray();
+  for(int i=0; i<keys.length; i++){
+    keys[i] = temp[i].toString();
+  }
+  
+  for(int i=0;i<keys.length; i++){
+    if(original.get(keys[i]) instanceof Boolean){
+      duplicate.setBoolean(keys[i], (Boolean)original.get(keys[i]));
+    }
+    if(original.get(keys[i]) instanceof String){
+      duplicate.setString(keys[i], (String)original.get(keys[i]));
+    }
+    if(original.get(keys[i]) instanceof Integer){
+      duplicate.setInt(keys[i], (Integer)original.get(keys[i]));
+    }
+    if(original.get(keys[i]) instanceof Float){
+      duplicate.setFloat(keys[i], (Float)original.get(keys[i]));
+    }
+    if(original.get(keys[i]) instanceof JSONObject){
+      duplicate.setJSONObject(keys[i], (JSONObject)original.get(keys[i]));
+    }
+    if(original.get(keys[i]) instanceof JSONArray){
+      duplicate.setJSONArray(keys[i], (JSONArray)original.get(keys[i]));
+    }
+  }
+  return duplicate;
+}
+
+//public void setValue(JSONObject duplicate, String k, String value){
+//  duplicate.setString(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, int value){
+//  duplicate.setInt(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, float value){
+//  duplicate.setFloat(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, boolean value){
+//  duplicate.setBoolean(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, JSONObject value){
+//  duplicate.setJSONObject(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, JSONArray value){
+//  duplicate.setJSONArray(k,value);
+//}
