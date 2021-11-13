@@ -3,12 +3,7 @@ class Monster {
   PImage image;
   String id;
   String type;
-  float attack;
-  float defense;
-  float chealth; //current health
-  float maxhealth;
-  float speed;
-  float agility;
+  JSONObject stats;
   Move moveset[] = new Move[4];
   
   //PImage[] sprites; //monster sprites
@@ -27,14 +22,10 @@ class Monster {
   //constructor
   public Monster(String id, float x, float y) {
     this.id = id;
-    type = monsterDatabase.get(id).getString("type");
-    attack = monsterDatabase.get(id).getFloat("attack");
-    defense = monsterDatabase.get(id).getFloat("defense");
-    maxhealth = monsterDatabase.get(id).getFloat("maxhealth");
-    chealth = maxhealth;
-    speed = monsterDatabase.get(id).getFloat("speed");
-    agility = 1;
+    this.type = monsterDatabase.get(id).getString("type");
+    this.stats = JSONCopy(monsterDatabase.get(id)).setFloat("chealth",monsterDatabase.get(id).getFloat("maxhealth")).setFloat("agility",1.0f); // JSONCopy(monsterDatabase.get(id))
     image = spritesHm.get(monsterDatabase.get(id).getString("image"));
+    
     animations = new Spritesheet(this.image, 120);
     animations.setxywh(x, y, w*scale, h*scale);
     int frameNum = image.width/16;
@@ -61,12 +52,12 @@ class Monster {
     fill(158,0,0);
     rect(x-55,y-75,150,25);
     fill(0,158,0);
-    rect(x-55,y-75,(chealth/maxhealth)*150,25);
+    rect(x-55,y-75,(this.stats.getFloat("chealth")/this.stats.getFloat("maxhealth"))*150,25);
     fill(0,0,0);
     textAlign(LEFT, UP);
     text(id,x-54,y-80);
     textAlign(CENTER, CENTER);
-    text(chealth + "/" + maxhealth, x+20, y-62);
+    text(this.stats.getFloat("chealth") + "/" + this.stats.getFloat("maxhealth"), x+20, y-62);
     //pop();
     //if(animations.animationTimer.countDownUntil(animations.stoploop)){
     //  animations.changeDisplay(true);
@@ -75,16 +66,23 @@ class Monster {
   }
   
   public void addHp(int hp){
-    this.chealth = chealth+hp>this.maxhealth ? this.maxhealth : (chealth+hp < 0 ? 0 : chealth+hp);
+    this.stats.setFloat("chealth",this.stats.getFloat("chealth")+hp>this.stats.getFloat("maxhealth") ? this.stats.getFloat("maxhealth") : (this.stats.getFloat("chealth")+hp < 0 ? 0 : this.stats.getFloat("chealth")+hp));
   }
   
   public void modStats(float healthMod, float attackMod, float speedMod, float defenseMod, float agilityMod){
     System.out.printf("Modifying Stats of %s:\nHP: +%f | Atk: x%f | Spd: x%f | Def: x%f | Agl: x%f\n",this.id,healthMod,attackMod,speedMod,defenseMod,agilityMod);
     addHp((int)healthMod);
-    this.attack *= attackMod;
-    this.speed *= speedMod;
-    this.defense *= defenseMod;
-    this.agility *= agilityMod;
+    this.stats.setFloat("attack",this.stats.getFloat("attack")*attackMod);
+    this.stats.setFloat("speed",this.stats.getFloat("speed")*speedMod);
+    this.stats.setFloat("defense",this.stats.getFloat("defense")*defenseMod);
+    this.stats.setFloat("agility",this.stats.getFloat("agility")*agilityMod);
+  }
+  public void modStats(JSONObject mod){
+    addHp((int)mod.getFloat("health"));
+    if (mod.getFloat("attack")  != 1.0f) this.stats.setFloat("attack" ,this.stats.getFloat("attack") *mod.getFloat("attack") );
+    if (mod.getFloat("speed")   != 1.0f) this.stats.setFloat("speed"  ,this.stats.getFloat("speed")  *mod.getFloat("speed")  );
+    if (mod.getFloat("defense") != 1.0f) this.stats.setFloat("defense",this.stats.getFloat("defense")*mod.getFloat("defense"));
+    if (mod.getFloat("agility") != 1.0f) this.stats.setFloat("agility",this.stats.getFloat("agility")*mod.getFloat("agility"));
   }
   
   public void moveToEnemyStart(Monster target){

@@ -115,8 +115,6 @@ void setup(){
     itemDatabase.put(item.getString("name"),item);
   }
 
-  
-  System.out.println(itemPath+"\\"+"PotionHealth.png");
   itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
   itemsprites.put("Damage Potion",loadImage(itemPath+"/"+"PotionDamage.png"));
   itemsprites.put("Armor Potion" ,loadImage(itemPath+"/"+"PotionArmor.png"));
@@ -300,15 +298,10 @@ void setup(){
   overlayedmap.generateBaseMap(overlayedMapTiles);
   collidemap.generateBaseMap(collidableMapTiles);
   topmap.generateBaseMap(topMapTiles);
-  
 
   items.add(new GroundItem("Damage Potion",map.getTile(10,10))); // This is where you place items!
   items.add(new GroundItem("Damage Potion",map.getTile(11,10))); // This is where you place items!
   items.add(new GroundItem("Agility Potion",map.getTile(20,10)));
-
-  //items.add(new GroundItem("Damage Potion",map.getTile(0,0)));
-  //items.add(new GroundItem("Damage Potion",map.getTile(10,10)));
-
 
   //misc stuff??
   //restartTimer = new Timer(5000);
@@ -442,15 +435,15 @@ void draw() {
       break;
       case AI:
         //let the enemy do stuff - will need a decision tree
-        if      (testMonster.chealth < 15 && random(0.0,1.0) <= 0.99){ // doing bad.
+        if      (testMonster.stats.getFloat("chealth") < 15 && random(0.0,1.0) <= 0.99){ // doing bad.
           testMonster.moveset[3].useMove(testMonster);
           aimovenum = 2;
           testMonster.dodgeStart();
-        }else if(testMonster.chealth < 30 && random(0.0,1.0) <= 0.88){ // doing okay
+        }else if(testMonster.stats.getFloat("chealth") < 30 && random(0.0,1.0) <= 0.88){ // doing okay
           testMonster.moveset[2].useMove(testMonster);
           aimovenum = 3;
           testMonster.healStart();
-        }else if(testMonster.chealth < 60 && random(0.0,1.0) <= 0.45){ // doing well
+        }else if(testMonster.stats.getFloat("chealth") < 60 && random(0.0,1.0) <= 0.45){ // doing well
           testMonster.moveset[1].useMove(testMonster);
           aimovenum = 4;
           testMonster.defendStart();
