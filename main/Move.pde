@@ -16,7 +16,7 @@ class Move {
     if (hpmod < 0){
       hpmod = moveEfficency(target);
     }
-    target.modStats(hpmod,this.stats.getFloat("attack"),this.stats.getFloat("speed"),this.stats.getFloat("defense"),this.stats.getFloat("agility"));
+    target.modStats(JSONCopy(this.stats).setFloat("health",hpmod));
   }
   
   //various moves - just one for now
@@ -28,7 +28,7 @@ class Move {
     //determine if move hits
     if (r.nextInt(100) < this.stats.getInt("accuracy")) {
       //calculate total power
-      float power = (this.parent.attack * this.stats.getInt("health"))/target.defense * ranval * typeEfficency(target);
+      float power = (this.parent.stats.getFloat("attack") * this.stats.getInt("health"))/target.stats.getFloat("defense") * ranval * typeEfficency(target);
       return power;
     } else {
       return 0;
