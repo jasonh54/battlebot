@@ -126,9 +126,9 @@ class Map {
   }
 
   //update loop
-  void update() {
+  void update(OverlayMap collidemap) {
     this.draw();
-    this.fullMovement();
+    this.fullMovement(collidemap);
     
   }
 
@@ -136,7 +136,7 @@ class Map {
   //all collision tracking is based around the sensing of the collidemap
   //all "default" (non-colliding) maps simply read the collidemap's information and follow its directions
   //there's no reason for any default map to check its own collisions; it only causes problems
-  void fullMovement() {
+  void fullMovement(OverlayMap collidemap) {
     //resetting each direction's sensor
     collidemap.leftcollidetracker = false;
     collidemap.rightcollidetracker = false;
