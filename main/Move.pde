@@ -13,9 +13,7 @@ class Move {
   
   void useMove(Monster target){
     float hpmod = this.stats.getInt("health");
-    if (hpmod < 0){
-      hpmod = moveEfficency(target);
-    }
+    if (hpmod < 0) {hpmod = moveEfficency(target);}
     target.modStats(JSONCopy(this.stats).setFloat("health",hpmod));
   }
   
