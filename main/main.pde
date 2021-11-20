@@ -101,7 +101,6 @@ void setup(){
     JSONObject move = moveArray.getJSONObject(i);
     movesDatabase.put(move.getString("name"),move);
   }
-  JSONObject newObject = duplicateJSON(movesDatabase.get("attack1"));
   //load the monsters.json file
   JSONArray monsterArray = loadJSONArray("monsters.json");
   for(int i=0; i<monsterArray.size();i++){
@@ -571,7 +570,7 @@ public void generateTileMapGuide(){
   }
 }
 
-public JSONObject duplicateJSON(JSONObject original){
+public JSONObject JSONCopy(JSONObject original){
   JSONObject duplicate = new JSONObject();
   String[] keys = new String[original.keys().size()];
   Object[] temp = original.keys().toArray();
@@ -579,24 +578,24 @@ public JSONObject duplicateJSON(JSONObject original){
     keys[i] = temp[i].toString();
   }
   
-  for(int i=0;i<keys.length; i++){
-    if(original.get(keys[i]) instanceof Boolean){
-      duplicate.setBoolean(keys[i], (Boolean)original.get(keys[i]));
-    }
-    if(original.get(keys[i]) instanceof String){
-      duplicate.setString(keys[i], (String)original.get(keys[i]));
-    }
-    if(original.get(keys[i]) instanceof Integer){
-      duplicate.setInt(keys[i], (Integer)original.get(keys[i]));
-    }
-    if(original.get(keys[i]) instanceof Float){
-      duplicate.setFloat(keys[i], (Float)original.get(keys[i]));
-    }
-    if(original.get(keys[i]) instanceof JSONObject){
-      duplicate.setJSONObject(keys[i], (JSONObject)original.get(keys[i]));
-    }
-    if(original.get(keys[i]) instanceof JSONArray){
-      duplicate.setJSONArray(keys[i], (JSONArray)original.get(keys[i]));
+  for(String keyi : keys){
+    if(original.get(keyi) instanceof Boolean){
+      duplicate.setBoolean(keyi, original.getBoolean(keyi));
+    }else if(original.get(keyi) instanceof String){
+      duplicate.setString(keyi, original.getString(keyi));
+    }else if(original.get(keyi) instanceof Integer){
+      duplicate.setInt(keyi, original.getInt(keyi));
+    }else if(original.get(keyi) instanceof Float){
+      duplicate.setFloat(keyi, original.getFloat(keyi));
+    }else if(original.get(keyi) instanceof Double){
+      duplicate.setDouble(keyi, original.getDouble(keyi));
+    }else if(original.get(keyi) instanceof JSONObject){
+      duplicate.setJSONObject(keyi, original.getJSONObject(keyi));
+    }else if(original.get(keyi) instanceof JSONArray){
+      duplicate.setJSONArray(keyi, original.getJSONArray(keyi));
+    }else{
+      System.out.printf("[JSONCopy] Warning! Did not copy key '%s' because it did not match type! Class: "+original.get(keyi).getClass(),keyi);
+      System.out.println(original.get(keyi));
     }
   }
   return duplicate;

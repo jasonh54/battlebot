@@ -3,60 +3,60 @@
 		"name": "attack1",
 		"type": "fire",
 		"accuracy": 80,
-    		"health": -20,
-    		"attack": 1,
-    		"defense": 1,
+		"health": -20,
+		"attack": 1,
+		"defense": 1,
 		"speed": 1,
-    		"agility": 1
+		"agility": 1
 	},
 	{
 		"name": "attack2",
 		"type": "fire",
 		"accuracy": 80,
-    		"health": -20,
-    		"attack": 1,
-    		"defense": 1,
+		"health": -20,
+		"attack": 1,
+		"defense": 1,
 		"speed": 1,
-    		"agility": 1
+		"agility": 1
 	},
 	{
 		"name": "attack3",
 		"type": "fire",
 		"accuracy": 80,
-    		"health": -20,
-    		"attack": 1,
-    		"defense": 1,
+		"health": -20,
+		"attack": 1,
+		"defense": 1,
 		"speed": 1,
-    		"agility": 1
+		"agility": 1
 	},
 	{
 		"name": "defend1",
 		"type": "water",
 		"accuracy": 100,
-    		"health": 0,
-    		"attack": 1,
-    		"defense": 1.2,
+		"health": 0,
+		"attack": 1,
+		"defense": 1.2,
 		"speed": 1,
-    		"agility": 1
+		"agility": 1
 	},
 	{
 		"name": "heal1",
 		"type": "earth",
 		"accuracy": 100,
 		"health": 10,
-    		"attack": 1,
-    		"defense": 1,
+		"attack": 1,
+		"defense": 1,
 		"speed": 1,
-    		"agility": 1
+		"agility": 1
 	},
 	{
 		"name": "dodge1",
 		"type": "air",
 		"accuracy": 100,
-    		"health": 0,
-    		"attack": 1,
-    		"defense": 1,
+		"health": 0,
+		"attack": 1,
+		"defense": 1,
 		"speed": 1,
-    		"agility": 1.3
+		"agility": 1.3
 	}
 ]
