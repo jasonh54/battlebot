@@ -24,9 +24,16 @@ HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 //menu variables
 Menu mainmenu;
 Menu battlemenu;
+
 Menu movemenu;
 Menu botmenu;
 Menu itemmenu;
+
+
+// todo: fix addhp
+
+//misc variables
+
 Button sandwich;
 
 //layers/map stuff
@@ -41,6 +48,7 @@ final int naptime = 200; //delayer var to avoid problems when keys are pressed
 
 Timer restartTimer;
 static int moveNum = 0;
+static int aimovenum = 0;
 
 void setup(){
   //Ethan's code
@@ -104,8 +112,6 @@ void setup(){
     itemDatabase.put(item.getString("name"),item);
   }
 
-  
-  System.out.println(itemPath+"\\"+"PotionHealth.png");
   itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
   itemsprites.put("Damage Potion",loadImage(itemPath+"/"+"PotionDamage.png"));
   itemsprites.put("Armor Potion" ,loadImage(itemPath+"/"+"PotionArmor.png"));
@@ -114,6 +120,7 @@ void setup(){
 
   
   //initiatize misc variables
+  Monster enemy = new Monster("ZombieA", 800, 300);
   testPlayer = new Player(createCharacterSprites(0));
   String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
@@ -135,7 +142,7 @@ void setup(){
   
   //values for battle menu
   itemmenu.assembleMenuColumn();
-  battlemenu.buttons.get(0).txt = "fight";
+  battlemenu.buttons.get(0).txt = "move";
   battlemenu.buttons.get(1).txt = "item";
   battlemenu.buttons.get(2).txt = "battlebots";
   battlemenu.buttons.get(3).txt = "run";
@@ -165,11 +172,9 @@ void setup(){
   movemenu.buttons.get(2).func = "callmove2";
   movemenu.buttons.get(3).func = "callmove3";
 
+
   items.add(new GroundItem("Damage Potion",ogmap.map.getTile(10,10))); // This is where you place items!
   items.add(new GroundItem("Agility Potion",ogmap.map.getTile(20,10)));
-
-  //items.add(new GroundItem("Damage Potion",map.getTile(0,0)));
-  //items.add(new GroundItem("Damage Potion",map.getTile(10,10)));
 
 
   //misc stuff??
@@ -217,9 +222,7 @@ void draw() {
         activeMonster = testPlayer.monsters.get(0);
         //draw monsters, menu, background, HP
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-        testMonster = new Monster("ZombieA", 800, 250);
-        activeMonster.setEnemy(testMonster);
-        testMonster.setEnemy(activeMonster);
+        testMonster = new Monster("AirA", 800, 250);
       break;
       case OPTIONS:
         testMonster.display();
@@ -303,31 +306,43 @@ void draw() {
       break;
       case AI:
         //let the enemy do stuff - will need a decision tree
-
-        testMonster.moveToEnemyStart(activeMonster);
-        testMonster.move1.useAttackMove(testMonster);
-        ButtonFunction.switchCombatState(CombatStates.AIANIMATION);
-        
-        /*
-        if(testMonster.chealth < 15){       // doing bad.
-          //dodge
-        }else if(testMonster.chealth < 30){ // doing okay
-          //heal
-        }else if(testMonster.chealth < 60){ // doing well
-          //atk or defend
+        if      (testMonster.stats.getFloat("chealth") < 15 && random(0.0,1.0) <= 0.99){ // doing bad.
+          testMonster.moveset[3].useMove(testMonster);
+          aimovenum = 2;
+          testMonster.dodgeStart();
+        }else if(testMonster.stats.getFloat("chealth") < 30 && random(0.0,1.0) <= 0.88){ // doing okay
+          testMonster.moveset[2].useMove(testMonster);
+          aimovenum = 3;
+          testMonster.healStart();
+        }else if(testMonster.stats.getFloat("chealth") < 60 && random(0.0,1.0) <= 0.45){ // doing well
+          testMonster.moveset[1].useMove(testMonster);
+          aimovenum = 4;
+          testMonster.defendStart();
         }else{                              // doing best
-          moveNum = 1;
-          testMonster.move1.useAttackMove(activeMonster);
+          aimovenum = 1;
+          testMonster.moveset[0].useMove(activeMonster);
           testMonster.moveToEnemyStart(activeMonster);
         }
-        */
+        ButtonFunction.switchCombatState(CombatStates.AIANIMATION);
       break;
       case AIANIMATION:
         testMonster.display();
         activeMonster.display();
-        if (testMonster.moveToEnemy(activeMonster)) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
 
-        
+        switch (aimovenum){
+          case 1:
+            if (testMonster.moveToEnemy(activeMonster)) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+          case 2:
+            if(testMonster.dodgeAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+          case 3:
+            if(testMonster.healAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+          case 4:
+            if(testMonster.defendAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
+          break;
+        }
 
       break;
       case RUN:
@@ -422,3 +437,53 @@ public void generateTileMapGuide(){
     }
   }
 }
+
+public JSONObject JSONCopy(JSONObject original){
+  JSONObject duplicate = new JSONObject();
+  String[] keys = new String[original.keys().size()];
+  Object[] temp = original.keys().toArray();
+  for(int i=0; i<keys.length; i++){
+    keys[i] = temp[i].toString();
+  }
+  
+  for(String keyi : keys){
+    if(original.get(keyi) instanceof Boolean){
+      duplicate.setBoolean(keyi, original.getBoolean(keyi));
+    }else if(original.get(keyi) instanceof String){
+      duplicate.setString(keyi, original.getString(keyi));
+    }else if(original.get(keyi) instanceof Integer){
+      duplicate.setInt(keyi, original.getInt(keyi));
+    }else if(original.get(keyi) instanceof Float){
+      duplicate.setFloat(keyi, original.getFloat(keyi));
+    }else if(original.get(keyi) instanceof Double){
+      duplicate.setDouble(keyi, original.getDouble(keyi));
+    }else if(original.get(keyi) instanceof JSONObject){
+      duplicate.setJSONObject(keyi, original.getJSONObject(keyi));
+    }else if(original.get(keyi) instanceof JSONArray){
+      duplicate.setJSONArray(keyi, original.getJSONArray(keyi));
+    }else{
+      System.out.printf("[JSONCopy] Warning! Did not copy key '%s' because it did not match type! Class: "+original.get(keyi).getClass(),keyi);
+      System.out.println(original.get(keyi));
+    }
+  }
+  return duplicate;
+}
+
+//public void setValue(JSONObject duplicate, String k, String value){
+//  duplicate.setString(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, int value){
+//  duplicate.setInt(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, float value){
+//  duplicate.setFloat(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, boolean value){
+//  duplicate.setBoolean(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, JSONObject value){
+//  duplicate.setJSONObject(k,value);
+//}
+//public void setValue(JSONObject duplicate, String k, JSONArray value){
+//  duplicate.setJSONArray(k,value);
+//}
