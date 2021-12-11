@@ -34,23 +34,20 @@ Menu movemenu;
 Menu botmenu;
 Menu itemmenu;
 
-
-// todo: fix addhp
-
 //misc variables
-
 Button sandwich;
-
+static Battle currentbattle;
 
 //misc variables
 static Player testPlayer; //the player
-static Monster activeMonster; //player's current monster
-static Monster testMonster; //current enemy monster
 final int naptime = 200; //delayer var to avoid problems when keys are pressed
 
 Timer restartTimer;
-static int moveNum = 0;
-static int aimovenum = 0;
+
+Monster generateNewMonster(String id) {
+  Monster m = new Monster(id, 400, 400);
+  return m;
+}
 
 void setup(){
   //Ethan's code
@@ -119,11 +116,9 @@ void setup(){
   itemsprites.put("Armor Potion" ,loadImage(itemPath+"/"+"PotionArmor.png"));
   itemsprites.put("Speed Potion" ,loadImage(itemPath+"/"+"PotionSpeed.png"));
   itemsprites.put("Agility Potion",loadImage(itemPath+"/"+"PotionAgility.png"));
-
   
   //initiatize misc variables
-  Monster enemy = new Monster("ZombieA", 800, 300);
-  testPlayer = new Player(createCharacterSprites(0));
+  testPlayer = new Player(createCharacterSprites(0),new ArrayList());
   String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
@@ -343,141 +338,7 @@ void draw() {
     }
   //if in the combat state:
   } else if (GameState.currentState == GameStates.COMBAT) {
-    switch(GameState.combatState){
-      //battle rhythm: options (choice of action) -> subaction (eg. the specific move or item chosen) -> perform action -> enemy turn -> back to options
-      case ENTRY:
-      //this happens once at the beginning of every battle, to set the scene
-        activeMonster = testPlayer.monsters.get(0);
-        //draw monsters, menu, background, HP
-        ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-        testMonster = new Monster("AirA", 800, 250);
-      break;
-      case OPTIONS:
-        testMonster.display();
-        activeMonster.display();
-        //this happens once at the beginning of every turn; the part where you select what you want to do
-        //draw same as Entry State
-        battlemenu.update();
-        checkMouse(battlemenu);
-      break;
-      case FIGHT:
-        testMonster.display();
-        activeMonster.display();
-        //txt defined here at it is custom to the current battle
-        //will produce a menu of what moves the battle bot can use
-        Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
-
-        //nullpointer error HERE because txt is null
-        
-        movemenu.buttons.get(0).txt = "Return to Menu";
-        movemenu.buttons.get(0).func = "return";
-
-        for (int i = 0; i < 4; i++) {
-          //give move buttons functions based on their moves
-          movemenu.buttons.get(i+1).txt = activeMonster.moveset[i].name;
-          movemenu.buttons.get(i+1).func = ("callmove"+String.valueOf(i)).toString();
-        }
-        movemenu.update();
-        checkMouse(movemenu);
-      break;
-      case ANIMATION:
-        testMonster.display();
-        activeMonster.display();
-        if(moveNum == 1){
-          if(activeMonster.moveToEnemy(testMonster) ){
-            ButtonFunction.switchCombatState(CombatStates.AI);
-
-          } 
-
-        } else if (moveNum == 2){
-          if(activeMonster.defendAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.AI);
-          }
-        } else if(moveNum == 3){
-          if(activeMonster.healAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.AI);
-          }
-        } else if(moveNum == 4){
-          if(activeMonster.dodgeAnimation()){
-            ButtonFunction.switchCombatState(CombatStates.AI);
-          }
-        } else {
-          ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-        }
-      break;
-      case ITEM:
-        testMonster.display();
-        activeMonster.display();
-        //will produce a menu of what items you have
-
-
-        Menu itemmenu = new Menu(625, 520, testPlayer.items.size()+1, 50, 300, 2);
-        Object[] itemsKeys = testPlayer.items.keySet().toArray();
-        
-        itemmenu.buttons.get(0).txt = "Return to Menu";
-        itemmenu.buttons.get(0).func = "return";
-        for (int i = 0; i < testPlayer.items.size(); i++) {
-          String itemi = (String)itemsKeys[i];
-          itemmenu.buttons.get(i+1).txt = itemi+" x "+testPlayer.items.get(itemi);
-          itemmenu.buttons.get(i+1).func = "useitem";
-
-        }
-        itemmenu.update();
-        checkMouse(itemmenu);
-      break;
-      case BATTLEBOT:
-        testMonster.display();
-        activeMonster.display();
-        //will produce a menu of what battlebots you can switch to
-        botmenu.update();
-        checkMouse(botmenu);
-      break;
-      case AI:
-        //let the enemy do stuff - will need a decision tree
-        if      (testMonster.stats.getFloat("chealth") < 15 && random(0.0,1.0) <= 0.99){ // doing bad.
-          testMonster.moveset[3].useMove(testMonster);
-          aimovenum = 2;
-          testMonster.dodgeStart();
-        }else if(testMonster.stats.getFloat("chealth") < 30 && random(0.0,1.0) <= 0.88){ // doing okay
-          testMonster.moveset[2].useMove(testMonster);
-          aimovenum = 3;
-          testMonster.healStart();
-        }else if(testMonster.stats.getFloat("chealth") < 60 && random(0.0,1.0) <= 0.45){ // doing well
-          testMonster.moveset[1].useMove(testMonster);
-          aimovenum = 4;
-          testMonster.defendStart();
-        }else{                              // doing best
-          aimovenum = 1;
-          testMonster.moveset[0].useMove(activeMonster);
-          testMonster.moveToEnemyStart(activeMonster);
-        }
-        ButtonFunction.switchCombatState(CombatStates.AIANIMATION);
-      break;
-      case AIANIMATION:
-        testMonster.display();
-        activeMonster.display();
-
-        switch (aimovenum){
-          case 1:
-            if (testMonster.moveToEnemy(activeMonster)) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-          break;
-          case 2:
-            if(testMonster.dodgeAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-          break;
-          case 3:
-            if(testMonster.healAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-          break;
-          case 4:
-            if(testMonster.defendAnimation()) ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-          break;
-        }
-
-      break;
-      case RUN:
-        //will go back to walk state
-        GameState.currentState = GameStates.WALKING;
-      break;
-    }
+    currentbattle.turn();
   //if in the menu state:
   } else if (GameState.currentState == GameStates.MENU) {
     //draw stuff (not update; no movement)
@@ -569,7 +430,6 @@ public void generateTileMapGuide(){
     }
   }
 }
-
 public JSONObject JSONCopy(JSONObject original){
   JSONObject duplicate = new JSONObject();
   String[] keys = new String[original.keys().size()];
@@ -600,22 +460,3 @@ public JSONObject JSONCopy(JSONObject original){
   }
   return duplicate;
 }
-
-//public void setValue(JSONObject duplicate, String k, String value){
-//  duplicate.setString(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, int value){
-//  duplicate.setInt(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, float value){
-//  duplicate.setFloat(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, boolean value){
-//  duplicate.setBoolean(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, JSONObject value){
-//  duplicate.setJSONObject(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, JSONArray value){
-//  duplicate.setJSONArray(k,value);
-//}

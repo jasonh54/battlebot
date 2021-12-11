@@ -9,6 +9,7 @@ class Move {
     this.name = name;
     this.parent = parent;
     this.stats = movesDatabase.get(name);
+    if (stats == null) throw new Error("Move '"+name+"' was not in the moves databse.");
   }
   
   void useMove(Monster target){
@@ -26,6 +27,7 @@ class Move {
     //determine if move hits
     if (r.nextInt(100) < this.stats.getInt("accuracy")) {
       //calculate total power
+      //System.out.printf("Monster Damage: %f | Move Damage: %f | Target Defense: %f",this.parent.stats.getFloat("attack"),(float)this.stats.getInt("health"),target.stats.getFloat("defense"));
       float power = (this.parent.stats.getFloat("attack") * this.stats.getInt("health"))/target.stats.getFloat("defense") * ranval * typeEfficency(target);
       return power;
     } else {
