@@ -183,8 +183,8 @@ class Map {
           Random r = new Random();
           int t = r.nextInt(7) + 1;
           if (t == 1) {
+            currentbattle = new Battle(testPlayer,new Monster("AirA", 800, 250));
             GameState.currentState = GameStates.COMBAT;
-            GameState.combatState = CombatStates.ENTRY;
           }
           
           //if chance happens, activate battle state
