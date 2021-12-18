@@ -468,22 +468,3 @@ public JSONObject JSONCopy(JSONObject original){
   }
   return duplicate;
 }
-
-//public void setValue(JSONObject duplicate, String k, String value){
-//  duplicate.setString(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, int value){
-//  duplicate.setInt(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, float value){
-//  duplicate.setFloat(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, boolean value){
-//  duplicate.setBoolean(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, JSONObject value){
-//  duplicate.setJSONObject(k,value);
-//}
-//public void setValue(JSONObject duplicate, String k, JSONArray value){
-//  duplicate.setJSONArray(k,value);
-//}
