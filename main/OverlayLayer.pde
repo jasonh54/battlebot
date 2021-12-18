@@ -1,11 +1,11 @@
-class OverlayMap extends Map {
+class OverlayLayer extends Layer {
   //variables
   boolean leftcollidetracker;
   boolean rightcollidetracker;
   boolean upcollidetracker;
   boolean downcollidetracker;
   //constructor
-  public OverlayMap() {
+  public OverlayLayer() {
     super();
   }
   

@@ -1,13 +1,13 @@
-class Layers {
-  //map objects
-  OverlayMap collidemap = new OverlayMap();
-  Map map = new Map();
-  Map overlayedmap = new Map();
-  Map topmap = new Map();
+class Maps {
+  //layer objects - 5 to each map
+  OverlayLayer collidelayer = new OverlayLayer();
+  Layer baselayer = new Layer();
+  Layer coverlayer = new Layer();
+  Layer toplayer = new Layer();
   
-  //create tilesets for each map layer
+  //create tilesets for each layer
   //lowest layer - ground tiles with no blankspace
-  int[][] baseMapTiles = {
+  int[][] baseLayerTiles = {
     {89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91,  461,  441,  463,  89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91},
     {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
     {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
@@ -36,7 +36,7 @@ class Layers {
   };
   
   //2nd lowest - for ground tiles with blankspace (need backing)
-  int[][] overlayedMapTiles = {
+  int[][] coverLayerTiles = {
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  0,  1,  1,  1,  1,  1,  1,  58,  58,  58,  4},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  29,  28,  28,  28,  34},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  29,  28,  28,  28,  34},
@@ -65,7 +65,7 @@ class Layers {
   };
   
   //for collidables - cars, trees, etc
-  int[][] collidableMapTiles = {
+  int[][] collidableLayerTiles = {
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  198,  198,  198,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  198,  198,  198,  486},
@@ -94,7 +94,7 @@ class Layers {
   };
   
   //top layer - stuff the player can walk under such as lampposts
-  int[][] topMapTiles = {
+  int[][] topLayerTiles = {
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
     {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
@@ -123,28 +123,35 @@ class Layers {
   };
   
   //constructor
-  public Layers() {
+  public Maps() {
     
   }
   
-  void generateAllMaps() {
-    collidemap.generateBaseMap(collidableMapTiles);
-    map.generateBaseMap(baseMapTiles);
-    overlayedmap.generateBaseMap(overlayedMapTiles);
-    topmap.generateBaseMap(topMapTiles);
+  void generateAllLayers() {
+    collidelayer.generateBaseLayer(collidableLayerTiles);
+    baselayer.generateBaseLayer(baseLayerTiles);
+    coverlayer.generateBaseLayer(coverLayerTiles);
+    toplayer.generateBaseLayer(topLayerTiles);
   }
   
+  //default does not update toplayer as it must update after the player
   void update() {
-    map.update(collidemap);
-    overlayedmap.update(collidemap);
-    collidemap.update();
-    topmap.update(collidemap);
+    baselayer.update(collidelayer);
+    coverlayer.update(collidelayer);
+    collidelayer.update();
+  }
+  
+  void updateAll() {
+    baselayer.update(collidelayer);
+    coverlayer.update(collidelayer);
+    collidelayer.update();
+    toplayer.update(collidelayer);
   }
   
   void totalDraw() {
-    map.draw();
-    overlayedmap.draw();
-    collidemap.draw();
-    topmap.draw();
+    baselayer.draw();
+    coverlayer.draw();
+    collidelayer.draw();
+    toplayer.draw();
   }
 }

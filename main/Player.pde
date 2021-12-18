@@ -2,9 +2,9 @@
 public PImage[] createCharacterSprites(int playerNum){
   int i = 0;
   PImage[] characterSprites = new PImage[12];
-  //locate which row in the tilemapguide the player starts at
+  //locate which row in the tilelayerguide the player starts at
   int row = 0 + playerNum*3;
-  //locate which tile num col in the tilemapguide the player starts at
+  //locate which tile num col in the tilelayerguide the player starts at
   int tilenum = (27*(row+1))-4;
   //for loop that will go through each column
   for(int c = tilenum; c<tilenum+4; c++){
@@ -91,10 +91,11 @@ class Player{
     }
   }
   
-  public void addMonster(Monster m) {
+  void addMonster(Monster m) {
       monsters.add(m);
   }
   
+
   public Monster getSelectedMonster() {
     return monsters.get(selectedmonster);
   }
