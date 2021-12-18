@@ -37,7 +37,7 @@ Menu itemmenu;
 Button sandwich;
 
 //layers/map stuff
-Layers ogmap = new Layers();
+Maps currentmap = new Maps();
 
 
 //misc variables
@@ -120,12 +120,11 @@ void setup(){
 
   
   //initiatize misc variables
-  Monster enemy = new Monster("ZombieA", 800, 300);
   testPlayer = new Player(createCharacterSprites(0));
   String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
-  ogmap.generateAllMaps();
+  currentmap.generateAllLayers();
 
   //initialize all menus
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
@@ -173,8 +172,8 @@ void setup(){
   movemenu.buttons.get(3).func = "callmove3";
 
 
-  items.add(new GroundItem("Damage Potion",ogmap.map.getTile(10,10))); // This is where you place items!
-  items.add(new GroundItem("Agility Potion",ogmap.map.getTile(20,10)));
+  items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
 
 
   //misc stuff??
@@ -191,8 +190,9 @@ void draw() {
   //if in the walking state:
   if (GameState.currentState == GameStates.WALKING) {
     //update stuff - in order of layers, lowest first
-    ogmap.update();
+    currentmap.update();
     testPlayer.display();
+    currentmap.toplayer.update(currentmap.collidelayer);
     sandwich.drawSandwich();
     for (GroundItem item : items){
       item.display();
@@ -222,7 +222,7 @@ void draw() {
         activeMonster = testPlayer.monsters.get(0);
         //draw monsters, menu, background, HP
         ButtonFunction.switchCombatState(CombatStates.OPTIONS);
-        testMonster = new Monster("AirA", 800, 250);
+        testMonster = new Monster("ZombieA", 800, 250);
       break;
       case OPTIONS:
         testMonster.display();
@@ -353,7 +353,7 @@ void draw() {
   //if in the menu state:
   } else if (GameState.currentState == GameStates.MENU) {
     //draw stuff (not update; no movement)
-    ogmap.totalDraw();
+    currentmap.totalDraw();
     sandwich.drawSandwich();
     //updating the menu
     mainmenu.update();
@@ -425,7 +425,7 @@ void checkMouse(Button current) {
 }
 
 //draw the tile guide(not ever used - delete?)
-public void generateTileMapGuide(){
+public void generateTileLayerGuide(){
   int i = 0;
   for(int row = 0; row < 18; row++){
     for(int col=0;col<27; col++){

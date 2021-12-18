@@ -1,4 +1,4 @@
-class Map {
+class Layer {
   //generic variables
   int x;
   int y;
@@ -15,19 +15,19 @@ class Map {
   char currentKey = ' ';
   int framecounter = 0;
 
-  //variables for the map code
+  //variables for the layer code
   private int[][] tileArray;
-  private Tile [][] mapTiles;
-  final int mapscale = 2;
+  private Tile [][] layerTiles;
+  final int layerscale = 2;
   boolean lock = false;
 
-  //arraylists for types of tiles within a map
+  //arraylists for types of tiles within a layer
   ArrayList<Tile> collidableTiles = new ArrayList<Tile>();
   ArrayList<Tile> portalTiles = new ArrayList<Tile>();
   ArrayList<Tile> grassTiles = new ArrayList<Tile>();
 
   //constructor
-  public Map() {
+  public Layer() {
   
   }
   
@@ -36,24 +36,24 @@ class Map {
     for (int i = 0; i < colsize; i++) {
       for (int k = 0; k < rowsize; k++) {
         if(tileArray[i][k] != 486){
-          mapTiles[i][k].draw();
+          layerTiles[i][k].draw();
         }  
       }
     }
   }
   
   Tile getTile(int lx, int ly){
-    return mapTiles[lx][ly];
+    return layerTiles[lx][ly];
   }
   
-  //map generation
-  void generateBaseMap(int[][] tileArray) {
+  //layer generation
+  void generateBaseLayer(int[][] tileArray) {
     //prepping the tile array for use
     this.tileArray = tileArray;
     colsize = tileArray.length;
     rowsize = tileArray[0].length;
-    //maptiles logs all tiles in the map as a 2d array
-    mapTiles = new Tile[colsize][rowsize];
+    //layerTiles logs all tiles in the layer as a 2d array
+    layerTiles = new Tile[colsize][rowsize];
     //navigating the rows
     for (int row = 0; row < rowsize; row++) {
       //navigating the columns
@@ -61,15 +61,15 @@ class Map {
         //skips transparent tiles
         if(tileArray[row][col] != 486) {
           //creates a new tile and assigns values
-          Tile current = new Tile((tilew * mapscale) * col + tileww * mapscale, (tileh * mapscale) * row + tilehh * mapscale, false, false, tiles[tileArray[row][col]], mapscale);
+          Tile current = new Tile((tilew * layerscale) * col + tileww * layerscale, (tileh * layerscale) * row + tilehh * layerscale, false, false, tiles[tileArray[row][col]], layerscale);
           //these code sets all check if the tile fits a certain archetype, as listed
           current.collide = tileTypeCheck(collidableSprites, tileArray, row, col);
           current.portal = tileTypeCheck(portalSprites, tileArray, row, col);
           current.grass = tileTypeCheck(grassSprites, tileArray, row, col);
           //loads tile into all relevant arrays
           loadAll(current);
-          //saves the tile to the maptiles and moves on
-          mapTiles[row][col] = current;
+          //saves the tile to the layerTiles and moves on
+          layerTiles[row][col] = current;
         }
       }
     }
@@ -126,28 +126,28 @@ class Map {
   }
 
   //update loop
-  void update(OverlayMap collidemap) {
+  void update(OverlayLayer collidelayer) {
     this.draw();
-    this.fullMovement(collidemap);
+    this.fullMovement(collidelayer);
     
   }
 
   //BASE MOVEMENT THINGS
-  //all collision tracking is based around the sensing of the collidemap
-  //all "default" (non-colliding) maps simply read the collidemap's information and follow its directions
-  //there's no reason for any default map to check its own collisions; it only causes problems
-  void fullMovement(OverlayMap collidemap) {
+  //all collision tracking is based around the sensing of the collidelayer
+  //all "default" (non-colliding) layers simply read the collidelayer's information and follow its directions
+  //there's no reason for any default layer to check its own collisions; it only causes problems
+  void fullMovement(OverlayLayer collidelayer) {
     //resetting each direction's sensor
-    collidemap.leftcollidetracker = false;
-    collidemap.rightcollidetracker = false;
-    collidemap.upcollidetracker = false;
-    collidemap.downcollidetracker = false;
+    collidelayer.leftcollidetracker = false;
+    collidelayer.rightcollidetracker = false;
+    collidelayer.upcollidetracker = false;
+    collidelayer.downcollidetracker = false;
     //activates when a key is first pressed
     //the lock is to keep movements contained/not overlapping
     if (keyPressed == true && lock == false) { 
       //activates if it's a movement key
       //makes sure there is no collidable tile in the desired direction
-      if(((key == 'w' && collidemap.collideUp(testPlayer) == false) || (key == 's' && collidemap.collideDown(testPlayer) == false) || (key == 'a' && collidemap.collideLeft(testPlayer) == false) || (key == 'd' && collidemap.collideRight(testPlayer) == false))) {
+      if(((key == 'w' && collidelayer.collideUp(testPlayer) == false) || (key == 's' && collidelayer.collideDown(testPlayer) == false) || (key == 'a' && collidelayer.collideLeft(testPlayer) == false) || (key == 'd' && collidelayer.collideRight(testPlayer) == false))) {
         //locks and begins a new movement
         lock = true;
         newMove(key);
@@ -177,7 +177,7 @@ class Map {
         //checking special tile-related conditions and activating events if they are met
         if (checkOverlap(portalTiles, testPlayer, "portal underfoot") >= 0) {
           //have a variable save portalTiles.get(overlapint);
-          //figure out what map is associated with that tile and generate it
+          //figure out what layer is associated with that tile and generate it
         }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
           Random r = new Random();
@@ -194,42 +194,42 @@ class Map {
     }
   }
   
-  //individual movement functions - these activate movement funcs in each tile of the map
+  //individual movement functions - these activate movement funcs in each tile of the layer
   void moveUp() {
-    for (int i = 0; i < mapTiles.length; i++) {
-      for (int k = 0; k < mapTiles[0].length; k++) {
+    for (int i = 0; i < layerTiles.length; i++) {
+      for (int k = 0; k < layerTiles[0].length; k++) {
         if(tileArray[i][k] != 486){
-          mapTiles[i][k].moveUp();
+          layerTiles[i][k].moveUp();
         }  
       }
     }
   }
 
   void moveDown() {
-    for (int i = 0; i < mapTiles.length; i++) {
-      for (int k = 0; k < mapTiles[0].length; k++) {
+    for (int i = 0; i < layerTiles.length; i++) {
+      for (int k = 0; k < layerTiles[0].length; k++) {
         if(tileArray[i][k] != 486){
-          mapTiles[i][k].moveDown();
+          layerTiles[i][k].moveDown();
         }  
       }
     }
   }
 
   void moveLeft() {
-    for (int i = 0; i < mapTiles.length; i++) {
-      for (int k = 0; k < mapTiles[0].length; k++) {
+    for (int i = 0; i < layerTiles.length; i++) {
+      for (int k = 0; k < layerTiles[0].length; k++) {
         if(tileArray[i][k] != 486){
-          mapTiles[i][k].moveLeft();
+          layerTiles[i][k].moveLeft();
         }  
       }
     }
   }
 
   void moveRight() {
-    for (int i = 0; i < mapTiles.length; i++) {
-      for (int k = 0; k < mapTiles[0].length; k++) {
+    for (int i = 0; i < layerTiles.length; i++) {
+      for (int k = 0; k < layerTiles[0].length; k++) {
         if(tileArray[i][k] != 486){
-          mapTiles[i][k].moveRight();
+          layerTiles[i][k].moveRight();
         }  
       }
     }
@@ -237,10 +237,10 @@ class Map {
 
   //ends movement in each tile
   void stopMove() {
-    for (int i = 0; i < mapTiles.length; i++) {
-      for (int k = 0; k < mapTiles[0].length; k++) {
+    for (int i = 0; i < layerTiles.length; i++) {
+      for (int k = 0; k < layerTiles[0].length; k++) {
         if(tileArray[i][k] != 486){
-          mapTiles[i][k].stopMove();
+          layerTiles[i][k].stopMove();
         }  
       }
     }
