@@ -68,21 +68,13 @@ class Monster {
   public void addHp(int hp){
     this.stats.setFloat("chealth",this.stats.getFloat("chealth")+hp>this.stats.getFloat("maxhealth") ? this.stats.getFloat("maxhealth") : (this.stats.getFloat("chealth")+hp < 0 ? 0 : this.stats.getFloat("chealth")+hp));
   }
-  
-  public void modStats(float healthMod, float attackMod, float speedMod, float defenseMod, float agilityMod){
-    System.out.printf("Modifying Stats of %s:\nHP: +%f | Atk: x%f | Spd: x%f | Def: x%f | Agl: x%f\n",this.id,healthMod,attackMod,speedMod,defenseMod,agilityMod);
-    addHp((int)healthMod);
-    this.stats.setFloat("attack",this.stats.getFloat("attack")*attackMod);
-    this.stats.setFloat("speed",this.stats.getFloat("speed")*speedMod);
-    this.stats.setFloat("defense",this.stats.getFloat("defense")*defenseMod);
-    this.stats.setFloat("agility",this.stats.getFloat("agility")*agilityMod);
-  }
   public void modStats(JSONObject mod){
     addHp((int)mod.getFloat("health"));
     if (mod.getFloat("attack")  != 1.0f) this.stats.setFloat("attack" ,this.stats.getFloat("attack") *mod.getFloat("attack") );
     if (mod.getFloat("speed")   != 1.0f) this.stats.setFloat("speed"  ,this.stats.getFloat("speed")  *mod.getFloat("speed")  );
     if (mod.getFloat("defense") != 1.0f) this.stats.setFloat("defense",this.stats.getFloat("defense")*mod.getFloat("defense"));
     if (mod.getFloat("agility") != 1.0f) this.stats.setFloat("agility",this.stats.getFloat("agility")*mod.getFloat("agility"));
+    //System.out.printf("Modifying Stats of %s:\nHP: +%f | Atk: x%f | Spd: x%f | Def: x%f | Agl: x%f\n",this.id,mod.getFloat("health"),mod.getFloat("attack"),mod.getFloat("speed"),mod.getFloat("defense"),mod.getFloat("agility"));
   }
   
   public void moveToEnemyStart(Monster target){

@@ -45,13 +45,15 @@ class Player{
   final int scale = 2;
   String swapto;
 
-  
   HashMap<String,Integer> items = new HashMap<String,Integer>();
   ArrayList<Monster> monsters = new ArrayList<Monster>();
   Spritesheet animations;
+  int selectedmonster;
   
-  public Player(PImage[] sprites){
-    this.sprites = sprites; 
+  public Player(PImage[] sprites,ArrayList<Monster> mnstrs){
+    this.monsters = (ArrayList)mnstrs.clone();
+    this.selectedmonster = 0;
+    this.sprites = sprites;
     animations = new Spritesheet(this.sprites, 120);
     animations.setxywh(x, y, w*scale, h*scale);
     animations.createAnimation("walkLeft", new int[]{0,1,2});
@@ -63,7 +65,6 @@ class Player{
     animations.createAnimation("lookUp", new int[]{6});
     animations.createAnimation("lookRight", new int[]{9});
   }
-  
 
   public void addItem(String id){
     Integer a = items.get(id);
@@ -78,7 +79,7 @@ class Player{
         items.put(id, a-1); // "healthPotion": 0
       }
       JSONObject stats = itemDatabase.get(id);
-      activeMonster.modStats(stats);
+      this.getSelectedMonster().modStats(stats);
     }else{
       throw new Error("You insolent fool, thou hast disturbed the balance of the universe. (["+id+"] was not in the database.)");
     }
@@ -94,9 +95,8 @@ class Player{
       monsters.add(m);
   }
   
-  public Monster generateNewMonster(String id) {
-    Monster m = new Monster(id, 400, 400);
-    return m;
+  public Monster getSelectedMonster() {
+    return monsters.get(selectedmonster);
   }
   
   public void display(){
