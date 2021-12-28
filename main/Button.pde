@@ -37,6 +37,21 @@ class Button {
   
   void draw() {
     fill(255, 255, 255);
+    if (this.func == "botswap"){ // makeshift solution that doesnt work for duplicate monsters. needs fix.
+      for (int i = 0; i<testPlayer.monsters.size();i++){
+        Monster monster = testPlayer.monsters.get(i);
+        if (monster.stats.getString("name") != this.txt) continue;
+        if (monster.stats.getFloat("chealth")<=0) {
+          println("Greying out dead bot");
+          fill(120,120,120);
+          break;
+        }else if (testPlayer.selectedmonster==i){
+          fill(150,200,150);
+          this.func = "return"; // no use swapping to current monster lmfao
+          break;
+        }
+      }
+    }
     rect(this.x, this.y, this.w, this.h);
     fill(0, 0, 0);
 
@@ -51,10 +66,22 @@ class Button {
     rect(this.x, this.y, this.w, this.h);
     rect(this.x, this.y + (this.h * 2), this.w, this.h);
     rect(this.x, this.y + (this.h * 4), this.w, this.h);
+    this.update();
   }
   
   void update(){
-    
+    if (mousePressed) {
+      //if mouse is touching  a button
+      if (mouseX >= this.x && mouseX <= this.x + this.w) {
+        if (mouseY >= this.y && mouseY <= this.y + this.h) {
+          //next line is only used when the botswap function is called
+          //although it is set with every buttonclick
+          testPlayer.swapto = this.txt;
+          this.onClick();
+          delay(naptime);
+        }
+      }
+    }
   }
   
   //sets whatever function is loaded into the parameter into a variable

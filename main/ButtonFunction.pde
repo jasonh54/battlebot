@@ -41,12 +41,13 @@ public static class ButtonFunction {
       //instead of taking a parameter; the BATTLEBOT gamestate will set testPlayer.swapto = [txt of clicked button]
       for (int i = 0; i < testPlayer.monsters.size(); i++) {
         //in the botswap func, program will find a monster in testPlayer.monsters with a monster ID that is equal to testPlayer.swapto
-         if (testPlayer.monsters.get(i).id == testPlayer.swapto) {
+         if (testPlayer.monsters.get(i).id == testPlayer.swapto&&testPlayer.monsters.get(i).stats.getFloat("chealth")>0) {
            testPlayer.selectedmonster = i;
+           currentbattle.switchState(BattleStates.OPTIONS);
            break;
          }
       }
-      currentbattle.switchState(BattleStates.OPTIONS);
+      
     }
   }
 }

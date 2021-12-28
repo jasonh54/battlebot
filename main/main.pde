@@ -204,9 +204,6 @@ void draw() {
     }
 
     dqueue = new ArrayList<Integer>();
- 
-    //check if menu is opened
-    checkMouse(sandwich);
     //keypress to go into menu - backup if button breaks
     if (keyPressed == true && key == 'm') {
       ButtonFunction.switchState(GameStates.MENU);
@@ -223,8 +220,6 @@ void draw() {
     //updating the menu
     mainmenu.update();
     //for button clicks
-    checkMouse(mainmenu);
-    checkMouse(sandwich);
     //keypress to go into walking - backup if button breaks
     if (keyPressed == true && key == 'm') {
       ButtonFunction.switchState(GameStates.WALKING);
@@ -254,39 +249,6 @@ void draw() {
   
   //testPlayer.display();
 
-}
-
-//mouseClicked functions for menus and singular buttons each
-void checkMouse(Menu menu) {
-  //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
-  if (mousePressed) {
-    //iterate through every button in the menu
-    for (int i = 0; i < menu.buttons.size(); i++) {
-      Button current = menu.buttons.get(i);
-      //if mouse is touching  a button
-      if (mouseX >= current.x && mouseX <= current.x + current.w) {
-        if (mouseY >= current.y && mouseY <= current.y + current.h) {
-          //next line is only used when the botswap function is called
-          //although it is set with every buttonclick
-          testPlayer.swapto = current.txt;
-          current.onClick();
-          delay(naptime);
-        }
-      }
-    }
-  }
-}
-
-void checkMouse(Button current) {
-  //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
-  if (mousePressed) {
-    if (mouseX >= current.x && mouseX <= current.x + current.w) {
-      if (mouseY >= current.y && mouseY <= current.y + (5 * current.h)) {
-        current.onClick();
-        delay(naptime);
-      }
-    }
-  }
 }
 
 //draw the tile guide(not ever used - delete?)

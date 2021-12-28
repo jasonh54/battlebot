@@ -26,6 +26,23 @@ class Menu {
   }
   
   void update() {
+    //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
+    if (mousePressed) {
+      //iterate through every button in the menu
+      for (Button current : this.buttons) {
+        //if mouse is touching  a button
+        if (mouseX >= current.x && mouseX <= current.x + current.w) {
+          if (mouseY >= current.y && mouseY <= current.y + current.h) {
+            //next line is only used when the botswap function is called
+            //although it is set with every buttonclick
+            testPlayer.swapto = current.txt;
+            current.onClick();
+            delay(naptime);
+          }
+        }
+      }
+    }
+    
     this.draw();
   }
   
