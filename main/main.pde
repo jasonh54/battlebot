@@ -36,7 +36,7 @@ static Battle currentbattle;
 
 
 //layers/map stuff
-Layers ogmap = new Layers();
+Maps currentmap = new Maps();
 
 
 
@@ -120,11 +120,13 @@ void setup(){
   itemsprites.put("Agility Potion",loadImage(itemPath+"/"+"PotionAgility.png"));
   
   //initiatize misc variables
+
   testPlayer = new Player(createCharacterSprites(0),new ArrayList());
+
   String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
-  ogmap.generateAllMaps();
+  currentmap.generateAllLayers();
 
   //initialize all menus
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
@@ -172,8 +174,8 @@ void setup(){
   movemenu.buttons.get(3).func = "callmove3";
 
 
-  items.add(new GroundItem("Damage Potion",ogmap.map.getTile(10,10))); // This is where you place items!
-  items.add(new GroundItem("Agility Potion",ogmap.map.getTile(20,10)));
+  items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
 
 
   //misc stuff??
@@ -190,8 +192,9 @@ void draw() {
   //if in the walking state:
   if (GameState.currentState == GameStates.WALKING) {
     //update stuff - in order of layers, lowest first
-    ogmap.update();
+    currentmap.update();
     testPlayer.display();
+    currentmap.toplayer.update(currentmap.collidelayer);
     sandwich.drawSandwich();
     for (GroundItem item : items){
       item.display();
@@ -211,11 +214,13 @@ void draw() {
     }
   //if in the combat state:
   } else if (GameState.currentState == GameStates.COMBAT) {
+
     currentbattle.turn();
+
   //if in the menu state:
   } else if (GameState.currentState == GameStates.MENU) {
     //draw stuff (not update; no movement)
-    ogmap.totalDraw();
+    currentmap.totalDraw();
     sandwich.drawSandwich();
     //updating the menu
     mainmenu.update();
@@ -252,7 +257,7 @@ void draw() {
 }
 
 //draw the tile guide(not ever used - delete?)
-public void generateTileMapGuide(){
+public void generateTileLayerGuide(){
   int i = 0;
   for(int row = 0; row < 18; row++){
     for(int col=0;col<27; col++){

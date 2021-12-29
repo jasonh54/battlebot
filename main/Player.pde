@@ -2,9 +2,9 @@
 public PImage[] createCharacterSprites(int playerNum){
   int i = 0;
   PImage[] characterSprites = new PImage[12];
-  //locate which row in the tilemapguide the player starts at
+  //locate which row in the tilelayerguide the player starts at
   int row = 0 + playerNum*3;
-  //locate which tile num col in the tilemapguide the player starts at
+  //locate which tile num col in the tilelayerguide the player starts at
   int tilenum = (27*(row+1))-4;
   //for loop that will go through each column
   for(int c = tilenum; c<tilenum+4; c++){
@@ -91,10 +91,11 @@ class Player{
     }
   }
   
-  public void addMonster(Monster m) {
+  void addMonster(Monster m) {
       monsters.add(m);
   }
   
+
   public Monster getSelectedMonster() {
     return monsters.get(selectedmonster);
   }
@@ -183,55 +184,4 @@ class Player{
     }
   }
 }
-  //player needs key pressed to trigger animations
-  //this function is used in the switch statement depending on which direction the player is facing in
-  //when this function runs the player needs to player the walking up animation
-  //void moveUp(){
-      //if(animations.animationTimer.countDownUntil(animations.stoploop)){
-      //  animations.changeDisplay(6,8);
-      //}
-      //animations.display(400,400);
-      
-      //if(keyPressed == false && animations.increment > 6){
-      //  animations.softReset();
-      //  direction = PlayerMovementStates.STATIC;
-      //}
-  //}
   
-  //void moveDown(){
-  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-  //      animations.changeDisplay(3,5);
-  //    }
-  //    animations.display(400,400);
-      
-
-  //    if(keyPressed == false && animations.increment > 3){
-  //      animations.softReset();
-  //      direction = PlayerMovementStates.STATIC;
-  //    }
-  //}
-  
-  //void moveLeft(){  
-  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-  //      animations.changeDisplay(0,2);
-  //    }
-  //    animations.display(400,400);
-      
-
-  //    if(keyPressed == false && animations.increment > 0){
-  //      animations.softReset();
-  //      direction = PlayerMovementStates.STATIC;
-  //    }
-  //}
-  
-  //void moveRight(){
-  //    if(animations.animationTimer.countDownUntil(animations.stoploop)){
-  //      animations.changeDisplay(9,11);
-  //    }
-  //    animations.display(400,400);
-      
-  //    if(keyPressed == false && animations.increment > 9){
-  //      animations.softReset();
-  //      direction = PlayerMovementStates.STATIC;
-  //    }
-  //}
