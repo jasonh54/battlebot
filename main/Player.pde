@@ -43,7 +43,6 @@ class Player{
   int x = 400;
   int y = 400;
   final int scale = 2;
-  String swapto;
 
   HashMap<String,Integer> items = new HashMap<String,Integer>();
   ArrayList<Monster> monsters = new ArrayList<Monster>();
@@ -97,7 +96,7 @@ class Player{
   
 
   public Monster getSelectedMonster() {
-    return monsters.get(selectedmonster);
+    return this.monsters.get(this.selectedmonster);
   }
   
   public void display(){

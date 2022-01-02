@@ -20,16 +20,19 @@ class Battle {
   private BattleStates battlestate;
   private String MOVE_ANIMATION_ID;
   private String AI_MOVE_ANIMATION_ID;
+  public HashMap<BattleStates,Menu> menus;
   
   public Battle(Player p1, Player p2){
     this.player1 = p1;
     this.player2 = p2;
     this.battlestate = BattleStates.ENTRY;
+    init();
   }
   public Battle(Player p1, Monster e2){
     this.player1 = p1;
     this.enemy2 = e2;
     this.battlestate = BattleStates.ENTRY;
+    init();
   }
   
   private Monster getCurrentEnemy(){
@@ -42,6 +45,47 @@ class Battle {
   
   public void switchState(BattleStates newstate){
     this.battlestate = newstate;
+  }
+  
+  private void init(){ // fill all menus with default values
+    this.menus = new HashMap<BattleStates,Menu>();
+  
+    Menu battlemenu = new Menu(625, 520, 4, 45, 400, 2); //values for battle menu
+    battlemenu.buttons.get(0).txt = "move";
+    battlemenu.buttons.get(0).func = "fight";
+    battlemenu.buttons.get(1).txt = "item";
+    battlemenu.buttons.get(1).func = "item";
+    battlemenu.buttons.get(2).txt = "battlebots";
+    battlemenu.buttons.get(2).func = "bot";
+    battlemenu.buttons.get(3).txt = "run";
+    battlemenu.buttons.get(3).func = "run";
+    this.menus.put(BattleStates.OPTIONS,battlemenu);
+    
+    Menu movemenu = new Menu(625, 520, 5, 30, 400, 2); //values for move menu - no txt as it is custom to the current battle
+    movemenu.buttons.get(0).txt = "Return to Menu";
+    movemenu.buttons.get(0).func = "return";
+    movemenu.buttons.get(1).func = "callmove0";
+    movemenu.buttons.get(2).func = "callmove1";
+    movemenu.buttons.get(3).func = "callmove2";
+    movemenu.buttons.get(4).func = "callmove3";
+    this.menus.put(BattleStates.FIGHT,movemenu);
+
+    Menu botmenu; //values for botmenu
+    botmenu = new Menu(625, 520, testPlayer.monsters.size(), 50, 400, 2);
+    for (int i = 0; i < botmenu.buttons.size(); i++) {
+      botmenu.buttons.get(i).txt = testPlayer.monsters.get(i).id;
+      botmenu.buttons.get(i).func = "botswap";
+    }
+    this.menus.put(BattleStates.BATTLEBOT,botmenu);
+  
+    Menu itemmenu;
+    itemmenu = new Menu(625, 520, this.player1.items.size()+1, 40, 300, 2);
+    itemmenu.buttons.get(0).txt = "Return to Menu";
+    itemmenu.buttons.get(0).func = "return";
+    for (int i = 1; i < itemmenu.buttons.size(); i++) {
+      itemmenu.buttons.get(i).func = "useitem";
+    }
+    this.menus.put(BattleStates.ITEM,itemmenu);
   }
   public void turn(){
     switch (battlestate){
@@ -56,24 +100,15 @@ class Battle {
         displayMonsters();
         //this happens once at the beginning of every turn; the part where you select what you want to do
         //draw same as Entry State
-        battlemenu.update();
       break;
       case FIGHT:
         displayMonsters();
         //txt defined here at it is custom to the current battle
         //will produce a menu of what moves the battle bot can use
-        Menu movemenu = new Menu(625, 520, 5, 50, 400, 2);
-
-        //nullpointer error HERE because txt is null
-        movemenu.buttons.get(0).txt = "Return to Menu";
-        movemenu.buttons.get(0).func = "return";
-
         for (int i = 0; i < 4; i++) {
           //give move buttons functions based on their moves
-          movemenu.buttons.get(i+1).txt = this.player1.getSelectedMonster().moveset[i].name;
-          movemenu.buttons.get(i+1).func = ("callmove"+String.valueOf(i)).toString();
+          this.menus.get(BattleStates.FIGHT).buttons.get(i+1).txt = this.player1.getSelectedMonster().moveset[i].name;
         }
-        movemenu.update();
       break;
       case ANIMATION:
         displayMonsters();
@@ -106,22 +141,15 @@ class Battle {
       case ITEM:
         displayMonsters();
         //will produce a menu of what items you have
-        Menu itemmenu = new Menu(625, 520, this.player1.items.size()+1, 50, 300, 2);
         Object[] itemsKeys = this.player1.items.keySet().toArray();
-        
-        itemmenu.buttons.get(0).txt = "Return to Menu";
-        itemmenu.buttons.get(0).func = "return";
         for (int i = 0; i < this.player1.items.size(); i++) {
           String itemi = (String)itemsKeys[i];
-          itemmenu.buttons.get(i+1).txt = itemi+" x "+this.player1.items.get(itemi);
-          itemmenu.buttons.get(i+1).func = "useitem";
+          this.menus.get(BattleStates.ITEM).buttons.get(i+1).txt = itemi+" x "+this.player1.items.get(itemi);
         }
-        itemmenu.update();
       break;
       case BATTLEBOT:
         displayMonsters();
         //will produce a menu of what battlebots you can switch to
-        botmenu.update();
       break;
       case AI:
         checkDead(this.player1.getSelectedMonster(),getCurrentEnemy());
@@ -160,9 +188,12 @@ class Battle {
       break;
       case WIN:
         println("You won!");
-      
         GameState.currentState = GameStates.WALKING;
       break;
+    }
+    if (menus.get(battlestate) != null){
+      updateDrawables(menus.get(battlestate));
+      updateClickables(menus.get(battlestate));
     }
   }
   
