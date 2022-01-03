@@ -1,20 +1,26 @@
-class OverlayMap extends Map {
+class OverlayLayer extends Layer {
   //variables
   boolean leftcollidetracker;
   boolean rightcollidetracker;
   boolean upcollidetracker;
   boolean downcollidetracker;
   //constructor
-  public OverlayMap() {
+  public OverlayLayer() {
     super();
   }
   
   //update loop
   void update() {
     this.draw();
-    this.fullMovement();
+    this.fullMovement(this);
   }
-
+  
+  //void generateItems() { // TODO, make this actually random
+  //  if (random){
+  //    items[random] = new GroundItem(random,this.getTile(random));
+  //  }
+  //}
+  
   //these funcs each check collision in a different direction
   public boolean collideLeft(Player player) {
     for (int i = 0; i < collidableTiles.size(); i++) {

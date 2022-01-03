@@ -1,43 +1,55 @@
+/* BUGS
+* opon use items are not removed from the menu
+* battlebot button coloring does not work
+* many println debugs still in use
+*/
+
+//imports
 import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-
-//all the collidable sprites on the spritesheet
+//tile arrays for all "special" tiles
 int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
 int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
 int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,57,58,59,60,61};
 
+//hashmaps for each json file
+HashMap<String, JSONObject> monsterDatabase = new HashMap<String, JSONObject>();
+HashMap<String, JSONObject> movesDatabase = new HashMap<String, JSONObject>();
+HashMap<String, JSONObject> itemDatabase = new HashMap<String, JSONObject>();
+
+//sprite stuff
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
 PImage[] tiles;
 
+//item stuff
+ArrayList<GroundItem> items = new ArrayList<GroundItem>();
+HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 
+//menu variables
+Menu mainmenu;
 
-SpriteSheet TPlayerStand;
+//misc variables
+Button sandwich;
 
-SpriteSheet SSAirA;
-SpriteSheet SSBeardA;
+static Battle currentbattle;
 
+//layers/map stuff
+Maps currentmap = new Maps();
 
-//Timer animationTimer;
+//misc variables
+static Player testPlayer; //the player
+final int naptime = 200; //delayer var to avoid problems when keys are pressed
+
 Timer restartTimer;
 
-OverlayMap collidemap = new OverlayMap();
-Map map = new Map();
-Map overlayedmap = new Map();
-Map topmap = new Map();
-Menu menu;
-Player testPlayer;
-
-//boolean lock = false;
-
-
-
-
+Monster generateNewMonster(String id) {
+  Monster m = new Monster(id, 400, 400);
+  return m;
+}
 
 void setup(){
-  
-  
   //Ethan's code
   //acquire the folder location of where the monster images are
   String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
@@ -47,14 +59,13 @@ void setup(){
   String[] spriteList = sprites.list();
   //temporary variable that holds the image that is loaded from the monster file
   PImage spritesPM; //sprites PImage
-  
+  //after loading each image from the monster folder place it into a hashmap containing name of monster and image
   for(int i = 0; i < spriteList.length; i++){
-    //after loading each image from the monster folder place it into a hashmap containing name of monster and image
     spritesPM = loadImage(spritePath + "/" + spriteList[i]);
     spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM);
-    //System.out.println(spriteList[i].substring(0, spriteList[i].length()-4));
   }
   
+  String itemPath = spritePath.substring(0, spritePath.length()-6) + "items";
   String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
   File tilesFile = new File(tilesPath);
   
@@ -76,198 +87,166 @@ void setup(){
       }
     }
   }
-  
   for(int i = 0; i < tilesList.length; i++){
-    println(tilesList[i]);
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
   
-  testPlayer = new Player(createCharacterSprites(0));
-  menu = new Menu(30, 30, 4, 30, 80, 5);
-  menu.assembleMenu();
-  menu.buttons.get(0).txt = "button1";
-  menu.buttons.get(1).txt = "button2";
-  menu.buttons.get(2).txt = "button3";
-  //menu.setFunc(0, Main::test);
-  
-  //map layers
-  int[][] baseMapTiles = {
-    {89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91,  461,  441,  463,  89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {143,  144,  144,  144,  144,  144,  144,  144,  144,  144,  145,  461,  441,  463,  143,  144,  144,  144,  144,  144,  144,  144,  144,  144,  145},
-    {406,  406,  406,  406,  406,  406,  406,  406,  406,  406,  406,  467,  441,  466,  406,  406,  406,  406,  406,  406,  406,  406,  406,  406,  406},
-    {441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441,  441},
-    {460,  460,  460,  460,  460,  460,  460,  460,  460,  460,  460,  440,  441,  439,  460,  460,  460,  460,  460,  460,  460,  460,  460,  460,  460},
-    {89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91,  461,  441,  463,  89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118,  461,  441,  463,  116,  117,  117,  117,  117,  117,  117,  117,  117,  117,  118},
-    {143,  144,  144,  144,  144,  144,  144,  144,  144,  144,  145,  461,  441,  463,  143,  144,  144,  144,  144,  144,  144,  144,  144,  144,  145}
-  };
-  
-  map.generateBaseMap(baseMapTiles);
-  
-  int[][] overlayedMapTiles = {
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  0,  1,  1,  1,  1,  1,  1,  58,  58,  58,  4},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  29,  28,  28,  28,  34},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  29,  28,  28,  28,  34},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  29,  28,  28,  28,  34},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  32,  1,  1,  1,  29},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  28,  28,  28,  28,  29},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  28,  28,  28,  28,  29},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  27,  28,  28,  28,  28,  28,  28,  28,  28,  28,  29},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  54,  55,  55,  55,  55,  55,  55,  55,  55,  55,  56},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  89,  90,  90,  90,  90,  90,  90,  90,  90,  90,  91},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486}
-  };
-  
-  overlayedmap.generateBaseMap(overlayedMapTiles);
-  
-  int[][] collidableMapTiles = {
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  198,  198,  198,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  198,  198,  198,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  198,  198,  198,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  192,  486,  486,  486,  486,  486,  486,  486,  259,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  192,  486,  422,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  192,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486}
-  };
-  
-  collidemap.generateBaseMap(collidableMapTiles);
-  
-  int[][] topMapTiles = {
-   {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  165,  486,  486,  486,  486,  486,  486,  486,  232,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  165,  486,  395,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  165,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486},
-    {486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486,  486} 
-  };
-  
-  topmap.generateBaseMap(topMapTiles);
-  
-  TPlayerStand = new SpriteSheet(Arrays.copyOfRange(tiles, 23, 27), 500);
-
-  
-  //animationTimer = new Timer(500);
-  restartTimer = new Timer(5000);
-  
-  SSAirA = new SpriteSheet(spritesHm.get("AirA"), 500);
-  SSBeardA = new SpriteSheet(spritesHm.get("BeardA"), 500);
-  
-    size(1100,800);
-    
-  
-}
-
-void draw(){
-  background(0);
-  
-  
-  
-  if (GameState.currentState == GameStates.WALKING) {
-    map.update();
-    menu.update();
-    overlayedmap.update();
-    collidemap.update();
-    testPlayer.display();
-    topmap.update();
-
-
-  } else if (GameState.currentState == GameStates.COMBAT) {
-    
-    
-  } else if (GameState.currentState == GameStates.MENU) {
-    //map.draw();
-    testPlayer.display();
+  //load the moves.json file
+  JSONArray moveArray = loadJSONArray("moves.json");
+  for(int i=0; i<moveArray.size();i++){
+    JSONObject move = moveArray.getJSONObject(i);
+    movesDatabase.put(move.getString("name"),move);
   }
-  
-  
-  
+  //load the monsters.json file
+  JSONArray monsterArray = loadJSONArray("monsters.json");
+  for(int i=0; i<monsterArray.size();i++){
+    JSONObject monster = monsterArray.getJSONObject(i);
+    monsterDatabase.put(monster.getString("name"),monster);
+  }
+  //load the items.json file
+  JSONArray itemArray = loadJSONArray("items.json");
+  for (int i=0; i<itemArray.size();i++){
+    JSONObject item = itemArray.getJSONObject(i);
+    itemDatabase.put(item.getString("name"),item);
+  }
 
+  itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
+  itemsprites.put("Damage Potion",loadImage(itemPath+"/"+"PotionDamage.png"));
+  itemsprites.put("Armor Potion" ,loadImage(itemPath+"/"+"PotionArmor.png"));
+  itemsprites.put("Speed Potion" ,loadImage(itemPath+"/"+"PotionSpeed.png"));
+  itemsprites.put("Agility Potion",loadImage(itemPath+"/"+"PotionAgility.png"));
   
+  //initiatize misc variables
 
-  
+  testPlayer = new Player(createCharacterSprites(0),new ArrayList());
 
+  String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
+  testPlayer.summonMonsterStack(monsterids);
+  testPlayer.addItem("Health Potion");
+  currentmap.generateAllLayers();
+
+  //initialize misc menus
+  sandwich = new Button(10, 10, "toggle");
+  //values for main menu
+  mainmenu = new Menu(0, 0, 4, 30, 80, 5);
+  mainmenu.buttons.get(0).txt = "button1";
+  mainmenu.buttons.get(1).txt = "button2";
+  mainmenu.buttons.get(2).txt = "button3";
   
+  items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
+
+  //size of game window:
+  fullScreen();
 }
 
+ArrayList<Integer> dqueue = new ArrayList<Integer>();
 
+void draw() {
+  background(0);
+  //if in the walking state:
+  if (GameState.currentState == GameStates.WALKING) {
+    //update stuff - in order of layers, lowest first
+    currentmap.update();
+    testPlayer.display();
+    currentmap.toplayer.update(currentmap.collidelayer);
+    updateDrawables(sandwich);
+    updateClickables(sandwich);
+    for (GroundItem item : items){
+      item.display();
+      Integer col = item.colCheck(testPlayer);
+      if (col >= 0) dqueue.add(col);
 
-public void generateTileMapGuide(){
-  int i = 0;
-  for(int row = 0; row < 18; row++){
-    for(int col=0;col<27; col++){
-      image(tiles[i], col * 32 + col + 100, row * 32 + row+100, 32,32);
-      
-      textSize(16);
-      text(i,col * 32+col+100, row * 32 + 20+row+100);
-      i++;
+    }
+    for (Integer ind : dqueue){
+      items.remove(items.get(ind));
+    }
+
+    dqueue = new ArrayList<Integer>();
+    //keypress to go into menu - backup if button breaks
+    if (keyPressed == true && key == 'm') {
+      GameState.switchState(GameStates.MENU);
+      delay(naptime);
+    }
+  //if in the combat state:
+  } else if (GameState.currentState == GameStates.COMBAT) {
+    currentbattle.turn();
+  //if in the menu state:
+  } else if (GameState.currentState == GameStates.MENU) {
+    //draw stuff (not update; no movement)
+    currentmap.totalDraw();
+    //updating the menu
+    updateDrawables(sandwich);
+    updateClickables(sandwich);
+    updateDrawables(mainmenu);
+    updateClickables(mainmenu);
+    //for button clicks
+    //keypress to go into walking - backup if button breaks
+    if (keyPressed == true && key == 'm') {
+      GameState.switchState(GameStates.WALKING);
+      delay(naptime);
     }
   }
+}
+public JSONObject JSONCopy(JSONObject original){
+  JSONObject duplicate = new JSONObject();
+  String[] keys = new String[original.keys().size()];
+  Object[] temp = original.keys().toArray();
+  for(int i=0; i<keys.length; i++){
+    keys[i] = temp[i].toString();
+  }
+  
+  for(String keyi : keys){
+    if(original.get(keyi) instanceof Boolean){
+      duplicate.setBoolean(keyi, original.getBoolean(keyi));
+    }else if(original.get(keyi) instanceof String){
+      duplicate.setString(keyi, original.getString(keyi));
+    }else if(original.get(keyi) instanceof Integer){
+      duplicate.setInt(keyi, original.getInt(keyi));
+    }else if(original.get(keyi) instanceof Float){
+      duplicate.setFloat(keyi, original.getFloat(keyi));
+    }else if(original.get(keyi) instanceof Double){
+      duplicate.setDouble(keyi, original.getDouble(keyi));
+    }else if(original.get(keyi) instanceof JSONObject){
+      duplicate.setJSONObject(keyi, original.getJSONObject(keyi));
+    }else if(original.get(keyi) instanceof JSONArray){
+      duplicate.setJSONArray(keyi, original.getJSONArray(keyi));
+    }else{
+      System.out.printf("[JSONCopy] Warning! Did not copy key '%s' because it did not match type! Class: "+original.get(keyi).getClass(),keyi);
+      System.out.println(original.get(keyi));
+    }
+  }
+  return duplicate;
+}
+
+interface Clickable { // all clickable features should have this interface
+  abstract void onClick();          // what happens opon being clicked
+  abstract boolean isClickable();   // can this item be clicked at this time
+  abstract float[] getDimensions(); // [x,y,w,h]
+}
+void updateClickables(ArrayList<Clickable> clickables){
+  if (!mousePressed) return;
+  for (Clickable clickable : clickables){
+    updateClickables(clickable);
+  }
+}
+void updateClickables(Clickable clickable){
+  if (!mousePressed) return;
+  float[] dims = clickable.getDimensions();
+  if (clickable.isClickable() && (mouseX >= dims[0] && mouseX <= dims[0]+dims[2]) && (mouseY >= dims[1] && mouseY <= dims[1]+dims[3])) {
+    clickable.onClick();
+    delay(naptime);
+  }
+}
+
+interface Drawable {
+  abstract void draw(); // draw this feature
+}
+void updateDrawables(ArrayList<Drawable> drawables){
+  for (Drawable drawable : drawables){
+    updateDrawables(drawable);
+  }
+}
+void updateDrawables(Drawable drawable){
+  drawable.draw();
 }

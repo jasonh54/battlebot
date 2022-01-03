@@ -30,15 +30,9 @@ class Tile {
   
   }
   
+  //exactly what it says on the tin
   void printInfo() {
-    println(this.x + ", " + this.y);
-    println(this.collide);
   }
-  
-  /* void blankCheck() {
-    if (this.img = )
-  } */
-  
   
   //BASE MOVEMENT THINGS
   void moveUp() {
@@ -68,12 +62,9 @@ class Tile {
     //this.y = speedy;
   }
   
-  //checking if player is overlapping
+  //checking if player is overlapping w the given tile
   boolean checkOverlap(Player player) {
-    if (this.x == player.x && this.y == player.y) {
-      return true;
-    }
-    return false;
+    return this.x == player.x && this.y == player.y;
   }
   
   //draw with scales
