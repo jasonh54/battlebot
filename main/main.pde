@@ -1,3 +1,9 @@
+/* BUGS
+* opon use items are not removed from the menu
+* battlebot button coloring does not work
+* many println debugs still in use
+*/
+
 //imports
 import java.util.*;
 import java.io.File;
@@ -23,22 +29,14 @@ HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 
 //menu variables
 Menu mainmenu;
-Menu battlemenu;
-
-Menu movemenu;
-Menu botmenu;
-Menu itemmenu;
 
 //misc variables
 Button sandwich;
 
 static Battle currentbattle;
 
-
 //layers/map stuff
 Maps currentmap = new Maps();
-
-
 
 //misc variables
 static Player testPlayer; //the player
@@ -89,7 +87,6 @@ void setup(){
       }
     }
   }
-  
   for(int i = 0; i < tilesList.length; i++){
     tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
   }
@@ -128,59 +125,17 @@ void setup(){
   testPlayer.addItem("Health Potion");
   currentmap.generateAllLayers();
 
-  //initialize all menus
-  mainmenu = new Menu(0, 0, 4, 30, 80, 5);
-  battlemenu = new Menu(625, 520, 5, 50, 400, 2);
-  movemenu = new Menu(625, 520, 4, 50, 400, 2);
-  botmenu = new Menu(625, 520, testPlayer.monsters.size(), 50, 400, 2);
-  itemmenu = new Menu(625, 520, 5, 50, 200, 2);
+  //initialize misc menus
   sandwich = new Button(10, 10, "toggle");
-  
   //values for main menu
+  mainmenu = new Menu(0, 0, 4, 30, 80, 5);
   mainmenu.buttons.get(0).txt = "button1";
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
   
-  //values for battle menu
-  itemmenu.assembleMenuColumn();
-  battlemenu.buttons.get(0).txt = "move";
-  battlemenu.buttons.get(1).txt = "item";
-  battlemenu.buttons.get(2).txt = "battlebots";
-  battlemenu.buttons.get(3).txt = "run";
-  
-  //the following code is redundant w/ code below it - test to figure out which group works
-  /*for (int i = 0; i < battlemenu.menulength; i++) {
-    battlemenu.buttons.get(i).func = battlemenu.buttons.get(i).txt;
-  }*/
-  
-  battlemenu.assembleMenuColumn();
-  battlemenu.buttons.get(0).func = "fight";
-  battlemenu.buttons.get(1).func = "item";
-  battlemenu.buttons.get(2).func = "bot";
-  battlemenu.buttons.get(3).func = "run";
-  
-  //values for botmenu
-  botmenu.assembleMenuColumn();
-  for (int i = 0; i < botmenu.menulength; i++) {
-    botmenu.buttons.get(i).txt = testPlayer.monsters.get(i).id;
-    botmenu.buttons.get(i).func = "botswap";
-  }
-  
-  //values for move menu - no txt as it is custom to the current battle
-  movemenu.assembleMenuColumn();
-  movemenu.buttons.get(0).func = "callmove0";
-  movemenu.buttons.get(1).func = "callmove1";
-  movemenu.buttons.get(2).func = "callmove2";
-  movemenu.buttons.get(3).func = "callmove3";
-
-
   items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
   items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
 
-
-  //misc stuff??
-  //restartTimer = new Timer(5000);
-  
   //size of game window:
   fullScreen();
 }
@@ -195,7 +150,8 @@ void draw() {
     currentmap.update();
     testPlayer.display();
     currentmap.toplayer.update(currentmap.collidelayer);
-    sandwich.drawSandwich();
+    updateDrawables(sandwich);
+    updateClickables(sandwich);
     for (GroundItem item : items){
       item.display();
       Integer col = item.colCheck(testPlayer);
@@ -207,103 +163,28 @@ void draw() {
     }
 
     dqueue = new ArrayList<Integer>();
- 
-    //check if menu is opened
-    checkMouse(sandwich);
     //keypress to go into menu - backup if button breaks
     if (keyPressed == true && key == 'm') {
-      ButtonFunction.switchState(GameStates.MENU);
+      GameState.switchState(GameStates.MENU);
       delay(naptime);
     }
   //if in the combat state:
   } else if (GameState.currentState == GameStates.COMBAT) {
-
     currentbattle.turn();
-
   //if in the menu state:
   } else if (GameState.currentState == GameStates.MENU) {
     //draw stuff (not update; no movement)
     currentmap.totalDraw();
-    sandwich.drawSandwich();
     //updating the menu
-    mainmenu.update();
+    updateDrawables(sandwich);
+    updateClickables(sandwich);
+    updateDrawables(mainmenu);
+    updateClickables(mainmenu);
     //for button clicks
-    checkMouse(mainmenu);
-    checkMouse(sandwich);
     //keypress to go into walking - backup if button breaks
     if (keyPressed == true && key == 'm') {
-      ButtonFunction.switchState(GameStates.WALKING);
+      GameState.switchState(GameStates.WALKING);
       delay(naptime);
-    }
-  }
-  
-  ///* -- test display code -- remove in the future 
-  /*if(SSAirA.animationTimer.countDownUntil(SSAirA.stoploop)){
-      
-      SSAirA.changeSaE(3,5);
-      System.out.println("loopstart: " + SSAirA.loopstart + ", loopend: " + SSAirA.loopend);
-      SSAirA.changeDisplay(true);   
-      //SSAirA.changeDisplay();
-  }
-  
-  SSAirA.display(80,80);
-  
-  if(SSAirA.stoploop){
-    SSAirA.restart();
-    System.out.println("restarted");
-  }
-  
-  testPlayer.display(); */  
-
-  //System.out.println(map.framecounter);
-  
-  //testPlayer.display();
-
-}
-
-//mouseClicked functions for menus and singular buttons each
-void checkMouse(Menu menu) {
-  //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
-  if (mousePressed) {
-    //iterate through every button in the menu
-    for (int i = 0; i < menu.buttons.size(); i++) {
-      Button current = menu.buttons.get(i);
-      //if mouse is touching  a button
-      if (mouseX >= current.x && mouseX <= current.x + current.w) {
-        if (mouseY >= current.y && mouseY <= current.y + current.h) {
-          //next line is only used when the botswap function is called
-          //although it is set with every buttonclick
-          testPlayer.swapto = current.txt;
-          current.onClick();
-          delay(naptime);
-        }
-      }
-    }
-  }
-}
-
-void checkMouse(Button current) {
-  //check if mouse is clicked; mouseClicked func is weird so we're doing this instead
-  if (mousePressed) {
-    if (mouseX >= current.x && mouseX <= current.x + current.w) {
-      if (mouseY >= current.y && mouseY <= current.y + (5 * current.h)) {
-        current.onClick();
-        delay(naptime);
-      }
-    }
-  }
-}
-
-//draw the tile guide(not ever used - delete?)
-public void generateTileLayerGuide(){
-  int i = 0;
-  for(int row = 0; row < 18; row++){
-    for(int col=0;col<27; col++){
-      image(tiles[i], col * 32 + col + 100, row * 32 + row+100, 32,32);
-      
-      textSize(16);
-      text(i,col * 32+col+100, row * 32 + 20+row+100);
-      i++;
     }
   }
 }
@@ -336,4 +217,36 @@ public JSONObject JSONCopy(JSONObject original){
     }
   }
   return duplicate;
+}
+
+interface Clickable { // all clickable features should have this interface
+  abstract void onClick();          // what happens opon being clicked
+  abstract boolean isClickable();   // can this item be clicked at this time
+  abstract float[] getDimensions(); // [x,y,w,h]
+}
+void updateClickables(ArrayList<Clickable> clickables){
+  if (!mousePressed) return;
+  for (Clickable clickable : clickables){
+    updateClickables(clickable);
+  }
+}
+void updateClickables(Clickable clickable){
+  if (!mousePressed) return;
+  float[] dims = clickable.getDimensions();
+  if (clickable.isClickable() && (mouseX >= dims[0] && mouseX <= dims[0]+dims[2]) && (mouseY >= dims[1] && mouseY <= dims[1]+dims[3])) {
+    clickable.onClick();
+    delay(naptime);
+  }
+}
+
+interface Drawable {
+  abstract void draw(); // draw this feature
+}
+void updateDrawables(ArrayList<Drawable> drawables){
+  for (Drawable drawable : drawables){
+    updateDrawables(drawable);
+  }
+}
+void updateDrawables(Drawable drawable){
+  drawable.draw();
 }
