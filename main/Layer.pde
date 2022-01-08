@@ -174,10 +174,13 @@ class Layer {
         //unlocks movement and resets counter so a new movement can begin
         lock = false;
         framecounter = 0;
+        int checkit;
+        checkit = checkOverlap(portalTiles, testPlayer, "portal underfoot");
         //checking special tile-related conditions and activating events if they are met
-        if (checkOverlap(portalTiles, testPlayer, "portal underfoot") >= 0) {
+        if (checkit >= 0) {
           //have a variable save portalTiles.get(overlapint);
-          //figure out what layer is associated with that tile and generate it
+          currentmap = portalPairs.get(portalTiles.get(checkit));
+          //figure out what map is associated with that tile and generate it
         }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
           Random r = new Random();
@@ -265,6 +268,7 @@ class Layer {
       if (array.get(i).checkOverlap(player) == true) {
         //returns the index if true, returns -1 if false
         overlapint = i;
+        print("stepped on " + text);
         return overlapint;
       }
     }
