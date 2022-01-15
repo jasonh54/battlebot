@@ -1,9 +1,3 @@
-/* BUGS
-* opon use items are not removed from the menu
-* battlebot button coloring does not work
-* many println debugs still in use
-*/
-
 //imports
 import java.util.*;
 import java.io.File;
@@ -212,8 +206,7 @@ public JSONObject JSONCopy(JSONObject original){
     }else if(original.get(keyi) instanceof JSONArray){
       duplicate.setJSONArray(keyi, original.getJSONArray(keyi));
     }else{
-      System.out.printf("[JSONCopy] Warning! Did not copy key '%s' because it did not match type! Class: "+original.get(keyi).getClass(),keyi);
-      System.out.println(original.get(keyi));
+      warn("Did not copy key '"+original.get(keyi).getClass()+"' because it did not match type! Class: "+keyi+"\n"+original.get(keyi));
     }
   }
   return duplicate;
@@ -249,4 +242,8 @@ void updateDrawables(ArrayList<Drawable> drawables){
 }
 void updateDrawables(Drawable drawable){
   drawable.draw();
+}
+
+void warn(String message) {
+  println("!WARNING! "+message);
 }
