@@ -50,7 +50,7 @@ class Battle {
   private void init(){ // fill all menus with default values
     this.menus = new HashMap<BattleStates,Menu>();
   
-    Menu battlemenu = new Menu(625, 520, 4, 45, 400, 2); //values for battle menu
+    Menu battlemenu = new Menu(625, 520, 4, 50, 400, 2); //values for battle menu
     battlemenu.buttons.get(0).txt = "move";
     battlemenu.buttons.get(0).func = "fight";
     battlemenu.buttons.get(1).txt = "item";
@@ -140,11 +140,22 @@ class Battle {
       break;
       case ITEM:
         displayMonsters();
-        //will produce a menu of what items you have
+        //will produce a menu of what items you have, should be reoptimized
+        Menu itemmenu = this.menus.get(BattleStates.ITEM);
         Object[] itemsKeys = this.player1.items.keySet().toArray();
-        for (int i = 0; i < this.player1.items.size(); i++) {
-          String itemi = (String)itemsKeys[i];
-          this.menus.get(BattleStates.ITEM).buttons.get(i+1).txt = itemi+" x "+this.player1.items.get(itemi);
+        
+        Iterator<Button> itemz = itemmenu.buttons.iterator();
+        int i = -1;
+        while (itemz.hasNext()){
+          Button next = itemz.next();
+          i++;
+          if (i == 0) continue; // skip the first one
+          if (i <= itemsKeys.length) { // offset the skip
+            String itemi = (String)itemsKeys[i-1];
+            next.txt = itemi+" x "+this.player1.items.get(itemi);
+          } else {
+            itemz.remove();
+          }
         }
       break;
       case BATTLEBOT:
@@ -187,7 +198,6 @@ class Battle {
         GameState.currentState = GameStates.WALKING;
       break;
       case WIN:
-        println("You won!");
         GameState.currentState = GameStates.WALKING;
       break;
     }
@@ -242,6 +252,7 @@ class Battle {
   private void checkDead(Monster m1, Monster m2){   
     if (m1.stats.getFloat("chealth")<=0){ // is our current monster dead?
       for (int i = 0; i < this.player1.monsters.size(); i++){ // iterate thru available monsters
+        println("Checking monster: "+i);
         if (this.player1.monsters.get(i).stats.getFloat("chealth")>0){ // find monster with enough health
           this.player1.selectedmonster = i; // swap to that monster
           break;
