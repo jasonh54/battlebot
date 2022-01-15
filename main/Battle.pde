@@ -50,7 +50,7 @@ class Battle {
   private void init(){ // fill all menus with default values
     this.menus = new HashMap<BattleStates,Menu>();
   
-    Menu battlemenu = new Menu(625, 520, 4, 50, 400, 2); //values for battle menu
+    Menu battlemenu = new Menu(625, 520, 4, 40, 400, 2); //values for battle menu
     battlemenu.buttons.get(0).txt = "move";
     battlemenu.buttons.get(0).func = "fight";
     battlemenu.buttons.get(1).txt = "item";
@@ -61,7 +61,7 @@ class Battle {
     battlemenu.buttons.get(3).func = "run";
     this.menus.put(BattleStates.OPTIONS,battlemenu);
     
-    Menu movemenu = new Menu(625, 520, 5, 30, 400, 2); //values for move menu - no txt as it is custom to the current battle
+    Menu movemenu = new Menu(625, 520, 5, 40, 400, 2); //values for move menu - no txt as it is custom to the current battle
     movemenu.buttons.get(0).txt = "Return to Menu";
     movemenu.buttons.get(0).func = "return";
     movemenu.buttons.get(1).func = "callmove0";

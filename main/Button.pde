@@ -8,6 +8,7 @@ class Button implements Clickable,Drawable {
   String func;
   String buttontype;
   Menu mymenu;
+  Monster monster;
   
   //menu button
   public Button(Menu m, float x, float y, float h, float w, String f) { //this, this.x + 50, tempy, buttonh, buttonw, "0"
@@ -30,6 +31,7 @@ class Button implements Clickable,Drawable {
   }
   
   void draw() {
+    fill(255,255,255);
     switch (this.buttontype) {
       case "sandwich":
         rect(this.x, this.y, this.w, this.h);
@@ -37,30 +39,30 @@ class Button implements Clickable,Drawable {
         rect(this.x, this.y + (this.h * 4), this.w, this.h);
       break;
       default:
-        int[] fillc = {255,255,255};
         if (this.func == "botswap"){ // makeshift solution that doesnt work for duplicate monsters. needs fix.
-          for (int i = 0;i<testPlayer.monsters.size();i++){
-            Monster monster = testPlayer.monsters.get(i);
-            if (monster.id != this.txt) continue;
-            //println("Found valid monster for this button: "+monster.id);
-            if (monster.stats.getFloat("chealth")<=0.0) {
-              println("Greying out: "+monster.stats.getString("name"));
-              fillc[0]=120;fillc[1]=120;fillc[2]=120;
+          if (this.monster == null) {
+            for (int i = 0;i<testPlayer.monsters.size();i++){
+              Monster monster = testPlayer.monsters.get(i);
+              if (monster.id != this.txt) continue;
+              this.monster = monster;
               break;
-            }else if (testPlayer.selectedmonster==i){
-              fillc[0]=150;fillc[1]=230;fillc[2]=150;
-              break;
-            }else{
-              //println("Did not find special format for "+monster.stats.getString("name"));
             }
           }
+          
+          if (testPlayer.getSelectedMonster()==this.monster){
+            fill(150,230,150);
+          }
         }
-        fill(fillc[0],fillc[1],fillc[2]);
         rect(this.x, this.y, this.w, this.h);
         fill(0, 0, 0);
-    
-        if (this.txt != null) {
-          text(this.txt, this.x + mymenu.buttonw/4, this.y + mymenu.buttonh/2);
+        if (this.txt != null) {text(this.txt, this.x + mymenu.buttonw/4, this.y + mymenu.buttonh/2);}
+        
+        if (this.func == "botswap") {
+          color(0,0,200);
+          fill(158,0,0);
+          rect(this.x+this.w/2.5,this.y+(this.h*0.6)-this.h/4,this.w/2.5,this.h/4);
+          fill(0,158,0);
+          rect(this.x+this.w/2.5,this.y+(this.h*0.6)-this.h/4,(this.monster.stats.getFloat("chealth")/this.monster.stats.getFloat("maxhealth"))*(this.w/2.5),this.h/4);
         }
         fill(256, 256, 256);
       break;

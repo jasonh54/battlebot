@@ -139,49 +139,49 @@ ArrayList<Integer> dqueue = new ArrayList<Integer>();
 void draw() {
   background(0);
   //if in the walking state:
-  if (GameState.currentState == GameStates.WALKING) {
-    //update stuff - in order of layers, lowest first
-    currentmap.update();
-    testPlayer.display();
-    currentmap.toplayer.update(currentmap.collidelayer);
-    updateDrawables(sandwich);
-    updateClickables(sandwich);
-    for (GroundItem item : items){
-      item.display();
-      Integer col = item.colCheck(testPlayer);
-      if (col >= 0) dqueue.add(col);
-
-    }
-    for (Integer ind : dqueue){
-      items.remove(items.get(ind));
-    }
-
-    dqueue = new ArrayList<Integer>();
-    //keypress to go into menu - backup if button breaks
-    if (keyPressed == true && key == 'm') {
-      GameState.switchState(GameStates.MENU);
-      delay(naptime);
-    }
-  //if in the combat state:
-  } else if (GameState.currentState == GameStates.COMBAT) {
-    currentbattle.turn();
-  //if in the menu state:
-  } else if (GameState.currentState == GameStates.MENU) {
-    //draw stuff (not update; no movement)
-    currentmap.totalDraw();
-    //updating the menu
-    updateDrawables(sandwich);
-    updateClickables(sandwich);
-    updateDrawables(mainmenu);
-    updateClickables(mainmenu);
-    //for button clicks
-    //keypress to go into walking - backup if button breaks
-    if (keyPressed == true && key == 'm') {
-      GameState.switchState(GameStates.WALKING);
-      delay(naptime);
-    }
+  switch (GameState.currentState) {
+    case WALKING:
+      currentmap.update();
+      testPlayer.display();
+      currentmap.toplayer.update(currentmap.collidelayer);
+      updateDrawables(sandwich);
+      updateClickables(sandwich);
+      for (GroundItem item : items){
+        item.display();
+        Integer col = item.colCheck(testPlayer);
+        if (col >= 0) dqueue.add(col);
+      }
+      for (Integer ind : dqueue){
+        items.remove(items.get(ind));
+      }
+      dqueue = new ArrayList<Integer>();
+      //keypress to go into menu - backup if button breaks
+      if (keyPressed == true && key == 'm') {
+        GameState.switchState(GameStates.MENU);
+        delay(naptime);
+      }
+    break;
+    case COMBAT:
+      currentbattle.turn();
+    break;
+    case MENU:
+      //draw stuff (not update; no movement)
+      currentmap.totalDraw();
+      //updating the menu
+      updateDrawables(sandwich);
+      updateClickables(sandwich);
+      updateDrawables(mainmenu);
+      updateClickables(mainmenu);
+      //for button clicks
+      //keypress to go into walking - backup if button breaks
+      if (keyPressed == true && key == 'm') {
+        GameState.switchState(GameStates.WALKING);
+        delay(naptime);
+      }
+    break;
   }
 }
+
 public JSONObject JSONCopy(JSONObject original){
   JSONObject duplicate = new JSONObject();
   String[] keys = new String[original.keys().size()];
@@ -223,7 +223,7 @@ void updateClickables(ArrayList<Clickable> clickables){
     updateClickables(clickable);
   }
 }
-void updateClickables(Clickable clickable){
+void updateClickables(Clickable clickable) {
   if (!mousePressed) return;
   float[] dims = clickable.getDimensions();
   if (clickable.isClickable() && (mouseX >= dims[0] && mouseX <= dims[0]+dims[2]) && (mouseY >= dims[1] && mouseY <= dims[1]+dims[3])) {
@@ -243,7 +243,6 @@ void updateDrawables(ArrayList<Drawable> drawables){
 void updateDrawables(Drawable drawable){
   drawable.draw();
 }
-
 void warn(String message) {
   println("!WARNING! "+message);
 }

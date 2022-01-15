@@ -108,28 +108,21 @@ class Layer {
   //functions that save the archetypical tiles to their respective special arrays
   //these arrays are used later when checking if the player is near/touching a type of tile
   void loadCollide(Tile tile) {
-    if (tile.collide == true) {
-      collidableTiles.add(tile);
-    }
+    if (tile.collide) {collidableTiles.add(tile);}
   }
   
   void loadPortal(Tile tile) {
-    if (tile.portal == true) {
-      portalTiles.add(tile);
-    }
+    if (tile.portal) {portalTiles.add(tile);}
   }
   
   void loadGrass(Tile tile) {
-    if (tile.grass == true) {
-      grassTiles.add(tile);
-    }
+    if (tile.grass) {grassTiles.add(tile);}
   }
 
   //update loop
   void update(OverlayLayer collidelayer) {
     this.draw();
     this.fullMovement(collidelayer);
-    
   }
 
   //BASE MOVEMENT THINGS
@@ -155,18 +148,23 @@ class Layer {
     }
     
     //if movement is occurring at the moment
-    if (lock == true) {
+    if (lock) {
       //increases framecounter so this can only occur a certain number of times
       framecounter++;
       //calling movement funcs for tiles
-      if (getCurrentKey() == 'w') {
-        moveUp();
-      } else if (getCurrentKey() == 's') {
-        moveDown();
-      } else if (getCurrentKey() == 'a') {
-        moveLeft();
-      } else if (getCurrentKey() == 'd') {
-        moveRight();
+      switch (getCurrentKey()) {
+        case 'w':
+          moveUp();
+        break;
+        case 's':
+          moveDown();
+        break;
+        case 'a':
+          moveLeft();
+        break;
+        case 'd':
+          moveRight();
+        break;
       }
       
       //when movement is finished
