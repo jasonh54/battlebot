@@ -117,7 +117,6 @@ class Button implements Clickable,Drawable {
             return;
           }
         }
-        warn("Botswap did not find a valid monster to switch to! [For "+this.txt+"]");
       break;
       default:
         if (this.func.startsWith("callmove")){ // execute a move in the battle

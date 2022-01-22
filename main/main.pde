@@ -114,7 +114,7 @@ void setup(){
 
   testPlayer = new Player(createCharacterSprites(0),new ArrayList());
 
-  String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
+  String[] monsterids = new String[]{"AirA", "Goku", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
   currentmap.generateAllLayers();

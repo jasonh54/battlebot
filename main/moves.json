@@ -1,5 +1,15 @@
 [
 	{
+		"name": "kamehameha",
+		"movetype": "attack",
+		"type": "fire",
+		"accuracy": 100,
+		"health": -9001,
+		"attack": 1.5,
+		"defense": 0.0,
+		"speed": 1,
+		"agility": 1
+	},{
 		"name": "attack1",
 		"movetype": "attack",
 		"type": "fire",
