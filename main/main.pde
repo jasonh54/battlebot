@@ -135,8 +135,11 @@ void setup(){
   testPlayer.addItem("Health Potion");
   citymap.generateAllLayers(currentmap.collidableLayerTiles,currentmap.portalLayerTiles,currentmap.baseLayerTiles,currentmap.coverLayerTiles,currentmap.topLayerTiles);
   citymap.pairPortal(fieldmap);
+  //dont uncomment until fieldmap has actual stuff and not just empty layers
   fieldmap.generateAllLayers(currentmap.ct,currentmap.pt,currentmap.bt,currentmap.cvt,currentmap.tt);
   fieldmap.pairPortal(citymap);
+  
+  currentmap = citymap;
   
   //initialize all menus
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);

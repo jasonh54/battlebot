@@ -6,6 +6,7 @@ class Layer {
   int speedy;
   int colsize;
   int rowsize;
+  Maps parent;
 
   //variables for the movement
   final int tileh = 16;
@@ -51,7 +52,9 @@ class Layer {
     //prepping the tile array for use
     this.tileArray = tileArray;
     colsize = tileArray.length;
+    println(colsize);
     rowsize = tileArray[0].length;
+    println(rowsize);
     //layerTiles logs all tiles in the layer as a 2d array
     layerTiles = new Tile[colsize][rowsize];
     //navigating the rows
@@ -179,7 +182,7 @@ class Layer {
         //checking special tile-related conditions and activating events if they are met
         if (checkit >= 0) {
           //have a variable save portalTiles.get(overlapint);
-          currentmap = portalPairs.get(portalTiles.get(checkit));
+          currentmap = parent.portalPairs.get(portalTiles.get(checkit));
           //figure out what map is associated with that tile and generate it
         }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
