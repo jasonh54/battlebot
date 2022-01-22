@@ -94,25 +94,30 @@ class Player{
       monsters.add(m);
   }
   
-
   public Monster getSelectedMonster() {
     return this.monsters.get(this.selectedmonster);
   }
   
-  public void display(){
-    //image(sprites[0], 400,400, h * scale, w * scale);
-    
-    if(keyPressed == true){
-      if (key == 'w') {
-        direction= PlayerMovementStates.MOVEUP;
-      } else if (key == 's') {
-        direction= PlayerMovementStates.MOVEDOWN;
-      } else if (key == 'a') {
-        direction= PlayerMovementStates.MOVELEFT;
-      } else if (key == 'd') {
-        direction= PlayerMovementStates.MOVERIGHT;
-      }
+  private void update() {
+    if(!keyPressed) return;
+    switch (key) {
+      case 'w':
+        this.direction= PlayerMovementStates.MOVEUP;
+      break;
+      case 's':
+        this.direction= PlayerMovementStates.MOVEDOWN;
+      break;
+      case 'a':
+        this.direction= PlayerMovementStates.MOVELEFT;
+      break;
+      case 'd':
+        this.direction= PlayerMovementStates.MOVERIGHT;
+      break;
     }
+  }
+  
+  public void display(){
+    this.update();
     
     //if(animations.stoploop){
     //  animations.softReset();
@@ -122,33 +127,29 @@ class Player{
     
     switch(direction){
       case MOVEUP:
-        //animations.checkCase(6);
         moveUp();
-        break;
+      break;
       case MOVEDOWN:
-        //animations.checkCase(3);
         moveDown();
-        break;
+      break;
       case MOVELEFT:
-        //animations.checkCase(0);
         moveLeft();
-        break;
+      break;
       case MOVERIGHT:
-        //animations.checkCase(9);
         moveRight();
-        break;
+      break;
       case UP:
         animations.play("lookUp");
-        break;
+      break;
       case DOWN:
         animations.play("lookDown");
-        break;
+      break;
       case LEFT:
         animations.play("lookLeft");
-        break;
+      break;
       case RIGHT:
         animations.play("lookRight");
-        break;
+      break;
       default:
         //if(animations.animationTimer.countDownOnce()){
         //  animations.increment = animations.loopstart;

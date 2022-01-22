@@ -8,20 +8,14 @@ class Menu implements Clickable,Drawable {
   ArrayList<Button> buttons = new ArrayList<Button>();
   
   //constructor
-  public Menu(float x, float y, int menulength, int bh, int bw, int th) {
+  public Menu(float x, float y, int menulength, int bh, int bw, int s) {
     this.x = x;
     this.y = y;
     this.buttonh = bh;
     this.buttonw = bw;
-    this.spacing = th;
-    float temph = 0;
-    float tempy = this.y + buttonh + temph;
+    this.spacing = s;
     for (int i = 0; i < menulength; i++) {
-      //height and width are arbitrary until we have real sprites
-      Button current = new Button(this, x + 50, tempy, bh, bw, "0");
-      temph = temph + current.h + spacing;
-      tempy = this.y + buttonh + temph;
-      buttons.add(current);
+      buttons.add(new Button(this, x, y+((bh+s)*i), bh, bw, "0"));
     }
   }
   

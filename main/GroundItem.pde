@@ -15,6 +15,7 @@ class GroundItem {
   void display(){
     image(this.sprite,this.parent.x,this.parent.y,this.sprite.width * this.scale, this.sprite.height * this.scale);
   }
+  
   int colCheck(Player player){
     if (this.parent.checkOverlap(player)){
       player.addItem(this.id);
