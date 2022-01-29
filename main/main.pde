@@ -31,6 +31,13 @@ static Battle currentbattle;
 
 //layers/map stuff
 Maps currentmap = new Maps();
+//One existing map which is manipulated/used by the code, currentmap
+//Many other defined maps w/ specific layers which exist solely in a JSON file
+//When map is changed in the overworld, set currentmap equal to one of the other preexisting maps itself - all layers and other data will carry over
+//'citymap' being used as a test version of a theoretical JSON map
+Maps citymap = new Maps();
+Maps fieldmap = new Maps();
+
 
 //misc variables
 static Player testPlayer; //the player
@@ -117,9 +124,26 @@ void setup(){
   String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
+<<<<<<< HEAD
   currentmap.generateAllLayers();
 
   //initialize misc menus
+=======
+  citymap.generateAllLayers(currentmap.collidableLayerTiles,currentmap.portalLayerTiles,currentmap.baseLayerTiles,currentmap.coverLayerTiles,currentmap.topLayerTiles);
+  citymap.pairPortal(fieldmap);
+  //dont uncomment until fieldmap has actual stuff and not just empty layers
+  fieldmap.generateAllLayers(currentmap.ct,currentmap.pt,currentmap.bt,currentmap.cvt,currentmap.tt);
+  fieldmap.pairPortal(citymap);
+  
+  currentmap = citymap;
+  
+  //initialize all menus
+  mainmenu = new Menu(0, 0, 4, 30, 80, 5);
+  battlemenu = new Menu(625, 520, 5, 50, 400, 2);
+  movemenu = new Menu(625, 520, 4, 50, 400, 2);
+  botmenu = new Menu(625, 520, testPlayer.monsters.size(), 50, 400, 2);
+  itemmenu = new Menu(625, 520, 5, 50, 200, 2);
+>>>>>>> f1254908ec236dbe910e77216e0138845adac6e3
   sandwich = new Button(10, 10, "toggle");
   //values for main menu
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
