@@ -18,7 +18,7 @@ HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hash
 PImage[] tiles;
 
 //item stuff
-ArrayList<GroundItem> items = new ArrayList<GroundItem>();
+ArrayList<GroundItem> dqueue = new ArrayList<GroundItem>();
 HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 
 //menu variables
@@ -127,14 +127,13 @@ void setup(){
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
   
-  items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
-  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
+  currentmap.addItem(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  currentmap.addItem(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
 
   //size of game window:
   fullScreen();
 }
 
-ArrayList<Integer> dqueue = new ArrayList<Integer>();
 
 void draw() {
   background(0);
@@ -146,15 +145,10 @@ void draw() {
       currentmap.toplayer.update(currentmap.collidelayer);
       updateDrawables(sandwich);
       updateClickables(sandwich);
-      for (GroundItem item : items){
-        item.display();
-        Integer col = item.colCheck(testPlayer);
-        if (col >= 0) dqueue.add(col);
+      
+      for (GroundItem gi : dqueue) {
+        currentmap.removeItem(gi);
       }
-      for (Integer ind : dqueue){
-        items.remove(items.get(ind));
-      }
-      dqueue = new ArrayList<Integer>();
       //keypress to go into menu - backup if button breaks
       if (keyPressed == true && key == 'm') {
         GameState.switchState(GameStates.MENU);

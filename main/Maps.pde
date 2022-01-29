@@ -5,6 +5,8 @@ class Maps {
   Layer coverlayer = new Layer();
   Layer toplayer = new Layer();
   
+  private ArrayList<GroundItem> items = new ArrayList<GroundItem>();
+  
   //create tilesets for each layer
   //lowest layer - ground tiles with no blankspace
   int[][] baseLayerTiles = {
@@ -127,6 +129,13 @@ class Maps {
     
   }
   
+  public void addItem(GroundItem gi) {
+    this.items.add(gi);
+  }
+  public void removeItem(GroundItem gi) {
+    this.items.remove(gi);
+  }
+  
   void generateAllLayers() {
     collidelayer.generateBaseLayer(collidableLayerTiles);
     baselayer.generateBaseLayer(baseLayerTiles);
@@ -139,6 +148,10 @@ class Maps {
     baselayer.update(collidelayer);
     coverlayer.update(collidelayer);
     collidelayer.update();
+    for (GroundItem i : this.items) {
+      i.update(testPlayer);
+      i.draw();
+    }
   }
   
   void updateAll() {
@@ -153,5 +166,8 @@ class Maps {
     coverlayer.draw();
     collidelayer.draw();
     toplayer.draw();
+    for (GroundItem i : this.items) {
+      i.draw();
+    }
   }
 }
