@@ -6,6 +6,7 @@ class Layer {
   int speedy;
   int colsize;
   int rowsize;
+  Maps parent;
 
   //variables for the movement
   final int tileh = 16;
@@ -33,8 +34,8 @@ class Layer {
   
   void draw() {
     //loops through all tiles and draws, skipping transparent tiles because lag
-    for (int i = 0; i < colsize; i++) {
-      for (int k = 0; k < rowsize; k++) {
+    for (int i = 0; i < rowsize; i++) {
+      for (int k = 0; k < colsize; k++) {
         if(tileArray[i][k] != 486){
           layerTiles[i][k].draw();
         }  
@@ -50,10 +51,10 @@ class Layer {
   void generateBaseLayer(int[][] tileArray) {
     //prepping the tile array for use
     this.tileArray = tileArray;
-    colsize = tileArray.length;
-    rowsize = tileArray[0].length;
+    rowsize = tileArray.length;
+    colsize = tileArray[0].length;
     //layerTiles logs all tiles in the layer as a 2d array
-    layerTiles = new Tile[colsize][rowsize];
+    layerTiles = new Tile[rowsize][colsize];
     //navigating the rows
     for (int row = 0; row < rowsize; row++) {
       //navigating the columns
@@ -108,28 +109,21 @@ class Layer {
   //functions that save the archetypical tiles to their respective special arrays
   //these arrays are used later when checking if the player is near/touching a type of tile
   void loadCollide(Tile tile) {
-    if (tile.collide == true) {
-      collidableTiles.add(tile);
-    }
+    if (tile.collide) {collidableTiles.add(tile);}
   }
   
   void loadPortal(Tile tile) {
-    if (tile.portal == true) {
-      portalTiles.add(tile);
-    }
+    if (tile.portal) {portalTiles.add(tile);}
   }
   
   void loadGrass(Tile tile) {
-    if (tile.grass == true) {
-      grassTiles.add(tile);
-    }
+    if (tile.grass) {grassTiles.add(tile);}
   }
 
   //update loop
   void update(OverlayLayer collidelayer) {
     this.draw();
     this.fullMovement(collidelayer);
-    
   }
 
   //BASE MOVEMENT THINGS
@@ -155,18 +149,23 @@ class Layer {
     }
     
     //if movement is occurring at the moment
-    if (lock == true) {
+    if (lock) {
       //increases framecounter so this can only occur a certain number of times
       framecounter++;
       //calling movement funcs for tiles
-      if (getCurrentKey() == 'w') {
-        moveUp();
-      } else if (getCurrentKey() == 's') {
-        moveDown();
-      } else if (getCurrentKey() == 'a') {
-        moveLeft();
-      } else if (getCurrentKey() == 'd') {
-        moveRight();
+      switch (getCurrentKey()) {
+        case 'w':
+          moveUp();
+        break;
+        case 's':
+          moveDown();
+        break;
+        case 'a':
+          moveLeft();
+        break;
+        case 'd':
+          moveRight();
+        break;
       }
       
       //when movement is finished
@@ -174,10 +173,13 @@ class Layer {
         //unlocks movement and resets counter so a new movement can begin
         lock = false;
         framecounter = 0;
+        int checkit;
+        checkit = checkOverlap(portalTiles, testPlayer, "portal underfoot");
         //checking special tile-related conditions and activating events if they are met
-        if (checkOverlap(portalTiles, testPlayer, "portal underfoot") >= 0) {
+        if (checkit >= 0) {
           //have a variable save portalTiles.get(overlapint);
-          //figure out what layer is associated with that tile and generate it
+          currentmap = parent.portalPairs.get(portalTiles.get(checkit));
+          //figure out what map is associated with that tile and generate it
         }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
           Random r = new Random();
@@ -265,6 +267,7 @@ class Layer {
       if (array.get(i).checkOverlap(player) == true) {
         //returns the index if true, returns -1 if false
         overlapint = i;
+        print("stepped on " + text);
         return overlapint;
       }
     }

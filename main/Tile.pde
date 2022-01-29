@@ -70,6 +70,6 @@ class Tile {
   //draw with scales
   void draw() {
     image(this.img, this.x, this.y, this.img.width * this.scale, this.img.height * this.scale);
+    
   }
-  
 }

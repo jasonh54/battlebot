@@ -1,9 +1,9 @@
 class GroundItem {
   //variables
-  String id;
-  Tile parent;
-  PImage sprite;
-  int scale;
+  protected String id;
+  private Tile parent;
+  private PImage sprite;
+  private int scale;
   //constructor
   public GroundItem(String id, Tile parent) {
     this.id = id;
@@ -12,14 +12,14 @@ class GroundItem {
     this.scale = parent.scale;
   }
   
-  void display(){
+  void draw(){
     image(this.sprite,this.parent.x,this.parent.y,this.sprite.width * this.scale, this.sprite.height * this.scale);
   }
-  int colCheck(Player player){
+  
+  public void update(Player player){
     if (this.parent.checkOverlap(player)){
       player.addItem(this.id);
-      return items.indexOf(this);
+      dqueue.add(this);
     }
-    return -1;
   }
 }

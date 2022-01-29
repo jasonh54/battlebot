@@ -1,5 +1,18 @@
 [
 	{
+		"name": "Goku",
+		"type": "yes",
+		"attack": 9001,
+		"defense": 0,
+		"maxhealth": 9001,
+		"speed": 100,
+		"image": "AirA",
+		"agility": 100,
+		"move1": "kamehameha",
+		"move2": "attack1",
+		"move3": "heal1",
+		"move4": "dodge1"
+	},{
 		"name": "AirA",
 		"type": "fire",
 		"attack": 45,
@@ -1990,12 +2003,12 @@
 	{
 		"name": "KlackonA",
 		"type": "fire",
-		"attack": 45,
-		"defense": 50,
-		"maxhealth": 100,
-		"speed": 50,
+		"attack": 60,
+		"defense": 30,
+		"maxhealth": 60,
+		"speed": 60,
 		"image": "KlackonA",
-		"agility": 50,
+		"agility": 55,
 		"move1": "attack1",
 		"move2": "defend1",
 		"move3": "heal1",
