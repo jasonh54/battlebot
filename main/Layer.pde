@@ -52,9 +52,7 @@ class Layer {
     //prepping the tile array for use
     this.tileArray = tileArray;
     rowsize = tileArray.length;
-    println(colsize);
     colsize = tileArray[0].length;
-    println(rowsize);
     //layerTiles logs all tiles in the layer as a 2d array
     layerTiles = new Tile[rowsize][colsize];
     //navigating the rows
