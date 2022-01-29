@@ -79,7 +79,7 @@ class Battle {
     this.menus.put(BattleStates.BATTLEBOT,botmenu);
   
     Menu itemmenu;
-    itemmenu = new Menu(625, 520, this.player1.items.size()+1, 40, 300, 2);
+    itemmenu = new Menu(625, 520, this.player1.items.size()+1, 40, 400, 2);
     itemmenu.buttons.get(0).txt = "Return to Menu";
     itemmenu.buttons.get(0).func = "return";
     for (int i = 1; i < itemmenu.buttons.size(); i++) {
@@ -96,7 +96,7 @@ class Battle {
         battlestate = BattleStates.OPTIONS;
       break;
       case OPTIONS:
-        checkDead(this.player1.getSelectedMonster(),getCurrentEnemy());
+        if (checkDead(this.player1.getSelectedMonster(),getCurrentEnemy())) break;
         displayMonsters();
         //this happens once at the beginning of every turn; the part where you select what you want to do
         //draw same as Entry State
@@ -163,12 +163,13 @@ class Battle {
         //will produce a menu of what battlebots you can switch to
       break;
       case AI:
-        checkDead(this.player1.getSelectedMonster(),getCurrentEnemy());
+        if (checkDead(this.player1.getSelectedMonster(),getCurrentEnemy())) break;
+        
         displayMonsters();
         //let the enemy do stuff - will need a decision tree
-        if      (getCurrentEnemy().stats.getFloat("chealth") < 15 && random(0.0,1.0) <= 0.99){ // doing bad.
+        if      (getCurrentEnemy().stats.getFloat("chealth") < 15 && random(0.0,1.0) <= 0.90){ // doing bad.
            doMove(getCurrentEnemy(),3,getCurrentEnemy(),true);
-        }else if(getCurrentEnemy().stats.getFloat("chealth") < 30 && random(0.0,1.0) <= 0.88){ // doing okay
+        }else if(getCurrentEnemy().stats.getFloat("chealth") < 30 && random(0.0,1.0) <= 0.80){ // doing okay
            doMove(getCurrentEnemy(),2,getCurrentEnemy(),true);
         }else if(getCurrentEnemy().stats.getFloat("chealth") < 60 && random(0.0,1.0) <= 0.45){ // doing well
            doMove(getCurrentEnemy(),1,getCurrentEnemy(),true);
@@ -249,10 +250,9 @@ class Battle {
     currentbattle.switchState(ai ? BattleStates.AIANIMATION : BattleStates.ANIMATION); //at the end, switch battlestate to animation
   }
   
-  private void checkDead(Monster m1, Monster m2){   
+  private boolean checkDead(Monster m1, Monster m2){   
     if (m1.stats.getFloat("chealth")<=0){ // is our current monster dead?
       for (int i = 0; i < this.player1.monsters.size(); i++){ // iterate thru available monsters
-        println("Checking monster: "+i);
         if (this.player1.monsters.get(i).stats.getFloat("chealth")>0){ // find monster with enough health
           this.player1.selectedmonster = i; // swap to that monster
           break;
@@ -260,7 +260,9 @@ class Battle {
       }
     }
     if (m2.stats.getFloat("chealth")<=0){
-      currentbattle.switchState(BattleStates.WIN); // you won!!
+      switchState(BattleStates.WIN); // you won!!
+      return true;
     }
+    return false;
   }
 }

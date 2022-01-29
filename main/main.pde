@@ -3,6 +3,8 @@ import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+// never gonna give you up, never gonna let you down, never gonna run around and desert you
+
 //tile arrays for all "special" tiles
 int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
 int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
@@ -18,7 +20,7 @@ HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hash
 PImage[] tiles;
 
 //item stuff
-ArrayList<GroundItem> items = new ArrayList<GroundItem>();
+ArrayList<GroundItem> dqueue = new ArrayList<GroundItem>();
 HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 
 //menu variables
@@ -121,7 +123,7 @@ void setup(){
 
   testPlayer = new Player(createCharacterSprites(0),new ArrayList());
 
-  String[] monsterids = new String[]{"AirA", "MaskA", "ChickenA", "KlackonA"};
+  String[] monsterids = new String[]{"AirA", "Goku", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
 
@@ -143,14 +145,13 @@ void setup(){
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
   
-  items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
-  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
+  currentmap.addItem(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  currentmap.addItem(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
 
   //size of game window:
   fullScreen();
 }
 
-ArrayList<Integer> dqueue = new ArrayList<Integer>();
 
 void draw() {
   background(0);
@@ -162,15 +163,10 @@ void draw() {
       currentmap.toplayer.update(currentmap.collidelayer);
       updateDrawables(sandwich);
       updateClickables(sandwich);
-      for (GroundItem item : items){
-        item.display();
-        Integer col = item.colCheck(testPlayer);
-        if (col >= 0) dqueue.add(col);
+      
+      for (GroundItem gi : dqueue) {
+        currentmap.removeItem(gi);
       }
-      for (Integer ind : dqueue){
-        items.remove(items.get(ind));
-      }
-      dqueue = new ArrayList<Integer>();
       //keypress to go into menu - backup if button breaks
       if (keyPressed == true && key == 'm') {
         GameState.switchState(GameStates.MENU);

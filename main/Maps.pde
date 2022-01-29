@@ -6,6 +6,7 @@ class Maps {
   Layer coverlayer = new Layer();
   Layer toplayer = new Layer();
   
+  private ArrayList<GroundItem> items = new ArrayList<GroundItem>();
   Layer[] layerset = {collidelayer, portallayer, baselayer, coverlayer, toplayer};
   //portal-map pair list
   HashMap<Tile, Maps> portalPairs = new HashMap<Tile, Maps>();
@@ -251,16 +252,25 @@ class Maps {
     }
   }
   
+  public void addItem(GroundItem gi) {
+    this.items.add(gi);
+  }
+  public void removeItem(GroundItem gi) {
+    this.items.remove(gi);
+  }
+  
+  void generateAllLayers() {
+    collidelayer.generateBaseLayer(collidableLayerTiles);
+    baselayer.generateBaseLayer(baseLayerTiles);
+    coverlayer.generateBaseLayer(coverLayerTiles);
+    toplayer.generateBaseLayer(topLayerTiles);
+  }
+    
   void generateAllLayers(int[][] collide, int[][] portal, int[][] base, int[][] cover, int[][] top) {
-    println("collide");
     collidelayer.generateBaseLayer(collide);
-    println("portal");
     portallayer.generateBaseLayer(portal);
-    println("base");
     baselayer.generateBaseLayer(base);
-    println("cover");
     coverlayer.generateBaseLayer(cover);
-    println("top");
     toplayer.generateBaseLayer(top);
   }
   
@@ -270,6 +280,10 @@ class Maps {
     coverlayer.update(collidelayer);
     collidelayer.update();
     portallayer.update(collidelayer);
+    for (GroundItem i : this.items) {
+      i.update(testPlayer);
+      i.draw();
+    }
   }
   
   void updateAll() {
@@ -285,5 +299,8 @@ class Maps {
     coverlayer.draw();
     collidelayer.draw();
     toplayer.draw();
+    for (GroundItem i : this.items) {
+      i.draw();
+    }
   }
 }
