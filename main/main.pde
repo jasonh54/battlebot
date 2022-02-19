@@ -12,6 +12,7 @@ int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,
 HashMap<String, JSONObject> monsterDatabase = new HashMap<String, JSONObject>();
 HashMap<String, JSONObject> movesDatabase = new HashMap<String, JSONObject>();
 HashMap<String, JSONObject> itemDatabase = new HashMap<String, JSONObject>();
+HashMap<String, JSONObject> mapsDatabase = new HashMap<String, JSONObject>();
 
 //sprite stuff
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
@@ -35,8 +36,8 @@ Maps currentmap = new Maps();
 //Many other defined maps w/ specific layers which exist solely in a JSON file
 //When map is changed in the overworld, set currentmap equal to one of the other preexisting maps itself - all layers and other data will carry over
 //'citymap' being used as a test version of a theoretical JSON map
-Maps citymap = new Maps();
-Maps fieldmap = new Maps();
+Maps citymap = new Maps("citymap");
+Maps fieldmap = new Maps("fieldmap");
 
 
 //misc variables
@@ -110,6 +111,12 @@ void setup(){
     JSONObject item = itemArray.getJSONObject(i);
     itemDatabase.put(item.getString("name"),item);
   }
+  //load the maps.json file
+  JSONArray mapArray = loadJSONArray("maps.json");
+  for(int i = 0; i < mapArray.size(); i++) {
+    JSONObject map = mapArray.getJSONObject(i);
+    mapsDatabase.put(map.getString("name"),map);
+  }
 
   itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
   itemsprites.put("Damage Potion",loadImage(itemPath+"/"+"PotionDamage.png"));
@@ -125,12 +132,10 @@ void setup(){
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
 
-  citymap.generateAllLayers(currentmap.collidableLayerTiles,currentmap.portalLayerTiles,currentmap.baseLayerTiles,currentmap.coverLayerTiles,currentmap.topLayerTiles);
+  //pairportal links portals w/ a given map - a temporary func that will need an overhaul when there is more than one place to go
   citymap.pairPortal(fieldmap);
-  //dont uncomment until fieldmap has actual stuff and not just empty layers
-  fieldmap.generateAllLayers(currentmap.ct,currentmap.pt,currentmap.bt,currentmap.cvt,currentmap.tt);
   fieldmap.pairPortal(citymap);
-  
+  //sets the active map as city to start
   currentmap = citymap;
   
   //initialize all menus
