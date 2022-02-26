@@ -36,8 +36,8 @@ Maps currentmap = new Maps();
 //Many other defined maps w/ specific layers which exist solely in a JSON file
 //When map is changed in the overworld, set currentmap equal to one of the other preexisting maps itself - all layers and other data will carry over
 //'citymap' being used as a test version of a theoretical JSON map
-Maps citymap = new Maps("citymap");
-Maps fieldmap = new Maps("fieldmap");
+Maps citymap;
+Maps fieldmap;
 
 
 //misc variables
@@ -132,6 +132,9 @@ void setup(){
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
 
+
+  citymap = new Maps("citymap");
+  fieldmap = new Maps("fieldmap");
   //pairportal links portals w/ a given map - a temporary func that will need an overhaul when there is more than one place to go
   citymap.pairPortal(fieldmap);
   fieldmap.pairPortal(citymap);
@@ -148,8 +151,8 @@ void setup(){
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
   
-  items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
-  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
+  /*items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));*/
 
   //size of game window:
   fullScreen();
