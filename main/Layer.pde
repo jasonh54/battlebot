@@ -52,9 +52,7 @@ class Layer {
     //prepping the tile array for use
     this.tileArray = tileArray;
     rowsize = tileArray.length;
-    println(colsize);
     colsize = tileArray[0].length;
-    println(rowsize);
     //layerTiles logs all tiles in the layer as a 2d array
     layerTiles = new Tile[rowsize][colsize];
     //navigating the rows
@@ -269,7 +267,7 @@ class Layer {
       if (array.get(i).checkOverlap(player) == true) {
         //returns the index if true, returns -1 if false
         overlapint = i;
-        print("stepped on " + text);
+        println("stepped on " + text);
         return overlapint;
       }
     }

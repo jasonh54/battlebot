@@ -21,9 +21,6 @@ class Maps {
     JSONObject thismap = mapsDatabase.get(id);
     generateAllLayers(loadTileArray(thismap.getJSONArray("collide")),loadTileArray(thismap.getJSONArray("portal")),loadTileArray(thismap.getJSONArray("base")),loadTileArray(thismap.getJSONArray("cover")),loadTileArray(thismap.getJSONArray("top")));
   
-    println(mapsDatabase.keySet().toString());
-    println(id);
-  
     //generate each layer via 2d JSONArrays from the JSONObject
     //allow the layers to imprint to this map
     for (int i = 0; i < layerset.length; i++) {
@@ -45,15 +42,10 @@ class Maps {
   }
   
   void generateAllLayers(int[][] collide, int[][] portal, int[][] base, int[][] cover, int[][] top) {
-    println("collide");
     collidelayer.generateBaseLayer(collide);
-    println("portal");
     portallayer.generateBaseLayer(portal);
-    println("base");
     baselayer.generateBaseLayer(base);
-    println("cover");
     coverlayer.generateBaseLayer(cover);
-    println("top");
     toplayer.generateBaseLayer(top);
   }
   
@@ -85,7 +77,6 @@ class Maps {
   int[][] loadTileArray(JSONArray ogarr) {
     //int[size of outer JSONArray][size of first JSONArray within the outer JSONArray]
     int[][] arr = new int[ogarr.size()][ogarr.getJSONArray(0).size()];
-    //int[][] arr = new int[100][100];
     //for each JSONArray within the original JSONArray
     for (int i = 0; i < ogarr.size(); i++) {
       //create a dummy int[] identical to an int-only version of the current JSONArray within the outer JSONArray (ogarr)
