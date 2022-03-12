@@ -14,6 +14,7 @@ int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,
 HashMap<String, JSONObject> monsterDatabase = new HashMap<String, JSONObject>();
 HashMap<String, JSONObject> movesDatabase = new HashMap<String, JSONObject>();
 HashMap<String, JSONObject> itemDatabase = new HashMap<String, JSONObject>();
+HashMap<String, JSONObject> mapsDatabase = new HashMap<String, JSONObject>();
 
 //sprite stuff
 HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
@@ -37,8 +38,8 @@ Maps currentmap = new Maps();
 //Many other defined maps w/ specific layers which exist solely in a JSON file
 //When map is changed in the overworld, set currentmap equal to one of the other preexisting maps itself - all layers and other data will carry over
 //'citymap' being used as a test version of a theoretical JSON map
-Maps citymap = new Maps();
-Maps fieldmap = new Maps();
+Maps citymap;
+Maps fieldmap;
 
 
 //misc variables
@@ -112,6 +113,14 @@ void setup(){
     JSONObject item = itemArray.getJSONObject(i);
     itemDatabase.put(item.getString("name"),item);
   }
+  //load the maps.json file
+  JSONArray mapArray = loadJSONArray("maps.json");
+  for(int i = 0; i < mapArray.size(); i++) {
+    JSONObject map = mapArray.getJSONObject(i);
+    mapsDatabase.put(map.getString("name"),map);
+    //confirm that map is being loaded in
+    println("loading in: " + map.getString("name"));
+  }
 
   itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
   itemsprites.put("Damage Potion",loadImage(itemPath+"/"+"PotionDamage.png"));
@@ -127,12 +136,13 @@ void setup(){
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
 
-  citymap.generateAllLayers(currentmap.collidableLayerTiles,currentmap.portalLayerTiles,currentmap.baseLayerTiles,currentmap.coverLayerTiles,currentmap.topLayerTiles);
+
+  citymap = new Maps("citymap");
+  fieldmap = new Maps("fieldmap");
+  //pairportal links portals w/ a given map - a temporary func that will need an overhaul when there is more than one place to go
   citymap.pairPortal(fieldmap);
-  //dont uncomment until fieldmap has actual stuff and not just empty layers
-  fieldmap.generateAllLayers(currentmap.ct,currentmap.pt,currentmap.bt,currentmap.cvt,currentmap.tt);
   fieldmap.pairPortal(citymap);
-  
+  //sets the active map as city to start
   currentmap = citymap;
   
   //initialize all menus
@@ -145,8 +155,12 @@ void setup(){
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
   
+
   currentmap.addItem(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
   currentmap.addItem(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
+
+  /*items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));*/
 
   //size of game window:
   fullScreen();

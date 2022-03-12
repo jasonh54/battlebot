@@ -32,6 +32,7 @@ class Tile {
   
   //exactly what it says on the tin
   void printInfo() {
+    println("tile coordinates: (" + x + "," + y + ")");
   }
   
   //BASE MOVEMENT THINGS
