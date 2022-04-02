@@ -62,7 +62,7 @@ class Layer {
         //skips transparent tiles
         if(tileArray[row][col] != 486) {
           //creates a new tile and assigns values
-          Tile current = new Tile((tilew * layerscale) * col + tileww * layerscale, (tileh * layerscale) * row + tilehh * layerscale, false, false, tiles[tileArray[row][col]], layerscale);
+          Tile current = new Tile((tilew * layerscale) * col + tileww * layerscale, (tileh * layerscale) * row + tilehh * layerscale, false, false, tilesprites[tileArray[row][col]], layerscale);
           //these code sets all check if the tile fits a certain archetype, as listed
           current.collide = tileTypeCheck(collidableSprites, tileArray, row, col);
           current.portal = tileTypeCheck(portalSprites, tileArray, row, col);
@@ -267,7 +267,6 @@ class Layer {
       if (array.get(i).checkOverlap(player) == true) {
         //returns the index if true, returns -1 if false
         overlapint = i;
-        print("stepped on " + text);
         return overlapint;
       }
     }
