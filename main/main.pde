@@ -144,6 +144,11 @@ void setup(){
   citymap = new Maps("citymap");
   fieldmap = new Maps("fieldmap");
   jailmap = new Maps("jailmap");
+  
+  //set up portal connections
+  citymap.pairPortals();
+  fieldmap.pairPortals();
+  jailmap.pairPortals();
 
   //sets the active map as city to start
   currentmap = fieldmap;
@@ -175,6 +180,9 @@ void draw() {
   //if in the walking state:
   switch (GameState.currentState) {
     case WALKING:
+      if (currentmap.nextmap != null) {
+        currentmap = currentmap.nextmap;
+      }
       currentmap.update();
       testPlayer.display();
       currentmap.updateLast();

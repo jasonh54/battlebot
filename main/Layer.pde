@@ -257,9 +257,7 @@ class Layer {
       if (array.get(i).checkOverlap(player) == true) {
         //returns the index if true, returns -1 if false
         overlapint = i;
-        println("********************************************");
         println("stepped on " + text);
-        println("********************************************");
         return overlapint;
       }
     }
