@@ -62,7 +62,7 @@ class Button implements Clickable,Drawable {
           fill(158,0,0);
           rect(this.x+this.w/2.5,this.y+(this.h*0.6)-this.h/4,this.w/2.5,this.h/4);
           fill(0,158,0);
-          rect(this.x+this.w/2.5,this.y+(this.h*0.6)-this.h/4,(this.monster.stats.getFloat("chealth")/this.monster.stats.getFloat("maxhealth"))*(this.w/2.5),this.h/4);
+          rect(this.x+this.w/2.5,this.y+(this.h*0.6)-this.h/4,(this.monster.getCHealth()/this.monster.stats.get(Stat.MAXHEALTH))*(this.w/2.5),this.h/4);
         }
         fill(256, 256, 256);
       break;
@@ -111,7 +111,7 @@ class Button implements Clickable,Drawable {
       case "botswap":// switch battlebot
         for (int n = 0; n < testPlayer.monsters.size(); n++) {
           //in the botswap func, program will find a monster in testPlayer.monsters with a monster ID that is equal to testPlayer.swapto
-          if (testPlayer.monsters.get(n).id == this.txt&&testPlayer.monsters.get(n).stats.getFloat("chealth")>0) {
+          if (testPlayer.monsters.get(n).id == this.txt&&testPlayer.monsters.get(n).getCHealth()>0) {
             testPlayer.selectedmonster = n;
             currentbattle.switchState(BattleStates.OPTIONS);
             return;
