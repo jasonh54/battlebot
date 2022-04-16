@@ -9,7 +9,7 @@ public PImage[] createCharacterSprites(int playerNum){
   //for loop that will go through each column
   for(int c = tilenum; c<tilenum+4; c++){
     for(int r = 0; r< 3;r++){
-      characterSprites[i] = tiles[c + (r*27)];
+      characterSprites[i] = tilesprites[c + (r*27)];
       i++;
     }
   }
@@ -77,7 +77,7 @@ class Player{
       }else{
         items.put(id, a-1); // "healthPotion": 0
       }
-      JSONObject stats = itemDatabase.get(id);
+      HashMap<Stat,Float> stats = itemDatabase.get(id);
       this.getSelectedMonster().modStats(stats);
     }else{
       throw new Error("You insolent fool, thou hast disturbed the balance of the universe. (["+id+"] was not in the database.)");

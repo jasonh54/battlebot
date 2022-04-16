@@ -6,6 +6,7 @@ class Layer {
   int speedy;
   int colsize;
   int rowsize;
+  Maps parent;
 
   //variables for the movement
   final int tileh = 16;
@@ -33,8 +34,8 @@ class Layer {
   
   void draw() {
     //loops through all tiles and draws, skipping transparent tiles because lag
-    for (int i = 0; i < colsize; i++) {
-      for (int k = 0; k < rowsize; k++) {
+    for (int i = 0; i < rowsize; i++) {
+      for (int k = 0; k < colsize; k++) {
         if(tileArray[i][k] != 486){
           layerTiles[i][k].draw();
         }  
@@ -50,10 +51,10 @@ class Layer {
   void generateBaseLayer(int[][] tileArray) {
     //prepping the tile array for use
     this.tileArray = tileArray;
-    colsize = tileArray.length;
-    rowsize = tileArray[0].length;
+    rowsize = tileArray.length;
+    colsize = tileArray[0].length;
     //layerTiles logs all tiles in the layer as a 2d array
-    layerTiles = new Tile[colsize][rowsize];
+    layerTiles = new Tile[rowsize][colsize];
     //navigating the rows
     for (int row = 0; row < rowsize; row++) {
       //navigating the columns
@@ -61,7 +62,7 @@ class Layer {
         //skips transparent tiles
         if(tileArray[row][col] != 486) {
           //creates a new tile and assigns values
-          Tile current = new Tile((tilew * layerscale) * col + tileww * layerscale, (tileh * layerscale) * row + tilehh * layerscale, false, false, tiles[tileArray[row][col]], layerscale);
+          Tile current = new Tile((tilew * layerscale) * col + tileww * layerscale, (tileh * layerscale) * row + tilehh * layerscale, false, false, tilesprites[tileArray[row][col]], layerscale);
           //these code sets all check if the tile fits a certain archetype, as listed
           current.collide = tileTypeCheck(collidableSprites, tileArray, row, col);
           current.portal = tileTypeCheck(portalSprites, tileArray, row, col);
@@ -172,11 +173,6 @@ class Layer {
         //unlocks movement and resets counter so a new movement can begin
         lock = false;
         framecounter = 0;
-        //checking special tile-related conditions and activating events if they are met
-        if (checkOverlap(portalTiles, testPlayer, "portal underfoot") >= 0) {
-          //have a variable save portalTiles.get(overlapint);
-          //figure out what layer is associated with that tile and generate it
-        }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
           Random r = new Random();
           int t = r.nextInt(7) + 1;
@@ -184,8 +180,6 @@ class Layer {
             currentbattle = new Battle(testPlayer,new Monster("AirA", 800, 250));
             GameState.currentState = GameStates.COMBAT;
           }
-          
-          //if chance happens, activate battle state
         }
         stopMove();
       }

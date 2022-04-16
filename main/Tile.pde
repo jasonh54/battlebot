@@ -30,10 +30,6 @@ class Tile {
   
   }
   
-  //exactly what it says on the tin
-  void printInfo() {
-  }
-  
   //BASE MOVEMENT THINGS
   void moveUp() {
     speedy = 2 * scale;
@@ -70,6 +66,6 @@ class Tile {
   //draw with scales
   void draw() {
     image(this.img, this.x, this.y, this.img.width * this.scale, this.img.height * this.scale);
+    
   }
-  
 }

@@ -1,13 +1,14 @@
 class Monster {
   //variables
-  PImage image;
-  String id;
-  String type;
-  JSONObject stats;
-  Move moveset[] = new Move[4];
+  private String id;
+  private Type type;
+  private int level;
+  private JSONObject basestats;
+  private HashMap<Stat,Float> stats;
+  private float chealth;
+  private Move[] moveset = new Move[4];
   
-  //PImage[] sprites; //monster sprites
-  //private Timer keyTimer = new Timer(40);
+  private PImage image;
   final int h = 16;
   final int w = 16;
   float x = 400;
@@ -21,29 +22,40 @@ class Monster {
   
   //constructor
   public Monster(String id, float x, float y) {
+    JSONObject data = monsterDatabase.get(id);
+
+    this.image = monstersprites.get(data.getString("image"));
     this.id = id;
-    this.type = monsterDatabase.get(id).getString("type");
-    this.stats = JSONCopy(monsterDatabase.get(id)).setFloat("chealth",monsterDatabase.get(id).getFloat("maxhealth")).setFloat("agility",1.0f); // JSONCopy(monsterDatabase.get(id))
-    image = spritesHm.get(monsterDatabase.get(id).getString("image"));
+    this.level = 1;
+    this.type = Type.valueOf(data.getString("type").toUpperCase());
+    this.basestats = JSONCopy(data).setFloat("agility",1.0f);
+    this.stats = new HashMap<Stat,Float>();
+    for (Stat stat : Stat.values()) {
+      String sstat = stat.name().toLowerCase();
+      if (!this.basestats.isNull(sstat)) {
+        this.stats.put(stat,this.basestats.getFloat(sstat));
+      }
+    }
+    this.chealth = this.stats.get(Stat.MAXHEALTH);
+    for (int i = 0; i<this.moveset.length; i++) {
+      this.moveset[i] = new Move(this,monsterDatabase.get(id).getJSONArray("moves").getString(i));
+    }
     
     animations = new Spritesheet(this.image, 120);
     animations.setxywh(x, y, w*scale, h*scale);
     int frameNum = image.width/16;
     int[] frameNums = new int[frameNum];
-    for(int i = 0; i < frameNum; i++){
-      frameNums[i] = i;
-    }
+    for(int i = 0; i < frameNum; i++){frameNums[i] = i;}
     animations.createAnimation("default", frameNums);
     time = new Timer();
     
-    moveset[0] = new Move(this,monsterDatabase.get(id).getString("move1"));
-    moveset[1] = new Move(this,monsterDatabase.get(id).getString("move2"));
-    moveset[2] = new Move(this,monsterDatabase.get(id).getString("move3"));
-    moveset[3] = new Move(this,monsterDatabase.get(id).getString("move4"));
     this.x = x;
     this.y = y;
   }
   
+  public float getCHealth() {
+    return this.chealth;
+  }
 
   public void display(){
     color(0,0,200);
@@ -52,12 +64,12 @@ class Monster {
     fill(158,0,0);
     rect(x-55,y-75,150,25);
     fill(0,158,0);
-    rect(x-55,y-75,(this.stats.getFloat("chealth")/this.stats.getFloat("maxhealth"))*150,25);
+    rect(x-55,y-75,(this.chealth/this.stats.get(Stat.MAXHEALTH))*150,25);
     fill(0,0,0);
     textAlign(LEFT, UP);
     text(id,x-54,y-80);
     textAlign(CENTER, CENTER);
-    text(this.stats.getFloat("chealth") + "/" + this.stats.getFloat("maxhealth"), x+20, y-62);
+    text(this.chealth + "/" + this.stats.get(Stat.MAXHEALTH), x+20, y-62);
     //pop();
     //if(animations.animationTimer.countDownUntil(animations.stoploop)){
     //  animations.changeDisplay(true);
@@ -65,26 +77,58 @@ class Monster {
     animations.play("default");
   }
   
-  public void addHp(int hp){
-    this.stats.setFloat("chealth",this.stats.getFloat("chealth")+hp>this.stats.getFloat("maxhealth") ? this.stats.getFloat("maxhealth") : (this.stats.getFloat("chealth")+hp < 0 ? 0 : this.stats.getFloat("chealth")+hp));
+  public void addHp(float hp){
+    this.chealth += constrain(hp,-this.chealth,this.stats.get(Stat.MAXHEALTH));
   }
-  public void modStats(JSONObject mod){
-    addHp((int)mod.getFloat("health"));
-    if (mod.getFloat("attack")  != 1.0f) this.stats.setFloat("attack" ,this.stats.getFloat("attack") *mod.getFloat("attack") );
-    if (mod.getFloat("speed")   != 1.0f) this.stats.setFloat("speed"  ,this.stats.getFloat("speed")  *mod.getFloat("speed")  );
-    if (mod.getFloat("defense") != 1.0f) this.stats.setFloat("defense",this.stats.getFloat("defense")*mod.getFloat("defense"));
-    if (mod.getFloat("agility") != 1.0f) this.stats.setFloat("agility",this.stats.getFloat("agility")*mod.getFloat("agility"));
+  public void modStats(HashMap<Stat,Float> mod){
+    if (mod.containsKey(Stat.MAXHEALTH)) addHp(mod.get(Stat.MAXHEALTH));
+    if (mod.get(Stat.ATTACK)  != 1.0f) this.stats.put(Stat.ATTACK ,this.stats.get(Stat.ATTACK) *mod.get(Stat.ATTACK) );
+    if (mod.get(Stat.SPEED)   != 1.0f) this.stats.put(Stat.SPEED  ,this.stats.get(Stat.SPEED)  *mod.get(Stat.SPEED)  );
+    if (mod.get(Stat.DEFENSE) != 1.0f) this.stats.put(Stat.DEFENSE,this.stats.get(Stat.DEFENSE)*mod.get(Stat.DEFENSE));
+    if (mod.get(Stat.AGILITY) != 1.0f) this.stats.put(Stat.AGILITY,this.stats.get(Stat.AGILITY)*mod.get(Stat.AGILITY));
     //System.out.printf("Modifying Stats of %s:\nHP: +%f | Atk: x%f | Spd: x%f | Def: x%f | Agl: x%f\n",this.id,mod.getFloat("health"),mod.getFloat("attack"),mod.getFloat("speed"),mod.getFloat("defense"),mod.getFloat("agility"));
   }
+
+  public void startAnimation(MoveType type) {
+    switch (type) { // start the animation
+      case DEFEND:
+        this.defendStart();
+      break;
+      case HEAL:
+        this.healStart();
+      break;
+      case DODGE:
+        this.dodgeStart();
+      break;
+      default:
+        warn("Please register attacks with the overloaded method.");
+    }
+  }
+  public void startAnimation(MoveType type, Monster target) {
+    switch (type) { // start the animation
+      case ATTACK:
+        this.attackStart(target); 
+      break;
+      case DEFEND:
+        this.defendStart();
+      break;
+      case HEAL:
+        this.healStart();
+      break;
+      case DODGE:
+        this.dodgeStart();
+      break;
+    }
+  }
   
-  public void moveToEnemyStart(Monster target){
+  private void attackStart(Monster target){
     time.timeStampNow();
     speedX = target.x - this.x;
     speedY = target.y - this.y;
     time.setTimeInterval(75);
   }
   
-  public boolean moveToEnemy(Monster target){
+  public boolean attackAnimation(Monster target){
     if(time.intervals()){
       animations.x += speedX/10;
       animations.y += speedY/10;
@@ -117,7 +161,7 @@ class Monster {
     return false;
   }
   
-  public void healStart(){
+  private void healStart(){
     time.timeStampNow();
     speedX = 4;
     time.setTimeInterval(100);
@@ -137,7 +181,7 @@ class Monster {
     return false;
   }
   
-  public void defendStart(){
+  private void defendStart(){
     time.timeStampNow();
     speedY = 4;
     time.setTimeInterval(300);
@@ -157,7 +201,7 @@ class Monster {
     return false;
   }
   
-  public void dodgeStart(){
+  private void dodgeStart(){
     time.timeStampNow();
     speedX = 4;
     speedY = 4;
