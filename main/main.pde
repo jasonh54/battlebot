@@ -20,17 +20,18 @@ static {
     }
   }
 }
-
-
 //tile arrays for all "special" tiles
-int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
-int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
-int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,57,58,59,60,61};
+public static final int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
+public static final int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
+public static final int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,57,58,59,60,61};
+
+HashMap<String,Maps> masterMapList = new HashMap<String,Maps>();
 
 //hashmaps for each json file
 HashMap<String, JSONObject> monsterDatabase = new HashMap<String, JSONObject>();
 HashMap<String, JSONObject> moveDatabase = new HashMap<String, JSONObject>();
 HashMap<String, HashMap<Stat,Float>> itemDatabase = new HashMap<String, HashMap<Stat,Float>>();
+HashMap<String, JSONObject> mapsDatabase = new HashMap<String, JSONObject>();
 
 //sprite stuff
 HashMap<String,PImage> monstersprites = new HashMap<String,PImage>(); // sprites hashmap
@@ -40,11 +41,14 @@ PImage[] tilesprites = new PImage[TILECOUNT];
 //item stuff
 ArrayList<GroundItem> dqueue = new ArrayList<GroundItem>();
 
-//menu variables
+//gameplay vars
 Menu mainmenu;
 Button sandwich;
-
 static Battle currentbattle;
+static Player testPlayer; //the player
+final int naptime = 200; //delayer var to avoid problems when keys are pressed
+
+Timer restartTimer;
 
 //layers/map stuff
 Maps currentmap = new Maps();
@@ -52,15 +56,9 @@ Maps currentmap = new Maps();
 //Many other defined maps w/ specific layers which exist solely in a JSON file
 //When map is changed in the overworld, set currentmap equal to one of the other preexisting maps itself - all layers and other data will carry over
 //'citymap' being used as a test version of a theoretical JSON map
-Maps citymap = new Maps();
-Maps fieldmap = new Maps();
-
-
-//misc variables
-static Player testPlayer; //the player
-final int naptime = 200; //delayer var to avoid problems when keys are pressed
-
-Timer restartTimer;
+Maps citymap;
+Maps fieldmap;
+Maps jailmap;
 
 Monster generateNewMonster(String id) {
   return new Monster(id, 400, 400);
@@ -110,6 +108,13 @@ void setup(){
     itemDatabase.put(jitem.getString("name"),hitem);
   }
   
+  //load the maps.json file
+  JSONArray mapArray = loadJSONArray("data/maps.json");
+  for(int i = 0; i < mapArray.size(); i++) {
+    JSONObject map = mapArray.getJSONObject(i);
+    mapsDatabase.put(map.getString("name"),map);
+  }
+  
   //initiatize misc variables
   testPlayer = new Player(createCharacterSprites(0),new ArrayList<Monster>());
 
@@ -117,13 +122,13 @@ void setup(){
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
 
-  citymap.generateAllLayers(currentmap.collidableLayerTiles,currentmap.portalLayerTiles,currentmap.baseLayerTiles,currentmap.coverLayerTiles,currentmap.topLayerTiles);
-  citymap.pairPortal(fieldmap);
-  //dont uncomment until fieldmap has actual stuff and not just empty layers
-  fieldmap.generateAllLayers(currentmap.ct,currentmap.pt,currentmap.bt,currentmap.cvt,currentmap.tt);
-  fieldmap.pairPortal(citymap);
-  
-  currentmap = citymap;
+  //initialize the maps
+  citymap = new Maps("citymap");
+  fieldmap = new Maps("fieldmap");
+  jailmap = new Maps("jailmap");
+
+  //sets the active map as city to start
+  currentmap = fieldmap;
   
   //initialize all menus
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
@@ -136,7 +141,7 @@ void setup(){
   mainmenu.buttons.get(2).txt = "button3";
   
   currentmap.addItem(new GroundItem("PotionDamage",currentmap.baselayer.getTile(10,10))); // This is where you place items!
-  currentmap.addItem(new GroundItem("PotionAgility",currentmap.baselayer.getTile(20,10)));
+  currentmap.addItem(new GroundItem("PotionAgility",currentmap.baselayer.getTile(5,10)));
  
   //size of game window:
   fullScreen();

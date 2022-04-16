@@ -30,10 +30,6 @@ class Tile {
   
   }
   
-  //exactly what it says on the tin
-  void printInfo() {
-  }
-  
   //BASE MOVEMENT THINGS
   void moveUp() {
     speedy = 2 * scale;
