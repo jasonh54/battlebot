@@ -1,18 +1,21 @@
 [
 	{
 		"name": "Goku",
-		"type": "yes",
+		"image": "AirA",
+		"type": "fire",
 		"attack": 9001,
 		"defense": 0,
 		"maxhealth": 9001,
 		"speed": 100,
-		"image": "AirA",
 		"agility": 100,
-		"move1": "kamehameha",
-		"move2": "attack1",
-		"move3": "heal1",
-		"move4": "dodge1"
-	},{
+		"moves": [
+			"kamehameha",
+			"attack1",
+			"heal1",
+			"dodge1"
+		]
+	},
+	{
 		"name": "AirA",
 		"type": "fire",
 		"attack": 45,
@@ -21,10 +24,12 @@
 		"speed": 50,
 		"image": "AirA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BallA",
@@ -35,10 +40,12 @@
 		"speed": 50,
 		"image": "BallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BallB",
@@ -49,10 +56,12 @@
 		"speed": 50,
 		"image": "BallB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BallC",
@@ -63,10 +72,12 @@
 		"speed": 50,
 		"image": "BallC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BallD",
@@ -77,10 +88,12 @@
 		"speed": 50,
 		"image": "BallD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatA",
@@ -91,10 +104,12 @@
 		"speed": 50,
 		"image": "BatA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatB",
@@ -105,10 +120,12 @@
 		"speed": 50,
 		"image": "BatB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatC",
@@ -119,10 +136,12 @@
 		"speed": 50,
 		"image": "BatC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatD",
@@ -133,10 +152,12 @@
 		"speed": 50,
 		"image": "BatD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatE",
@@ -147,10 +168,12 @@
 		"speed": 50,
 		"image": "BatE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatF",
@@ -161,10 +184,12 @@
 		"speed": 50,
 		"image": "BatF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatG",
@@ -175,10 +200,12 @@
 		"speed": 50,
 		"image": "BatG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatH",
@@ -189,10 +216,12 @@
 		"speed": 50,
 		"image": "BatH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatI",
@@ -203,10 +232,12 @@
 		"speed": 50,
 		"image": "BatI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatJ",
@@ -217,10 +248,12 @@
 		"speed": 50,
 		"image": "BatJ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatK",
@@ -231,10 +264,12 @@
 		"speed": 50,
 		"image": "BatK",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatL",
@@ -245,10 +280,12 @@
 		"speed": 50,
 		"image": "BatL",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatM",
@@ -259,10 +296,12 @@
 		"speed": 50,
 		"image": "BatM",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatN",
@@ -273,10 +312,12 @@
 		"speed": 50,
 		"image": "BatN",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatO",
@@ -287,10 +328,12 @@
 		"speed": 50,
 		"image": "BatO",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatP",
@@ -301,10 +344,12 @@
 		"speed": 50,
 		"image": "BatP",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatQ",
@@ -315,10 +360,12 @@
 		"speed": 50,
 		"image": "BatQ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatR",
@@ -329,10 +376,12 @@
 		"speed": 50,
 		"image": "BatR",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatS",
@@ -343,10 +392,12 @@
 		"speed": 50,
 		"image": "BatS",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatSmallA",
@@ -357,10 +408,12 @@
 		"speed": 50,
 		"image": "BatSmallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatSmallB",
@@ -371,10 +424,12 @@
 		"speed": 50,
 		"image": "BatSmallB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatSmallC",
@@ -385,10 +440,12 @@
 		"speed": 50,
 		"image": "BatSmallC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatSmallD",
@@ -399,10 +456,12 @@
 		"speed": 50,
 		"image": "BatSmallD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatSmallE",
@@ -413,10 +472,12 @@
 		"speed": 50,
 		"image": "BatSmallE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BatT",
@@ -427,10 +488,12 @@
 		"speed": 50,
 		"image": "BatT",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BeardA",
@@ -441,10 +504,12 @@
 		"speed": 50,
 		"image": "BeardA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BeardB",
@@ -455,10 +520,12 @@
 		"speed": 50,
 		"image": "BeardB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BrainA",
@@ -469,10 +536,12 @@
 		"speed": 50,
 		"image": "BrainA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BrainB",
@@ -483,10 +552,12 @@
 		"speed": 50,
 		"image": "BrainB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BrainC",
@@ -497,10 +568,12 @@
 		"speed": 50,
 		"image": "BrainC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BrainD",
@@ -511,10 +584,12 @@
 		"speed": 50,
 		"image": "BrainD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BrainE",
@@ -525,10 +600,12 @@
 		"speed": 50,
 		"image": "BrainE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BugA",
@@ -539,10 +616,12 @@
 		"speed": 50,
 		"image": "BugA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BugB",
@@ -553,10 +632,12 @@
 		"speed": 50,
 		"image": "BugB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BugC",
@@ -567,10 +648,12 @@
 		"speed": 50,
 		"image": "BugC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BugD",
@@ -581,10 +664,12 @@
 		"speed": 50,
 		"image": "BugD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "BugE",
@@ -595,10 +680,12 @@
 		"speed": 50,
 		"image": "BugE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ButterflyA",
@@ -609,10 +696,12 @@
 		"speed": 50,
 		"image": "ButterflyA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ButterflyB",
@@ -623,10 +712,12 @@
 		"speed": 50,
 		"image": "ButterflyB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CatA",
@@ -637,10 +728,12 @@
 		"speed": 50,
 		"image": "CatA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CatB",
@@ -651,10 +744,12 @@
 		"speed": 50,
 		"image": "CatB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CatC",
@@ -665,10 +760,12 @@
 		"speed": 50,
 		"image": "CatC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CatD",
@@ -679,10 +776,12 @@
 		"speed": 50,
 		"image": "CatD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CatE",
@@ -693,10 +792,12 @@
 		"speed": 50,
 		"image": "CatE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CatF",
@@ -707,10 +808,12 @@
 		"speed": 50,
 		"image": "CatF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ChestA",
@@ -721,10 +824,12 @@
 		"speed": 50,
 		"image": "ChestA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ChickenA",
@@ -735,10 +840,12 @@
 		"speed": 50,
 		"image": "ChickenA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ChickenB",
@@ -749,10 +856,12 @@
 		"speed": 50,
 		"image": "ChickenB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ChickenC",
@@ -763,10 +872,12 @@
 		"speed": 50,
 		"image": "ChickenC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CloudA",
@@ -777,10 +888,12 @@
 		"speed": 50,
 		"image": "CloudA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CloudB",
@@ -791,10 +904,12 @@
 		"speed": 50,
 		"image": "CloudB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CloudC",
@@ -805,10 +920,12 @@
 		"speed": 50,
 		"image": "CloudC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CloudD",
@@ -819,10 +936,12 @@
 		"speed": 50,
 		"image": "CloudD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CoffinA",
@@ -833,10 +952,12 @@
 		"speed": 50,
 		"image": "CoffinA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CoffinB",
@@ -847,10 +968,12 @@
 		"speed": 50,
 		"image": "CoffinB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CoffinC",
@@ -861,10 +984,12 @@
 		"speed": 50,
 		"image": "CoffinC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CoffinD",
@@ -875,10 +1000,12 @@
 		"speed": 50,
 		"image": "CoffinD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CountA",
@@ -889,10 +1016,12 @@
 		"speed": 50,
 		"image": "CountA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CrabA",
@@ -903,10 +1032,12 @@
 		"speed": 50,
 		"image": "CrabA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CrabB",
@@ -917,10 +1048,12 @@
 		"speed": 50,
 		"image": "CrabB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CrabC",
@@ -931,10 +1064,12 @@
 		"speed": 50,
 		"image": "CrabC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CrabD",
@@ -945,10 +1080,12 @@
 		"speed": 50,
 		"image": "CrabD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CrabE",
@@ -959,10 +1096,12 @@
 		"speed": 50,
 		"image": "CrabE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "CrabF",
@@ -973,10 +1112,12 @@
 		"speed": 50,
 		"image": "CrabF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DiscA",
@@ -987,10 +1128,12 @@
 		"speed": 50,
 		"image": "DiscA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DogA",
@@ -1001,10 +1144,12 @@
 		"speed": 50,
 		"image": "DogA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DogB",
@@ -1015,10 +1160,12 @@
 		"speed": 50,
 		"image": "DogB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DogC",
@@ -1029,10 +1176,12 @@
 		"speed": 50,
 		"image": "DogC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DogD",
@@ -1043,10 +1192,12 @@
 		"speed": 50,
 		"image": "DogD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DogE",
@@ -1057,10 +1208,12 @@
 		"speed": 50,
 		"image": "DogE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DogF",
@@ -1071,10 +1224,12 @@
 		"speed": 50,
 		"image": "DogF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DogG",
@@ -1085,10 +1240,12 @@
 		"speed": 50,
 		"image": "DogG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DuckA",
@@ -1099,10 +1256,12 @@
 		"speed": 50,
 		"image": "DuckA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DuckB",
@@ -1113,10 +1272,12 @@
 		"speed": 50,
 		"image": "DuckB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DuckC",
@@ -1127,10 +1288,12 @@
 		"speed": 50,
 		"image": "DuckC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DwarfA",
@@ -1141,10 +1304,12 @@
 		"speed": 50,
 		"image": "DwarfA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DwarfB",
@@ -1155,10 +1320,12 @@
 		"speed": 50,
 		"image": "DwarfB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DwarfC",
@@ -1169,10 +1336,12 @@
 		"speed": 50,
 		"image": "DwarfC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DwarfD",
@@ -1183,10 +1352,12 @@
 		"speed": 50,
 		"image": "DwarfD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DwarfE",
@@ -1197,10 +1368,12 @@
 		"speed": 50,
 		"image": "DwarfE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DwarfF",
@@ -1211,10 +1384,12 @@
 		"speed": 50,
 		"image": "DwarfF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DyeA",
@@ -1225,10 +1400,12 @@
 		"speed": 50,
 		"image": "DyeA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DyeB",
@@ -1239,10 +1416,12 @@
 		"speed": 50,
 		"image": "DyeB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DyeC",
@@ -1253,10 +1432,12 @@
 		"speed": 50,
 		"image": "DyeC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "DyeD",
@@ -1267,10 +1448,12 @@
 		"speed": 50,
 		"image": "DyeD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthA",
@@ -1281,10 +1464,12 @@
 		"speed": 50,
 		"image": "EarthA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthB",
@@ -1295,10 +1480,12 @@
 		"speed": 50,
 		"image": "EarthB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthC",
@@ -1309,10 +1496,12 @@
 		"speed": 50,
 		"image": "EarthC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthSmallA",
@@ -1323,10 +1512,12 @@
 		"speed": 50,
 		"image": "EarthSmallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthSmallB",
@@ -1337,10 +1528,12 @@
 		"speed": 50,
 		"image": "EarthSmallB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthSmallC",
@@ -1351,10 +1544,12 @@
 		"speed": 50,
 		"image": "EarthSmallC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthSmallerA",
@@ -1365,10 +1560,12 @@
 		"speed": 50,
 		"image": "EarthSmallerA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthSmallerB",
@@ -1379,10 +1576,12 @@
 		"speed": 50,
 		"image": "EarthSmallerB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EarthSmallerC",
@@ -1393,10 +1592,12 @@
 		"speed": 50,
 		"image": "EarthSmallerC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EelA",
@@ -1407,10 +1608,12 @@
 		"speed": 50,
 		"image": "EelA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EelB",
@@ -1421,10 +1624,12 @@
 		"speed": 50,
 		"image": "EelB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EelC",
@@ -1435,10 +1640,12 @@
 		"speed": 50,
 		"image": "EelC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EelD",
@@ -1449,10 +1656,12 @@
 		"speed": 50,
 		"image": "EelD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ElementalOrbA",
@@ -1463,10 +1672,12 @@
 		"speed": 50,
 		"image": "ElementalOrbA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ElementalOrbB",
@@ -1477,10 +1688,12 @@
 		"speed": 50,
 		"image": "ElementalOrbB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EyeA",
@@ -1491,10 +1704,12 @@
 		"speed": 50,
 		"image": "EyeA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EyeB",
@@ -1505,10 +1720,12 @@
 		"speed": 50,
 		"image": "EyeB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EyeBallA",
@@ -1519,10 +1736,12 @@
 		"speed": 50,
 		"image": "EyeBallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EyeBallB",
@@ -1533,10 +1752,12 @@
 		"speed": 50,
 		"image": "EyeBallB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EyeBallC",
@@ -1547,10 +1768,12 @@
 		"speed": 50,
 		"image": "EyeBallC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EyeC",
@@ -1561,10 +1784,12 @@
 		"speed": 50,
 		"image": "EyeC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "EyeD",
@@ -1575,10 +1800,12 @@
 		"speed": 50,
 		"image": "EyeD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FactoryA",
@@ -1589,10 +1816,12 @@
 		"speed": 50,
 		"image": "FactoryA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FactoryB",
@@ -1603,10 +1832,12 @@
 		"speed": 50,
 		"image": "FactoryB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FireSmallA",
@@ -1617,10 +1848,12 @@
 		"speed": 50,
 		"image": "FireSmallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FishA",
@@ -1631,10 +1864,12 @@
 		"speed": 50,
 		"image": "FishA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FishB",
@@ -1645,10 +1880,12 @@
 		"speed": 50,
 		"image": "FishB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FishC",
@@ -1659,10 +1896,12 @@
 		"speed": 50,
 		"image": "FishC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FrogA",
@@ -1673,10 +1912,12 @@
 		"speed": 50,
 		"image": "FrogA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FrogB",
@@ -1687,10 +1928,12 @@
 		"speed": 50,
 		"image": "FrogB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FrogC",
@@ -1701,10 +1944,12 @@
 		"speed": 50,
 		"image": "FrogC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FrogD",
@@ -1715,10 +1960,12 @@
 		"speed": 50,
 		"image": "FrogD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "FrogE",
@@ -1729,10 +1976,12 @@
 		"speed": 50,
 		"image": "FrogE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GhastA",
@@ -1743,10 +1992,12 @@
 		"speed": 50,
 		"image": "GhastA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GhastB",
@@ -1757,10 +2008,12 @@
 		"speed": 50,
 		"image": "GhastB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GhastC",
@@ -1771,10 +2024,12 @@
 		"speed": 50,
 		"image": "GhastC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GnomeA",
@@ -1785,10 +2040,12 @@
 		"speed": 50,
 		"image": "GnomeA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GnomeB",
@@ -1799,10 +2056,12 @@
 		"speed": 50,
 		"image": "GnomeB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GnomeC",
@@ -1813,10 +2072,12 @@
 		"speed": 50,
 		"image": "GnomeC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GoatA",
@@ -1827,10 +2088,12 @@
 		"speed": 50,
 		"image": "GoatA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GoatB",
@@ -1841,10 +2104,12 @@
 		"speed": 50,
 		"image": "GoatB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "GolemA",
@@ -1855,10 +2120,12 @@
 		"speed": 50,
 		"image": "GolemA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HareA",
@@ -1869,10 +2136,12 @@
 		"speed": 50,
 		"image": "HareA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HareB",
@@ -1883,10 +2152,12 @@
 		"speed": 50,
 		"image": "HareB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HareC",
@@ -1897,10 +2168,12 @@
 		"speed": 50,
 		"image": "HareC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HareD",
@@ -1911,10 +2184,12 @@
 		"speed": 50,
 		"image": "HareD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HeadA",
@@ -1925,10 +2200,12 @@
 		"speed": 50,
 		"image": "HeadA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HeadB",
@@ -1939,10 +2216,12 @@
 		"speed": 50,
 		"image": "HeadB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HeadC",
@@ -1953,10 +2232,12 @@
 		"speed": 50,
 		"image": "HeadC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HeadD",
@@ -1967,10 +2248,12 @@
 		"speed": 50,
 		"image": "HeadD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HulkA",
@@ -1981,10 +2264,12 @@
 		"speed": 50,
 		"image": "HulkA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "HulkB",
@@ -1995,10 +2280,12 @@
 		"speed": 50,
 		"image": "HulkB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "KlackonA",
@@ -2009,10 +2296,12 @@
 		"speed": 60,
 		"image": "KlackonA",
 		"agility": 55,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "KlackonB",
@@ -2023,10 +2312,12 @@
 		"speed": 50,
 		"image": "KlackonB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "KlackonC",
@@ -2037,10 +2328,12 @@
 		"speed": 50,
 		"image": "KlackonC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "KlackonD",
@@ -2051,10 +2344,12 @@
 		"speed": 50,
 		"image": "KlackonD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "KlackonE",
@@ -2065,10 +2360,12 @@
 		"speed": 50,
 		"image": "KlackonE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "KlackonF",
@@ -2079,10 +2376,12 @@
 		"speed": 50,
 		"image": "KlackonF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "LurkerA",
@@ -2093,10 +2392,12 @@
 		"speed": 50,
 		"image": "LurkerA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "LurkerB",
@@ -2107,10 +2408,12 @@
 		"speed": 50,
 		"image": "LurkerB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "LurkerC",
@@ -2121,10 +2424,12 @@
 		"speed": 50,
 		"image": "LurkerC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MachineA",
@@ -2135,10 +2440,12 @@
 		"speed": 50,
 		"image": "MachineA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MaskA",
@@ -2149,10 +2456,12 @@
 		"speed": 50,
 		"image": "MaskA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MaskB",
@@ -2163,10 +2472,12 @@
 		"speed": 50,
 		"image": "MaskB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MaskC",
@@ -2177,10 +2488,12 @@
 		"speed": 50,
 		"image": "MaskC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MaskD",
@@ -2191,10 +2504,12 @@
 		"speed": 50,
 		"image": "MaskD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithA",
@@ -2205,10 +2520,12 @@
 		"speed": 50,
 		"image": "MonolithA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithB",
@@ -2219,10 +2536,12 @@
 		"speed": 50,
 		"image": "MonolithB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithC",
@@ -2233,10 +2552,12 @@
 		"speed": 50,
 		"image": "MonolithC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithD",
@@ -2247,10 +2568,12 @@
 		"speed": 50,
 		"image": "MonolithD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithE",
@@ -2261,10 +2584,12 @@
 		"speed": 50,
 		"image": "MonolithE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithF",
@@ -2275,10 +2600,12 @@
 		"speed": 50,
 		"image": "MonolithF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithG",
@@ -2289,10 +2616,12 @@
 		"speed": 50,
 		"image": "MonolithG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithH",
@@ -2303,10 +2632,12 @@
 		"speed": 50,
 		"image": "MonolithH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithI",
@@ -2317,10 +2648,12 @@
 		"speed": 50,
 		"image": "MonolithI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithJ",
@@ -2331,10 +2664,12 @@
 		"speed": 50,
 		"image": "MonolithJ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithK",
@@ -2345,10 +2680,12 @@
 		"speed": 50,
 		"image": "MonolithK",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MonolithL",
@@ -2359,10 +2696,12 @@
 		"speed": 50,
 		"image": "MonolithL",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MothA",
@@ -2373,10 +2712,12 @@
 		"speed": 50,
 		"image": "MothA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MothB",
@@ -2387,10 +2728,12 @@
 		"speed": 50,
 		"image": "MothB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MothC",
@@ -2401,10 +2744,12 @@
 		"speed": 50,
 		"image": "MothC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MothD",
@@ -2415,10 +2760,12 @@
 		"speed": 50,
 		"image": "MothD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MothE",
@@ -2429,10 +2776,12 @@
 		"speed": 50,
 		"image": "MothE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MouthA",
@@ -2443,10 +2792,12 @@
 		"speed": 50,
 		"image": "MouthA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MouthB",
@@ -2457,10 +2808,12 @@
 		"speed": 50,
 		"image": "MouthB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MouthC",
@@ -2471,10 +2824,12 @@
 		"speed": 50,
 		"image": "MouthC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MummyA",
@@ -2485,10 +2840,12 @@
 		"speed": 50,
 		"image": "MummyA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MummyB",
@@ -2499,10 +2856,12 @@
 		"speed": 50,
 		"image": "MummyB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MummyC",
@@ -2513,10 +2872,12 @@
 		"speed": 50,
 		"image": "MummyC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MushroomA",
@@ -2527,10 +2888,12 @@
 		"speed": 50,
 		"image": "MushroomA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "MushroomB",
@@ -2541,10 +2904,12 @@
 		"speed": 50,
 		"image": "MushroomB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "OrbA",
@@ -2555,10 +2920,12 @@
 		"speed": 50,
 		"image": "OrbA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "OrbB",
@@ -2569,10 +2936,12 @@
 		"speed": 50,
 		"image": "OrbB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "OrbC",
@@ -2583,10 +2952,12 @@
 		"speed": 50,
 		"image": "OrbC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "OrbD",
@@ -2597,10 +2968,12 @@
 		"speed": 50,
 		"image": "OrbD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionA",
@@ -2611,10 +2984,12 @@
 		"speed": 50,
 		"image": "PotionA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionB",
@@ -2625,10 +3000,12 @@
 		"speed": 50,
 		"image": "PotionB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionC",
@@ -2639,10 +3016,12 @@
 		"speed": 50,
 		"image": "PotionC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionD",
@@ -2653,10 +3032,12 @@
 		"speed": 50,
 		"image": "PotionD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionE",
@@ -2667,10 +3048,12 @@
 		"speed": 50,
 		"image": "PotionE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionF",
@@ -2681,10 +3064,12 @@
 		"speed": 50,
 		"image": "PotionF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionG",
@@ -2695,10 +3080,12 @@
 		"speed": 50,
 		"image": "PotionG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionH",
@@ -2709,10 +3096,12 @@
 		"speed": 50,
 		"image": "PotionH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionI",
@@ -2723,10 +3112,12 @@
 		"speed": 50,
 		"image": "PotionI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionJ",
@@ -2737,10 +3128,12 @@
 		"speed": 50,
 		"image": "PotionJ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionK",
@@ -2751,10 +3144,12 @@
 		"speed": 50,
 		"image": "PotionK",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PotionL",
@@ -2765,10 +3160,12 @@
 		"speed": 50,
 		"image": "PotionL",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylA",
@@ -2779,10 +3176,12 @@
 		"speed": 50,
 		"image": "PterodactylA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylB",
@@ -2793,10 +3192,12 @@
 		"speed": 50,
 		"image": "PterodactylB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylC",
@@ -2807,10 +3208,12 @@
 		"speed": 50,
 		"image": "PterodactylC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylD",
@@ -2821,10 +3224,12 @@
 		"speed": 50,
 		"image": "PterodactylD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylE",
@@ -2835,10 +3240,12 @@
 		"speed": 50,
 		"image": "PterodactylE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylF",
@@ -2849,10 +3256,12 @@
 		"speed": 50,
 		"image": "PterodactylF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylG",
@@ -2863,10 +3272,12 @@
 		"speed": 50,
 		"image": "PterodactylG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PterodactylH",
@@ -2877,10 +3288,12 @@
 		"speed": 50,
 		"image": "PterodactylH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PuddleA",
@@ -2891,10 +3304,12 @@
 		"speed": 50,
 		"image": "PuddleA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PuddleB",
@@ -2905,10 +3320,12 @@
 		"speed": 50,
 		"image": "PuddleB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PuddleC",
@@ -2919,10 +3336,12 @@
 		"speed": 50,
 		"image": "PuddleC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PyramidA",
@@ -2933,10 +3352,12 @@
 		"speed": 50,
 		"image": "PyramidA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "PyramidB",
@@ -2947,10 +3368,12 @@
 		"speed": 50,
 		"image": "PyramidB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ReaperA",
@@ -2961,10 +3384,12 @@
 		"speed": 50,
 		"image": "ReaperA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "RobotA",
@@ -2975,10 +3400,12 @@
 		"speed": 50,
 		"image": "RobotA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "RobotB",
@@ -2989,10 +3416,12 @@
 		"speed": 50,
 		"image": "RobotB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "RobotC",
@@ -3003,10 +3432,12 @@
 		"speed": 50,
 		"image": "RobotC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "RobotD",
@@ -3017,10 +3448,12 @@
 		"speed": 50,
 		"image": "RobotD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ScorpionA",
@@ -3031,10 +3464,12 @@
 		"speed": 50,
 		"image": "ScorpionA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ScorpionB",
@@ -3045,10 +3480,12 @@
 		"speed": 50,
 		"image": "ScorpionB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ScorpionC",
@@ -3059,10 +3496,12 @@
 		"speed": 50,
 		"image": "ScorpionC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SentryA",
@@ -3073,10 +3512,12 @@
 		"speed": 50,
 		"image": "SentryA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SentryB",
@@ -3087,10 +3528,12 @@
 		"speed": 50,
 		"image": "SentryB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SentryC",
@@ -3101,10 +3544,12 @@
 		"speed": 50,
 		"image": "SentryC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SentryCopterA",
@@ -3115,10 +3560,12 @@
 		"speed": 50,
 		"image": "SentryCopterA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SentryCopterB",
@@ -3129,10 +3576,12 @@
 		"speed": 50,
 		"image": "SentryCopterB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SentryCopterC",
@@ -3143,10 +3592,12 @@
 		"speed": 50,
 		"image": "SentryCopterC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ShieldA",
@@ -3157,10 +3608,12 @@
 		"speed": 50,
 		"image": "ShieldA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ShieldB",
@@ -3171,10 +3624,12 @@
 		"speed": 50,
 		"image": "ShieldB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ShieldC",
@@ -3185,10 +3640,12 @@
 		"speed": 50,
 		"image": "ShieldC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ShieldD",
@@ -3199,10 +3656,12 @@
 		"speed": 50,
 		"image": "ShieldD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ShieldE",
@@ -3213,10 +3672,12 @@
 		"speed": 50,
 		"image": "ShieldE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ShieldF",
@@ -3227,10 +3688,12 @@
 		"speed": 50,
 		"image": "ShieldF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkeletonA",
@@ -3241,10 +3704,12 @@
 		"speed": 50,
 		"image": "SkeletonA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkeletonB",
@@ -3255,10 +3720,12 @@
 		"speed": 50,
 		"image": "SkeletonB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkeletonC",
@@ -3269,10 +3736,12 @@
 		"speed": 50,
 		"image": "SkeletonC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkeletonD",
@@ -3283,10 +3752,12 @@
 		"speed": 50,
 		"image": "SkeletonD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullA",
@@ -3297,10 +3768,12 @@
 		"speed": 50,
 		"image": "SkullA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullB",
@@ -3311,10 +3784,12 @@
 		"speed": 50,
 		"image": "SkullB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullC",
@@ -3325,10 +3800,12 @@
 		"speed": 50,
 		"image": "SkullC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullD",
@@ -3339,10 +3816,12 @@
 		"speed": 50,
 		"image": "SkullD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullFlamingA",
@@ -3353,10 +3832,12 @@
 		"speed": 50,
 		"image": "SkullFlamingA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullFlamingB",
@@ -3367,10 +3848,12 @@
 		"speed": 50,
 		"image": "SkullFlamingB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallA",
@@ -3381,10 +3864,12 @@
 		"speed": 50,
 		"image": "SkullSmallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallB",
@@ -3395,10 +3880,12 @@
 		"speed": 50,
 		"image": "SkullSmallB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallC",
@@ -3409,10 +3896,12 @@
 		"speed": 50,
 		"image": "SkullSmallC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallD",
@@ -3423,10 +3912,12 @@
 		"speed": 50,
 		"image": "SkullSmallD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallE",
@@ -3437,10 +3928,12 @@
 		"speed": 50,
 		"image": "SkullSmallE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallF",
@@ -3451,10 +3944,12 @@
 		"speed": 50,
 		"image": "SkullSmallF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallG",
@@ -3465,10 +3960,12 @@
 		"speed": 50,
 		"image": "SkullSmallG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SkullSmallH",
@@ -3479,10 +3976,12 @@
 		"speed": 50,
 		"image": "SkullSmallH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeA",
@@ -3493,10 +3992,12 @@
 		"speed": 50,
 		"image": "SlimeA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeB",
@@ -3507,10 +4008,12 @@
 		"speed": 50,
 		"image": "SlimeB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeC",
@@ -3521,10 +4024,12 @@
 		"speed": 50,
 		"image": "SlimeC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeD",
@@ -3535,10 +4040,12 @@
 		"speed": 50,
 		"image": "SlimeD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeE",
@@ -3549,10 +4056,12 @@
 		"speed": 50,
 		"image": "SlimeE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeF",
@@ -3563,10 +4072,12 @@
 		"speed": 50,
 		"image": "SlimeF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeG",
@@ -3577,10 +4088,12 @@
 		"speed": 50,
 		"image": "SlimeG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeH",
@@ -3591,10 +4104,12 @@
 		"speed": 50,
 		"image": "SlimeH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeI",
@@ -3605,10 +4120,12 @@
 		"speed": 50,
 		"image": "SlimeI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeJ",
@@ -3619,10 +4136,12 @@
 		"speed": 50,
 		"image": "SlimeJ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeK",
@@ -3633,10 +4152,12 @@
 		"speed": 50,
 		"image": "SlimeK",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeL",
@@ -3647,10 +4168,12 @@
 		"speed": 50,
 		"image": "SlimeL",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeM",
@@ -3661,10 +4184,12 @@
 		"speed": 50,
 		"image": "SlimeM",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeN",
@@ -3675,10 +4200,12 @@
 		"speed": 50,
 		"image": "SlimeN",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeO",
@@ -3689,10 +4216,12 @@
 		"speed": 50,
 		"image": "SlimeO",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeP",
@@ -3703,10 +4232,12 @@
 		"speed": 50,
 		"image": "SlimeP",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallA",
@@ -3717,10 +4248,12 @@
 		"speed": 50,
 		"image": "SlimeSmallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallB",
@@ -3731,10 +4264,12 @@
 		"speed": 50,
 		"image": "SlimeSmallB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallC",
@@ -3745,10 +4280,12 @@
 		"speed": 50,
 		"image": "SlimeSmallC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallD",
@@ -3759,10 +4296,12 @@
 		"speed": 50,
 		"image": "SlimeSmallD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallE",
@@ -3773,10 +4312,12 @@
 		"speed": 50,
 		"image": "SlimeSmallE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallerA",
@@ -3787,10 +4328,12 @@
 		"speed": 50,
 		"image": "SlimeSmallerA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallerB",
@@ -3801,10 +4344,12 @@
 		"speed": 50,
 		"image": "SlimeSmallerB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallerC",
@@ -3815,10 +4360,12 @@
 		"speed": 50,
 		"image": "SlimeSmallerC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallerD",
@@ -3829,10 +4376,12 @@
 		"speed": 50,
 		"image": "SlimeSmallerD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallerE",
@@ -3843,10 +4392,12 @@
 		"speed": 50,
 		"image": "SlimeSmallerE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallerF",
@@ -3857,10 +4408,12 @@
 		"speed": 50,
 		"image": "SlimeSmallerF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallerG",
@@ -3871,10 +4424,12 @@
 		"speed": 50,
 		"image": "SlimeSmallerG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallF",
@@ -3885,10 +4440,12 @@
 		"speed": 50,
 		"image": "SlimeSmallF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallG",
@@ -3899,10 +4456,12 @@
 		"speed": 50,
 		"image": "SlimeSmallG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallH",
@@ -3913,10 +4472,12 @@
 		"speed": 50,
 		"image": "SlimeSmallH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSmallI",
@@ -3927,10 +4488,12 @@
 		"speed": 50,
 		"image": "SlimeSmallI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareA",
@@ -3941,10 +4504,12 @@
 		"speed": 50,
 		"image": "SlimeSquareA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareB",
@@ -3955,10 +4520,12 @@
 		"speed": 50,
 		"image": "SlimeSquareB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareC",
@@ -3969,10 +4536,12 @@
 		"speed": 50,
 		"image": "SlimeSquareC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareD",
@@ -3983,10 +4552,12 @@
 		"speed": 50,
 		"image": "SlimeSquareD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareE",
@@ -3997,10 +4568,12 @@
 		"speed": 50,
 		"image": "SlimeSquareE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareF",
@@ -4011,10 +4584,12 @@
 		"speed": 50,
 		"image": "SlimeSquareF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareG",
@@ -4025,10 +4600,12 @@
 		"speed": 50,
 		"image": "SlimeSquareG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareH",
@@ -4039,10 +4616,12 @@
 		"speed": 50,
 		"image": "SlimeSquareH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareI",
@@ -4053,10 +4632,12 @@
 		"speed": 50,
 		"image": "SlimeSquareI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareJ",
@@ -4067,10 +4648,12 @@
 		"speed": 50,
 		"image": "SlimeSquareJ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareK",
@@ -4081,10 +4664,12 @@
 		"speed": 50,
 		"image": "SlimeSquareK",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareL",
@@ -4095,10 +4680,12 @@
 		"speed": 50,
 		"image": "SlimeSquareL",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallA",
@@ -4109,10 +4696,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallB",
@@ -4123,10 +4712,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallC",
@@ -4137,10 +4728,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallD",
@@ -4151,10 +4744,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallE",
@@ -4165,10 +4760,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerA",
@@ -4179,10 +4776,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerB",
@@ -4193,10 +4792,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerC",
@@ -4207,10 +4808,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerD",
@@ -4221,10 +4824,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerE",
@@ -4235,10 +4840,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerF",
@@ -4249,10 +4856,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerG",
@@ -4263,10 +4872,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerH",
@@ -4277,10 +4888,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerI",
@@ -4291,10 +4904,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallerJ",
@@ -4305,10 +4920,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallerJ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallF",
@@ -4319,10 +4936,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallG",
@@ -4333,10 +4952,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlimeSquareSmallH",
@@ -4347,10 +4968,12 @@
 		"speed": 50,
 		"image": "SlimeSquareSmallH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlugA",
@@ -4361,10 +4984,12 @@
 		"speed": 50,
 		"image": "SlugA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlugB",
@@ -4375,10 +5000,12 @@
 		"speed": 50,
 		"image": "SlugB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlugC",
@@ -4389,10 +5016,12 @@
 		"speed": 50,
 		"image": "SlugC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlugD",
@@ -4403,10 +5032,12 @@
 		"speed": 50,
 		"image": "SlugD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlugE",
@@ -4417,10 +5048,12 @@
 		"speed": 50,
 		"image": "SlugE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlugF",
@@ -4431,10 +5064,12 @@
 		"speed": 50,
 		"image": "SlugF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SlugG",
@@ -4445,10 +5080,12 @@
 		"speed": 50,
 		"image": "SlugG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeA",
@@ -4459,10 +5096,12 @@
 		"speed": 50,
 		"image": "SnakeA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeB",
@@ -4473,10 +5112,12 @@
 		"speed": 50,
 		"image": "SnakeB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeC",
@@ -4487,10 +5128,12 @@
 		"speed": 50,
 		"image": "SnakeC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeD",
@@ -4501,10 +5144,12 @@
 		"speed": 50,
 		"image": "SnakeD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeE",
@@ -4515,10 +5160,12 @@
 		"speed": 50,
 		"image": "SnakeE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeF",
@@ -4529,10 +5176,12 @@
 		"speed": 50,
 		"image": "SnakeF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeG",
@@ -4543,10 +5192,12 @@
 		"speed": 50,
 		"image": "SnakeG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeH",
@@ -4557,10 +5208,12 @@
 		"speed": 50,
 		"image": "SnakeH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeI",
@@ -4571,10 +5224,12 @@
 		"speed": 50,
 		"image": "SnakeI",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeJ",
@@ -4585,10 +5240,12 @@
 		"speed": 50,
 		"image": "SnakeJ",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeK",
@@ -4599,10 +5256,12 @@
 		"speed": 50,
 		"image": "SnakeK",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SnakeL",
@@ -4613,10 +5272,12 @@
 		"speed": 50,
 		"image": "SnakeL",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SpaceA",
@@ -4627,10 +5288,12 @@
 		"speed": 50,
 		"image": "SpaceA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SparksA",
@@ -4641,10 +5304,12 @@
 		"speed": 50,
 		"image": "SparksA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SphereA",
@@ -4655,10 +5320,12 @@
 		"speed": 50,
 		"image": "SphereA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SphereB",
@@ -4669,10 +5336,12 @@
 		"speed": 50,
 		"image": "SphereB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SphereC",
@@ -4683,10 +5352,12 @@
 		"speed": 50,
 		"image": "SphereC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SphereD",
@@ -4697,10 +5368,12 @@
 		"speed": 50,
 		"image": "SphereD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SquirrelA",
@@ -4711,10 +5384,12 @@
 		"speed": 50,
 		"image": "SquirrelA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SquirrelB",
@@ -4725,10 +5400,12 @@
 		"speed": 50,
 		"image": "SquirrelB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SwordA",
@@ -4739,10 +5416,12 @@
 		"speed": 50,
 		"image": "SwordA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "SwordB",
@@ -4753,10 +5432,12 @@
 		"speed": 50,
 		"image": "SwordB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "TentacleA",
@@ -4767,10 +5448,12 @@
 		"speed": 50,
 		"image": "TentacleA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "TentacleB",
@@ -4781,10 +5464,12 @@
 		"speed": 50,
 		"image": "TentacleB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "TentacleC",
@@ -4795,10 +5480,12 @@
 		"speed": 50,
 		"image": "TentacleC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "TentacleD",
@@ -4809,10 +5496,12 @@
 		"speed": 50,
 		"image": "TentacleD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "TentacleE",
@@ -4823,10 +5512,12 @@
 		"speed": 50,
 		"image": "TentacleE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "TentacleF",
@@ -4837,10 +5528,12 @@
 		"speed": 50,
 		"image": "TentacleF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WaterA",
@@ -4851,10 +5544,12 @@
 		"speed": 50,
 		"image": "WaterA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WaterSmallA",
@@ -4865,10 +5560,12 @@
 		"speed": 50,
 		"image": "WaterSmallA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WeaselA",
@@ -4879,10 +5576,12 @@
 		"speed": 50,
 		"image": "WeaselA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WeaselB",
@@ -4893,10 +5592,12 @@
 		"speed": 50,
 		"image": "WeaselB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WeaselC",
@@ -4907,10 +5608,12 @@
 		"speed": 50,
 		"image": "WeaselC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WitchA",
@@ -4921,10 +5624,12 @@
 		"speed": 50,
 		"image": "WitchA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WitchB",
@@ -4935,10 +5640,12 @@
 		"speed": 50,
 		"image": "WitchB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WitchC",
@@ -4949,10 +5656,12 @@
 		"speed": 50,
 		"image": "WitchC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WitchD",
@@ -4963,10 +5672,12 @@
 		"speed": 50,
 		"image": "WitchD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WitchE",
@@ -4977,10 +5688,12 @@
 		"speed": 50,
 		"image": "WitchE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WitchF",
@@ -4991,10 +5704,12 @@
 		"speed": 50,
 		"image": "WitchF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormA",
@@ -5005,10 +5720,12 @@
 		"speed": 50,
 		"image": "WormA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormB",
@@ -5019,10 +5736,12 @@
 		"speed": 50,
 		"image": "WormB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormC",
@@ -5033,10 +5752,12 @@
 		"speed": 50,
 		"image": "WormC",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormD",
@@ -5047,10 +5768,12 @@
 		"speed": 50,
 		"image": "WormD",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormE",
@@ -5061,10 +5784,12 @@
 		"speed": 50,
 		"image": "WormE",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormF",
@@ -5075,10 +5800,12 @@
 		"speed": 50,
 		"image": "WormF",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormG",
@@ -5089,10 +5816,12 @@
 		"speed": 50,
 		"image": "WormG",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "WormH",
@@ -5103,10 +5832,12 @@
 		"speed": 50,
 		"image": "WormH",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ZombieA",
@@ -5117,10 +5848,12 @@
 		"speed": 50,
 		"image": "ZombieA",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	},
 	{
 		"name": "ZombieB",
@@ -5131,9 +5864,11 @@
 		"speed": 50,
 		"image": "ZombieB",
 		"agility": 50,
-		"move1": "attack1",
-		"move2": "defend1",
-		"move3": "heal1",
-		"move4": "dodge1"
+		"moves": [
+			"attack1",
+			"defend1",
+			"heal1",
+			"dodge1"
+		]
 	}
 ]
