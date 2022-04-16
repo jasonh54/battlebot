@@ -7,12 +7,10 @@ class Maps {
   Layer portallayer = new Layer();
   Layer toplayer = new Layer();
   
-
-  private ArrayList<GroundItem> items = new ArrayList<GroundItem>();
+  private ArrayList<GroundItem> items;
+  //ABCDE
+  //items = new ArrayList<GroundItem>();
   Layer[] layerset = {collidelayer, portallayer, baselayer, coverlayer, toplayer};
-
-
-  //portal-map pair list
   HashMap<Tile, Maps> portalPairs = new HashMap<Tile, Maps>();
   
   //constructor for most maps
@@ -20,15 +18,12 @@ class Maps {
     //name the self
     this.id = id;
     //retrieve the map to copy from the database
-    
     JSONObject thismap = mapsDatabase.get(id);
     generateAllLayers(loadTileArray(thismap.getJSONArray("collide")),loadTileArray(thismap.getJSONArray("portal")),loadTileArray(thismap.getJSONArray("base")),loadTileArray(thismap.getJSONArray("cover")),loadTileArray(thismap.getJSONArray("top")));
-  
-    //generate each layer via 2d JSONArrays from the JSONObject
-    //allow the layers to imprint to this map
-    for (int i = 0; i < layerset.length; i++) {
-      layerset[i].parent = this;
-    }
+    pairPortals();
+    imprintLayers();
+    //upon preparation, add self to a masterlist
+    masterMapList.put(this.id,this);
   }
   
   //constructor for currentmap, which starts blank
@@ -36,16 +31,30 @@ class Maps {
     
   }
   
-  //find some way to search a tile in a JSON database and retrieve the map it is paired with, to place into portalPairs here
-  //currently bad; pairs all portals with one given map. fix later
-  void pairPortal(Maps othermap) {
-    for (int i = 0; i < this.portallayer.portalTiles.size(); i++) {
-      portalPairs.put(this.portallayer.portalTiles.get(i),othermap);
+  //zipper the connections array with the portaltiles list into a singular, navigable hashmap
+  void pairPortals() {
+    JSONArray connections = mapsDatabase.get(id).getJSONArray("connections");
+    println(connections);
+    print(portallayer.portalTiles);
+    for (int i = 0; i < connections.size(); i++) {
+      portalPairs.put(portallayer.portalTiles.get(i),masterMapList.get(connections.get(i)));
     }
   }
   
+  //allow the layers to imprint to this map
+  void imprintLayers() {
+    for (int i = 0; i < layerset.length; i++) {
+      layerset[i].parent = this;
+    }
+  }
+  
+  Maps getPortalConnection(Tile tile) {
+    return portalPairs.get(tile);
+  }
+  
   public void addItem(GroundItem gi) {
-    this.items.add(gi);
+    //ABCDE
+    //this.items.add(gi);
   }
   public void removeItem(GroundItem gi) {
     this.items.remove(gi);
@@ -67,18 +76,23 @@ class Maps {
     coverlayer.update(collidelayer);
     collidelayer.update();
     portallayer.update(collidelayer);
-    for (GroundItem i : this.items) {
+    //ABCDE
+    /* for (GroundItem i : this.items) {
       i.update(testPlayer);
       i.draw();
-    }
+    } */
   }
   
-  void updateAll() {
-    baselayer.update(collidelayer);
-    coverlayer.update(collidelayer);
-    collidelayer.update();
-    portallayer.update(collidelayer);
+  void updateLast() {
     toplayer.update(collidelayer);
+    int checkit = portallayer.checkOverlap(portallayer.portalTiles, testPlayer, "portal underfoot");
+        //checking special tile-related conditions and activating events if they are met
+        if (checkit >= 0) {
+          //have a variable save portalTiles.get(overlapint);
+          currentmap = this.portalPairs.get(portallayer.portalTiles.get(checkit));
+          //figure out what map is associated with that tile and generate it
+        }
+        
   }
   
   void totalDraw() {

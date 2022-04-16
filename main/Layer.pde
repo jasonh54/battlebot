@@ -173,14 +173,6 @@ class Layer {
         //unlocks movement and resets counter so a new movement can begin
         lock = false;
         framecounter = 0;
-        int checkit;
-        checkit = checkOverlap(portalTiles, testPlayer, "portal underfoot");
-        //checking special tile-related conditions and activating events if they are met
-        if (checkit >= 0) {
-          //have a variable save portalTiles.get(overlapint);
-          currentmap = parent.portalPairs.get(portalTiles.get(checkit));
-          //figure out what map is associated with that tile and generate it
-        }
         if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
           Random r = new Random();
           int t = r.nextInt(7) + 1;
@@ -188,8 +180,6 @@ class Layer {
             currentbattle = new Battle(testPlayer,new Monster("AirA", 800, 250));
             GameState.currentState = GameStates.COMBAT;
           }
-          
-          //if chance happens, activate battle state
         }
         stopMove();
       }
@@ -267,7 +257,9 @@ class Layer {
       if (array.get(i).checkOverlap(player) == true) {
         //returns the index if true, returns -1 if false
         overlapint = i;
+        println("********************************************");
         println("stepped on " + text);
+        println("********************************************");
         return overlapint;
       }
     }

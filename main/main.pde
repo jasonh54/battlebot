@@ -24,6 +24,9 @@ PImage[] tiles;
 ArrayList<GroundItem> dqueue = new ArrayList<GroundItem>();
 HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 
+//list of all maps
+HashMap<String,Maps> masterMapList = new HashMap<String,Maps>();
+
 //menu variables
 Menu mainmenu;
 
@@ -40,6 +43,7 @@ Maps currentmap = new Maps();
 //'citymap' being used as a test version of a theoretical JSON map
 Maps citymap;
 Maps fieldmap;
+Maps jailmap;
 
 
 //misc variables
@@ -136,14 +140,13 @@ void setup(){
   testPlayer.summonMonsterStack(monsterids);
   testPlayer.addItem("Health Potion");
 
-
+  //initialize the maps
   citymap = new Maps("citymap");
   fieldmap = new Maps("fieldmap");
-  //pairportal links portals w/ a given map - a temporary func that will need an overhaul when there is more than one place to go
-  citymap.pairPortal(fieldmap);
-  fieldmap.pairPortal(citymap);
+  jailmap = new Maps("jailmap");
+
   //sets the active map as city to start
-  currentmap = citymap;
+  currentmap = fieldmap;
   
   //initialize all menus
   mainmenu = new Menu(0, 0, 4, 30, 80, 5);
@@ -156,8 +159,8 @@ void setup(){
   mainmenu.buttons.get(2).txt = "button3";
   
 
-  currentmap.addItem(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
-  currentmap.addItem(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));
+  currentmap.addItem(new GroundItem("Damage Potion",currentmap.baselayer.getTile(1,1))); // This is where you place items!
+  currentmap.addItem(new GroundItem("Agility Potion",currentmap.baselayer.getTile(2,1)));
 
   /*items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
   items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));*/
@@ -174,7 +177,7 @@ void draw() {
     case WALKING:
       currentmap.update();
       testPlayer.display();
-      currentmap.toplayer.update(currentmap.collidelayer);
+      currentmap.updateLast();
       updateDrawables(sandwich);
       updateClickables(sandwich);
       
