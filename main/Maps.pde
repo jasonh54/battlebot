@@ -35,10 +35,7 @@ class Maps {
   //zipper the connections array with the portaltiles list into a singular, navigable hashmap
   void pairPortals() {
     JSONArray connections = mapsDatabase.get(id).getJSONArray("connections");
-    println(connections);
-    print(portallayer.portalTiles);
     for (int i = 0; i < connections.size(); i++) {
-      println(masterMapList.get(connections.get(i)));
       portalPairs.put(portallayer.portalTiles.get(i),masterMapList.get(connections.get(i)));
     }
   }
@@ -92,9 +89,7 @@ class Maps {
         //checking special tile-related conditions and activating events if they are met
         if (checkit >= 0) {
           //have a variable save portalTiles.get(overlapint);
-          println("checkit activated" + portalPairs);
           nextmap = this.portalPairs.get(portallayer.portalTiles.get(checkit));
-          println("collected next map: " + nextmap.id);
           //figure out what map is associated with that tile and generate it
         }
         

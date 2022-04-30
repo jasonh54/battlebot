@@ -123,7 +123,6 @@ void setup(){
     JSONObject map = mapArray.getJSONObject(i);
     mapsDatabase.put(map.getString("name"),map);
     //confirm that map is being loaded in
-    println("loading in: " + map.getString("name"));
   }
 
   itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
