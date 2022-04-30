@@ -41,15 +41,15 @@ class Button implements Clickable,Drawable {
       default:
         if (this.func == "botswap"){ // makeshift solution that doesnt work for duplicate monsters. needs fix.
           if (this.monster == null) {
-            for (int i = 0;i<testPlayer.monsters.size();i++){
-              Monster monster = testPlayer.monsters.get(i);
+            for (int i = 0;i<player.monsters.size();i++){
+              Monster monster = player.monsters.get(i);
               if (monster.id != this.txt) continue;
               this.monster = monster;
               break;
             }
           }
           
-          if (testPlayer.getSelectedMonster()==this.monster){
+          if (player.getSelectedMonster()==this.monster){
             fill(150,230,150);
           }
         }
@@ -81,8 +81,8 @@ class Button implements Clickable,Drawable {
         warn("Empty function has been run!");
       break;
       case "useitem"://use an item
-        if (testPlayer.items.containsKey(this.txt.split("x")[0].trim()) && testPlayer.items.get(this.txt.split("x")[0].trim()) > 0){ // more than 0 items (check database instead of button)
-          testPlayer.useItem(this.txt.split("x")[0].trim());
+        if (player.items.containsKey(this.txt.split("x")[0].trim()) && player.items.get(this.txt.split("x")[0].trim()) > 0){ // more than 0 items (check database instead of button)
+          player.useItem(this.txt.split("x")[0].trim());
           currentbattle.switchState(BattleStates.AI);
         }
       break;
@@ -109,10 +109,10 @@ class Button implements Clickable,Drawable {
         currentbattle.switchState(BattleStates.RUN);
       break;
       case "botswap":// switch battlebot
-        for (int n = 0; n < testPlayer.monsters.size(); n++) {
+        for (int n = 0; n < player.monsters.size(); n++) {
           //in the botswap func, program will find a monster in testPlayer.monsters with a monster ID that is equal to testPlayer.swapto
-          if (testPlayer.monsters.get(n).id == this.txt&&testPlayer.monsters.get(n).getCHealth()>0) {
-            testPlayer.selectedmonster = n;
+          if (player.monsters.get(n).id == this.txt&&player.monsters.get(n).getCHealth()>0) {
+            player.selectedmonster = n;
             currentbattle.switchState(BattleStates.OPTIONS);
             return;
           }

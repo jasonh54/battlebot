@@ -117,7 +117,6 @@ class Player{
   }
   
   public void display(){
-    this.update();
     
     //if(animations.stoploop){
     //  animations.softReset();

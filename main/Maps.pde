@@ -83,7 +83,7 @@ class Maps {
   
   void updateLast() {
     toplayer.update(collidelayer);
-    int checkit = portallayer.checkOverlap(portallayer.portalTiles, testPlayer, "portal underfoot");
+    int checkit = portallayer.checkOverlap(portallayer.portalTiles, player, "portal underfoot");
         //checking special tile-related conditions and activating events if they are met
         if (checkit >= 0) {
           //have a variable save portalTiles.get(overlapint);

@@ -45,7 +45,7 @@ ArrayList<GroundItem> dqueue = new ArrayList<GroundItem>();
 Menu mainmenu;
 Button sandwich;
 static Battle currentbattle;
-static Player testPlayer; //the player
+static Player player; //the player
 final int naptime = 200; //delayer var to avoid problems when keys are pressed
 
 Timer restartTimer;
@@ -116,11 +116,11 @@ void setup(){
   }
   
   //initiatize misc variables
-  testPlayer = new Player(createCharacterSprites(0),new ArrayList<Monster>());
+  player = new Player(createCharacterSprites(0),new ArrayList<Monster>());
 
   String[] monsterids = new String[]{"AirA", "Goku", "ChickenA", "KlackonA"};
-  testPlayer.summonMonsterStack(monsterids);
-  testPlayer.addItem("Health Potion");
+  player.summonMonsterStack(monsterids);
+  player.addItem("Health Potion");
 
   //initialize the maps
   citymap = new Maps("citymap");
@@ -154,7 +154,8 @@ void draw() {
   switch (GameState.currentState) {
     case WALKING:
       currentmap.update();
-      testPlayer.display();
+      player.update();
+      player.display();
       currentmap.toplayer.update(currentmap.collidelayer);
       updateDrawables(sandwich);
       updateClickables(sandwich);
@@ -169,7 +170,8 @@ void draw() {
       }
     break;
     case COMBAT:
-      currentbattle.turn();
+      currentbattle.update();
+      currentbattle.render();
     break;
     case MENU:
       //draw stuff (not update; no movement)
@@ -185,6 +187,10 @@ void draw() {
         GameState.switchState(GameStates.WALKING);
         delay(naptime);
       }
+    break;
+    case LOSE:
+      System.out.println("skill issue");
+      System.exit(0);
     break;
   }
 }

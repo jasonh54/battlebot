@@ -141,7 +141,7 @@ class Layer {
     if (keyPressed == true && lock == false) { 
       //activates if it's a movement key
       //makes sure there is no collidable tile in the desired direction
-      if(((key == 'w' && collidelayer.collideUp(testPlayer) == false) || (key == 's' && collidelayer.collideDown(testPlayer) == false) || (key == 'a' && collidelayer.collideLeft(testPlayer) == false) || (key == 'd' && collidelayer.collideRight(testPlayer) == false))) {
+      if(((key == 'w' && collidelayer.collideUp(player) == false) || (key == 's' && collidelayer.collideDown(player) == false) || (key == 'a' && collidelayer.collideLeft(player) == false) || (key == 'd' && collidelayer.collideRight(player) == false))) {
         //locks and begins a new movement
         lock = true;
         newMove(key);
@@ -173,11 +173,11 @@ class Layer {
         //unlocks movement and resets counter so a new movement can begin
         lock = false;
         framecounter = 0;
-        if (checkOverlap(grassTiles, testPlayer, "grass underfoot") >= 0) {
+        if (checkOverlap(grassTiles, player, "grass underfoot") >= 0) {
           Random r = new Random();
           int t = r.nextInt(7) + 1;
           if (t == 1) {
-            currentbattle = new Battle(testPlayer,new Monster("AirA", 800, 250));
+            currentbattle = new Battle(player,new Monster("AirA", 800, 250));
             GameState.currentState = GameStates.COMBAT;
           }
         }
