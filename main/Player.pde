@@ -30,7 +30,7 @@ enum PlayerMovementStates{
 }
 
 //player class
-class Player{
+class Player extends Character {
   
   PlayerMovementStates direction = PlayerMovementStates.RIGHT;
   

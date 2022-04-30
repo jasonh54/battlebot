@@ -147,7 +147,6 @@ void setup(){
   fullScreen();
 }
 
-
 void draw() {
   background(0);
   update();
@@ -168,7 +167,7 @@ void draw() {
     break;
     case LOSE:
     break;
-  }`
+  }
 }
 void update() {
   switch (GameState.currentState) {
