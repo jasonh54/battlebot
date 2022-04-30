@@ -150,27 +150,13 @@ void setup(){
 
 void draw() {
   background(0);
-  //if in the walking state:
+  update();
   switch (GameState.currentState) {
     case WALKING:
-      currentmap.update();
-      player.update();
       player.display();
-      currentmap.toplayer.update(currentmap.collidelayer);
       updateDrawables(sandwich);
-      updateClickables(sandwich);
-      
-      for (GroundItem gi : dqueue) {
-        currentmap.removeItem(gi);
-      }
-      //keypress to go into menu - backup if button breaks
-      if (keyPressed == true && key == 'm') {
-        GameState.switchState(GameStates.MENU);
-        delay(naptime);
-      }
     break;
     case COMBAT:
-      currentbattle.update();
       currentbattle.render();
     break;
     case MENU:
@@ -178,15 +164,42 @@ void draw() {
       currentmap.totalDraw();
       //updating the menu
       updateDrawables(sandwich);
-      updateClickables(sandwich);
       updateDrawables(mainmenu);
+    break;
+    case LOSE:
+    break;
+  }`
+}
+void update() {
+  switch (GameState.currentState) {
+    case WALKING:
+      currentmap.update();
+      player.update();
+      currentmap.toplayer.update(currentmap.collidelayer);
+      updateClickables(sandwich);
+      
+      for (GroundItem gi : dqueue) {
+        currentmap.removeItem(gi);
+      }
+      //keypress to go into menu - backup if button breaks
+      if (keyPressed && key == 'm') {
+        GameState.switchState(GameStates.MENU);
+        delay(naptime);
+      }
+    break;
+     case MENU:
+      //updating the menu
+      updateClickables(sandwich);
       updateClickables(mainmenu);
       //for button clicks
       //keypress to go into walking - backup if button breaks
-      if (keyPressed == true && key == 'm') {
+      if (keyPressed && key == 'm') {
         GameState.switchState(GameStates.WALKING);
         delay(naptime);
       }
+    break;
+    case COMBAT:
+      currentbattle.update();
     break;
     case LOSE:
       System.out.println("skill issue");
