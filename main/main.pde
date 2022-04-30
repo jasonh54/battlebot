@@ -1,39 +1,54 @@
-//imports
 import java.util.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-// never gonna give you up, never gonna let you down, never gonna run around and desert you
-
+public String RESOURCEPATH;
+public static final int TILECOUNT = 487;
+public static HashMap<Type,HashMap<Type,Float>> efficencies = new HashMap<Type,HashMap<Type,Float>>();
+static {
+  for (Type t : Type.values()) {
+    efficencies.put(t,new HashMap<Type,Float>());
+  }
+  efficencies.get(Type.FIRE).put(Type.WATER, 0.5);
+  efficencies.get(Type.AIR).put(Type.EARTH, 0.5);
+  efficencies.get(Type.WATER).put(Type.FIRE, 1.5);
+  efficencies.get(Type.EARTH).put(Type.AIR, 1.5);
+  
+  for (HashMap<Type,Float> i : efficencies.values()) { // {AIR=1.5}
+    for (Type t : Type.values()) {
+      if (!i.containsKey(t)) i.put(t,1.0);
+    }
+  }
+}
 //tile arrays for all "special" tiles
-int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
-int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
-int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,57,58,59,60,61};
+public static final int[] collidableSprites = new int[]{170,171,172,189,190,191,192,193,194,195,196,197,198,199,216,217,218,219,220,221,222,223,224,225,226,237,238,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,270,271,272,273,274,275,276,278,279,280,286,287,288,289,290,291,292,297,298,299,300,301,302,303,304,305,306,307,327,328,329,330,331,332,333,334,335,336,337,338,340,341,342,344,345,346,354,355,356,357,358,359,360,361,362,363,364,365,367,368,369,370,371,372,373,381,382,383,384,385,386,387,388,389,390,391,392,414,415,416,417,418,419,420,421,422,423,424,425,426,427,443,444,445,446,453,454,470,471,472,473,474,475,476,477,478,479,480,481};
+public static final int[] portalSprites = new int[]{281,282,283,284,285,339,412,413};
+public static final int[] grassSprites = new int[]{0,1,2,3,4,5,6,7,27,28,29,30,31,32,33,34,54,55,56,57,58,59,60,61};
+
+HashMap<String,Maps> masterMapList = new HashMap<String,Maps>();
 
 //hashmaps for each json file
 HashMap<String, JSONObject> monsterDatabase = new HashMap<String, JSONObject>();
-HashMap<String, JSONObject> movesDatabase = new HashMap<String, JSONObject>();
-HashMap<String, JSONObject> itemDatabase = new HashMap<String, JSONObject>();
+HashMap<String, JSONObject> moveDatabase = new HashMap<String, JSONObject>();
+HashMap<String, HashMap<Stat,Float>> itemDatabase = new HashMap<String, HashMap<Stat,Float>>();
 HashMap<String, JSONObject> mapsDatabase = new HashMap<String, JSONObject>();
 
 //sprite stuff
-HashMap<String,PImage> spritesHm = new HashMap<String,PImage>(); // sprites hashmap
-PImage[] tiles;
+HashMap<String,PImage> monstersprites = new HashMap<String,PImage>(); // sprites hashmap
+HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
+PImage[] tilesprites = new PImage[TILECOUNT];
 
 //item stuff
 ArrayList<GroundItem> dqueue = new ArrayList<GroundItem>();
-HashMap<String,PImage> itemsprites = new HashMap<String,PImage>();
 
-//list of all maps
-HashMap<String,Maps> masterMapList = new HashMap<String,Maps>();
-
-//menu variables
+//gameplay vars
 Menu mainmenu;
-
-//misc variables
 Button sandwich;
-
 static Battle currentbattle;
+static Player testPlayer; //the player
+final int naptime = 200; //delayer var to avoid problems when keys are pressed
+
+Timer restartTimer;
 
 //layers/map stuff
 Maps currentmap = new Maps();
@@ -45,95 +60,63 @@ Maps citymap;
 Maps fieldmap;
 Maps jailmap;
 
-
-//misc variables
-static Player testPlayer; //the player
-final int naptime = 200; //delayer var to avoid problems when keys are pressed
-
-Timer restartTimer;
-
 Monster generateNewMonster(String id) {
-  Monster m = new Monster(id, 400, 400);
-  return m;
+  return new Monster(id, 400, 400);
 }
 
 void setup(){
-  //Ethan's code
-  //acquire the folder location of where the monster images are
-  String spritePath = sketchPath().substring(0, sketchPath().length()-4) + "images";
-  File sprites = new File(spritePath);
-  //opens up the folder that contains the monster images
-  //creates a list of file names from the folder of monster images
-  String[] spriteList = sprites.list();
-  //temporary variable that holds the image that is loaded from the monster file
-  PImage spritesPM; //sprites PImage
+  RESOURCEPATH = sketchPath()+File.separator+"data";
+  //load in sprites
   //after loading each image from the monster folder place it into a hashmap containing name of monster and image
-  for(int i = 0; i < spriteList.length; i++){
-    spritesPM = loadImage(spritePath + "/" + spriteList[i]);
-    spritesHm.put(spriteList[i].substring(0, spriteList[i].length()-4), spritesPM);
+  for (File sfile : new File(RESOURCEPATH + File.separator + "monsters").listFiles()){
+    if (sfile.getName().contains(".json")) continue;
+    monstersprites.put(sfile.getName().replace(".png",""), loadImage(sfile.getAbsolutePath()));
+  }
+  for (File sfile : new File(RESOURCEPATH + File.separator + "items").listFiles()) {
+    if (sfile.getName().contains(".json")) continue;
+    itemsprites.put(sfile.getName().replace(".png",""),loadImage(sfile.getAbsolutePath()));
+  }
+  for (File sfile : new File(RESOURCEPATH + File.separator + "tiles").listFiles()) {
+    tilesprites[Integer.parseInt(sfile.getName().substring(5,sfile.getName().length()-4))] = loadImage(sfile.getAbsolutePath());
   }
   
-  String itemPath = spritePath.substring(0, spritePath.length()-6) + "items";
-  String tilesPath = spritePath.substring(0, spritePath.length()-6) + "Tiles";
-  File tilesFile = new File(tilesPath);
   
-  String[] tilesList = tilesFile.list();
-  tiles = new PImage[tilesList.length]; //tiles PImage
-  
-  //sort TilesPath
-  String temp;
-  int nums1;
-  int nums2;
-  for (int i = 0; i < tilesList.length; i++) {
-    for (int k = 1; k < (tilesList.length - i); k++) {
-      nums1 = Integer.parseInt(tilesList[k-1].substring(5, 9));
-      nums2 = Integer.parseInt(tilesList[k].substring(5, 9));
-      if (nums1 > nums2) {
-        temp = tilesList[k-1];
-        tilesList[k-1] = tilesList[k];
-        tilesList[k] = temp;
-      }
-    }
-  }
-  for(int i = 0; i < tilesList.length; i++){
-    tiles[i] = loadImage(tilesPath + "/" + tilesList[i]);
-  }
   
   //load the moves.json file
-  JSONArray moveArray = loadJSONArray("moves.json");
+  JSONArray moveArray = loadJSONArray("data/moves.json");
   for(int i=0; i<moveArray.size();i++){
     JSONObject move = moveArray.getJSONObject(i);
-    movesDatabase.put(move.getString("name"),move);
+    moveDatabase.put(move.getString("name"),move);
   }
   //load the monsters.json file
-  JSONArray monsterArray = loadJSONArray("monsters.json");
+  JSONArray monsterArray = loadJSONArray("data/monsters/monsters.json");
   for(int i=0; i<monsterArray.size();i++){
     JSONObject monster = monsterArray.getJSONObject(i);
     monsterDatabase.put(monster.getString("name"),monster);
   }
   //load the items.json file
-  JSONArray itemArray = loadJSONArray("items.json");
+  JSONArray itemArray = loadJSONArray("data/items/items.json");
   for (int i=0; i<itemArray.size();i++){
-    JSONObject item = itemArray.getJSONObject(i);
-    itemDatabase.put(item.getString("name"),item);
+    JSONObject jitem = itemArray.getJSONObject(i);
+    HashMap<Stat,Float> hitem = new HashMap<Stat,Float>();
+    for (Stat stat : Stat.values()) {
+      String sstat = stat.name().toLowerCase();
+      if (!jitem.isNull(sstat)) {
+        hitem.put(stat,jitem.getFloat(sstat));
+      }
+    }
+    itemDatabase.put(jitem.getString("name"),hitem);
   }
+  
   //load the maps.json file
-  JSONArray mapArray = loadJSONArray("maps.json");
+  JSONArray mapArray = loadJSONArray("data/maps.json");
   for(int i = 0; i < mapArray.size(); i++) {
     JSONObject map = mapArray.getJSONObject(i);
     mapsDatabase.put(map.getString("name"),map);
-    //confirm that map is being loaded in
   }
 
-  itemsprites.put("Health Potion",loadImage(itemPath+"/"+"PotionHealth.png"));
-  itemsprites.put("Damage Potion",loadImage(itemPath+"/"+"PotionDamage.png"));
-  itemsprites.put("Armor Potion" ,loadImage(itemPath+"/"+"PotionArmor.png"));
-  itemsprites.put("Speed Potion" ,loadImage(itemPath+"/"+"PotionSpeed.png"));
-  itemsprites.put("Agility Potion",loadImage(itemPath+"/"+"PotionAgility.png"));
-  
   //initiatize misc variables
-
-  testPlayer = new Player(createCharacterSprites(0),new ArrayList());
+  testPlayer = new Player(createCharacterSprites(0),new ArrayList<Monster>());
 
   String[] monsterids = new String[]{"AirA", "Goku", "ChickenA", "KlackonA"};
   testPlayer.summonMonsterStack(monsterids);
@@ -162,12 +145,8 @@ void setup(){
   mainmenu.buttons.get(1).txt = "button2";
   mainmenu.buttons.get(2).txt = "button3";
   
-
-  currentmap.addItem(new GroundItem("Damage Potion",currentmap.baselayer.getTile(1,1))); // This is where you place items!
-  currentmap.addItem(new GroundItem("Agility Potion",currentmap.baselayer.getTile(2,1)));
-
-  /*items.add(new GroundItem("Damage Potion",currentmap.baselayer.getTile(10,10))); // This is where you place items!
-  items.add(new GroundItem("Agility Potion",currentmap.baselayer.getTile(20,10)));*/
+  currentmap.addItem(new GroundItem("PotionDamage",currentmap.baselayer.getTile(10,10))); // This is where you place items!
+  currentmap.addItem(new GroundItem("PotionAgility",currentmap.baselayer.getTile(5,10)));
 
   //size of game window:
   fullScreen();
@@ -281,4 +260,28 @@ void updateDrawables(Drawable drawable){
 }
 void warn(String message) {
   println("!WARNING! "+message);
+}
+
+enum Type {
+  WATER,
+  EARTH,
+  FIRE,
+  AIR
+}
+
+enum Stat {
+  ATTACK,
+	DEFENSE,
+	MAXHEALTH, // a.k.a. health
+	SPEED,
+	AGILITY,
+
+  ACCURACY
+}
+
+enum MoveType {
+  ATTACK,
+  DEFEND,
+  HEAL,
+  DODGE
 }

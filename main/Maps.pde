@@ -12,6 +12,7 @@ class Maps {
   //ABCDE
   //items = new ArrayList<GroundItem>();
   Layer[] layerset = {collidelayer, portallayer, baselayer, coverlayer, toplayer};
+
   HashMap<Tile, Maps> portalPairs = new HashMap<Tile, Maps>();
   
   //constructor for most maps
@@ -21,10 +22,10 @@ class Maps {
     //retrieve the map to copy from the database
     JSONObject thismap = mapsDatabase.get(id);
     generateAllLayers(loadTileArray(thismap.getJSONArray("collide")),loadTileArray(thismap.getJSONArray("portal")),loadTileArray(thismap.getJSONArray("base")),loadTileArray(thismap.getJSONArray("cover")),loadTileArray(thismap.getJSONArray("top")));
+    pairPortals();
     imprintLayers();
-    //upon preparation add self to masterlist
+    //upon preparation, add self to a masterlist
     masterMapList.put(this.id,this);
-    //portals cannot be paired inside the constructor - called after all initialization is complete
   }
   
   //constructor for currentmap, which starts blank
@@ -59,8 +60,6 @@ class Maps {
     this.items.remove(gi);
   }
   
-
-    
   void generateAllLayers(int[][] collide, int[][] portal, int[][] base, int[][] cover, int[][] top) {
     collidelayer.generateBaseLayer(collide);
     portallayer.generateBaseLayer(portal);
@@ -92,7 +91,6 @@ class Maps {
           nextmap = this.portalPairs.get(portallayer.portalTiles.get(checkit));
           //figure out what map is associated with that tile and generate it
         }
-        
   }
   
   void totalDraw() {
