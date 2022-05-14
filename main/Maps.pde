@@ -1,5 +1,6 @@
 class Maps {
   String id;
+  Maps nextmap = null;
   //layer objects - 5 to each map
   OverlayLayer collidelayer = new OverlayLayer();
   Layer baselayer = new Layer();
@@ -7,7 +8,6 @@ class Maps {
   Layer portallayer = new Layer();
   Layer toplayer = new Layer();
   
-
   private ArrayList<GroundItem> items;
   //ABCDE
   //items = new ArrayList<GroundItem>();
@@ -20,7 +20,6 @@ class Maps {
     //name the self
     this.id = id;
     //retrieve the map to copy from the database
-
     JSONObject thismap = mapsDatabase.get(id);
     generateAllLayers(loadTileArray(thismap.getJSONArray("collide")),loadTileArray(thismap.getJSONArray("portal")),loadTileArray(thismap.getJSONArray("base")),loadTileArray(thismap.getJSONArray("cover")),loadTileArray(thismap.getJSONArray("top")));
     pairPortals();
@@ -49,7 +48,6 @@ class Maps {
     }
   }
   
-
   Maps getPortalConnection(Tile tile) {
     return portalPairs.get(tile);
   }
@@ -62,8 +60,6 @@ class Maps {
     this.items.remove(gi);
   }
   
-
-    
   void generateAllLayers(int[][] collide, int[][] portal, int[][] base, int[][] cover, int[][] top) {
     collidelayer.generateBaseLayer(collide);
     portallayer.generateBaseLayer(portal);
@@ -74,6 +70,7 @@ class Maps {
   
   //default does not update toplayer as it must update after the player
   void update() {
+    nextmap = null;
     baselayer.update(collidelayer);
     coverlayer.update(collidelayer);
     collidelayer.update();
@@ -91,10 +88,9 @@ class Maps {
         //checking special tile-related conditions and activating events if they are met
         if (checkit >= 0) {
           //have a variable save portalTiles.get(overlapint);
-          currentmap = this.portalPairs.get(portallayer.portalTiles.get(checkit));
+          nextmap = this.portalPairs.get(portallayer.portalTiles.get(checkit));
           //figure out what map is associated with that tile and generate it
         }
-        
   }
   
   void totalDraw() {
