@@ -45,7 +45,7 @@ ArrayList<GroundItem> dqueue = new ArrayList<GroundItem>();
 Menu mainmenu;
 Button sandwich;
 static Battle currentbattle;
-static Player testPlayer; //the player
+static Player player; //the player
 final int naptime = 200; //delayer var to avoid problems when keys are pressed
 
 Timer restartTimer;
@@ -116,11 +116,11 @@ void setup(){
   }
 
   //initiatize misc variables
-  testPlayer = new Player(createCharacterSprites(0),new ArrayList<Monster>());
+  player = new Player(createCharacterSprites(0),new ArrayList<Monster>());
 
   String[] monsterids = new String[]{"AirA", "Goku", "ChickenA", "KlackonA"};
-  testPlayer.summonMonsterStack(monsterids);
-  testPlayer.addItem("Health Potion");
+  player.summonMonsterStack(monsterids);
+  player.addItem("Health Potion");
 
   //initialize the maps
   citymap = new Maps("citymap");
@@ -152,47 +152,65 @@ void setup(){
   fullScreen();
 }
 
-
 void draw() {
   background(0);
-  //if in the walking state:
+  update();
   switch (GameState.currentState) {
     case WALKING:
-      if (currentmap.nextmap != null) {
-        currentmap = currentmap.nextmap;
-      }
-      currentmap.update();
-      testPlayer.display();
-      currentmap.updateLast();
+      player.display();
       updateDrawables(sandwich);
-      updateClickables(sandwich);
-      
-      for (GroundItem gi : dqueue) {
-        currentmap.removeItem(gi);
-      }
-      //keypress to go into menu - backup if button breaks
-      if (keyPressed == true && key == 'm') {
-        GameState.switchState(GameStates.MENU);
-        delay(naptime);
-      }
     break;
     case COMBAT:
-      currentbattle.turn();
+      currentbattle.render();
     break;
     case MENU:
       //draw stuff (not update; no movement)
       currentmap.totalDraw();
       //updating the menu
       updateDrawables(sandwich);
-      updateClickables(sandwich);
       updateDrawables(mainmenu);
+    break;
+    case LOSE:
+    break;
+  }
+}
+void update() {
+  switch (GameState.currentState) {
+    case WALKING:
+      if (currentmap.nextmap != null) {
+        currentmap = currentmap.nextmap;
+      }
+      currentmap.update();
+      player.update();
+      currentmap.toplayer.update(currentmap.collidelayer);
+      updateClickables(sandwich);
+      
+      for (GroundItem gi : dqueue) {
+        currentmap.removeItem(gi);
+      }
+      //keypress to go into menu - backup if button breaks
+      if (keyPressed && key == 'm') {
+        GameState.switchState(GameStates.MENU);
+        delay(naptime);
+      }
+    break;
+     case MENU:
+      //updating the menu
+      updateClickables(sandwich);
       updateClickables(mainmenu);
       //for button clicks
       //keypress to go into walking - backup if button breaks
-      if (keyPressed == true && key == 'm') {
+      if (keyPressed && key == 'm') {
         GameState.switchState(GameStates.WALKING);
         delay(naptime);
       }
+    break;
+    case COMBAT:
+      currentbattle.update();
+    break;
+    case LOSE:
+      System.out.println("skill issue");
+      System.exit(0);
     break;
   }
 }

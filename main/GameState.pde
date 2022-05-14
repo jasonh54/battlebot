@@ -1,7 +1,8 @@
 enum GameStates{
   WALKING,
   COMBAT,
-  MENU
+  MENU,
+  LOSE
 }
 
 public static class GameState{

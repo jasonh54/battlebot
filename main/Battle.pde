@@ -2,6 +2,7 @@ enum BattleStates {
   ENTRY,
   OPTIONS,
   WIN,
+  LOSE,
   
   FIGHT,
   ITEM,
@@ -71,9 +72,9 @@ class Battle {
     this.menus.put(BattleStates.FIGHT,movemenu);
 
     Menu botmenu; //values for botmenu
-    botmenu = new Menu(625, 520, testPlayer.monsters.size(), 50, 400, 2);
+    botmenu = new Menu(625, 520, player.monsters.size(), 50, 400, 2);
     for (int i = 0; i < botmenu.buttons.size(); i++) {
-      botmenu.buttons.get(i).txt = testPlayer.monsters.get(i).id;
+      botmenu.buttons.get(i).txt = player.monsters.get(i).id;
       botmenu.buttons.get(i).func = "botswap";
     }
     this.menus.put(BattleStates.BATTLEBOT,botmenu);
@@ -87,31 +88,21 @@ class Battle {
     }
     this.menus.put(BattleStates.ITEM,itemmenu);
   }
-  public void turn(){
+  public void update(){
     switch (battlestate){
     //battle rhythm: options (choice of action) -> subaction (eg. the specific move or item chosen) -> perform action -> enemy turn -> back to options
       case ENTRY:
-        //this happens once at the beginning of every battle, to set the scene
-        //draw monsters, menu, background, HP
         battlestate = BattleStates.OPTIONS;
       break;
       case OPTIONS:
-        if (checkDead(this.player1.getSelectedMonster(),getCurrentEnemy())) break;
-        displayMonsters();
-        //this happens once at the beginning of every turn; the part where you select what you want to do
-        //draw same as Entry State
+        if (processDead(this.player1.getSelectedMonster(),getCurrentEnemy())) break;
       break;
       case FIGHT:
-        displayMonsters();
-        //txt defined here at it is custom to the current battle
-        //will produce a menu of what moves the battle bot can use
         for (int i = 0; i < 4; i++) {
-          //give move buttons functions based on their moves
           this.menus.get(BattleStates.FIGHT).buttons.get(i+1).txt = this.player1.getSelectedMonster().moveset[i].name;
         }
       break;
       case ANIMATION:
-        displayMonsters();
         switch (MOVE_ANIMATION_ID){
           case ATTACK:
             if(this.player1.getSelectedMonster().attackAnimation(getCurrentEnemy())){
@@ -139,7 +130,6 @@ class Battle {
         }
       break;
       case ITEM:
-        displayMonsters();
         //will produce a menu of what items you have, should be reoptimized
         Menu itemmenu = this.menus.get(BattleStates.ITEM);
         Object[] itemsKeys = this.player1.items.keySet().toArray();
@@ -159,13 +149,10 @@ class Battle {
         }
       break;
       case BATTLEBOT:
-        displayMonsters();
-        //will produce a menu of what battlebots you can switch to
       break;
       case AI:
-        if (checkDead(this.player1.getSelectedMonster(),getCurrentEnemy())) break;
+        if (processDead(this.player1.getSelectedMonster(),getCurrentEnemy())) break;
         
-        displayMonsters();
         //let the enemy do stuff - will need a decision tree
         if      (getCurrentEnemy().getCHealth() < 15 && random(0.0,1.0) <= 0.90){ // doing bad.
            doMove(getCurrentEnemy(),3,getCurrentEnemy(),true);
@@ -178,7 +165,6 @@ class Battle {
         }
       break;
       case AIANIMATION:
-        displayMonsters();
         switch (AI_MOVE_ANIMATION_ID){
           case ATTACK:
             if (getCurrentEnemy().attackAnimation(this.player1.getSelectedMonster())) battlestate = BattleStates.OPTIONS;
@@ -195,16 +181,35 @@ class Battle {
         }
       break;
       case RUN:
-        //will go back to walk state
         GameState.currentState = GameStates.WALKING;
+      break;
+      case LOSE:
+        GameState.currentState = GameStates.LOSE;
       break;
       case WIN:
         GameState.currentState = GameStates.WALKING;
       break;
     }
     if (menus.get(battlestate) != null){
-      updateDrawables(menus.get(battlestate));
       updateClickables(menus.get(battlestate));
+    }
+  }
+  public void render() {
+    switch (battlestate) {
+      case OPTIONS:
+      case FIGHT:
+      case ITEM:
+      case BATTLEBOT:
+      case AI:
+      case AIANIMATION:
+      case ANIMATION:
+        displayMonsters();
+      break;
+      default:
+      break;
+    }
+    if (menus.get(battlestate) != null){
+      updateDrawables(menus.get(battlestate));
     }
   }
   
@@ -237,19 +242,21 @@ class Battle {
     currentbattle.switchState(ai ? BattleStates.AIANIMATION : BattleStates.ANIMATION); //at the end, switch battlestate to animation
   }
   
-  private boolean checkDead(Monster m1, Monster m2){   
+  private boolean processDead(Monster m1, Monster m2){   
     if (m1.getCHealth()<=0){ // is our current monster dead?
       for (int i = 0; i < this.player1.monsters.size(); i++){ // iterate thru available monsters
         if (this.player1.monsters.get(i).getCHealth()>0){ // find monster with enough health
           this.player1.selectedmonster = i; // swap to that monster
-          break;
+          return false;
         }
       }
-    }
-    if (m2.getCHealth()<=0){
-      switchState(BattleStates.WIN); // you won!!
+      this.battlestate = BattleStates.LOSE;
       return true;
     }
+    if (m2.getCHealth()<=0) {
+      this.battlestate = BattleStates.WIN;
+      return true;
+    };
     return false;
   }
 }
