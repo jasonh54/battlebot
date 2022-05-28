@@ -19,8 +19,7 @@ class Battle {
   private Player player2;
   private Monster enemy2;
   private BattleStates battlestate;
-  private MoveType MOVE_ANIMATION_ID;
-  private MoveType AI_MOVE_ANIMATION_ID;
+  private Move current;
   public HashMap<BattleStates,Menu> menus;
   
   public Battle(Player p1, Player p2){
@@ -103,30 +102,8 @@ class Battle {
         }
       break;
       case ANIMATION:
-        switch (MOVE_ANIMATION_ID){
-          case ATTACK:
-            if(this.player1.getSelectedMonster().attackAnimation(getCurrentEnemy())){
-              battlestate = BattleStates.AI;
-            }
-          break;
-          case DEFEND:
-            if(this.player1.getSelectedMonster().defendAnimation()){
-              battlestate = BattleStates.AI;
-            }
-          break;
-          case HEAL:
-            if(this.player1.getSelectedMonster().healAnimation()){
-              battlestate = BattleStates.AI;
-            }
-          break;
-          case DODGE:
-            if(this.player1.getSelectedMonster().dodgeAnimation()){
-              battlestate = BattleStates.AI;
-            }
-          break;
-          default:
-            battlestate = BattleStates.OPTIONS;
-          break;
+        if(current.playAnimation()){
+          battlestate = BattleStates.AI;
         }
       break;
       case ITEM:
@@ -165,19 +142,8 @@ class Battle {
         }
       break;
       case AIANIMATION:
-        switch (AI_MOVE_ANIMATION_ID){
-          case ATTACK:
-            if (getCurrentEnemy().attackAnimation(this.player1.getSelectedMonster())) battlestate = BattleStates.OPTIONS;
-          break;
-          case DEFEND:
-            if(getCurrentEnemy().defendAnimation()) battlestate = BattleStates.OPTIONS;
-          break;
-          case HEAL:
-            if(getCurrentEnemy().healAnimation()) battlestate = BattleStates.OPTIONS;
-          break;
-          case DODGE:
-            if(getCurrentEnemy().dodgeAnimation()) battlestate = BattleStates.OPTIONS;
-          break;
+        if(current.playAnimation()){
+          battlestate = BattleStates.OPTIONS;
         }
       break;
       case RUN:
@@ -230,15 +196,9 @@ class Battle {
     doMove(user,moven,target.getSelectedMonster(),true);
   }
   public void doMove(Monster user,int moven,Monster target,boolean ai){
-    Move current = user.moveset[moven]; // get the move to use by id
-    if (ai) {
-      AI_MOVE_ANIMATION_ID = current.movetype;
-    } else {
-      MOVE_ANIMATION_ID = current.movetype; // tell the animation which to play
-    }
+    current = user.moveset[moven]; // get the move to use by id
     //System.out.printf("%s uses %s against %s\n",user.id,current.name,target.id);
     current.useMove(target); // take the action, use the move
-    user.startAnimation(ai ? AI_MOVE_ANIMATION_ID : MOVE_ANIMATION_ID, target);
     currentbattle.switchState(ai ? BattleStates.AIANIMATION : BattleStates.ANIMATION); //at the end, switch battlestate to animation
   }
   
