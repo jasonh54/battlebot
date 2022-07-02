@@ -12,7 +12,6 @@ class OverlayLayer extends Layer {
   //update loop
   void update() {
     this.draw();
-    this.fullMovement(this);
   }
   
   //void generateItems() { // TODO, make this actually random
