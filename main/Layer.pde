@@ -1,9 +1,4 @@
 class Layer {
-  //generic variables
-  int x;
-  int y;
-  int speedx;
-  int speedy;
   int colsize;
   int rowsize;
   Maps parent;
@@ -121,121 +116,8 @@ class Layer {
   }
 
   //update loop
-  void update(OverlayLayer collidelayer) {
+  void update() {
     this.draw();
-    this.fullMovement(collidelayer);
-  }
-
-  //BASE MOVEMENT THINGS
-  //all collision tracking is based around the sensing of the collidelayer
-  //all "default" (non-colliding) layers simply read the collidelayer's information and follow its directions
-  //there's no reason for any default layer to check its own collisions; it only causes problems
-  void fullMovement(OverlayLayer collidelayer) {
-    //resetting each direction's sensor
-    collidelayer.leftcollidetracker = false;
-    collidelayer.rightcollidetracker = false;
-    collidelayer.upcollidetracker = false;
-    collidelayer.downcollidetracker = false;
-    //activates when a key is first pressed
-    //the lock is to keep movements contained/not overlapping
-    if (keyPressed == true && lock == false) { 
-      //activates if it's a movement key
-      //makes sure there is no collidable tile in the desired direction
-      if(((key == 'w' && collidelayer.collideUp(player) == false) || (key == 's' && collidelayer.collideDown(player) == false) || (key == 'a' && collidelayer.collideLeft(player) == false) || (key == 'd' && collidelayer.collideRight(player) == false))) {
-        //locks and begins a new movement
-        lock = true;
-        newMove(key);
-      }
-    }
-    
-    //if movement is occurring at the moment
-    if (lock) {
-      //increases framecounter so this can only occur a certain number of times
-      framecounter++;
-      //calling movement funcs for tiles
-      switch (getCurrentKey()) {
-        case 'w':
-          moveUp();
-        break;
-        case 's':
-          moveDown();
-        break;
-        case 'a':
-          moveLeft();
-        break;
-        case 'd':
-          moveRight();
-        break;
-      }
-      
-      //when movement is finished
-      if (framecounter == 8) {
-        //unlocks movement and resets counter so a new movement can begin
-        lock = false;
-        framecounter = 0;
-        if (checkOverlap(grassTiles, player, "grass underfoot") >= 0) {
-          Random r = new Random();
-          int t = r.nextInt(7) + 1;
-          if (t == 1) {
-            currentbattle = new Battle(player,new Monster("AirA", 800, 250));
-            GameState.currentState = GameStates.COMBAT;
-          }
-        }
-        stopMove();
-      }
-    }
-  }
-  
-  //individual movement functions - these activate movement funcs in each tile of the layer
-  void moveUp() {
-    for (int i = 0; i < layerTiles.length; i++) {
-      for (int k = 0; k < layerTiles[0].length; k++) {
-        if(tileArray[i][k] != 486){
-          layerTiles[i][k].moveUp();
-        }  
-      }
-    }
-  }
-
-  void moveDown() {
-    for (int i = 0; i < layerTiles.length; i++) {
-      for (int k = 0; k < layerTiles[0].length; k++) {
-        if(tileArray[i][k] != 486){
-          layerTiles[i][k].moveDown();
-        }  
-      }
-    }
-  }
-
-  void moveLeft() {
-    for (int i = 0; i < layerTiles.length; i++) {
-      for (int k = 0; k < layerTiles[0].length; k++) {
-        if(tileArray[i][k] != 486){
-          layerTiles[i][k].moveLeft();
-        }  
-      }
-    }
-  }
-
-  void moveRight() {
-    for (int i = 0; i < layerTiles.length; i++) {
-      for (int k = 0; k < layerTiles[0].length; k++) {
-        if(tileArray[i][k] != 486){
-          layerTiles[i][k].moveRight();
-        }  
-      }
-    }
-  }
-
-  //ends movement in each tile
-  void stopMove() {
-    for (int i = 0; i < layerTiles.length; i++) {
-      for (int k = 0; k < layerTiles[0].length; k++) {
-        if(tileArray[i][k] != 486){
-          layerTiles[i][k].stopMove();
-        }  
-      }
-    }
   }
 
   //start a new movement by returning a key

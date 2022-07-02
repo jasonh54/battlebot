@@ -71,10 +71,10 @@ class Maps {
   //default does not update toplayer as it must update after the player
   void update() {
     nextmap = null;
-    baselayer.update(collidelayer);
-    coverlayer.update(collidelayer);
+    baselayer.update();
+    coverlayer.update();
     collidelayer.update();
-    portallayer.update(collidelayer);
+    portallayer.update();
     //ABCDE
     /* for (GroundItem i : this.items) {
       i.update(testPlayer);
@@ -83,7 +83,7 @@ class Maps {
   }
   
   void updateLast() {
-    toplayer.update(collidelayer);
+    toplayer.update();
     int checkit = portallayer.checkOverlap(portallayer.portalTiles, player, "portal underfoot");
         //checking special tile-related conditions and activating events if they are met
         if (checkit >= 0) {

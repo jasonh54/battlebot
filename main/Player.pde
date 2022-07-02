@@ -54,7 +54,6 @@ class Player extends Character {
     this.selectedmonster = 0;
     this.sprites = sprites;
     animations = new Spritesheet(this.sprites, 120);
-    animations.setxywh(x, y, w*scale, h*scale);
     animations.createAnimation("walkLeft", new int[]{0,1,2});
     animations.createAnimation("walkDown", new int[]{3,4,5});
     animations.createAnimation("walkUp", new int[]{6,7,8});
@@ -103,17 +102,26 @@ class Player extends Character {
     switch (key) {
       case 'w':
         this.direction= PlayerMovementStates.MOVEUP;
+        this.y -= 10;
+        origin.translate(0,10);
       break;
       case 's':
         this.direction= PlayerMovementStates.MOVEDOWN;
+        this.y += 10;
+        origin.translate(0,-10);
       break;
       case 'a':
         this.direction= PlayerMovementStates.MOVELEFT;
+        this.x -= 10;
+        origin.translate(10,0);
       break;
       case 'd':
         this.direction= PlayerMovementStates.MOVERIGHT;
+        this.x += 10;
+        origin.translate(-10,0);
       break;
     }
+    animations.setxywh(x, y, w*scale, h*scale);
   }
   
   public void display(){
